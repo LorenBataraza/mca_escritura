@@ -2394,11 +2394,6 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="5">
-    <bcf:citekey order="1" intorder="1">RepoReleases</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">RedPitayaQuickStart</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">DeminMCPHA</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">DeminMCPHA</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">DeminMCPHA</bcf:citekey>
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
@@ -2408,38 +2403,11 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="6">
-    <bcf:citekey order="1" intorder="1">Knoll2010</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">Sheppard1898</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">Knoll2010</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">Knoll2010</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">AmptekDPPMCA</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">AmptekDPPMCA</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">Knoll2010</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">Knoll2010</bcf:citekey>
-    <bcf:citekey order="9" intorder="1">Oppenheim2010</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">RedPitayaDocs</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">Jordanov1994</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">Knoll2010</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">Knoll2010</bcf:citekey>
-    <bcf:citekey order="14" intorder="1">Nicholson1974</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">Knoll2010</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">Jordanov1994</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">Knoll2010</bcf:citekey>
-    <bcf:citekey order="18" intorder="1">Allison2005</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">PDG2024</bcf:citekey>
-    <bcf:citekey order="20" intorder="1">Knoll2010</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">Knoll2010</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">Muller1973</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">Corless1996</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">Corless1996</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">GUM2008</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">GUM2008</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">Knoll2010</bcf:citekey>
-    <bcf:citekey order="28" intorder="1">IEEE1241</bcf:citekey>
-    <bcf:citekey order="29" intorder="1">IEEE1241</bcf:citekey>
-    <bcf:citekey order="30" intorder="1">Knoll2010</bcf:citekey>
-    <bcf:citekey order="31" intorder="1">Knoll2010</bcf:citekey>
-    <bcf:citekey order="32" intorder="1">Knoll2010</bcf:citekey>
+    <bcf:citekey order="1" intorder="1">RepoReleases</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">RedPitayaQuickStart</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">DeminMCPHA</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">DeminMCPHA</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">DeminMCPHA</bcf:citekey>
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
@@ -2449,6 +2417,49 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="7">
+    <bcf:citekey order="1" intorder="1">Knoll2010</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">Sheppard1898</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">Knoll2010</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">Knoll2010</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">AmptekDPPMCA</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">AmptekDPPMCA</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">Knoll2010</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">Knoll2010</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">Knoll2010</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">Knoll2010</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">Oppenheim2010</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">RedPitayaDocs</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">Jordanov1994</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">Knoll2010</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">Knoll2010</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">Nicholson1974</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">Knoll2010</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">Jordanov1994</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">Knoll2010</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">Allison2005</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">PDG2024</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">Knoll2010</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">Knoll2010</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">Muller1973</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">Corless1996</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">Corless1996</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">GUM2008</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">GUM2008</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">Knoll2010</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">IEEE1241</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">IEEE1241</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">Knoll2010</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">Knoll2010</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">Knoll2010</bcf:citekey>
+  </bcf:section>
+  <!-- SECTION 0 (cont.) -->
+  <bcf:section number="0">
+  </bcf:section>
+  <!-- SECTION 8 -->
+  <bcf:bibdata section="8">
+    <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
+  </bcf:bibdata>
+  <bcf:section number="8">
     <bcf:citekey order="1" intorder="1">STM32H723</bcf:citekey>
     <bcf:citekey order="1" intorder="2">STM32F407</bcf:citekey>
     <bcf:citekey order="2" intorder="1">STM32H723</bcf:citekey>
@@ -2532,11 +2543,11 @@
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
   </bcf:section>
-  <!-- SECTION 8 -->
-  <bcf:bibdata section="8">
+  <!-- SECTION 9 -->
+  <bcf:bibdata section="9">
     <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
   </bcf:bibdata>
-  <bcf:section number="8">
+  <bcf:section number="9">
     <bcf:citekey order="1" intorder="1">AMBAAXI</bcf:citekey>
     <bcf:citekey order="2" intorder="1">AXIStream</bcf:citekey>
     <bcf:citekey order="3" intorder="1">Nagarajan2020</bcf:citekey>
@@ -2575,11 +2586,11 @@
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
   </bcf:section>
-  <!-- SECTION 9 -->
-  <bcf:bibdata section="9">
+  <!-- SECTION 10 -->
+  <bcf:bibdata section="10">
     <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
   </bcf:bibdata>
-  <bcf:section number="9">
+  <bcf:section number="10">
     <bcf:citekey order="1" intorder="1">Knoll2010</bcf:citekey>
     <bcf:citekey order="1" intorder="2">Rossi1930</bcf:citekey>
     <bcf:citekey order="2" intorder="1">Leo1994</bcf:citekey>
@@ -2592,11 +2603,11 @@
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
   </bcf:section>
-  <!-- SECTION 10 -->
-  <bcf:bibdata section="10">
+  <!-- SECTION 11 -->
+  <bcf:bibdata section="11">
     <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
   </bcf:bibdata>
-  <bcf:section number="10">
+  <bcf:section number="11">
     <bcf:citekey order="1" intorder="1">Wolff1982</bcf:citekey>
     <bcf:citekey order="2" intorder="1">Smith1997</bcf:citekey>
     <bcf:citekey order="3" intorder="1">Jordanov1994</bcf:citekey>
@@ -2608,25 +2619,11 @@
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
   </bcf:section>
-  <!-- SECTION 11 -->
-  <bcf:bibdata section="11">
-    <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
-  </bcf:bibdata>
-  <bcf:section number="11">
-  </bcf:section>
-  <!-- SECTION 0 (cont.) -->
-  <bcf:section number="0">
-  </bcf:section>
   <!-- SECTION 12 -->
   <bcf:bibdata section="12">
     <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="12">
-    <bcf:citekey order="1" intorder="1">Virtio12</bcf:citekey>
-    <bcf:citekey order="1" intorder="2">Corbet2005</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">Cortadella2006</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">RedPitayaFPGA</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">AMBAAXI</bcf:citekey>
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
@@ -2636,6 +2633,20 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="13">
+    <bcf:citekey order="1" intorder="1">Virtio12</bcf:citekey>
+    <bcf:citekey order="1" intorder="2">Corbet2005</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">Cortadella2006</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">RedPitayaFPGA</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">AMBAAXI</bcf:citekey>
+  </bcf:section>
+  <!-- SECTION 0 (cont.) -->
+  <bcf:section number="0">
+  </bcf:section>
+  <!-- SECTION 14 -->
+  <bcf:bibdata section="14">
+    <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
+  </bcf:bibdata>
+  <bcf:section number="14">
     <bcf:citekey order="1" intorder="1">RedPitayaFPGA</bcf:citekey>
     <bcf:citekey order="2" intorder="1">RedPitayaDocs</bcf:citekey>
     <bcf:citekey order="3" intorder="1">UG585</bcf:citekey>
@@ -2648,11 +2659,11 @@
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
   </bcf:section>
-  <!-- SECTION 14 -->
-  <bcf:bibdata section="14">
+  <!-- SECTION 15 -->
+  <bcf:bibdata section="15">
     <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
   </bcf:bibdata>
-  <bcf:section number="14">
+  <bcf:section number="15">
     <bcf:citekey order="1" intorder="1">Crockett2014</bcf:citekey>
     <bcf:citekey order="2" intorder="1">Crockett2014</bcf:citekey>
     <bcf:citekey order="3" intorder="1">LEGENDHDF5</bcf:citekey>
@@ -2666,11 +2677,11 @@
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
   </bcf:section>
-  <!-- SECTION 15 -->
-  <bcf:bibdata section="15">
+  <!-- SECTION 16 -->
+  <bcf:bibdata section="16">
     <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
   </bcf:bibdata>
-  <bcf:section number="15">
+  <bcf:section number="16">
     <bcf:citekey order="1" intorder="1">Ley24804</bcf:citekey>
     <bcf:citekey order="2" intorder="1">ARN_AR422</bcf:citekey>
     <bcf:citekey order="3" intorder="1">ARN_AR1061</bcf:citekey>
@@ -2694,15 +2705,6 @@
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
   </bcf:section>
-  <!-- SECTION 16 -->
-  <bcf:bibdata section="16">
-    <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
-  </bcf:bibdata>
-  <bcf:section number="16">
-  </bcf:section>
-  <!-- SECTION 0 (cont.) -->
-  <bcf:section number="0">
-  </bcf:section>
   <!-- SECTION 17 -->
   <bcf:bibdata section="17">
     <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
@@ -2717,7 +2719,6 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="18">
-    <bcf:citekey order="1" intorder="1">Knoll2010</bcf:citekey>
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
@@ -2727,6 +2728,16 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="19">
+    <bcf:citekey order="1" intorder="1">Knoll2010</bcf:citekey>
+  </bcf:section>
+  <!-- SECTION 0 (cont.) -->
+  <bcf:section number="0">
+  </bcf:section>
+  <!-- SECTION 20 -->
+  <bcf:bibdata section="20">
+    <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
+  </bcf:bibdata>
+  <bcf:section number="20">
     <bcf:citekey order="1" intorder="1">Crockett2014</bcf:citekey>
     <bcf:citekey order="2" intorder="1">Crockett2014</bcf:citekey>
     <bcf:citekey order="3" intorder="1">UG474</bcf:citekey>
@@ -2752,11 +2763,11 @@
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
   </bcf:section>
-  <!-- SECTION 20 -->
-  <bcf:bibdata section="20">
+  <!-- SECTION 21 -->
+  <bcf:bibdata section="21">
     <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
   </bcf:bibdata>
-  <bcf:section number="20">
+  <bcf:section number="21">
     <bcf:citekey order="1" intorder="1">Jordanov1994</bcf:citekey>
     <bcf:citekey order="1" intorder="2">CAENWP2081</bcf:citekey>
     <bcf:citekey order="2" intorder="1">Jordanov1994b</bcf:citekey>
@@ -2765,15 +2776,6 @@
     <bcf:citekey order="4" intorder="2">Nakhostin2017</bcf:citekey>
     <bcf:citekey order="5" intorder="1">RedPitayaFPGA</bcf:citekey>
     <bcf:citekey order="6" intorder="1">Bergeron2003</bcf:citekey>
-  </bcf:section>
-  <!-- SECTION 0 (cont.) -->
-  <bcf:section number="0">
-  </bcf:section>
-  <!-- SECTION 21 -->
-  <bcf:bibdata section="21">
-    <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
-  </bcf:bibdata>
-  <bcf:section number="21">
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
@@ -2796,6 +2798,15 @@
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
   </bcf:section>
+  <!-- SECTION 24 -->
+  <bcf:bibdata section="24">
+    <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
+  </bcf:bibdata>
+  <bcf:section number="24">
+  </bcf:section>
+  <!-- SECTION 0 (cont.) -->
+  <bcf:section number="0">
+  </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
     <bcf:sort order="1">
@@ -2806,15 +2817,6 @@
     </bcf:sort>
   </bcf:sortingtemplate>
   <!-- DATALISTS -->
-  <bcf:datalist section="5"
-                name="none/global//global/global"
-                type="entry"
-                sortingtemplatename="none"
-                sortingnamekeytemplatename="global"
-                labelprefix=""
-                uniquenametemplatename="global"
-                labelalphanametemplatename="global">
-  </bcf:datalist>
   <bcf:datalist section="6"
                 name="none/global//global/global"
                 type="entry"
@@ -2860,7 +2862,7 @@
                 uniquenametemplatename="global"
                 labelalphanametemplatename="global">
   </bcf:datalist>
-  <bcf:datalist section="12"
+  <bcf:datalist section="11"
                 name="none/global//global/global"
                 type="entry"
                 sortingtemplatename="none"
@@ -2896,7 +2898,7 @@
                 uniquenametemplatename="global"
                 labelalphanametemplatename="global">
   </bcf:datalist>
-  <bcf:datalist section="18"
+  <bcf:datalist section="16"
                 name="none/global//global/global"
                 type="entry"
                 sortingtemplatename="none"
@@ -2924,6 +2926,15 @@
                 labelalphanametemplatename="global">
   </bcf:datalist>
   <bcf:datalist section="21"
+                name="none/global//global/global"
+                type="entry"
+                sortingtemplatename="none"
+                sortingnamekeytemplatename="global"
+                labelprefix=""
+                uniquenametemplatename="global"
+                labelalphanametemplatename="global">
+  </bcf:datalist>
+  <bcf:datalist section="22"
                 name="none/global//global/global"
                 type="entry"
                 sortingtemplatename="none"

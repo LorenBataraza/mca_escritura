@@ -67,7 +67,7 @@ ZynqBook~\citecap{Crockett2014}{4}.\label{t:ap-hw-criterios}} \\
 
 Cada \emph{slice}, a su vez, contiene~\cite{UG474}:
 \begin{itemize}
-  \item \textbf{4 Look-Up Tables (LUT) de 6 entradas.} Una LUT es una memoria
+  \item \textbf{4 \emph{Look-Up Tables} (LUT) de 6 entradas.} Una LUT es una memoria
     SRAM de 64 bits que almacena la tabla de verdad de una función lógica
     arbitraria de hasta 6 variables: configurar la FPGA es, literalmente,
     escribir esas tablas. Cada LUT tiene \textbf{doble salida} (O5/O6) y puede
@@ -98,14 +98,14 @@ rápidas.
 \begin{figure}[H]
 \centering\includegraphics{apB_frontend_pitaya}
 \caption[Front-end analógico de las entradas rápidas]{%
-Front-end analógico de las entradas de la plataforma: divisor con los jumpers
-LV/HV, un buffer (AD8066) y una etapa de amplificación y filtrado antes del ADC.
+Front-end analógico de las entradas de la plataforma: divisor con los \emph{jumpers}
+LV/HV, un \emph{buffer} (AD8066) y una etapa de amplificación y filtrado antes del ADC.
 Extraído del esquemático de Red Pitaya~\cite{RedPitayaSchematics}.
 \label{f:ap-hw-frontend}}
 \end{figure}
 
 En la Tabla~\ref{t:ap-hw-crosstalk} se presenta la diafonía (\emph{crosstalk})
-máxima entre los dos canales de entrada, para cada combinación de jumpers LV/HV.
+máxima entre los dos canales de entrada, para cada combinación de \emph{jumpers} LV/HV.
 
 \begin{table}[H]
 \centering
@@ -183,8 +183,8 @@ Potencia a fondo de escala & $>$~9~dBm; 9.5~dBm típicos con una senoide de
   1~MHz (±1~V de pico sobre 50~$\Omega$ serían 10~dBm) \\ \hline
 Armónicos a 8~dBm & $-51$, $-49$, $-48$ y $-53$~dBc a 1, 10, 20 y 45~MHz
   \\ \hline
-Errores sin calibrar & offset $<$ 5~\% FS · ganancia $<$ 5~\% \\ \hline
-Codificación & offset binary de \textbf{pendiente negativa}, como el ADC: el top
+Errores sin calibrar & \emph{offset} $<$ 5~\% FS · ganancia $<$ 5~\% \\ \hline
+Codificación & \emph{offset binary} de \textbf{pendiente negativa}, como el ADC: el \emph{top}
   convierte el complemento a 2 con
   \codigo{\{dac[13], \textasciitilde{}dac[12:0]\}} \\ \hline
 Interfaz con la PL & bus paralelo de 14 bits \codigo{LVCMOS33} \\ \hline

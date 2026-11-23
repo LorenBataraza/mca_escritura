@@ -5,10 +5,12 @@
 % Figuras de ESTE capítulo + las compartidas. Siempre al principio del archivo.
 \graphicspath{{figs/cap2/}{figs/comunes/}}
 
+\begin{destacado}
 En este capítulo se describe (1) por qué necesitamos un módulo de aceleración de
 hardware en vez de un microcontrolador, (2) qué plataformas de hardware
 programable existen, (3) la plataforma empleada, la Red Pitaya STEMlab 125-14, y
 la arquitectura de su SoC Zynq-7000, y (4) los periféricos de la placa.
+\end{destacado}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Por qué un módulo de aceleración de HW en vez de un microcontrolador}
@@ -99,7 +101,7 @@ requeriría el procesamiento de nuestro proyecto en un µC.\label{t:hw-ops}}
 \begin{tabularx}{\textwidth}{|X|c|}
 \hline
 \encabezado \textbf{Etapa (por muestra, por canal)} & \textbf{Operaciones aprox.} \\ \hline
-\textbf{Lectura de la muestra} (cargar desde el buffer del DMA y avanzar el
+\textbf{Lectura de la muestra} (cargar desde el \emph{buffer} del DMA y avanzar el
   puntero) & \textbf{2} \\ \hline
 Línea de base: acumular, desplazar y restar & 3 \\ \hline
 Discriminación con histéresis (umbrales de cruce y de cierre) & 2--3 \\ \hline
@@ -108,14 +110,14 @@ Integrales $Q_\text{total}$ y $Q_\text{cola}$ (con su condición) & 3 \\ \hline
 Largo de la ventana y cierre (contador más 2 comparaciones) & 3 \\ \hline
 Fuentes de disparo (flancos y niveles) y escudo/veto & 4--6 \\ \hline
 Contadores de diagnóstico y marca de tiempo & 2--3 \\ \hline
-\textbf{Guardado de la muestra} (escribir en el buffer de captura y avanzar el
+\textbf{Guardado de la muestra} (escribir en el \emph{buffer} de captura y avanzar el
   índice) & \textbf{2} \\ \hline
 \textbf{Total} & \textbf{$\sim$23--28 por muestra} \\ \hline
 \end{tabularx}
 \end{table}
 
 Acá aparece la ventaja principal de la FPGA: hace \textbf{todas} esas
-operaciones \textbf{a la vez}, cada una en su propia etapa del pipeline, y por
+operaciones \textbf{a la vez}, cada una en su propia etapa del \emph{pipeline}, y por
 eso procesa una muestra por ciclo de forma sostenida. Ni siquiera el procesador
 de la misma placa (2~$\times$ Cortex-A9 a 667~MHz, unos 10 ciclos por muestra
 entre los dos núcleos) puede hacerlo, porque las muestras no le llegan: el bus de
@@ -125,13 +127,13 @@ techo de $\sim$42~MB/s, contra los 500~MB/s de dos canales a 125~MSPS en
 palabras de 16 bits. Otros criterios, igual de importantes, complican el uso de
 un µC para este módulo:
 \begin{itemize}
-  \item \textbf{Timestamps y coincidencias multitrigger.} Un µC puede marcar el
-    tiempo de un flanco por hardware, con la captura de entrada de un timer, sin
+  \item \textbf{\emph{Timestamps} y coincidencias multitrigger.} Un µC puede marcar el
+    tiempo de un flanco por hardware, con la captura de entrada de un \emph{timer}, sin
     pasar por una interrupción. Lo que no puede es asociar esa marca a la
     muestra del pulso procesado ni resolver coincidencias entre canales en
     tiempo real: eso queda para el software, que depende de la latencia de las
     interrupciones (ISR), variable en decenas o cientos de ns. En la FPGA el
-    timestamp es el contador de muestras del mismo reloj que el ADC, y las
+    \emph{timestamp} es el contador de muestras del mismo reloj que el ADC, y las
     coincidencias se resuelven en el mismo ciclo, con tantos canales como se
     instancien.
   \item \textbf{Tiempo muerto determinista.} En la FPGA cada etapa dura un número
@@ -186,7 +188,7 @@ Sus usos son diversos, pero generalmente ocupan los siguientes nichos:
   \end{itemize}
   \item \textbf{Ancho de banda}:
   \begin{itemize}
-    \item El fabric permite flujos de datos de alto \emph{throughput}. Ejemplo
+    \item El \emph{fabric} permite flujos de datos de alto \emph{throughput}. Ejemplo
       con el sistema actual: 125~MSPS $\times$ 14~bits $\approx$
       \textbf{1,75~Gbit/s} sostenidos por canal, 500~MB/s para los dos canales
       en palabras de 16 bits. Un µC no puede procesar ese caudal, y ni siquiera
@@ -195,16 +197,16 @@ Sus usos son diversos, pero generalmente ocupan los siguientes nichos:
   \end{itemize}
   \item Interfaz \textbf{directa con el mundo físico} (I/O):
   \begin{itemize}
-    \item Necesitamos requisitos de timing mucho más ajustados que los que puede
+    \item Necesitamos requisitos de \emph{timing} mucho más ajustados que los que puede
       cumplir una CPU. Incluye:
     \item Interfaz eléctrica del ADC.
   \end{itemize}
   \item \textbf{Descarga de la CPU} (\emph{offload}): la CPU queda libre para
     configurar el hardware, leer los resultados, guardarlos y presentarlos.
-  \item Eficiencia energética (ops/W): se eliminan los fetch/decode de
+  \item Eficiencia energética (ops/W): se eliminan los \emph{fetch}/\emph{decode} de
     instrucciones y los accesos a caché.
   \item \textbf{Flexibilidad en el diseño} (propia de las FPGA): el hardware se
-    reconfigura en campo con un bitstream nuevo, sin cambiar la placa.
+    reconfigura en campo con un \emph{bitstream} nuevo, sin cambiar la placa.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -224,7 +226,7 @@ Linea de tiempo con las principales arquitecturas HW programable.
 \label{f:hw-historia}}
 \end{figure}
 
-En el Apéndice~\ref{S:ap-hw-criterios} se encuentra una tabla exhaustiva de los
+En la Sec.~\ref{S:ap-hw-criterios} se encuentra una tabla exhaustiva de los
 criterios de elección de la plataforma de HW~\cite{Crockett2014}; las categorías
 principales son recursos computacionales, factores comerciales, facilidad diseño
 y desarrollo, características físicas del dispositivo, flexibilidad. En la
@@ -239,7 +241,7 @@ presenta la evolución de los recursos lógicos configurables, representados en
 \includegraphics{cap2_familias_fpgas}
 \caption[Elección de plataforma de HW programable y evolución de las FPGA]{%
 (a)~Descripción cualitativa de la elección de plataforma de HW programable para
-diferentes contextos de complejidad/performance. (b)~Comparación del tamaño
+diferentes contextos de complejidad/\emph{performance}. (b)~Comparación del tamaño
 relativo de los recursos lógicos de FPGA en años seleccionados.
 \label{f:hw-familias-fpgas}}
 \end{figure}
@@ -315,15 +317,15 @@ Temperatura & 0--55~°C & \textbf{0--55~°C} & 0--55~°C & 0--55~°C & 0--55~°C
 \end{table}
 
 En la Sec.~\ref{S:hw-perifericos} se describen en detalle los periféricos; vamos
-a arrancar describiendo al protagonista del sistema en la siguiente sección.
+a arrancar describiendo al protagonista del sistema en la Sec.~\ref{S:hw-soc}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Arquitectura SoC: FPGA + µC}
 \label{S:hw-soc}
 
 Cuando se requería un hilo de trabajo secuencial y programable en una FPGA, se
-sintetizaba un procesador sobre su fabric. Estos procesadores se denominan
-\emph{softcore} porque se construyen con los bloques maleables del fabric; su
+sintetizaba un procesador sobre su \emph{fabric}. Estos procesadores se denominan
+\emph{softcore} porque se construyen con los bloques maleables del \emph{fabric}; su
 contrapunto son los \emph{hardcore}, implementados como ASIC, con una
 funcionalidad completamente fijada por el fabricante.
 
@@ -334,14 +336,14 @@ eran la forma habitual de agregarle uno a una FPGA, y se siguen usando
   \item Lógica lenta pero de muchos pasos y ramificaciones.
 
     El ejemplo típico es cuando tenemos una tarea que requiere un algoritmo
-    recursivo, es común resolver esto mediante la creación de un stack dedicado
+    recursivo, es común resolver esto mediante la creación de un \emph{stack} dedicado
     por módulo, esto tiene la contra de que tenemos una región de memoria de uso
     extremadamente bajo y probablemente reducida para el trabajo de la tarea. Un
     CPU podría hacer uso de una memoria compartida, como es una RAM de forma de
     no tener estas limitaciones.
   \item Iterar sin re-sintetizar.
-  \item Configurabilidad e instrucciones custom.
-  \item Múltiples cores dedicados.
+  \item Configurabilidad e instrucciones \emph{custom}.
+  \item Múltiples \emph{cores} dedicados.
 \end{itemize}
 
 Esto nos dice algo muy importante de la estructura del HW, siempre que queremos
@@ -356,7 +358,7 @@ El problema principal de los softcores es el rendimiento. En la
 Fig.~\ref{f:hw-softcore}(b) se compara el rendimiento del \textbf{mejor caso} de
 tres familias de procesadores: en rosa el ARM Cortex-A9, el presente en este
 trabajo; en gris el PowerPC de la Virtex-5, un procesador duro embebido en el
-fabric; y en azul oscuro tres softcores. Entre 2002 y 2010 hubo varias FPGA con
+\emph{fabric}; y en azul oscuro tres softcores. Entre 2002 y 2010 hubo varias FPGA con
 procesadores duros de este tipo (PowerPC 405 y 440 en las Virtex-II
 Pro~\cite{DS083}, Virtex-4 FX y Virtex-5 FXT~\cite{UG200}); el Zynq-7000 (2011)
 fue un paso más, con un sistema de procesamiento completo en el mismo chip.
@@ -366,11 +368,11 @@ fue un paso más, con un sistema de procesamiento completo en el mismo chip.
 \caption[Procesadores softcore y hardcore]{%
 Comparación de procesadores softcore y hardcore. (a)~Comparación dentro de un
 SoC: el procesador hardcore tiene su propia región del chip, dedicada e
-inmodificable, y el procesador softcore ocupa lugar de la fabric al lado de
+inmodificable, y el procesador softcore ocupa lugar de la \emph{fabric} al lado de
 otros módulos de HW, F2 y F3. (b)~Rendimiento máximo, en DMIPS
-(\emph{Dhrystone millions of instructions per second}, un test estandarizado de
-performance~\cite{Weicker1984}), de procesadores hardcore ---el Cortex-A9 del PS
-del Zynq-7000, en rosa, y el PowerPC embebido en el fabric de la Virtex-5, en
+(\emph{Dhrystone millions of instructions per second}, un \emph{test} estandarizado de
+\emph{performance}~\cite{Weicker1984}), de procesadores hardcore ---el Cortex-A9 del PS
+del Zynq-7000, en rosa, y el PowerPC embebido en el \emph{fabric} de la Virtex-5, en
 gris--- contra procesadores softcore instanciados en la PL, en azul oscuro.
 Valores indicativos, del mejor caso. Extraída del
 ZynqBook~\citefig{Crockett2014}{4.3}.\label{f:hw-softcore}}
@@ -403,7 +405,7 @@ Combinación de procesador + FPGA con enlaces externos a un chip.
 
 Los diferentes periféricos y módulos se conectan a una \textbf{red de
 direccionamiento} interna del sistema llamada \emph{interconnect}, cuyo
-funcionamiento es análogo al de los switches de una red de computadoras: su
+funcionamiento es análogo al de los \emph{switches} de una red de computadoras: su
 objeto es almacenar temporalmente (\emph{buffer}) y redireccionar las
 transacciones para que la comunicación en el sistema sea eficiente. El
 direccionamiento se hace mediante \textbf{direcciones}: cada módulo está
@@ -411,11 +413,11 @@ direccionamiento se hace mediante \textbf{direcciones}: cada módulo está
 Estas direcciones corresponden a registros clave expuestos al exterior, que
 generalmente se llaman de \textbf{control} o de \textbf{estado}.
 
-Todo lo que trabaje con el protocolo del interconnect se puede conectar, y eso
+Todo lo que trabaje con el protocolo del \emph{interconnect} se puede conectar, y eso
 es parte de su capacidad de extensión: generalmente se lo define con capacidad
 para N conexiones esclavas y M maestras. En la
 Fig.~\ref{f:hw-interconexiones-soc} se presentan distintos tipos de periféricos,
-procesadores y memorias que comparten el mismo tipo de interconnect.
+procesadores y memorias que comparten el mismo tipo de \emph{interconnect}.
 
 \begin{figure}[H]
 \centering\includegraphics{cap2_interconexiones_soc}
@@ -447,7 +449,7 @@ Pitaya~\cite{DS190}.\label{t:hw-recursos-pl}}
   & \textbf{$\times$} \\ \hline
 Celdas lógicas (unidad comercial, $\approx$ 1,6 LUT6) & 28\,k & 85\,k & 3.0 \\ \hline
 CLB & 2\,200 & 6\,650 & 3.0 \\ \hline
-Slices (2 por CLB) & 4\,400 & 13\,300 & 3.0 \\ \hline
+\emph{Slices} (2 por CLB) & 4\,400 & 13\,300 & 3.0 \\ \hline
 LUT6 & 17\,600 & 53\,200 & 3.0 \\ \hline
 Flip-flops & 35\,200 & 106\,400 & 3.0 \\ \hline
 Block RAM (RAMB36) & 60 (2.1~Mb) & 140 (4.9~Mb) & 2.3 \\ \hline
@@ -456,13 +458,13 @@ PLL / MMCM & 2 / 2 & 4 / 4 & 2 \\ \hline
 \end{tabular}
 \end{table}
 
-El bloque básico del tejido lógico es el \textbf{Configurable Logic Block
+El bloque básico del tejido lógico es el \textbf{\emph{Configurable Logic Block}
 (CLB)}~\cite{UG474}. Cada CLB contiene \textbf{dos \emph{slices}} y se conecta
 al resto del dispositivo a través de una \textbf{matriz de conmutación}
 (\emph{switch matrix}), que es su único acceso a la red de interconexión
-general; en el Apéndice~\ref{S:ap-hw-clb} se describen más detalles. Estos
+general; en la Sec.~\ref{S:ap-hw-clb} se describen más detalles. Estos
 bloques están distribuidos por el cuerpo de la FPGA. En la
-Fig.~\ref{f:hw-bloques-fpga}(b) se ve el fabric en forma de L: la esquina
+Fig.~\ref{f:hw-bloques-fpga}(b) se ve el \emph{fabric} en forma de L: la esquina
 faltante del rectángulo del die la ocupa físicamente el PS. El tejido está
 organizado en filas y columnas de dimensiones cuantizadas; dentro de esa grilla
 se colocan bloques del mismo tipo a lo largo de columnas enteras (una columna de
@@ -473,12 +475,12 @@ conmutación.
 \begin{figure}[H]
 \centering\includegraphics{cap2_bloques_basicos_fpga}
 \caption[Bloques básicos de la FPGA]{%
-Bloques básicos de la FPGA. (a)~Composición elemental de una CLB. (b)~Fabric
+Bloques básicos de la FPGA. (a)~Composición elemental de una CLB. (b)~\emph{Fabric}
 del Zynq7010 y sus elementos constitutivos básicos. Estos incluyen las CLBs y
 interconexiones programables.\label{f:hw-bloques-fpga}}
 \end{figure}
 
-Además del fabric genérico, la arquitectura incorpora bloques duros
+Además del \emph{fabric} genérico, la arquitectura incorpora bloques duros
 (\emph{hard macros}), optimizados para funciones que serían caras de construir
 con LUT, en la Tabla~\ref{t:hw-hardmacros} se presentan las que se utilizaron
 para este proyecto.
@@ -498,9 +500,9 @@ Zynq~\cite{UG473,UG479,UG472,UG471,UG480}.\label{t:hw-hardmacros}}
 \textbf{DSP48E1} & Pre-sumador + multiplicador con signo de \textbf{25~$\times$
   18 bits} + acumulador de 48 bits, encadenables entre sí sin pasar por el
   tejido & 80 \\ \hline
-\textbf{Clock tiles (CMT)} & gestión de reloj: MMCM y PLL, que sintetizan,
+\textbf{\emph{Clock tiles} (CMT)} & gestión de reloj: MMCM y PLL, que sintetizan,
   multiplican y desfasan relojes & 2 MMCM + 2 PLL \\ \hline
-\textbf{Buffers de reloj} & BUFG (red global), BUFH (regional), BUFR/BUFIO (de
+\textbf{\emph{Buffers} de reloj} & BUFG (red global), BUFH (regional), BUFR/BUFIO (de
   entrada/salida) & 32 BUFG, 48 BUFH, 8 BUFR, 8 BUFIO \\ \hline
 \textbf{IOB} & bloques de entrada/salida, con registros propios
   (ILOGIC/OLOGIC), serializadores (ISERDES/OSERDES), dobladores de tasa
@@ -513,7 +515,7 @@ Zynq~\cite{UG473,UG479,UG472,UG471,UG480}.\label{t:hw-hardmacros}}
 
 En nuestra aplicación usamos tanto los recursos de entrada a la PL, con las
 conexiones del ADC, como los de salida de la PL, con la conexión al PS. Se
-describen en la siguiente sección.
+describen en la Sec.~\ref{S:hw-interconexiones}.
 
 \subsection{Interconexiones presentes}
 \label{S:hw-interconexiones}
@@ -522,7 +524,7 @@ En la Fig.~\ref{f:hw-interfaces-zynq}(a) se presenta buena parte de las
 interconexiones internas y externas del Zynq-7010. Las más importantes para este
 proyecto son las interfaces AXI (\emph{Advanced eXtensible Interface}), las
 principales entre el PS y la PL. AXI es una familia de estándares
-AMBA~\cite{AMBAAXI} de \textbf{buses intrachip} de \textbf{alta performance} y
+AMBA~\cite{AMBAAXI} de \textbf{buses intrachip} de \textbf{alta \emph{performance}} y
 de tipo \textbf{punto a punto}. En la Fig.~\ref{f:hw-interfaces-zynq}(b) se
 presentan las nueve interfaces AXI del sistema, que se dividen en tres grupos:
 \emph{general purpose} (GP), \emph{high performance} (HP) y \emph{accelerator
@@ -543,7 +545,7 @@ del SoC, descritas en detalle en la Tabla~\ref{t:hw-axi}.\label{f:hw-interfaces-
 \end{figure}
 
 Las características principales de cada una se describen en la
-Tabla~\ref{t:hw-axi}. Las mayores diferencias son el \textbf{throughput máximo
+Tabla~\ref{t:hw-axi}. Las mayores diferencias son el \textbf{\emph{throughput} máximo
 obtenible}, la \textbf{latencia de acceso} y la cantidad de conexiones
 disponibles.
 
@@ -565,7 +567,7 @@ esclavo de Red Pitaya está en su repositorio~\cite{RedPitayaFPGA}.
 \textbf{Techo teórico} & 32~b $\times$ 150~MHz = \textbf{600~MB/s} & 600~MB/s
   & 64~b $\times$ 150~MHz = \textbf{1200~MB/s} por puerto & 1200~MB/s \\ \hline
 \textbf{Ráfagas} & las admite AXI, \textbf{pero el esclavo de Red Pitaya no}
-  & sí & \textbf{sí}, hasta 16 beats, con FIFO de lectura y de escritura
+  & sí & \textbf{sí}, hasta 16 \emph{beats}, con FIFO de lectura y de escritura
   & sí \\ \hline
 \textbf{Caso de uso típico} & \textbf{registros de control y estado}; lecturas
   chicas y esporádicas & que la PL acceda a periféricos del PS u OCM
@@ -577,20 +579,20 @@ Cantidad disponibles & 2 & 2 & 4 & 1 \\ \hline
 
 Para conectar múltiples puntos entre sí con una topología modificable se suelen
 utilizar IP dedicadas, los \emph{interconnects} de Xilinx~\cite{PG059}. La
-versión más empleada es el \textbf{crossbar}, que puede observarse en la
+versión más empleada es el \textbf{\emph{crossbar}}, que puede observarse en la
 Fig.~\ref{f:hw-topologia}(a): tiene una forma ``matricial'', con filas, columnas
 y un interruptor en cada intersección que conecta ese vértice; canalizando bien
 las transacciones podemos conectar varios pares de elementos de forma
 simultánea. En la Fig.~\ref{f:hw-topologia}(b) se presenta la topología
 estrella, que necesita muchas menos trazas a nivel de silicio pero sólo puede
 comunicar un par de puntos a la vez. Vamos a ver en la
-Sec.~\ref{S:intro-hw-bus-custom} que Red Pitaya utiliza esta topología para su bus custom.
+Sec.~\ref{S:intro-hw-bus-custom} que Red Pitaya utiliza esta topología para su bus \emph{custom}.
 
 \begin{figure}[H]
 \centering\includegraphics{cap2_topologia_interconnect}
-\caption[Tipos de interconnects más utilizados dentro del HW]{%
-Tipos de interconnects más utilizados dentro del HW. (a)~Interconexionado
-crossbar. (b)~Interconexionado estrella.\label{f:hw-topologia}}
+\caption[Tipos de \emph{interconnects} más utilizados dentro del HW]{%
+Tipos de \emph{interconnects} más utilizados dentro del HW. (a)~Interconexionado
+\emph{crossbar}. (b)~Interconexionado estrella.\label{f:hw-topologia}}
 \end{figure}
 
 \subsection{Procesador Cortex-A9}
@@ -641,7 +643,7 @@ software a las direcciones \textbf{físicas} que salen al bus. Sus tareas son:
 \begin{enumerate}
   \item \textbf{Aislamiento}: cada \textbf{proceso} tiene su propio mapa de
     memoria virtual y no puede nombrar la memoria de otro proceso. Los dos
-    núcleos, en cambio, comparten la memoria física y el mismo kernel; por eso
+    núcleos, en cambio, comparten la memoria física y el mismo \emph{kernel}; por eso
     hace falta la SCU que se describe más abajo.
   \item \textbf{Eficiencia en el manejo de memoria}: el sistema operativo asigna
     la memoria en páginas, asocia cada región virtual contigua a páginas físicas
@@ -661,7 +663,7 @@ cacheable.
 Mientras que la \emph{Snoop Control Unit} (SCU)~\cite{DDI0407}
 \textbf{mantiene coherentes} las cachés L1 de datos de los dos núcleos, es
 decir, garantiza que cada dirección de memoria tenga un único valor vigente.
-Para lograrlo guarda una copia duplicada de los tags de las dos L1: de forma que
+Para lograrlo guarda una copia duplicada de los \emph{tags} de las dos L1: de forma que
 sabe en todo momento qué líneas tiene cada núcleo, y así puede husmear
 (\emph{snooping}) \textbf{sólo al que corresponde} en cada acceso conflictivo.
 Qué accesos identifica el sistema como conflictivos depende del esquema de
@@ -720,16 +722,16 @@ Modelo de memoria de ARMv7~\cite{DDI0406C}.\label{t:hw-modelo-memoria}}
 \encabezado \textbf{Tipo} & \textbf{Qué permite el procesador} \\ \hline
 \textbf{Normal} & reordenar, fusionar, especular, cachear, leer de más
   (\emph{prefetch}) \\ \hline
-\textbf{Device} & sin reordenamiento entre accesos, sin fusión, sin
+\textbf{\emph{Device}} & sin reordenamiento entre accesos, sin fusión, sin
   especulación, sin acceso adelantado \\ \hline
-\textbf{Strongly-ordered} & como Device, y además el acceso no se completa
+\textbf{\emph{Strongly-ordered}} & como \emph{Device}, y además el acceso no se completa
   hasta llegar al destino \\ \hline
 \end{tabularx}
 \end{table}
 
 Esto es importante porque los registros de la PL se acceden con un tipo de
-memoria sin caché: \textbf{Device} si los mapea un driver del kernel
-(\codigo{ioremap}), y \textbf{Strongly-ordered} si, como en este proyecto, se
+memoria sin caché: \textbf{\emph{Device}} si los mapea un \emph{driver} del \emph{kernel}
+(\codigo{ioremap}), y \textbf{\emph{Strongly-ordered}} si, como en este proyecto, se
 mapean desde el espacio de usuario con \codigo{mmap} sobre
 \ruta{/dev/mem}~\cite{LinuxMMU}. Ninguno de los dos tipos impide que el
 compilador emita instrucciones de acceso múltiple
@@ -773,7 +775,7 @@ STEMlab 125-14~\cite{LTC2145,RedPitayaDocs}.\label{t:hw-ltc2145}}
 \encabezado & \textbf{Valor} \\ \hline
 ADC & Analog Devices (ex-Linear) \textbf{LTC2145-14}: dual, 14 bit, 125~MS/s,
   salida paralela CMOS 1.8~V \\ \hline
-Rango a fondo de escala & \textbf{±1~V} (jumper LV) o \textbf{±20~V} (jumper
+Rango a fondo de escala & \textbf{±1~V} (\emph{jumper} LV) o \textbf{±20~V} (\emph{jumper}
   HV), por canal, DC \\ \hline
 Máximo absoluto & ±6~V (LV) / ±30~V (HV) \\ \hline
 Impedancia de entrada & 1~M$\Omega$ $\parallel$ 10~pF \\ \hline
@@ -782,9 +784,9 @@ Ancho de banda & DC--50~MHz a $-3$~dB según la medición de Red
   de la placa declara DC--60~MHz \\ \hline
 Resolución & 2~V / 16384 = \textbf{122~µV por código en LV} $\Rightarrow$
   $\approx$ 8192 códigos por volt \\ \hline
-SNR / jitter de apertura & \textbf{73.1~dBFS} · \textbf{0.08~ps rms}
+SNR / \emph{jitter} de apertura & \textbf{73.1~dBFS} · \textbf{0.08~ps rms}
   ($\Rightarrow$ 1.28 cuentas rms de ruido propio) \\ \hline
-Codificación & offset binary de \textbf{pendiente negativa}: el top la
+Codificación & \emph{offset binary} de \textbf{pendiente negativa}: el \emph{top} la
   convierte a complemento a 2 \\ \hline
 \end{tabularx}
 \end{table}
@@ -793,7 +795,7 @@ Es \textbf{dual}, de muestreo simultáneo de los dos canales, con salida paralel
 CMOS de 1.8~V y alimentación única de 1.8~V. Cada canal llega a la PL por 16
 líneas \codigo{LVCMOS18}: las 14 de datos, $D1[13:0]$ y $D2[13:0]$, y dos que
 salen de pines DNC (\emph{do not connect}) del ADC y no llevan dato en esta
-versión de la placa~\cite{RedPitayaSchematics}; el top toma los 14 bits altos.
+versión de la placa~\cite{RedPitayaSchematics}; el \emph{top} toma los 14 bits altos.
 Se puede observar en el lado este del bloque U2 de la
 Fig.~\ref{f:ap-hw-frontend}, en el apéndice.
 
@@ -814,7 +816,7 @@ Tipos de calibración de fábrica de Red Pitaya.\label{t:hw-calibracion}}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.27\textwidth}|>{\raggedright\arraybackslash}X|}
 \hline
 \encabezado \textbf{Tipo} & \textbf{Qué corrige} \\ \hline
-\textbf{Calibración DC} & Offset y error de ganancia de ADCs y DACs
+\textbf{Calibración DC} & \emph{Offset} y error de ganancia de ADCs y DACs
   $\rightarrow$ que 1~V medido sean 1~V reales, y que el DAC entregue lo que se
   le pide. \\ \hline
 \textbf{Calibración en frecuencia} (filtro de ecualización) & Desajuste de los
@@ -826,7 +828,7 @@ Tipos de calibración de fábrica de Red Pitaya.\label{t:hw-calibracion}}
 \end{table}
 
 La documentación de Pitaya recomienda recalibrar: tras el primer montaje, una
-vez al año (drift), tras cambios ambientales grandes, o si las medidas dejan de
+vez al año (\emph{drift}), tras cambios ambientales grandes, o si las medidas dejan de
 ser consistentes. Siempre \textbf{a la temperatura normal de operación} de la
 placa.
 
@@ -837,29 +839,29 @@ Tenemos dos conectores de expansión. El primero, E1, tiene 16 líneas digitales
 de 3.3~V (8 pares, DIO0 a DIO7) que la PL puede usar como entradas o como
 salidas; sus señales se presentan en la Tabla~\ref{t:hw-e1}. Para nosotros son
 la vía de las señales digitales externas. \codigo{DIO0\_P} es la entrada de
-trigger externo (\codigo{trig\_ext}): con ella podemos usar la salida de otro
+\emph{trigger} externo (\codigo{trig\_ext}): con ella podemos usar la salida de otro
 instrumento, por ejemplo la salida de sincronismo de un generador o la de un
 discriminador, como disparo del sistema, y el multitrigger la usa como fuente de
 disparo o como veto del MCA. En sentido contrario, \codigo{DIO0\_N} puede sacar
-el trigger del osciloscopio para disparar un instrumento externo. La dirección
+el \emph{trigger} del osciloscopio para disparar un instrumento externo. La dirección
 de cada línea la fija un registro del módulo de \emph{housekeeping}
-(\codigo{red\_pitaya\_hk}), y en reset todas son entradas.
+(\codigo{red\_pitaya\_hk}), y en \emph{reset} todas son entradas.
 
 En las restricciones del diseño (XDC), cada pin de E1 lleva tres propiedades de
-su buffer de entrada/salida~\cite{UG471}:
+su \emph{buffer} de entrada/salida~\cite{UG471}:
 \begin{itemize}
   \item \codigo{IOSTANDARD LVCMOS33}: niveles CMOS de 3.3~V; una entrada lee
     \codigo{0} por debajo de $\sim$0.8~V y \codigo{1} por encima de
-    $\sim$2.0~V~\cite{DS187}. Una señal de 5~V daña el pin, así que un trigger
+    $\sim$2.0~V~\cite{DS187}. Una señal de 5~V daña el pin, así que un \emph{trigger}
     TTL de 5~V necesita un adaptador de nivel, y uno NIM, un conversor NIM-TTL.
-  \item \codigo{DRIVE 8}: la corriente nominal del driver de salida, 8~mA por
+  \item \codigo{DRIVE 8}: la corriente nominal del \emph{driver} de salida, 8~mA por
     pin, manteniendo los niveles lógicos. Es un valor intermedio entre los que
     admite LVCMOS33 (4, 8, 12 y 16~mA), suficiente para atacar la entrada de
     otro instrumento a través de un cable corto.
   \item \codigo{SLEW FAST}: la velocidad de transición del flanco de salida. El
-    buffer tiene dos opciones, \codigo{SLOW} y \codigo{FAST}; \codigo{FAST} da
+    \emph{buffer} tiene dos opciones, \codigo{SLOW} y \codigo{FAST}; \codigo{FAST} da
     el flanco más abrupto que permite el banco. Es lo que conviene en una señal
-    de trigger, porque un flanco más rápido cruza el umbral del receptor con
+    de \emph{trigger}, porque un flanco más rápido cruza el umbral del receptor con
     menos incertidumbre temporal (\emph{jitter}). Su costo es una mayor
     variación de corriente (di/dt): más sobrepico, más acoplamiento a los pines
     vecinos y, con un cable largo sin terminar, oscilaciones (\emph{ringing}).
@@ -877,7 +879,7 @@ Señales del conector E1 en la STEMlab 125-14~\cite{RedPitayaDocs}.
 \small
 \begin{tabularx}{\textwidth}{|l|l|X|}
 \hline
-\encabezado \textbf{Señal} & \textbf{Nombre puerto dentro del top}
+\encabezado \textbf{Señal} & \textbf{Nombre puerto dentro del \emph{top}}
   & \textbf{Pines Zynq (125-14)} \\ \hline
 DIO0\_P \ldots{} DIO7\_P & \codigo{exp\_p\_io[7:0]}
   & G17, H16, J18, K17, L14, L16, K16, M14 \\ \hline
@@ -907,11 +909,11 @@ Entradas analógicas lentas & AI0--AI3 & \textbf{XADC} del Zynq, pares
   & 0--7~V (la doc vieja decía 0--3.5~V), 12 bit, $\sim$100~kS/s por canal
   \\ \hline
 Salidas analógicas lentas & AO0--AO3 & \textbf{PL}: \codigo{dac\_pwm\_o[3:0]}
-  (\codigo{red\_pitaya\_pdm} $\leftarrow$ \codigo{red\_pitaya\_ams}, slot 4) +
+  (\codigo{red\_pitaya\_pdm} $\leftarrow$ \codigo{red\_pitaya\_ams}, \emph{slot} 4) +
   filtro RC en la placa & 0--1.8~V, LVCMOS18, \codigo{DRIVE 12}, $\sim$3.2~MS/s
   de actualización \\ \hline
 SPI & MOSI, MISO, SCK, CS & \textbf{SPI0 del PS por EMIO}: atraviesa la PL
-  (aparece en el block design) & 3.3~V \\ \hline
+  (aparece en el block \emph{design}) & 3.3~V \\ \hline
 UART & TX, RX & \textbf{UART1 del PS por MIO 8--9}: no pasa por la PL
   & 3.3~V \\ \hline
 I2C & SDA, SCL & \textbf{I2C0 del PS por MIO 50--51}: no pasa por la PL, y es

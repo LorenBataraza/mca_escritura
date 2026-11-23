@@ -27,7 +27,7 @@ cuentan en muestras válidas y saturan en \codigo{0xFFFF}.
     \codigo{0xFFFF}.
   \item \textbf{Ranuras abiertas al abrir, \codigo{otras}.} El asignador cuenta
     las ranuras abiertas o reservadas en el ciclo en que decide abrir. Las
-    cerradas no cuentan, porque su ventana ya terminó y no se solapa con la
+    cerradas no cuentan, porque su ventana ya terminó y no se superpone con la
     nueva. Satura en 4 bits.
   \item \textbf{Disparo adentro, \codigo{adentro} y \codigo{dt\_next}.} Mientras
     la ranura mide, cada disparo que llega con la ventana abierta marca
@@ -42,7 +42,7 @@ cuentan en muestras válidas y saturan en \codigo{0xFFFF}.
     registro de él.
 \end{itemize}
 
-Al cerrar, una ranura queda \textbf{solapada} si \codigo{otras} $\neq 0$ o si
+Al cerrar, una ranura queda \textbf{superpuesta} si \codigo{otras} $\neq 0$ o si
 llegó un disparo adentro. Esas ventanas se cuentan en \codigo{cnt\_pileup}, pero
 se publican igual: la ranura no corrige nada, deja escrito en el resultado que
 midió sobre otro pulso. En el bus, \codigo{F\_DTPREV} y \codigo{F\_DTNEXT}
@@ -142,7 +142,7 @@ diferencias con la versión actual son:
     bajada, o un largo máximo, que se contaba como apilamiento. Ya en esta
     versión la compuerta fija medía mejor la integral, porque el cruce de bajada
     cae en la parte más chata del pulso y su posición la decide el ruido. Con
-    ventanas solapadas la histéresis deja de tener sentido: el cruce de bajada
+    ventanas superpuestas la histéresis deja de tener sentido: el cruce de bajada
     es el de la señal sumada, y cerraría todas las ventanas juntas.
   \item \textbf{Publicación.} Una cola de \codigo{PUB\_K} lugares o, en modo
     bloqueante, la ventana no reabría hasta publicar. En la versión actual, las
@@ -150,7 +150,7 @@ diferencias con la versión actual son:
   \item \textbf{Sin retardo de la muestra.} El disparo externo llega unas
     muestras tarde respecto del pie del pulso, así que la ventana perdía la
     subida. El retardo \codigo{mca\_delay} entró junto con las ranuras.
-  \item \textbf{Seis features.} El pico, la integral, las dos de forma, el largo
+  \item \textbf{Seis \emph{features}.} El pico, la integral, las dos de forma, el largo
     y el tiempo al pico; no había trapecio ni marcas de solape.
 \end{itemize}
 
@@ -161,7 +161,7 @@ Primera versión del MCA (MCA1), antes de las ranuras y del banco de trapecios.
 Una sola ventana mide un pulso a la vez: la abre el Schmitt propio sobre $x$ o
 el flanco de \codigo{trig\_i}, y la cierra la histéresis o una compuerta fija.
 Al cerrar, el resultado espera en una cola de \codigo{PUB\_K} lugares a que los
-divisores calculen las features de forma. No se dibujan la entrada ni el banco
+divisores calculen las \emph{features} de forma. No se dibujan la entrada ni el banco
 de registros.\label{f:ap-mca-mca1}}
 \end{figure}
 
@@ -193,7 +193,7 @@ siguiente cálculo:
   \label{e:ap-mca-memoria}
 \end{equation}
 Mientras que la memoria máxima está fija por el \textbf{recurso de memoria
-empleado por el sistema}; en la próxima sección analizamos los recursos
+empleado por el sistema}; en la Sec.~\ref{S:ap-mca-presupuesto} analizamos los recursos
 presentes.
 
 \subsection{Presupuesto de memoria por canal}
@@ -243,10 +243,10 @@ importante en una implementación barata; las alternativas son anchos de 16 o 64
 bits.
 
 El salto mayor en órdenes de magnitud en resolución y en el tamaño de los
-contadores se obtiene a partir de \textbf{utilizar memoria off-chip}; esto es
+contadores se obtiene a partir de \textbf{utilizar memoria \emph{off-chip}}; esto es
 especialmente bueno para aumentar la resolución del histograma. El costo está en
-la complejidad del buffering y de la transferencia mediante el protocolo AXI a
-la RAM, pero estas metodologías permiten throughputs suficientes para tasas
+la complejidad del \emph{buffering} y de la transferencia mediante el protocolo AXI a
+la RAM, pero estas metodologías permiten \emph{throughputs} suficientes para tasas
 altas.
 
 \section{Poder resolutivo de Fisher en la elección del bineado}
@@ -314,16 +314,16 @@ los registros son de 32 bits y podemos identificar siete secciones:
   |>{\raggedright\arraybackslash}p{\dimexpr0.65\textwidth-8\tabcolsep-5\arrayrulewidth-2.2em\relax}|}
 \caption[Regmap del módulo \codigo{mca\_top}]{%
 Regmap del módulo \codigo{mca\_top}, con \codigo{N\_ACC = 3} y tres formas en
-el banco. Los offsets que dejaron libres el Schmitt, la histéresis y la
+el banco. Los \emph{offsets} que dejaron libres el Schmitt, la histéresis y la
 publicación del MCA1 (\codigo{0x014}, \codigo{0x018}, \codigo{0x028},
 \codigo{0x02C}, \codigo{0x048}, \codigo{0x104}, \codigo{0x108}), y los que
 contaban pérdidas del re-armado (\codigo{0x0F0}, \codigo{0x114}), están
 reservados: se escriben sin efecto y se leen en cero.\label{t:ap-mca-regmap}}
 \\
-\hline \encabezado \textbf{Offset} & \textbf{Acc.} & \textbf{Nombre} &
+\hline \encabezado \textbf{\emph{Offset}} & \textbf{Acc.} & \textbf{Nombre} &
   \textbf{Bits / descripción} \\ \hline
 \endfirsthead
-\hline \encabezado \textbf{Offset} & \textbf{Acc.} & \textbf{Nombre} &
+\hline \encabezado \textbf{\emph{Offset}} & \textbf{Acc.} & \textbf{Nombre} &
   \textbf{Bits / descripción} \\ \hline
 \endhead
 \codigo{0x000} & R & \codigo{MAGIC} & \codigo{0x4D434132} =
@@ -332,7 +332,7 @@ reservados: se escriben sin efecto y se leen en cero.\label{t:ap-mca-regmap}}
   2D; \codigo{[2]} banco de trapecios \\ \hline
 \codigo{0x008} & R & \codigo{WIDTHS} & \codigo{\{PSD\_AW[23:16], H2\_AW[15:8],
   H\_AW[7:0]\}} \\ \hline
-\codigo{0x00C} & RW & \codigo{CTRL} & \codigo{[0]} run; \codigo{[1]} clear
+\codigo{0x00C} & RW & \codigo{CTRL} & \codigo{[0]} \emph{run}; \codigo{[1]} \emph{clear}
   (pulso, autolimpiante): borra histogramas, contadores y relojes;
   \codigo{[8]} canal (0 IN1, 1 IN2) \\ \hline
 \codigo{0x010} & R & \codigo{STATUS} & \codigo{[0]} \codigo{clear\_busy};
@@ -346,7 +346,7 @@ reservados: se escriben sin efecto y se leen en cero.\label{t:ap-mca-regmap}}
 \codigo{0x01C} & RW & \codigo{cfg\_baseline} & \codigo{[13:0]} línea de base
   fija, con signo \\ \hline
 \codigo{0x020} & RW & \codigo{cfg\_bl\_ctrl} & \codigo{[0]} seguidor IIR;
-  \codigo{[7:4]} $k$, constante de tiempo $2^k$; \codigo{[31:16]} holdoff, en
+  \codigo{[7:4]} $k$, constante de tiempo $2^k$; \codigo{[31:16]} \emph{holdoff}, en
   muestras \\ \hline
 \codigo{0x024} & R & \codigo{baseline\_now} & la línea de base que se está
   restando \\ \hline
@@ -386,7 +386,7 @@ reservados: se escriben sin efecto y se leen en cero.\label{t:ap-mca-regmap}}
 \codigo{0x188}+16$\cdot$f & RW & \codigo{FORMA\_UMBR} f & \codigo{[15:0]}
   antes; \codigo{[31:16]} después: la forma f se elige si antes $\le$
   \codigo{F\_DTPREV} y después $\le$ \codigo{F\_DTNEXT} \\ \hline
-\codigo{0x090} & RW & \codigo{cfg\_hist\_sel} & feature de cada eje:
+\codigo{0x090} & RW & \codigo{cfg\_hist\_sel} & \emph{feature} de cada eje:
   \codigo{[3:0]} 1D; \codigo{[7:4]} x del 2D; \codigo{[11:8]} y del 2D
   \\ \hline
 \codigo{0x094} & RW & \codigo{cfg\_zoom\_1d} & \codigo{[3:0]} $z$;
@@ -394,7 +394,7 @@ reservados: se escriben sin efecto y se leen en cero.\label{t:ap-mca-regmap}}
 \codigo{0x0B8}, \codigo{0x0BC} & RW & \codigo{cfg\_zoom\_2dx/2dy} & ídem, para
   los dos ejes del 2D \\ \hline
 \codigo{0x098} & RW & \codigo{cfg\_discr\_ctrl} & \codigo{[0]} habilita;
-  \codigo{[1]} acepta afuera del intervalo; \codigo{[7:4]} feature \\ \hline
+  \codigo{[1]} acepta afuera del intervalo; \codigo{[7:4]} \emph{feature} \\ \hline
 \codigo{0x09C}, \codigo{0x0A0} & RW & \codigo{cfg\_discr\_min/max} &
   \codigo{[15:0]} intervalo del discriminador \\ \hline
 \codigo{0x0A4} & RW & \codigo{cfg\_hist\_ctrl} & \codigo{[0]}

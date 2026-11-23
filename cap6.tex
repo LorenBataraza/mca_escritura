@@ -49,10 +49,10 @@ distinguimos tres tipos de usuarios:
   \end{itemize}
   \item \textbf{Calibrador}:
   \begin{itemize}
-    \item Puede volver a poner un setup experimental a punto por su cuenta: mide
+    \item Puede volver a poner un \emph{setup} experimental a punto por su cuenta: mide
       el canal analógico de la entrada y ajusta los parámetros de adquisición
       para su detector.
-    \item Caracteriza el MCA con los scripts de campaña, para saber cuánto
+    \item Caracteriza el MCA con los \emph{scripts} de campaña, para saber cuánto
       confiar en las mediciones.
     \item Requiere algo de conocimiento acerca del canal analógico en la entrada
       y de los parámetros de adquisición del sistema.
@@ -61,7 +61,7 @@ distinguimos tres tipos de usuarios:
   \item \textbf{Desarrollador}:
   \begin{itemize}
     \item Agrega funcionalidades o cambia la estructura del HW: los parámetros de
-      síntesis, la estructura del top o de los módulos individuales, y el SW que
+      síntesis, la estructura del \emph{top} o de los módulos individuales, y el SW que
       los utiliza.
     \item Se recomienda leer \textbf{todo el contenido de la tesis} y referirse
       a libros de diseño digital; las fuentes del Cap.~\ref{C:intro-hw}
@@ -84,28 +84,28 @@ Guía de utilización según el tipo de usuario.\label{t:usr-guia}}
   |>{\raggedright\arraybackslash}X|}
 \hline \encabezado & \textbf{Técnico} & \textbf{Calibrador} &
   \textbf{Desarrollador} \\ \hline
-Quiere & Un espectro de su detector & Poner a punto el setup y caracterizar el
+Quiere & Un espectro de su detector & Poner a punto el \emph{setup} y caracterizar el
   MCA & Cambiar el RTL y/o la API \\ \hline
-Descarga & \textbf{Release} (1.3~MB) & \textbf{Release} (1.3~MB) &
+Descarga & \textbf{\emph{Release}} (1.3~MB) & \textbf{\emph{Release}} (1.3~MB) &
   \textbf{Repositorio completo} (303~MB) \\ \hline
-Herramienta principal & APP (sin la pestaña Calibration) & APP con
-  Calibration + scripts de campaña & Todo: RTL, Vivado, API y tests \\ \hline
+Herramienta principal & APP (sin la pestaña \emph{Calibration}) & APP con
+  \emph{Calibration} + \emph{scripts} de campaña & Todo: RTL, Vivado, API y \emph{tests} \\ \hline
 Conocimiento C/Python & No es necesario & Mínimo & Sí, avanzado \\ \hline
 Conocimiento de Git & No es necesario & No es necesario & Sí \\ \hline
 \end{tabularx}
 \end{table}
 
 El Calibrador que quiera actualizar el software en la placa con \cmd|git pull|
-puede bajar, en lugar de la Release, un clon parcial del repositorio (7.5~MB) con
-sólo el software, la documentación y los bitstreams; en ese caso necesita un
+puede bajar, en lugar de la \emph{Release}, un clon parcial del repositorio (7.5~MB) con
+sólo el software, la documentación y los \emph{bitstreams}; en ese caso necesita un
 conocimiento básico de Git.
 
 \subsection{Pasos requeridos para la utilización}
 \label{S:usr-pasos}
 
-El Técnico y el Calibrador trabajan con la Release del
-repositorio~\cite{RepoReleases}, un paquete con los bitstreams y el software que
-salieron del mismo commit. Que viajen juntos importa: un bitstream viejo ignora
+El Técnico y el Calibrador trabajan con la \emph{Release} del
+repositorio~\cite{RepoReleases}, un paquete con los \emph{bitstreams} y el software que
+salieron del mismo \emph{commit}. Que viajen juntos importa: un \emph{bitstream} viejo ignora
 en silencio las escrituras a los registros que no conoce, así que un software
 nuevo contra él no falla, sino que mide y entrega números plausibles y
 equivocados.
@@ -119,14 +119,14 @@ En la placa:
       encuentra algún problema.
   \end{enumerate}
   \item Acceder a la placa mediante un cliente ssh.
-  \item Descargar la Release dentro de la placa, descomprimirla e instalarla con
+  \item Descargar la \emph{Release} dentro de la placa, descomprimirla e instalarla con
     el comando de abajo, que además programa la PL y verifica que los
     registros del MCA respondan:
 \begin{comando}
 sudo ./instalar.sh --cargar
 \end{comando}
 
-  \item Comprobar que la PL quedó programada con el bitstream de la Release:
+  \item Comprobar que la PL quedó programada con el \emph{bitstream} de la \emph{Release}:
 \begin{comando}
 python3 /opt/mca/software/campanas/preparar_placa.py
 \end{comando}
@@ -140,7 +140,7 @@ sudo python3 /opt/mca/software/app/mca_server.py --port 1001
 
 En la PC:
 \begin{enumerate}[resume]
-  \item Descargar la Release, descomprimirla e instalar las dependencias del
+  \item Descargar la \emph{Release}, descomprimirla e instalar las dependencias del
     cliente:
 \begin{comando}
 pip install PyQt5 matplotlib numpy
@@ -168,7 +168,7 @@ placa, levanta el servidor y abre el cliente.
 
 Nos basamos en la aplicación mcpha desarrollada por Pavel
 Demin~\cite{DeminMCPHA}, que funciona en modalidad servidor-cliente con
-comunicación por sockets de red; en la Fig.~\ref{f:usr-mcpha} se observa una
+comunicación por \emph{sockets} de red; en la Fig.~\ref{f:usr-mcpha} se observa una
 captura. La misma cuenta con:
 \begin{itemize}
   \item Un servidor programado en C, que:
@@ -234,7 +234,7 @@ Negador por canal & No hay negador; en su lugar se elige si la amplitud es el
 \end{table}
 
 La interfaz está en inglés y trae las pestañas de la
-Tabla~\ref{t:usr-pestanas}; algunas aparecen sólo si el bitstream cargado trae el
+Tabla~\ref{t:usr-pestanas}; algunas aparecen sólo si el \emph{bitstream} cargado trae el
 módulo correspondiente.
 
 % [H]: es lo último del capítulo; como float quedaba solo detrás de las referencias.
@@ -245,30 +245,30 @@ Pestañas de la aplicación y su contenido.\label{t:usr-pestanas}}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.2\textwidth}%
   |>{\raggedright\arraybackslash}X|}
 \hline \encabezado \textbf{Pestaña} & \textbf{Qué trae} \\ \hline
-\textbf{Messages} & cada operación y cada error, con su hora \\ \hline
-\textbf{Spectrum} & el histograma 1D; la tasa de entrada instantánea y media;
+\textbf{\emph{Messages}} & cada operación y cada error, con su hora \\ \hline
+\textbf{\emph{Spectrum}} & el histograma 1D; la tasa de entrada instantánea y media;
   los contadores (aceptados, rechazados, apilados, perdidos); el tiempo real,
-  vivo y muerto; los botones Start, Stop, Clear y de guardado; la lista de picos
+  vivo y muerto; los botones \emph{Start}, \emph{Stop}, \emph{Clear} y de guardado; la lista de picos
   con su FWHM y resolución \\ \hline
-\textbf{MCA settings} & la franja del MCA, con la tasa y las pérdidas de cada
+\textbf{MCA \emph{settings}} & la franja del MCA, con la tasa y las pérdidas de cada
   etapa; abajo, los registros agrupados por función: preprocesamiento,
   segmentación y ranuras, publicación \\ \hline
-\textbf{2D map (PSD)} & el mapa de amplitud $\times$ factor de forma
+\textbf{2D \emph{map} (PSD)} & el mapa de amplitud $\times$ factor de forma
   ($Q_\text{tail}/Q_\text{total}$) y la figura de mérito \\ \hline
-\textbf{Integration} & de qué punto de la cadena de procesamiento toma sus
+\textbf{\emph{Integration}} & de qué punto de la cadena de procesamiento toma sus
   muestras cada consumidor (OSC, multitrigger, MCA, \codigo{event\_ring}) y el
-  control global de todo el sistema (run, clear, reset) \\ \hline
-\textbf{Pulses} & las capturas del osciloscopio, como pulso o como mapa de
+  control global de todo el sistema (\emph{run}, \emph{clear}, \emph{reset}) \\ \hline
+\textbf{\emph{Pulses}} & las capturas del osciloscopio, como pulso o como mapa de
   calor, y la tasa en el tiempo \\ \hline
-\textbf{OSC settings} & la franja del osciloscopio (y la del ring, si el
-  bitstream lo trae), los registros por etapa y la adquisición del ring a una
+\textbf{OSC \emph{settings}} & la franja del osciloscopio (y la del ring, si el
+  \emph{bitstream} lo trae), los registros por etapa y la adquisición del ring a una
   carpeta de la placa \\ \hline
 \textbf{Multitrigger} & la franja del disparo: las fuentes (nivel, pendiente,
-  polo-cero), las máscaras OR por canal y el shield \\ \hline
-\textbf{Generator} & el generador de pulsos por etapas (disparos, amplitud,
+  polo-cero), las máscaras OR por canal y el \emph{shield} \\ \hline
+\textbf{\emph{Generator}} & el generador de pulsos por etapas (disparos, amplitud,
   forma, salida) y el lazo digital hacia el MCA \\ \hline
-\textbf{Calibration} & la medición del canal analógico con una referencia
-  conocida (offset, ruido, ganancia, caída lenta, ancho de banda, diafonía) y la
+\textbf{\emph{Calibration}} & la medición del canal analógico con una referencia
+  conocida (\emph{offset}, ruido, ganancia, caída lenta, ancho de banda, diafonía) y la
   base dinámica del MCA \\ \hline
 \end{tabularx}
 \end{table}

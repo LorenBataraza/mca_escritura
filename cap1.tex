@@ -5,6 +5,7 @@
 % Figuras de ESTE capítulo + las compartidas. Siempre al principio del archivo.
 \graphicspath{{figs/cap1/}{figs/comunes/}}
 
+\begin{destacado}
 En este capítulo describimos qué es un analizador multicanal (MCA), para qué se
 lo emplea y qué lugar ocupa en la cadena de medición. Presentamos la
 distribución diferencial de alturas, que es la salida del instrumento, y las
@@ -16,13 +17,14 @@ Para este último mostramos por qué hace falta conocerlo con precisión: la
 corrección de la tasa amplifica cualquier error en el tiempo muerto, y tanto más
 cuanto mayor es la tasa. Cerramos con las figuras de mérito con que se
 caracteriza un MCA y con la extensión del histograma a dos dimensiones.
+\end{destacado}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Descripción mínima}
 \label{S:mca-descripcion-minima}
 
 La creación de esta herramienta fue el objetivo primordial de este proyecto. Un
-MCA construye un \textbf{histograma} de uno o más \emph{estadísticos} de los
+MCA construye un \textbf{histograma} de uno o más \textbf{estadísticos} de los
 pulsos electrónicos; los más utilizados son la altura máxima y la carga
 (integral). A pesar de su nombre, un multicanal no necesariamente tiene
 múltiples canales: el nombre proviene de un detalle de su implementación
@@ -59,7 +61,7 @@ altura máxima, con un punto verde en el ápice de cada pulso.
 
 Cada vez que se cierra una ventana, el valor del estadístico se transfiere al
 histograma, que suma una cuenta en el canal (o \emph{bin}) correspondiente. A
-este mecanismo lo llamamos \emph{publicación} del estimador. En la
+este mecanismo lo llamamos \textbf{publicación} del estimador. En la
 Fig.~\ref{f:mca-camino-datos} se presenta este camino de datos: por cada pulso
 aceptado viaja un único número, su amplitud, y el histograma suma una cuenta en
 el canal \codigo{amp\,\textgreater\textgreater\,6}. El desplazamiento a la
@@ -68,7 +70,7 @@ derecha divide la amplitud por $2^6 = 64$, de modo que el rango de 0 a
 Fig.~\ref{f:mca-senal} tal como los ve el histograma; el \#6 figura como
 rechazado porque no superó el umbral. Los detalles del mecanismo de
 transferencia de datos para el cálculo del estadístico y su publicación se
-presentan en los capítulos de implementación de HW.
+presentan en el Cap.~\ref{C:implmca}.
 
 \begin{figure}[H]
 \centering\includegraphics{cap1_camino_datos}
@@ -78,9 +80,9 @@ la tabla de los pulsos de la Fig.~\ref{f:mca-senal} con su tiempo, su amplitud y
 su canal.\label{f:mca-camino-datos}}
 \end{figure}
 
-Al acumular las cuentas en un buffer en memoria construimos la
+Al acumular las cuentas en un \emph{buffer} en memoria construimos la
 \textbf{distribución diferencial de alturas} ($dN/dH$), que presentamos en la
-próxima subsección y que es la salida del módulo. En la
+Sec.~\ref{S:mca-dda} y que es la salida del módulo. En la
 Fig.~\ref{f:mca-histograma} se presenta el espectro final, con la evolución de
 la acumulación en barras apiladas: la capa inferior corresponde a las primeras
 12 cuentas, la del medio a las cuentas 13 a 64 y la superior a las cuentas 65 a
@@ -139,7 +141,7 @@ delimitada por un discriminador inferior y uno superior, de modo que mide un
 punto de la distribución diferencial. Cada uno de estos dispositivos se
 denominaba canal, y la configuración de múltiples de ellos con ventanas
 contiguas, que mide la curva entera de una vez, se llamó \textbf{Multichannel
-Analyzer} (MCA). Este esquema se presenta en la Fig.~\ref{f:mca-sca}.
+\emph{Analyzer}} (MCA). Este esquema se presenta en la Fig.~\ref{f:mca-sca}.
 
 \begin{figure}[H]
 \centering\includegraphics{cap1_sca_mca}
@@ -154,7 +156,7 @@ cuentas.
 
 En la Fig.~\ref{f:mca-bines} se presentan mediciones con la misma cantidad total
 de cuentas del espectro continuo mostrado en (a), variando la cantidad de
-canales (o \emph{bines}) utilizados. En (b) la cantidad de canales es demasiado
+canales (o \textbf{bines}) utilizados. En (b) la cantidad de canales es demasiado
 pequeña para mostrar detalle suficiente; en (c) tenemos la elección que busca un
 punto medio entre resolución y fluctuación estadística; y en (d) tenemos tantos
 canales que las fluctuaciones estadísticas son tan grandes que podrían
@@ -162,7 +164,7 @@ enmascarar picos pequeños. El extremo de pocos canales está acotado por la
 corrección de Sheppard~\cite{Sheppard1898}: un canal de ancho $\Delta$ suma
 $\Delta^2/12$ a la varianza del pico, y para que no la infle en más de
 $\sim$\qty{1}{\percent} hacen falta al menos 4 canales por FWHM. Se detalla en
-el Apéndice~\refpend{S:implmca-fisher-bineado}{Poder resolutivo de Fisher en la
+la Sec.~\refpend{S:implmca-fisher-bineado}{Poder resolutivo de Fisher en la
 elección del bineado}.
 
 \begin{figure}[H]
@@ -194,15 +196,15 @@ En la Fig.~\ref{f:mca-amptek} se presenta una de las interfaces gráficas de
 usuario (\emph{Graphical User Interface}, GUI) a las que buscamos acercarnos en
 este trabajo. La misma cuenta con:
 \begin{itemize}
-  \item el espectro, en escala logarítmica y calibrado en energía, con regiones
+  \item El espectro, en escala logarítmica y calibrado en energía, con regiones
     de interés (ROI) resaltadas;
-  \item la configuración del equipo: cantidad de canales, umbral inferior (LLD),
+  \item La configuración del equipo: cantidad de canales, umbral inferior (LLD),
     tiempo de pico del conformado y ganancia;
-  \item el estado de la adquisición: cuentas totales, tasa de entrada, tiempo
+  \item El estado de la adquisición: cuentas totales, tasa de entrada, tiempo
     muerto y tiempo de acumulación;
-  \item la información del pico seleccionado: centroide, FWHM, área neta con su
+  \item La información del pico seleccionado: centroide, FWHM, área neta con su
     incerteza e identificación de la línea;
-  \item la temperatura y la alta tensión del detector.
+  \item La temperatura y la alta tensión del detector.
 \end{itemize}
 
 \begin{figure}[H]
@@ -219,14 +221,14 @@ Sec.~\ref{S:usr-app}.
 \section{Cadena de medición típica}
 \label{S:mca-cadena-medicion}
 
-El MCA es el \emph{último eslabón} de la cadena de adquisición de un esquema
+El MCA es el \textbf{último eslabón} de la cadena de adquisición de un esquema
 experimental. Históricamente esta cadena tiene las etapas que se presentan
 esquemáticamente en la Fig.~\ref{f:mca-cadena-medicion}:
 \begin{enumerate}
   \item \textbf{Detector}:
   \begin{enumerate}
     \item Es el elemento en el que la radiación interactúa y deposita su
-      energía. En el Apéndice~\ref{S:ap-detectores} se presenta una tabla con
+      energía. En la Sec.~\ref{S:ap-detectores} se presenta una tabla con
       las familias de detectores, sus funcionalidades y sus parámetros
       importantes.
     \item El modelo más sencillo lo considera una \textbf{fuente de corriente}:
@@ -261,7 +263,7 @@ esquemáticamente en la Fig.~\ref{f:mca-cadena-medicion}:
       de amplitud y, con él, el compromiso entre el ruido serie y el paralelo
       (ver Sec.~\ref{S:mca-tipos-conformado}).
   \end{enumerate}
-  \item \textbf{Discriminador o trigger}: decide qué pulsos son eventos. Dispara
+  \item \textbf{Discriminador o \emph{trigger}}: decide qué pulsos son eventos. Dispara
     cuando la señal conformada cumple una condición, típicamente superar un
     umbral, y descarta el ruido y los pulsos de baja amplitud. Su salida puede
     ir a un contador, que mide la cantidad de eventos o la tasa, o a un MCA, que
@@ -290,7 +292,8 @@ esquemáticamente en la Fig.~\ref{f:mca-cadena-medicion}:
 \centering\includegraphics{cap1_cadena_medicion}
 \caption[Cadena de medición típica]{%
 Cadena de medición típica: detector, preamplificador, amplificador de conformado
-y discriminador, seguidos de un contador o de un MCA.\label{f:mca-cadena-medicion}}
+y discriminador, seguidos de un contador o de un MCA. Extraída de
+Knoll~\citefig{Knoll2010}{16.1}.\label{f:mca-cadena-medicion}}
 \end{figure}
 
 Históricamente, cada una de estas etapas, hasta la discriminación, tenía una
@@ -329,7 +332,7 @@ siguientes razones:
     digitalizar, porque una saturación no puede corregirse después.
   \item \textbf{Consideraciones de ruido}:
   \begin{enumerate}
-    \item \textbf{Antialiasing}: el muestreo exige que la entrada al ADC no
+    \item \textbf{\emph{Antialiasing}}: el muestreo exige que la entrada al ADC no
       tenga contenido por encima de $f_s/2$ (teorema de
       Nyquist~\citecap{Oppenheim2010}{4}). El ruido de banda ancha del
       preamplificador que supera ese límite se pliega dentro de la banda útil, y
@@ -363,7 +366,7 @@ conformación de pulsos, la discriminación y el conteo.\label{f:mca-cadena-pita
 \end{figure}
 
 Como este procesamiento previo fija la forma de los pulsos que llegan al MCA, en
-la siguiente sección se exploran las diferentes variantes de conformado.
+la Sec.~\ref{S:mca-tipos-conformado} se exploran las diferentes variantes de conformado.
 
 \subsection{Tipos de conformado}
 \label{S:mca-tipos-conformado}
@@ -464,7 +467,7 @@ presentadas brevemente en la Sec.~\ref{S:mca-descripcion-minima}:
   \item \textbf{Publicación del estadístico}.
 \end{enumerate}
 
-En las siguientes secciones se describen las dos primeras con más detalle. El
+En las Secs.~\ref{S:mca-comienzo-evento} y~\ref{S:mca-final-evento} se describen las dos primeras con más detalle. El
 cálculo de los estadísticos y su publicación dependen fuertemente de la
 arquitectura, y se describen junto con su implementación en el
 Cap.~\ref{C:implmca}.
@@ -473,27 +476,27 @@ Cap.~\ref{C:implmca}.
 \label{S:mca-comienzo-evento}
 
 Es el mecanismo con el que determinamos la \textbf{presencia de un evento}. A
-estos mecanismos los llamamos \emph{fuentes de disparo}: son señales de control
+estos mecanismos los llamamos \textbf{fuentes de disparo}: son señales de control
 para el flujo de datos (llamado \emph{datapath}). En nuestro sistema contamos
 con múltiples fuentes, que se presentan a continuación:
 \begin{itemize}
-  \item Triggers por \textbf{condiciones sobre la señal digitalizada por el
+  \item \emph{Triggers} por \textbf{condiciones sobre la señal digitalizada por el
     ADC}:
   \begin{itemize}
-    \item \textbf{Trigger por nivel} (\emph{level trigger}): dispara cuando la
+    \item \textbf{\emph{Trigger} por nivel} (\emph{level trigger}): dispara cuando la
       señal supera, o baja de, un umbral de tensión específico, con histéresis.
-    \item \textbf{Trigger por pendiente} (\emph{slope trigger}): se basa en la
+    \item \textbf{\emph{Trigger} por pendiente} (\emph{slope trigger}): se basa en la
       rapidez de cambio de la señal, de modo que no lo afectan los corrimientos
       lentos de la línea de base.
-    \item \textbf{Trigger con polo-cero}: compara contra el umbral la señal con
+    \item \textbf{\emph{Trigger} con polo-cero}: compara contra el umbral la señal con
       la cola del pulso anterior cancelada, de modo que detecta un pulso chico
       montado sobre la cola de uno grande.
     \item Otros tipos habituales en los osciloscopios, como el disparo por ancho
       de pulso o por ausencia de señal (\emph{timeout}), no se implementaron.
   \end{itemize}
-  \item \textbf{Trigger digital externo}: utilizamos alguna señal digital
+  \item \textbf{\emph{Trigger} digital externo}: utilizamos alguna señal digital
     externa como fuente.
-  \item \textbf{Trigger manual}: el disparo se ordena por software.
+  \item \textbf{\emph{Trigger} manual}: el disparo se ordena por software.
   \item \textbf{Generador de señales} (ASG): el generador del propio sistema
     marca los momentos de interés de la señal que genera.
 \end{itemize}
@@ -502,7 +505,7 @@ Las fuentes se pueden combinar: el disparo de cada canal es el OR de las fuentes
 habilitadas por una máscara (ver Cap.~\ref{C:multitrigger}).
 
 Una vez determinado el \textbf{inicio} de un evento tenemos que determinar su
-final. En la siguiente sección presentamos los criterios de finalización.
+final. En la Sec.~\ref{S:mca-final-evento} presentamos los criterios de finalización.
 
 \subsection{Determinación del final del evento}
 \label{S:mca-final-evento}
@@ -548,7 +551,7 @@ ancho fijo, (b) política por histéresis.\label{f:mca-politicas-final}}
 \end{figure}
 
 Las marcas rojas señalan una doble falta del sistema ante un pulso que llega con
-la ventana abierta. Por un lado, el trigger por nivel no lo detecta, porque la
+la ventana abierta. Por un lado, el \emph{trigger} por nivel no lo detecta, porque la
 señal nunca bajó del umbral de re-armado. Por otro, el pulso queda dentro de la
 misma ventana: su contribución se suma al estadístico del primero, que pasa a
 ser un evento apilado (ver Sec.~\ref{S:mca-pileup}), y con la política por
@@ -563,7 +566,7 @@ ventana fija no, y entre ambos el sistema queda bloqueado (el intervalo rayado
 de la Fig.~\ref{f:mca-politicas-final}). En nuestra implementación ese intervalo
 se cuenta por separado (ver Sec.~\refpend{S:implmca-teselado}{Implementación del MCA: teselado del tiempo de adquisición}).
 
-\subsection{\texorpdfstring{\emph{Pileup}}{Pileup}}
+\subsection{\texorpdfstring{\emph{Pileup}}{\emph{Pileup}}}
 \label{S:mca-pileup}
 
 Es la deformación del histograma debida a la \textbf{superposición de pulsos en
@@ -599,7 +602,7 @@ Derecha: $dN/dH$ del segundo pulso, limpio y con apilamiento; rayado, el exceso
 por apilamiento. Arriba, pulso unipolar; abajo, bipolar.\label{f:mca-pileup}}
 \end{figure}
 
-Este tipo de distorsión es \emph{compensable} mediante las siguientes dos
+Este tipo de distorsión es \textbf{compensable} mediante las siguientes dos
 técnicas:
 \begin{itemize}
   \item Tratamiento teórico o simulado: suponiendo los cuatro parámetros
@@ -615,7 +618,7 @@ técnicas:
 \subsection{Métodos de recuperación de pulso: seguimiento de línea de base}
 \label{S:mca-recuperacion-pulso}
 
-Tenemos cuatro posibles formas de tratar el pileup, que se presentan en la
+Tenemos cuatro posibles formas de tratar el \emph{pileup}, que se presentan en la
 Fig.~\ref{f:mca-metodos-recuperacion}:
 \begin{enumerate}
   \item \textbf{No compensar}: calcular el estadístico de la superposición.
@@ -664,7 +667,7 @@ que tienen un criterio de corrección:
     recuperación del pulso}.
 \end{itemize}
 
-\subsection{\texorpdfstring{\emph{Amplitude walk}}{Amplitude walk}}
+\subsection{\texorpdfstring{\emph{Amplitude walk}}{\emph{Amplitude walk}}}
 \label{S:mca-amplitude-walk}
 
 Es la \textbf{diferencia temporal en el disparo} de eventos de una misma familia
@@ -690,7 +693,7 @@ previa al disparo}: la porción de la subida que queda antes del disparo depende
 de la amplitud. Generalmente nos importa su valor máximo, que corresponde a los
 pulsos más chicos. Según el conformado esto puede no ser un problema; es peor
 para conformados con tiempos de subida lentos, especialmente para el CR-RC$^4$.
-El walk también corre el cierre por histéresis, y mucho más, porque ese cruce
+El \emph{walk} también corre el cierre por histéresis, y mucho más, porque ese cruce
 ocurre sobre la cola exponencial: en la Fig.~\ref{f:mca-amplitude-walk}(a) los
 cierres de los tres pulsos se separan \qty{3.91}{\micro\second}.
 
@@ -702,7 +705,7 @@ descarta y el ápice queda siempre dentro de la ventana. Para los estadísticos
 que integran la subida, como la carga o el factor de forma, la porción de la
 ventana previa que cae antes del pie del pulso depende de la amplitud: si no se
 resta la línea de base, esa porción suma a la carga un término que varía con la
-amplitud, y si el retardo no alcanza a cubrir el walk de los pulsos más chicos,
+amplitud, y si el retardo no alcanza a cubrir el \emph{walk} de los pulsos más chicos,
 a ellos se les pierde parte de la subida. En ambos casos es una no linealidad
 concentrada cerca del umbral, y por eso estos estadísticos se calculan sobre la
 señal con la línea de base restada (ver
@@ -987,7 +990,7 @@ Es el \textbf{ancho del pico a media altura}, de ahí su nombre: \emph{full widt
 at half maximum} (FWHM). Normalmente se lo expresa como porcentaje de la altura
 de su centroide $H_0$, $R = \mathrm{FWHM}/H_0$. Pulsos idénticos caerían todos
 en un mismo canal, así que el ancho que se mide es ensanchamiento: ruido de la
-cadena, cuantización y jitter del estimador de amplitud. Es el piso del sistema
+cadena, cuantización y \emph{jitter} del estimador de amplitud. Es el piso del sistema
 y la única de las tres métricas que no se compensa por software, porque el
 ensanchamiento es aleatorio. Cuando el pico se ensancha, dos líneas cercanas
 dejan de separarse.
@@ -997,7 +1000,7 @@ dejan de separarse.
 
 El amplificador ideal consiste en una ganancia lineal $G$, de forma que la
 amplitud medida ideal sería $\hat A_\text{ideal} = G A$. Las no idealidades
-generalmente se tienen en cuenta con dos parámetros: el offset del cero $A_0$ y
+generalmente se tienen en cuenta con dos parámetros: el \emph{offset} del cero $A_0$ y
 el residuo a lo largo de la curva de amplificación,
 \begin{equation}
   \hat A = G \cdot (A-A_0) + \text{INL}(A-A_0)
@@ -1032,7 +1035,7 @@ $\text{DNL}_i = \Delta H_i / \overline{\Delta H} - 1$. Se mide llenando el
 espectro con amplitudes uniformemente distribuidas, por ejemplo con un
 generador de amplitud deslizante: si todos los canales fueran iguales recibirían
 la misma cantidad de cuentas, así que la desviación relativa de las cuentas
-\emph{es} la DNL.
+\textbf{es} la DNL.
 
 Un canal más ancho junta más cuentas y \textbf{crea estructura que no está en la
 señal}: deforma los picos, sesga el área y el centroide, y en el peor caso
@@ -1066,9 +1069,9 @@ caso 2D escala con el producto de las divisiones, $2^{N_1+N_2}$. Con la misma
 memoria que un histograma 1D de $2^N$ canales, el 2D reparte los bits entre los
 dos ejes, $N_1 + N_2 = N$, y cada eje queda con mucha menos resolución.
 
-Algunas aplicaciones del MCA 2D \emph{intracanal}, es decir, en el que ambas
-\textbf{features son del mismo evento}, se presentan en el
-Apéndice~\ref{S:ap-mca2d}. En la Fig.~\ref{f:mca-2d} se presenta un ejemplo de
+Algunas aplicaciones del MCA 2D \textbf{intracanal}, es decir, en el que ambas
+\textbf{\emph{features} son del mismo evento}, se presentan en la
+Sec.~\ref{S:ap-mca2d}. En la Fig.~\ref{f:mca-2d} se presenta un ejemplo de
 histograma de dos variables para la \textbf{identificación
 $\alpha/\beta/\gamma$}, en el que se grafica la altura máxima contra un factor
 de forma del pulso para separar las partículas $\alpha$ de las $\beta/\gamma$.

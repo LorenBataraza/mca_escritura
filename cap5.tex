@@ -35,20 +35,20 @@ A continuación describimos los detalles de la parte de la implementación en HW
 \section{Elementos de diseño}
 \label{S:intro-hw-elementos}
 
-\subsection{Waveforms}
+\subsection{\emph{Waveforms}}
 \label{S:intro-hw-waveforms}
 
 Son representaciones temporales de las señales. Lo más importante a la hora de
 leerlas es:
 \begin{enumerate}
-  \item Identificar los clocks y los dominios de reloj en juego.
+  \item Identificar los \emph{clocks} y los dominios de reloj en juego.
   \item Simplificar mentalmente el sistema: muchas señales indican el comienzo o
     el fin de una transacción, de modo que determinan las ``vallas''.
   \item Prestar atención a las \textbf{flechas}: indican qué señal depende de
     cuál (por ejemplo, un \codigo{ack} que sólo puede subir después del pedido)
     y son extremadamente útiles para analizar el flujo del procedimiento. La
     especificación de AXI usa la misma convención para las dependencias entre
-    las señales del handshake~\citecap{AMBAAXI}{A3}.
+    las señales del \emph{handshake}~\citecap{AMBAAXI}{A3}.
 \end{enumerate}
 
 \subsection{Mecanismos de transferencia de datos}
@@ -63,15 +63,15 @@ Fig.~\ref{f:intro-hw-tipos-control}.
 \centering\includegraphics{cap5_tipos_control_flujo}
 \caption[Esquemas de transferencia de datos entre PL y PS]{%
 Esquemas de transferencia de datos entre PL y PS. (a) \emph{Fire and forget},
-master: PL. Se tiene un flujo posiblemente constante de datos. (b) Sin
-feedback, master: PS. Esquema intermedio con validez limitada. (c) Handshake
-completo, master: PS. Handshake de comunicación completo; en este caso
-implementado para slave bloqueante (una única transacción en vuelo).
+\emph{master}: PL. Se tiene un flujo posiblemente constante de datos. (b) Sin
+\emph{feedback}, \emph{master}: PS. Esquema intermedio con validez limitada. (c) \emph{Handshake}
+completo, \emph{master}: PS. \emph{Handshake} de comunicación completo; en este caso
+implementado para \emph{slave} bloqueante (una única transacción en vuelo).
 \label{f:intro-hw-tipos-control}}
 \end{figure}
 
 Para la comunicación de la Fig.~\ref{f:intro-hw-tipos-control}(a), del tipo
-\textbf{stream} llamada \emph{fire and forget}, se fijan las condiciones como
+\textbf{\emph{stream}} llamada \emph{fire and forget}, se fijan las condiciones como
 especificación del iniciador de trama, y el terminador puede estar especificado
 o estar implícito por diseño. El receptor no tiene forma de frenar al emisor:
 AXI4-Stream, por ejemplo, permite omitir la señal de vuelta \codigo{TREADY}, que
@@ -84,9 +84,9 @@ tiene una dirección física fija y distinta.
 Es importante ver que las flechas indican el sentido de la transferencia de
 datos, mientras que el punto indica quién arranca la transferencia: la
 diferencia está en si se emite una \emph{request} o una \emph{response}. Por
-ejemplo, en el esquema \emph{fire and forget} el master es el PL, mientras que
-en los esquemas sin feedback y de handshake completo el master es el PS. Siempre
-vamos a encontrar que una interfaz tiene un rol (master/slave) asociado, porque
+ejemplo, en el esquema \emph{fire and forget} el \emph{master} es el PL, mientras que
+en los esquemas sin \emph{feedback} y de \emph{handshake} completo el \emph{master} es el PS. Siempre
+vamos a encontrar que una interfaz tiene un rol (\emph{master}/\emph{slave}) asociado, porque
 es una abstracción útil: un canal bidireccional siempre puede interpretarse como
 dos canales unidireccionales. Esto es extremadamente útil cuando hay una
 asimetría en los roles, por ejemplo cuando un extremo genera órdenes de magnitud
@@ -100,7 +100,7 @@ todas las señales en todos los ciclos de reloj, pero esto no es verdad para el
 PS: su vista de los registros de HW es mediante \textbf{muestreos no
 necesariamente periódicos}.
 
-El problema no es de timing: cada lectura, por separado, es correcta. El
+El problema no es de \emph{timing}: cada lectura, por separado, es correcta. El
 problema es que el PS lee la variable de control y los datos en dos
 transacciones distintas, y entre una y otra el PL puede haberlos cambiado. No
 tenemos la certeza de que la variable de control leída siga aplicando cuando el
@@ -116,17 +116,17 @@ Esto puede resolverse de forma implícita, mediante un control que analice las
 transacciones realizadas y siga de manera automática las transferencias, o de
 forma explícita, en la que el PS anuncia que terminó la transferencia. Esta
 última solución se presenta en la Fig.~\ref{f:intro-hw-tipos-control}(c), el
-handshake completo: el mecanismo funciona completamente con transacciones,
+\emph{handshake} completo: el mecanismo funciona completamente con transacciones,
 llamadas así porque cada transferencia de datos sigue exactamente los mismos
 tres pasos, en este orden:
 \begin{enumerate}
   \item El generador de los datos, en este caso dentro del PL, presenta una
-    transacción mediante un \textbf{set} sobre un registro \textbf{valid}. Este
+    transacción mediante un \textbf{\emph{set}} sobre un registro \textbf{\emph{valid}}. Este
     se mantiene en alto, con los datos quietos, hasta que el consumidor confirma
     la lectura.
-  \item El consumidor ve el \textbf{valid} en alto y procede a leer los datos.
+  \item El consumidor ve el \textbf{\emph{valid}} en alto y procede a leer los datos.
   \item Cuando termina, indica al generador que puede avanzar con el siguiente
-    haciendo un set sobre la señal de \textbf{ready}.
+    haciendo un \emph{set} sobre la señal de \textbf{\emph{ready}}.
 \end{enumerate}
 
 AXI usa el mismo par de señales, \codigo{VALID} y \codigo{READY}, con una
@@ -150,24 +150,24 @@ PS.\label{t:intro-hw-transferencias}}
 \hline \encabezado \textbf{Configuración} & \textbf{Confirmación de entrega} &
   \textbf{Control de flujo} & \textbf{Uso por control} & \textbf{Requisitos}
   \\ \hline
-Handshake completo (feedback + ack) & Sí & Sí (bloquea hasta match) & 2 usos &
+\emph{Handshake} completo (\emph{feedback} + \emph{ack}) & Sí & Sí (bloquea hasta \emph{match}) & 2 usos &
   Ninguno adicional: es autocontenido \\ \hline
-Sin ack (\emph{fire and forget}) & No & No (mezclado lógicamente con los datos)
+Sin \emph{ack} (\emph{fire and forget}) & No & No (mezclado lógicamente con los datos)
   & 0 & Eventos periódicos \\ \hline
 \end{tabularx}
 \end{table}
 
 A esto se le agrega la posibilidad de tener múltiples transacciones en vuelo
 mediante un \emph{pipelining} de la comunicación. Esto permite mantener alto el
-throughput en las transacciones del tipo \emph{burst}. Además vamos a explorar
+\emph{throughput} en las transacciones del tipo \emph{burst}. Además vamos a explorar
 variantes que permiten transferencias más eficientes.
 
-Por ejemplo, una variante del feedback utiliza el concepto de
+Por ejemplo, una variante del \emph{feedback} utiliza el concepto de
 \textbf{créditos}~\cite[caps.~12 y 13]{Dally2004}: el receptor indica de
 antemano cuánto espacio tiene disponible, de forma que el emisor puede enviar
 sin esperar confirmación hasta agotar los créditos. En este proyecto los usa el
 anillo de eventos que escribe en la DDR (Fig.~\ref{f:intro-hw-ring-eventos}): el
-writer sólo escribe un slot si le quedan créditos.
+\emph{writer} sólo escribe un \emph{slot} si le quedan créditos.
 
 \subsection{Sistemas insensibles a la latencia}
 \label{S:intro-hw-latencia}
@@ -177,9 +177,9 @@ asegurar que no se pierdan eventos}. Según la teoría de diseño insensible a l
 latencia~\cite{Carloni2001}, necesitamos un bloque capaz de absorber las
 diferencias temporales entre los extremos que quieren comunicarse.
 
-El elemento fundacional de esta teoría es el \textbf{pipeline
+El elemento fundacional de esta teoría es el \textbf{\emph{pipeline}
 elástico}~\cite{Cortadella2006}, que consiste en agregar una etapa intermedia de
-buffering \textbf{controlado} que pueda amortiguar las diferencias temporales
+\emph{buffering} \textbf{controlado} que pueda amortiguar las diferencias temporales
 entre producción y consumo. Generalmente se parametriza esta etapa por la
 cantidad de transacciones u operaciones que puede almacenar; a este largo lo
 llamamos $K$.
@@ -191,8 +191,8 @@ llamado consumidor.
 
 \begin{figure}[H]
 \centering\includegraphics{cap5_productor_consumidor}
-\caption[Comunicación inelástica y mediante pipeline elástico]{%
-Comparación de comunicación inelástica vs comunicación mediante pipeline
+\caption[Comunicación inelástica y mediante \emph{pipeline} elástico]{%
+Comparación de comunicación inelástica vs comunicación mediante \emph{pipeline}
 elástico.\label{f:intro-hw-productor-consumidor}}
 \end{figure}
 
@@ -201,23 +201,23 @@ En la Fig.~\ref{f:intro-hw-productor-consumidor}(a) se presenta un
 relación temporal entre productor y consumidor no tiene flexibilidad, y
 necesitamos una transacción con la que el consumidor indica que se puede enviar
 otro dato. Es lo que llamamos ``armado'', y su mecanismo es exactamente el mismo
-del bus custom: por eso esta transacción puede interpretarse como un
+del bus \emph{custom}: por eso esta transacción puede interpretarse como un
 \codigo{ack}.
 
 En cambio, en el elástico ($K>1$) el generador no tiene que esperar el armado
 del consumidor: se desacopla el funcionamiento de cada uno. Ahora cada extremo
-depende de una bandera que genera el buffer: el generador comprueba que la
+depende de una bandera que genera el \emph{buffer}: el generador comprueba que la
 bandera \codigo{full} esté baja (todavía queda espacio) y el consumidor observa
 la señal \codigo{empty}~\cite{Cummings2002}. Los buses de datos de alto
-rendimiento utilizan alguna variación del pipeline elástico; por ejemplo, las
+rendimiento utilizan alguna variación del \emph{pipeline} elástico; por ejemplo, las
 interfaces AXI HP contienen FIFOs integradas en la interfaz
 PL$\leftrightarrow$PS~\cite{UG585}.
 
 Las tres reglas generales que necesitamos seguir son las siguientes:
 \begin{enumerate}
   \item \textbf{Mayor velocidad de procesamiento que de generación}: asegurarse
-    de que la metodología de transacciones tenga el throughput necesario.
-  \item Utilizar \textbf{un buffer lo suficientemente grande}: necesitamos un
+    de que la metodología de transacciones tenga el \emph{throughput} necesario.
+  \item Utilizar \textbf{un \emph{buffer} lo suficientemente grande}: necesitamos un
     criterio de dimensionado, que nos da la teoría de colas
     (Fig.~\ref{f:intro-hw-cola-K}).
   \item \textbf{Saber cuándo fallamos y registrarlo}: tener un mecanismo de
@@ -234,14 +234,14 @@ largo es fijo y su comienzo depende de cuándo se empieza a ejecutar la
 transacción; en el mejor caso el tiempo entre transacciones tiende a cero y
 tenemos un consumidor periódico. Podríamos tener varios consumidores trabajando
 en paralelo, cada uno con una interfaz AXI dedicada, pero al fin y al cabo,
-mientras el throughput sea suficiente, el cuello de botella será el dimensionado
-del buffer.
+mientras el \emph{throughput} sea suficiente, el cuello de botella será el dimensionado
+del \emph{buffer}.
 
-Este buffer se suele denominar circular o anillo (\emph{ring}): no es más que
+Este \emph{buffer} se suele denominar circular o anillo (\emph{ring}): no es más que
 una cola del tipo FIFO cuyos punteros dan la vuelta al llegar al
-final~\cite{Cummings2002}. Si medimos el largo del buffer en eventos, es decir,
+final~\cite{Cummings2002}. Si medimos el largo del \emph{buffer} en eventos, es decir,
 si la generación y el consumo mueven siempre el mismo largo de datos $B$, el
-buffer toma valores discretos $K$. Esto aparece en la
+\emph{buffer} toma valores discretos $K$. Esto aparece en la
 Fig.~\ref{f:intro-hw-ring-eventos}: la resta entre los punteros, y no su
 posición, dice cuántos lugares quedan libres, y esos lugares son los créditos
 del generador.
@@ -257,19 +257,19 @@ Cuando no quedan créditos se detiene la sobreescritura fijando el puntero de
 escritura \codigo{wr} hasta que el consumidor libere lugar; la cantidad de
 ciclos que dura esto es el tiempo de indisponibilidad.
 
-Mientras el buffer está congelado, los eventos que llegan se pierden: es tiempo
+Mientras el \emph{buffer} está congelado, los eventos que llegan se pierden: es tiempo
 muerto~\citecap{Knoll2010}{4}. El congelamiento resulta de que tenemos que
 mantener fija una región de datos, junto con sus variables de control, hasta que
 el consumidor termine de leerla.
 
 De forma que hay dos maneras de reducir el tiempo de indisponibilidad:
 \begin{enumerate}
-  \item \textbf{Agrandar el buffer de datos}: con más lugares de cola, más
+  \item \textbf{Agrandar el \emph{buffer} de datos}: con más lugares de cola, más
     grande es la ráfaga que se puede absorber antes de quedarse sin créditos. La
     Fig.~\ref{f:intro-hw-cola-K} cuantifica cuánto rinde cada lugar.
-  \item \textbf{Aumentar el throughput de salida}:
+  \item \textbf{Aumentar el \emph{throughput} de salida}:
   \begin{enumerate}
-    \item Procesar varios elementos al mismo tiempo: que cada slot se trabaje de
+    \item Procesar varios elementos al mismo tiempo: que cada \emph{slot} se trabaje de
       forma independiente, con su propio conjunto de variables de control. Esto
       es equivalente a tener múltiples punteros de lectura \codigo{rd}, y es el
       acercamiento que empleamos para mejorar el módulo osciloscopio en la
@@ -287,7 +287,7 @@ Fig.~\ref{f:intro-hw-cola-K}. Para $K=1$ no hay cola: si llega un evento con el
 consumidor ocupado, se pierde. Con carga baja, $\rho \ll 1$, la pérdida pasa de
 $\approx\rho$ a $\approx\rho^K/K!$: cada lugar de cola (aumentar $K$) la baja en
 un orden de magnitud o más. Por encima, el consumidor no da abasto en promedio,
-ninguna cola alcanza y todas las curvas tienden a $1 - 1/\rho$: el buffer
+ninguna cola alcanza y todas las curvas tienden a $1 - 1/\rho$: el \emph{buffer}
 absorbe ráfagas, no un exceso de tasa.
 
 \begin{figure}[H]
@@ -300,7 +300,7 @@ ocupado.\label{f:intro-hw-cola-K}}
 \end{figure}
 
 
-\subsubsection{Pérdidas de transacciones por back-pressure}
+\subsubsection{Pérdidas de transacciones por \emph{back-pressure}}
 \label{S:intro-hw-back-pressure}
 
 En una red de procesamiento \emph{feed-forward}, es decir, sin ciclos, tenemos
@@ -313,7 +313,7 @@ la suma sigue valiendo.
 
 \begin{figure}[H]
 \centering\includegraphics{cap5_perdida_back_pressure}
-\caption[Suma de pérdidas en una red feed-forward]{%
+\caption[Suma de pérdidas en una red \emph{feed-forward}]{%
 Cómo se suman las pérdidas en una red de procesamiento \emph{feed-forward}, con
 100 eventos de entrada de ejemplo. (a) Cadena lineal: la pérdida total es la
 suma de lo que descarta cada etapa. (b) Ramas exclusivas: ningún evento está en
@@ -331,7 +331,7 @@ no refleja el valor final. Una forma de arreglarlo es diseñar la red de forma
 que los elementos de las ramas paralelas no puedan descartar, sino sólo
 bloquear la entrada hasta la etapa anterior al punto donde se separan las ramas,
 y contar los descartes en la sección secuencial. Esto significa que no todos los
-bloques descartan: algunos \emph{bloquean} el flujo de datos, y ese bloqueo que
+bloques descartan: algunos \textbf{bloquean} el flujo de datos, y ese bloqueo que
 se propaga hacia atrás es la \emph{back-pressure}
 (contrapresión)~\cite[caps.~12 y 13]{Dally2004}.
 
@@ -359,22 +359,22 @@ procesamiento.\label{f:intro-hw-etapas-descartes}}
 \end{figure}
 
 %==============================================================================
-\section{Bus custom de Pitaya}
+\section{Bus \emph{custom} de Pitaya}
 \label{S:intro-hw-bus-custom}
 
-El bus custom de Red Pitaya~\cite{RedPitayaFPGA} puede emplear cualquiera de los
+El bus \emph{custom} de Red Pitaya~\cite{RedPitayaFPGA} puede emplear cualquiera de los
 mecanismos de transferencia explicados en la Sec.~\ref{S:intro-hw-transferencia}
-en los que el PL funciona como slave. Cada operación sobre este bus representa
+en los que el PL funciona como \emph{slave}. Cada operación sobre este bus representa
 una flecha de la Fig.~\ref{f:intro-hw-tipos-control}. En todos los módulos que
-usan este bus utilizamos el esquema de handshake completo.
+usan este bus utilizamos el esquema de \emph{handshake} completo.
 
 Los elementos conectados a él tienen que implementar la decodificación de
 direcciones y respetar un ordenamiento en el acceso: como hay un único
 \codigo{ack}, todos los módulos deben \textbf{turnarse la utilización del bus}.
 En la Fig.~\ref{f:intro-hw-fsm-bus} se presenta la máquina de estados que
-\textbf{sigue el bus} custom de Red Pitaya. A esta secuencia de pasos se la suele
+\textbf{sigue el bus} \emph{custom} de Red Pitaya. A esta secuencia de pasos se la suele
 denominar \textbf{contrato}, porque la FSM no se implementa explícitamente: se
-diseñan slaves y masters que cumplen sólo lo que se le exige a cada extremo.
+diseñan \emph{slaves} y \emph{masters} que cumplen sólo lo que se le exige a cada extremo.
 Esto se refleja en optimizaciones, simplificaciones y consideraciones
 importantes para su diseño y uso. Los pasos son:
 \begin{enumerate}
@@ -385,35 +385,35 @@ importantes para su diseño y uso. Los pasos son:
     escritura, o lanza la lectura, una sola vez, con un estrobo de un ciclo.
   \item \textbf{Espera}: \codigo{wen}/\codigo{ren} siguen en alto y
     \codigo{addr} y \codigo{wdata} quedan quietos hasta el \codigo{ack}. Del
-    lado del esclavo no hay timeout: si el \codigo{ack} no llega, el slot se
+    lado del esclavo no hay \emph{timeout}: si el \codigo{ack} no llega, el \emph{slot} se
     queda en este estado. El maestro sí tiene uno, que se describe en la
     Sec.~\ref{S:intro-hw-modos-falla}.
-  \item \textbf{Acknowledge}: el esclavo levanta \codigo{ack}, con
+  \item \textbf{\emph{Acknowledge}}: el esclavo levanta \codigo{ack}, con
     \codigo{rdata} ya registrado en el caso de una lectura. El maestro lo ve,
     baja \codigo{wen}/\codigo{ren}, y el bus vuelve a reposo.
 \end{enumerate}
 
 \begin{figure}[H]
 \centering\includegraphics{cap5_contrato_sys_bus}
-\caption[Contrato del bus custom de Red Pitaya]{%
-Diagrama del bus custom de Pitaya. Contiene cuatro
+\caption[Contrato del bus \emph{custom} de Red Pitaya]{%
+Diagrama del bus \emph{custom} de Pitaya. Contiene cuatro
 estados.\label{f:intro-hw-fsm-bus}}
 \end{figure}
 
 La única obligación del esclavo es la del paso~4: responder a toda dirección de
-su slot (que la request sea para él), mapeada o no, con latencia fija.
+su \emph{slot} (que la \emph{request} sea para él), mapeada o no, con latencia fija.
 
 \subsection{Rendimiento del bus}
 \label{S:intro-hw-rendimiento-bus}
 
 La Fig.~\ref{f:intro-hw-camino-bus} presenta las 4 etapas de una lectura o
-escritura de 32 bits por el bus custom de Red Pitaya a un slave genérico.
+escritura de 32 bits por el bus \emph{custom} de Red Pitaya a un \emph{slave} genérico.
 
 \begin{figure}[H]
 \centering\includegraphics{cap5_latencia_sys_bus}
-\caption[Camino de una transferencia por el bus custom]{%
-Flujo de comunicación para una transferencia PS$\rightarrow$slave del PL
-mediante el bus custom.\label{f:intro-hw-camino-bus}}
+\caption[Camino de una transferencia por el bus \emph{custom}]{%
+Flujo de comunicación para una transferencia PS$\rightarrow$\emph{slave} del PL
+mediante el bus \emph{custom}.\label{f:intro-hw-camino-bus}}
 \end{figure}
 
 Arrancamos con el camino PS$\rightarrow$PL, que pasa por el
@@ -421,8 +421,8 @@ Arrancamos con el camino PS$\rightarrow$PL, que pasa por el
 para la lectura y hasta 4 para la escritura, según el orden de llegada de la
 dirección y los datos. Los cruces \codigo{clk\_fpga0} $\rightarrow$
 \codigo{adc\_clk} (paso~2) y \codigo{adc\_clk} $\rightarrow$
-\codigo{clk\_fpga0} (paso~4) usan el mismo CDC, un handshake por
-toggle~\cite{Cummings2008} de 4 a 5 ciclos. La variación se debe a que depende
+\codigo{clk\_fpga0} (paso~4) usan el mismo CDC, un \emph{handshake} por
+\emph{toggle}~\cite{Cummings2008} de 4 a 5 ciclos. La variación se debe a que depende
 de la diferencia de fase entre los relojes.
 
 En la Tabla~\ref{t:intro-hw-rendimiento-bus} se describe cada uno de estos pasos
@@ -442,14 +442,14 @@ sincronización, en los que se diferencian los caminos \emph{fast-to-slow} y
 
 \begin{table}[H]
 \centering
-\caption[Latencia de una transacción del bus custom]{%
-Estimados de latencia por etapa y total para una transacción del bus custom de
+\caption[Latencia de una transacción del bus \emph{custom}]{%
+Estimados de latencia por etapa y total para una transacción del bus \emph{custom} de
 Pitaya.\label{t:intro-hw-rendimiento-bus}}
 \begin{tabular}{|c|l|l|}
 \hline \encabezado \textbf{\#} & \textbf{Etapa} & \textbf{Ciclos requeridos}
   \\ \hline
 1 & AXI + \codigo{axi4\_slave} & 2--4 \\ \hline
-2 & CDC ida (toggle + 2--3 flops) & 4--5 \\ \hline
+2 & CDC ida (\emph{toggle} + 2--3 \emph{flops}) & 4--5 \\ \hline
 3 & Esclavo & 1--5 \\ \hline
 4 & CDC vuelta & 4--5 \\ \hline
   & \textbf{Total} & \textbf{$\sim$12--20} $\approx$
@@ -458,36 +458,36 @@ Pitaya.\label{t:intro-hw-rendimiento-bus}}
 \end{table}
 
 Estas latencias provienen de que los dos extremos no comparten reloj. Es una
-cuestión de trade-off: no vale la pena quitar el problema de raíz si sincronizar
+cuestión de \emph{trade-off}: no vale la pena quitar el problema de raíz si sincronizar
 los relojes es tan costoso en HW y podemos diseñar sistemas que compensen
-parcialmente sus efectos, como el pipeline elástico.
+parcialmente sus efectos, como el \emph{pipeline} elástico.
 
-\subsection{Waveforms de transacciones por \texttt{axi4\_slave}}
+\subsection{\emph{Waveforms} de transacciones por \texttt{axi4\_slave}}
 \label{S:intro-hw-waveforms-axi}
 
-En la Fig.~\ref{f:intro-hw-escritura} presentamos una waveform de una
+En la Fig.~\ref{f:intro-hw-escritura} presentamos una \emph{waveform} de una
 transferencia de escritura del parámetro \codigo{cfg\_amp\_max} (de dirección
 \codigo{0x4070\_0034}) obtenida por simulación. Se tienen los siguientes pasos:
 \begin{enumerate}
-  \item Master: pone los valores de \codigo{addr} y \codigo{wdata} y levanta
+  \item \emph{Master}: pone los valores de \codigo{addr} y \codigo{wdata} y levanta
     \codigo{wen} (ciclo~2).
-  \item Slave: ve el cambio en \codigo{wen} (\qty{35}{\nano\second} después) y
+  \item \emph{Slave}: ve el cambio en \codigo{wen} (\qty{35}{\nano\second} después) y
     genera una operación de un ciclo (\textbf{estrobo}); en el flanco siguiente
     \codigo{cfg\_amp\_max} toma el valor de \codigo{wdata} (ciclo~8).
-  \item Slave: con la latencia fija del módulo, sube \codigo{sys\_ack}
+  \item \emph{Slave}: con la latencia fija del módulo, sube \codigo{sys\_ack}
     (ciclo~12).
-  \item Master: ve el \codigo{ack} ya sincronizado (\qty{96}{\nano\second}
+  \item \emph{Master}: ve el \codigo{ack} ya sincronizado (\qty{96}{\nano\second}
     después de iniciar la transacción) y baja \codigo{wen}, completando la
     transacción.
 \end{enumerate}
 
-En la lectura se mantienen los roles master/slave y la transacción es casi
+En la lectura se mantienen los roles \emph{master}/\emph{slave} y la transacción es casi
 idéntica; se puede ver en la Fig.~\ref{f:intro-hw-lectura}. Sus diferencias son
 las siguientes:
 \begin{enumerate}
-  \item Master: fija únicamente \codigo{addr} (no pone \codigo{wdata}) y
+  \item \emph{Master}: fija únicamente \codigo{addr} (no pone \codigo{wdata}) y
     levanta \codigo{ren} en vez de \codigo{wen} (ciclo~2).
-  \item Slave: el valor de \codigo{rdata} hay que tomarlo cuando \codigo{ack}
+  \item \emph{Slave}: el valor de \codigo{rdata} hay que tomarlo cuando \codigo{ack}
     está en alto (ciclo~17).
 \end{enumerate}
 
@@ -495,15 +495,15 @@ las siguientes:
 % apaisada, cada una con su número y epígrafe.
 \begin{figuraapaisada}
 \includegraphics[height=0.4\textwidth]{cap5_bus_escritura}
-\caption[Waveform simulada de una escritura por el bus custom]{%
-Waveform simulada de la transacción de escritura al registro
+\caption[\emph{Waveform} simulada de una escritura por el bus \emph{custom}]{%
+\emph{Waveform} simulada de la transacción de escritura al registro
 \codigo{AMP\_MAX}, de dirección \codigo{0x4070\_0034}, con el valor
 \codigo{0x1234}.\label{f:intro-hw-escritura}}
 
 \vspace{2\baselineskip}
 \includegraphics[height=0.4\textwidth]{cap5_bus_lectura}
-\caption[Waveform simulada de una lectura por el bus custom]{%
-Waveform simulada de la transacción de lectura al registro \codigo{AMP\_MAX},
+\caption[\emph{Waveform} simulada de una lectura por el bus \emph{custom}]{%
+\emph{Waveform} simulada de la transacción de lectura al registro \codigo{AMP\_MAX},
 de dirección \codigo{0x4070\_0034}.\label{f:intro-hw-lectura}}
 \end{figuraapaisada}
 
@@ -513,19 +513,19 @@ de dirección \codigo{0x4070\_0034}.\label{f:intro-hw-lectura}}
 Es una tabla en la que asociamos \textbf{direcciones físicas y permisos de
 acceso} a los registros de control y de estado de un módulo. Los módulos
 empleados tienen dos clases de parámetros: los compartidos y los específicos de
-cada stream de datos. Lo que suele hacerse es colocar las configuraciones
+cada \emph{stream} de datos. Lo que suele hacerse es colocar las configuraciones
 compartidas en la base de la estructura y después la configuración de cada uno
 de los bloques, de forma individual.
 
 Cada módulo tiene \textbf{su mapa de registros local}, que en la etapa de
-integración se ubica en el mapa de memoria del sistema mediante un offset fijo.
+integración se ubica en el mapa de memoria del sistema mediante un \emph{offset} fijo.
 Esto simplifica el SW, porque entre las configuraciones de los bloques hay un
-salto fijo, llamado \textbf{stride}: las estructuras quedan compactas y se
+salto fijo, llamado \textbf{\emph{stride}}: las estructuras quedan compactas y se
 representan fácilmente con \emph{structs} de C.
 
 En la Fig.~\ref{f:intro-hw-mapa-registros} se presenta, de izquierda a derecha,
 el mapa de direcciones físicas del PL, que tiene que coincidir con el que ve el
-PS~\cite{UG585}. Consta de 8 regiones de 1~MB cada una. El segundo slot es el
+PS~\cite{UG585}. Consta de 8 regiones de 1~MB cada una. El segundo \emph{slot} es el
 mapa de direcciones del módulo osciloscopio, que repite las direcciones previas
 (el mapa \emph{legacy}) para que la API precompilada de Red Pitaya siga siendo
 compatible.
@@ -542,11 +542,11 @@ Al realizar una transacción, el sistema analiza los prefijos de la dirección
 para averiguar cómo rutear la transferencia: por ejemplo, como la dirección
 arranca con \codigo{b0100000}, el PS sabe de entrada que le corresponde la
 interfaz AXI GP0~\cite{UG585}. Después la dirección la lee el
-\codigo{sys\_bus\_interconnect}, que decodifica el slot dentro del mapa de
+\codigo{sys\_bus\_interconnect}, que decodifica el \emph{slot} dentro del mapa de
 memoria global y redirige la transacción al módulo de sincronización asociado.
 En la Fig.~\ref{f:intro-hw-calculo-direccion} se pueden ver las distintas capas
 de direccionamiento para la dirección \codigo{0x4010\_1144}, que pertenece al
-registro \codigo{HYST} del canal~1 del slot~1 (OSC).
+registro \codigo{HYST} del canal~1 del \emph{slot}~1 (OSC).
 
 \begin{figure}[H]
 \centering\includegraphics{cap5_calculo_direccion_osc}
@@ -556,40 +556,40 @@ memoria.\label{f:intro-hw-calculo-direccion}}
 \end{figure}
 
 Es interesante notar que la dirección queda asociada a la interfaz GP0. Si el PL
-tuviera el mismo slave conectado también a la otra interfaz maestra del PS, la
+tuviera el mismo \emph{slave} conectado también a la otra interfaz maestra del PS, la
 GP1, podríamos asociar \textbf{el mismo registro a otra región de memoria} y
 acceder a él por ese otro camino de datos. Las interfaces HP no sirven para
-esto: en ellas el master es el PL.
+esto: en ellas el \emph{master} es el PL.
 
 \subsection{Modos de falla del bus interno}
 \label{S:intro-hw-modos-falla}
 
 A continuación comentamos las formas de llevar el sistema a un estado erróneo.
 Son fallas que exceden al módulo que las provoca: aparecen en la interacción
-entre el PS, el \codigo{axi4\_slave} y el slave.
+entre el PS, el \codigo{axi4\_slave} y el \emph{slave}.
 \begin{enumerate}
-  \item \textbf{Slave que no hace \codigo{ack}}: los slaves comparten el recurso
-    que representa el bus. Si un slave no hace \codigo{ack}, su slot queda en el
-    estado de espera de la Fig.~\ref{f:intro-hw-fsm-bus} y el CDC de ese slot
-    queda desincronizado: es un \textbf{deadlock} latente del slot, y las
-    transacciones siguientes a ese slot salen corruptas. El PS no se cuelga
+  \item \textbf{\emph{Slave} que no hace \codigo{ack}}: los \emph{slaves} comparten el recurso
+    que representa el bus. Si un \emph{slave} no hace \codigo{ack}, su \emph{slot} queda en el
+    estado de espera de la Fig.~\ref{f:intro-hw-fsm-bus} y el CDC de ese \emph{slot}
+    queda desincronizado: es un \textbf{\emph{deadlock}} latente del \emph{slot}, y las
+    transacciones siguientes a ese \emph{slot} salen corruptas. El PS no se cuelga
     porque el \codigo{axi4\_slave} tiene un \emph{timeout}: a los 32 ciclos
     fabrica el \codigo{ack} y responde con error
     (\codigo{SLVERR})~\cite{AMBAAXI,RedPitayaFPGA}, que el ARM recibe como un
-    \emph{external abort}. Por eso un slave tiene que hacer \codigo{ack} de toda
-    dirección de su slot, mapeada o no; el timeout es una red de seguridad, no
+    \emph{external abort}. Por eso un \emph{slave} tiene que hacer \codigo{ack} de toda
+    dirección de su \emph{slot}, mapeada o no; el \emph{timeout} es una red de seguridad, no
     parte del contrato.
   \item \textbf{Ráfagas y anchos incorrectos}: el \codigo{axi4\_slave} que
-    conecta el bus custom implementa una versión reducida de AXI: no acepta
+    conecta el bus \emph{custom} implementa una versión reducida de AXI: no acepta
     transferencias en ráfaga ni accesos anchos, sólo \codigo{LEN = 0} y
     \codigo{SIZE} de 2 o 4 bytes~\cite{AMBAAXI}. Cualquier otra transacción la
-    rechaza con \codigo{SLVERR} sin que llegue al slave. Esto es importante
+    rechaza con \codigo{SLVERR} sin que llegue al \emph{slave}. Esto es importante
     porque limita las instrucciones que podemos usar desde el PS; se expande
     este tema en la Sec.~\ref{S:sw-modos-fallo}.
 \end{enumerate}
 
 Es un buen ejemplo de por qué conviene conocer el modelo de memoria del
-procesador~\cite{DDI0406C}: el bug no está ni en el RTL ni en el código Python,
+procesador~\cite{DDI0406C}: el \emph{bug} no está ni en el RTL ni en el código Python,
 sino en la interacción entre lo que la ISA permite emitir y lo que el esclavo
 acepta recibir.
 
@@ -599,7 +599,7 @@ acepta recibir.
 Los módulos implementados tienen un submódulo de configuración, por ejemplo
 \codigo{mt\_cfg}, \codigo{osc\_cfg} e \codigo{integration\_cfg}; en el MCA la
 misma lógica está dentro de \codigo{mca\_top}. Es el que \textbf{implementa el
-acceso por un mapa de registros} y la transferencia al bus \textbf{custom}.
+acceso por un mapa de registros} y la transferencia al bus \textbf{\emph{custom}}.
 Todos repiten la misma estructura; en la Fig.~\ref{f:intro-hw-panorama-cfg} se
 presenta una versión tipo plantilla. Los bloques en gris son plantillas que
 contienen los elementos \emph{ad hoc} que requiera el diseño:
@@ -608,7 +608,7 @@ contienen los elementos \emph{ad hoc} que requiera el diseño:
     arrancan un comando, representado por una FSM en el módulo.
   \item \textbf{Registros de configuración}: generalmente son señales lentas.
   \item \textbf{Identificación}: un número fijo en el HW con el que se puede
-    diagnosticar rápidamente si la carga del bitstream en la placa fue exitosa;
+    diagnosticar rápidamente si la carga del \emph{bitstream} en la placa fue exitosa;
     se lo utiliza para identificar el módulo y comprobar la versión.
   \item \textbf{Lógica}: el resto de los elementos que no entran en las
     categorías previas, por ejemplo los registros tipo \emph{snapshot}.
@@ -616,14 +616,14 @@ contienen los elementos \emph{ad hoc} que requiera el diseño:
 Los bloques en rojo claro representan bloques de RTL fijos para todos los
 módulos de configuración:
 \begin{itemize}
-  \item \textbf{Escritura}: un decodificador de dirección traduce el offset
+  \item \textbf{Escritura}: un decodificador de dirección traduce el \emph{offset}
     (\codigo{sys\_addr[19:0]}) en la habilitación del registro que le
     corresponde, y ese registro copia su campo de \codigo{sys\_wdata}.
   \item \textbf{Estrobo}: \codigo{sys\_wen} queda alto hasta el \codigo{ack},
     unos 5 ciclos. El estrobo lo convierte en un pulso de un ciclo
     (\codigo{wr\_stb = sys\_wen \&\& !en\_sr[0]}), para que cada
     \textbf{escritura se ejecute una sola vez}.
-  \item \textbf{Ack}: sale de un registro de desplazamiento sobre
+  \item \textbf{\emph{Ack}}: sale de un registro de desplazamiento sobre
     \codigo{sys\_en = sys\_wen | sys\_ren}, con latencia fija y para cualquier
     dirección, mapeada o no. \codigo{sys\_err} vale siempre~0.
   \item \textbf{Lectura}: un multiplexor controlado por la misma dirección elige
@@ -639,7 +639,7 @@ módulos de configuración:
 \begin{figure}[H]
 \centering\includegraphics{cap5_panorama_modulo_cfg}
 \caption[Plantilla del módulo de configuración]{%
-Template del módulo de configuración, incluye conexión al bus custom de
+\emph{Template} del módulo de configuración, incluye conexión al bus \emph{custom} de
 Pitaya.\label{f:intro-hw-panorama-cfg}}
 \end{figure}
 
@@ -655,9 +655,9 @@ verificación previa a la síntesis: se lleva una fracción importante del tiemp
 de los proyectos de FPGA~\cite{Foster2022}. En mi interpretación, se debe
 principalmente a los siguientes elementos:
 \begin{itemize}
-  \item No tenemos herramientas de debug intrínsecas al hardware realizado:
+  \item No tenemos herramientas de \emph{debug} intrínsecas al hardware realizado:
   \begin{itemize}
-    \item A diferencia del SW, en el que tenemos un debugger para diagnosticar
+    \item A diferencia del SW, en el que tenemos un \emph{debugger} para diagnosticar
       los errores en tiempo de ejecución, en HW no tenemos estas capacidades a
       menos que exportemos las señales hacia afuera, por ejemplo con un
       analizador lógico integrado en la FPGA, que consume recursos y sólo ve las
@@ -697,11 +697,11 @@ Qué detecta cada una de las técnicas de verificación más empleadas.
 $^{*}$Sólo para las propiedades que se escriban.\label{t:intro-hw-tecnicas}}
 \begin{tabularx}{\textwidth}{|X|c|c|c|c|}
 \hline \encabezado & \textbf{Lint} & \textbf{STA} &
-  \textbf{Golden model + coverage} & \textbf{Formal} \\ \hline
+  \textbf{\emph{Golden model} + \emph{coverage}} & \textbf{Formal} \\ \hline
 Error de sintaxis & sí & no & sí & sí \\ \hline
-Latch inferido & \textbf{sí} & no & parcial & no \\ \hline
+\emph{Latch} inferido & \textbf{sí} & no & parcial & no \\ \hline
 Ancho que no coincide & \textbf{sí} & no & parcial & no \\ \hline
-Bug funcional & no & no & \textbf{sí} & sí$^{*}$ \\ \hline
+\emph{Bug} funcional & no & no & \textbf{sí} & sí$^{*}$ \\ \hline
 Camino crítico & no & \textbf{sí} & no & no \\ \hline
 Cruce de dominios de reloj (CDC) & parcial & \textbf{no} & no & parcial
   \\ \hline
@@ -717,7 +717,7 @@ Los puntos fuertes de cada técnica son:
     generalmente las ``buenas prácticas'' de la industria~\cite{Keating2002}.
     Reporta advertencias sobre las inferencias del sintetizador que suelen ser
     problemáticas, porque su depuración puede ser muy compleja: anchos que no
-    coinciden e inferencias no deseadas, usualmente latches. Los problemas de
+    coinciden e inferencias no deseadas, usualmente \emph{latches}. Los problemas de
     \emph{clock domain crossing} (CDC) se revisan con un análisis estructural
     del mismo tipo pero dedicado, que busca las señales que cruzan de dominio
     sin sincronizador~\cite{Cummings2008}.
@@ -727,7 +727,7 @@ Los puntos fuertes de cada técnica son:
     reloj~\cite{Bhasker2009}. Los caminos entre relojes asincrónicos se
     declaran como excepciones y no se analizan; por eso no detecta problemas de
     CDC.
-  \item El \textbf{golden model} (``modelo dorado'') es un modelo de referencia,
+  \item El \textbf{\emph{golden model}} (``modelo dorado'') es un modelo de referencia,
     escrito aparte y en un lenguaje de más alto nivel, contra el que se compara
     la salida del RTL; nos asegura que el módulo \textbf{funciona a nivel de
     transacciones}~\cite{Bergeron2003}. El \emph{coverage} nos da una noción de
@@ -735,7 +735,7 @@ Los puntos fuertes de cada técnica son:
   \item La verificación \textbf{formal} es una \textbf{demostración
     exhaustiva}, mediante métodos matemáticos, de que el sistema no puede
     llegar a estados inválidos~\cite{Seligman2023}. Se aplica normalmente para
-    asegurar que no se presente un \textbf{deadlock}, y en su variante de
+    asegurar que no se presente un \textbf{\emph{deadlock}}, y en su variante de
     equivalencia compara el RTL contra la netlist sintetizada.
 \end{itemize}
 
@@ -748,7 +748,7 @@ formal}~\cite{Seligman2023}. Se quieren dar las siguientes dos garantías:
 \begin{enumerate}
   \item El sistema no llega a estados inválidos:
   \begin{enumerate}
-    \item Se parte de la secuencia de reset y se recorren todas las secuencias
+    \item Se parte de la secuencia de \emph{reset} y se recorren todas las secuencias
       de entrada válidas hasta una profundidad de $k$ ciclos (\emph{bounded
       model checking})~\cite{Biere1999}.
     \item Se demuestra que, desde cualquier estado válido y con una entrada
@@ -762,7 +762,7 @@ formal}~\cite{Seligman2023}. Se quieren dar las siguientes dos garantías:
       dos \emph{requests} tenemos que tener dos \emph{responses}, y ninguna
       \emph{response} sin su \emph{request}.
     \item Los datos siguen nuestro modelo propuesto: lo que sale del módulo
-      coincide con lo que predice el golden model para las mismas entradas.
+      coincide con lo que predice el \emph{golden model} para las mismas entradas.
   \end{enumerate}
 \end{enumerate}
 

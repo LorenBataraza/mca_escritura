@@ -9,7 +9,7 @@
 \graphicspath{{figs/cap9/}{figs/comunes/}}
 
 \begin{destacado}
-En esta sección se presentan resultados de mediciones mediante la generación
+En este capítulo se presentan resultados de mediciones mediante la generación
 interna y posterior canalización a un lazo analógico del módulo MCA.
 \end{destacado}
 
@@ -31,7 +31,7 @@ identificamos las siguientes:
     \item Nuestros estímulos se realizan mediante asignaciones directas a las
       señales de entrada de un módulo; estas operaciones no son sintetizables.
     \item Estos resultados se presentan en las secciones de verificación de los
-      módulos individuales.
+      módulos individuales, por ejemplo la Sec.~\ref{S:ap-mt-verificacion}.
   \end{itemize}
   \item \textbf{Generación interna}:
   \begin{itemize}
@@ -50,7 +50,7 @@ identificamos las siguientes:
       una interfaz rápida. Esto se presenta en la
       Fig.~\ref{f:res-setup-externo}.
   \end{itemize}
-  \item \textbf{Medición con setup experimental}: utilizamos un medidor con
+  \item \textbf{Medición con \emph{setup} experimental}: utilizamos un medidor con
     física real.
 \end{itemize}
 
@@ -64,9 +64,9 @@ generador de ondas Rigol DG-4162. Ambas conexiones utilizaban un coaxial
 KingSignal RG-58 con conectores macho SMA en las terminales de la Pitaya y
 conector BNC en la terminal del Rigol. El Rigol se controló por su puerto
 trasero del tipo USB-Host, manejado por la Pitaya; la comunicación se realizó
-mediante el protocolo especializado Rigol USB TMC Driver. En la
-Fig.~\ref{f:res-setup-externo} se presenta de forma esquemática el setup;
-mediante \codigo{ssh} teníamos control de los scripts de testeo.
+mediante el protocolo especializado Rigol USB TMC \emph{Driver}. En la
+Fig.~\ref{f:res-setup-externo} se presenta de forma esquemática el \emph{setup};
+mediante \codigo{ssh} teníamos control de los \emph{scripts} de testeo.
 
 \begin{figure}[H]
 \centering\includegraphics{cap9_setup_externo}
@@ -84,7 +84,7 @@ Aún así, este sistema cuenta con las siguientes limitaciones:
 Para superar estas limitaciones pasamos a la configuración de generación
 interna.
 
-\subsection{Setup de generación interna}
+\subsection{\emph{Setup} de generación interna}
 \label{S:res-setup-interna}
 
 La versión más simple de realizarla es mediante el lazo interno a la PL:
@@ -93,14 +93,14 @@ estímulos controlados (\codigo{gen\_pulsos}), y a esto lo llamamos \textbf{lazo
 digital}. El \textbf{lazo analógico}, en cambio, canaliza la salida del ASG al
 OUT1 de la Pitaya, que se conecta a IN1. En este caso testearíamos el sistema
 anterior más los efectos producidos por los front-end analógicos, el ADC, el
-DAC, las terminaciones SMA y el cable coaxial. Este setup se puede observar en
+DAC, las terminaciones SMA y el cable coaxial. Este \emph{setup} se puede observar en
 la Fig.~\ref{f:res-conexion-in-out}.
 
 \begin{figure}[H]
 \centering\includegraphics{cap9_conexion_in_out}
-\caption[Setup de generación interna]{%
-Setup de generación interna. Se puede emplear \codigo{digital\_loop=1} para que
-la señal se genere y se consuma dentro del fabric de la PL, o se puede utilizar
+\caption[\emph{Setup} de generación interna]{%
+\emph{Setup} de generación interna. Se puede emplear \codigo{digital\_loop=1} para que
+la señal se genere y se consuma dentro del \emph{fabric} de la PL, o se puede utilizar
 \codigo{digital\_loop=0} para hacer uso de la entrada analógica \codigo{IN1}, en
 este caso conectada directamente desde OUT1 con un conector T y una carga de
 \qty{50}{\ohm}.\label{f:res-conexion-in-out}}
@@ -135,7 +135,7 @@ posiciones en el histograma (centroides y corrimientos) van en
 
 Una vez comprobado el funcionamiento correcto de la fuente de pulsos comenzamos
 a realizar diversas pruebas; en la Tabla~\ref{t:res-setup} se presenta la
-configuración del MCA en las mediciones. Se denominan \emph{pulsos buenos} los
+configuración del MCA en las mediciones. Se denominan \textbf{pulsos buenos} los
 estimados dentro de un rango de \qty{2}{\percent} de error.
 
 % La tabla no tiene epígrafe en la nota y la frase que la presenta quedó
@@ -193,13 +193,13 @@ OUT1 $\rightarrow$ IN1 con \qty{50}{\ohm}.\label{f:res-tasa-fuentes}}
 \end{figure}
 
 El ASG refiere a la salida del generador de pulsos que indica cuándo un pulso
-sale del sistema; un trigger ideal debería ser igual a esta ciclo a ciclo (a
+sale del sistema; un \emph{trigger} ideal debería ser igual a esta ciclo a ciclo (a
 menos de un retardo fijo).
 
 \subsection{Error de tasa estimada}
 \label{S:res-error-tasa}
 
-En la sección anterior vimos la \textbf{tasa medida}; ahora podemos aplicar
+En la Sec.~\ref{S:res-tasa} vimos la \textbf{tasa medida}; ahora podemos aplicar
 sobre esta una compensación para obtener un \textbf{estimador de la tasa real}
 $\hat\lambda$. Este mecanismo se presenta en el Cap.~\ref{C:implmca}.
 A esta la comparamos con la tasa exacta del generador. Los resultados se
@@ -289,7 +289,7 @@ corregible porque no es interno a nuestro módulo. Nos habla de la transferencia
 analógica del canal. Por esta razón se recomienda
 realizar esta medición previa para obtener la curva de respuesta del
 corrimiento y poder compensar de forma automática según los valores obtenidos.
-Es importante, igualmente, utilizar el mismo conexionado del setup con el que
+Es importante, igualmente, utilizar el mismo conexionado del \emph{setup} con el que
 estemos trabajando, pero en vez de utilizar como salida el sensor, conectar a
 OUT1.
 
@@ -321,18 +321,18 @@ canal analógico.\label{f:res-inl}}
 \end{figure}
 
 El polo-cero no tiene línea desde 5000~ADU, porque vuelve a disparar sobre el
-sobrepico; este efecto de disparo se presenta en la siguiente sección.
+sobrepico; este efecto de disparo se presenta en la Sec.~\ref{S:res-walk}.
 
-\subsection{Medición del walk de disparo}
+\subsection{Medición del \emph{walk} de disparo}
 \label{S:res-walk}
 
-Para medir el umbral y el walk de cada fuente de disparo, barrimos la amplitud
+Para medir el umbral y el \emph{walk} de cada fuente de disparo, barrimos la amplitud
 de pulsos aislados de 20 a 8000~ADU, con 400 pulsos por punto y un ruido de
 2.3~ADU. Los resultados se presentan en la Fig.~\ref{f:res-walk}. En cada punto
 medimos tres cosas. La curva del panel (a) da la fracción de pulsos que disparan
 y nos dice el umbral efectivo a utilizar. El polo-cero dispara la mitad de los
 pulsos en 48~ADU y la pendiente en 81. En el canal analógico, 51 y 82: el canal
-casi no mueve el umbral. El panel (b) es el walk, el retardo del disparo, a
+casi no mueve el umbral. El panel (b) es el \emph{walk}, el retardo del disparo, a
 partir de \codigo{t\_subida}. El polo-cero se atrasa 1 ciclo
 (\qty{8}{\nano\second}) con los pulsos chicos y la pendiente 6 ciclos
 (\qty{48}{\nano\second}). En el canal analógico, 2 y 6.9 ciclos. En el panel
@@ -417,12 +417,12 @@ $A_2$.\label{f:res-polo-cero}}
 Para medir la deriva del canal analógico, alternamos líneas de 1500 y 4000~ADU
 cada 3000 ciclos, sin apilamiento, y medimos un punto por minuto durante
 \qty{2}{\hour}, con 83\,332 pulsos por punto. En cada punto leímos la
-temperatura del Zynq (XADC). Con las dos líneas separamos la deriva en offset y
+temperatura del Zynq (XADC). Con las dos líneas separamos la deriva en \emph{offset} y
 ganancia.
 
 Los resultados se presentan en la Fig.~\ref{f:res-deriva}: en \qty{2}{\hour} la
 ganancia recorre 210~ppm, con una pendiente de $-40$~ppm/h. Las líneas recorren
-0.8~ADU (la de 1500) y 1.1~ADU (la de 4000), y el offset 0.6~ADU. De un minuto
+0.8~ADU (la de 1500) y 1.1~ADU (la de 4000), y el \emph{offset} 0.6~ADU. De un minuto
 al siguiente las líneas saltan unas 0.12~ADU, 15 veces el error estadístico de
 cada punto (0.008~ADU). La temperatura fue de 41.8 a \qty{42.7}{\degreeCelsius},
 salvo el primer punto, a \qty{43.2}{\degreeCelsius}. Contra ella la ganancia da
@@ -439,7 +439,7 @@ temperatura del Zynq (XADC).\label{f:res-deriva}}
 \end{figure}
 
 %==============================================================================
-\section{Throughput para el osciloscopio}
+\section{\emph{Throughput} para el osciloscopio}
 \label{S:res-throughput-osc}
 
 Como el cambio principal del OSC en este trabajo fue el camino de datos, es la
@@ -451,31 +451,92 @@ la escritura del archivo. La (1) está dada por el HW y la librería de SW, la (
 únicamente por el SW y la (3) por la capacidad de salida de datos, que puede ser
 escritura a la SD o de red. Estas diferencias se presentan en el
 Cap.~\ref{C:sw}. En la Fig.~\ref{f:res-throughput} se comparan los siguientes
-caminos: (A) escritura a DDR, (B) el lector de C del ring corrido sin guardado
-en memoria secundaria (Sec.~\ref{S:sw-bench-libmca}) y (C) el OSC a memoria
-secundaria por el SW en formato \ruta{.npz}, presentado en la
-Sec.~\ref{S:sw-guardado}.
+caminos del \codigo{event\_ring}, que nombramos por el destino de los eventos:
+\begin{itemize}
+\item DDR: la escritura a DDR.
+\item Lector del ring: el lector de C del ring corrido sin guardado en memoria
+  secundaria (Sec.~\ref{S:sw-bench-libmca}).
+\item SD: el OSC a la SD de la placa por el SW en formato \ruta{.npz}, presentado
+  en la Sec.~\ref{S:sw-guardado}.
+\item Red: el OSC a la PC por la red.
+\end{itemize}
+A estos les
+sumamos el camino original del osciloscopio, la lectura de la BRAM, con dos
+lectores: el lazo de C de \codigo{libmca} y el original, librp desde Python.
+Como referencia ponemos el MCA, que no guarda muestras sino que acumula el
+espectro en la FPGA.
 
-Las líneas punteadas significan: \codigo{salida = entrada} es la medición
-ideal; \codigo{captura sola}, sin guardar los datos a la SD ni mandarlos por
-red; \codigo{TCP solo}, el techo por la velocidad de conexión TCP medida con la
-placa utilizada; y \codigo{MCA a 3 M/s}, el techo con el que nos comparamos.
+Llamamos \textbf{techo} de una etapa a la tasa máxima de eventos que puede
+sostener cuando la entrada le sobra, es decir, lo que pasa por ella cuando está
+saturada. Mientras la entrada está por debajo del techo, la etapa entrega todo
+lo que recibe; por encima, entrega su techo y el resto de los eventos se pierde.
+Cada etapa tiene el suyo: el de la captura lo fija el HW, el del lector el SW y
+el de la red y la SD su ancho de banda.
+
+El techo de la captura sale de su tiempo muerto. Al aceptar un \emph{trigger},
+la captura saca la ventana a un canal por ciclo y mientras tanto los
+\emph{triggers} nuevos se pierden. Con 2 canales y $S$ = pre + post muestras,
+dos eventos tienen que estar separados al menos $2S+3$ ciclos
+(Sec.~\ref{S:osc-window-capture}). Con $S=32$ son 67 ciclos de
+\qty{8}{\nano\second}, \qty{536}{\nano\second}, y el techo es
+$1/\qty{536}{\nano\second}$ $\approx$ 1.87~M/s; con $S=1024$ son 2051 ciclos y el
+techo baja a 61~k/s. Con arribos de Poisson la captura se comporta como un
+tiempo muerto no paralizable, $m = n/(1+n\tau)$: con $n=3$~M/s y
+$\tau=\qty{536}{\nano\second}$ da 1.15~M/s, que es lo que medimos en la DDR.
+
+Las líneas punteadas son los techos. En (a), \codigo{red} y \codigo{SD} son los
+techos de cada destino medidos con el ring lleno. En (b), \codigo{captura sola}
+es el techo de la captura por su tiempo muerto de $2S+3$ ciclos,
+\codigo{TCP solo} el techo por la velocidad de conexión TCP medida con la placa
+utilizada (50~MB/s) y \codigo{MCA a 3 M/s} es la tasa
+con la que nos comparamos. La recta \codigo{salida = entrada} es la medición
+ideal.
 
 \begin{figure}[H]
 \centering\includegraphics{cap9_throughput_caminos}
 \caption[Eventos registrados por segundo en los dos caminos de datos]{%
 Eventos registrados por segundo en los dos caminos de datos, medidos en la placa
 con generación interna: el MCA, que acumula el espectro en la FPGA, y el
-osciloscopio. (a) Tasas medidas vs.\ las de entrada para diferentes caminos de
-datos \label{f:res-throughput}}
+osciloscopio, por el \codigo{event\_ring} o por la BRAM. (a) Tasas
+medidas contra las de entrada, con ventanas de 8 + 24 muestras. (b) Techo de
+cada etapa contra el largo de la ventana.\label{f:res-throughput}}
 \end{figure}
 
-% El resto de la sección en la nota son frases sueltas sin terminar.
-\incompleto{} (se explican como las diferentes etapas modifican la capacidad de
-adquisición). Esto viene de que tenemos mayor throughput para escribir memoria
-primaria que secundaria. La velocidad de adquisición tiene como techo fijo el
-sistema presentado en HW, pero \incompleto. La mejora presente por el
-osciloscopio se presenta en \incompleto.
+En la Fig.~\ref{f:res-throughput}.a vemos cómo cada etapa recorta la capacidad
+de adquisición. Todos los caminos siguen la recta ideal mientras la entrada está
+por debajo de su techo y después se aplanan. A 3~M/s de entrada el MCA
+registra 1.9~M/s, la captura pone 1.2~M/s en la DDR, el lector
+de C del ring lee todo hasta 300~k/s de entrada y se queda en
+439~k/s, a la PC por la red llegan 0.3~M/s y a la SD
+87~k/s. Cada etapa sostiene lo que le pasa la anterior hasta su propio
+techo, así que el camino completo queda fijado por la etapa más lenta. Esto
+viene de que tenemos mayor \emph{throughput} para escribir memoria primaria que
+secundaria: la DDR acepta lo que captura el HW, mientras que la SD, limitada por
+el bus del controlador del Zynq, es la etapa más lenta, y la red queda en el
+medio.
+
+La velocidad de adquisición tiene como techo fijo el sistema presentado en HW,
+pero ese techo no es el que limita: con ventanas cortas la captura pasa
+1.4~M/s y lo que se guarda de forma persistente es entre 5 y 16 veces
+menos. En la Fig.~\ref{f:res-throughput}.b vemos que al alargar la ventana
+todos los techos bajan. La captura pierde por su tiempo muerto, el lector de C
+queda un poco abajo y la red y la SD bajan como su ancho de banda sobre los
+bytes por evento ($32+4S$): con 1024 muestras la DDR pasa 49~k/s, el
+lector 23~k/s, la red 8.2~k/s y la SD 3.7~k/s. Para el MCA
+el largo de la ventana no importa, porque no guarda muestras: este es el motivo
+por el que, a igual tasa de entrada, el MCA siempre registra más eventos que el
+osciloscopio.
+
+La mejora presente por el osciloscopio se presenta en la comparación con el
+camino original por la BRAM, que se lee palabra a palabra por el bus. Con
+ventanas de 32 muestras, librp desde Python llega a 4.4~k/s y el lector
+de C de la BRAM a 49~k/s, mientras que el lector de C del ring lee
+439~k/s: \textbf{100 veces el camino original} y 9 veces el mismo lector
+sobre la BRAM. Aún guardando los eventos, por la red llegan 0.3~M/s, unas
+70 veces el camino original sin guardar. Con 1024 muestras la diferencia se
+achica, porque domina el volumen de datos: el lector del ring pasa
+23~k/s contra 1.0~k/s de Python y 2.0~k/s del lector de C
+sobre la BRAM.
 
 %%% Local Variables:
 %%% mode: latex

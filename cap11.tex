@@ -60,16 +60,16 @@ Generador & \codigo{gen\_pulsos} & tabla de 1024 alturas; caída, subida y ruido
   blanco programables; arribos periódicos o de Poisson; lazo digital \\ \hline
 FPGA & LUT & 14\,358 de 17\,600 (\qty{81.6}{\percent}) \\ \hline
  & registros & 15\,513 de 35\,200 (\qty{44.1}{\percent}) \\ \hline
- & slices & 4400 de 4400 (\qty{100}{\percent}) \\ \hline
+ & \emph{slices} & 4400 de 4400 (\qty{100}{\percent}) \\ \hline
  & BRAM (bloques de 36~kb) & 33 de 60 (\qty{55}{\percent}) \\ \hline
  & DSP & 10 de 80 (\qty{12.5}{\percent}) \\ \hline
- & timing & cierra a \qty{125}{\mega\hertz}, con WNS = \qty{+0.008}{\nano\second}
+ & \emph{timing} & cierra a \qty{125}{\mega\hertz}, con WNS = \qty{+0.008}{\nano\second}
   y WHS = \qty{+0.040}{\nano\second} \\ \hline
 \end{tabularx}
 \end{table}
 
-El diseño ocupa las 4400 slices de la Zynq-7010, con el \qty{81.6}{\percent} de
-las LUT, y cierra el timing a \qty{125}{\mega\hertz} con
+El diseño ocupa las 4400 \emph{slices} de la Zynq-7010, con el \qty{81.6}{\percent} de
+las LUT, y cierra el \emph{timing} a \qty{125}{\mega\hertz} con
 \qty{8}{\pico\second} de margen. Para hacer lugar al anillo y a
 \codigo{gen\_pulsos} sacamos la captura del osciloscopio por AXI, que el anillo
 reemplaza, y bajamos el MCA de 4 a 3 ranuras y de 4 a 3 formas, lo que costó
@@ -112,7 +112,7 @@ Separación de un par con las dos amplitudes en su línea &
   resuelve \\ \hline
 Umbral (mitad de los pulsos disparan) & polo-cero 48~ADU; pendiente 81~ADU &
   51 y 82~ADU \\ \hline
-Walk del disparo & polo-cero \qty{8}{\nano\second}; pendiente
+\emph{Walk} del disparo & polo-cero \qty{8}{\nano\second}; pendiente
   \qty{48}{\nano\second} & 16 y \qty{55}{\nano\second} \\ \hline
 INL del trapecio & $<\qty{0.002}{\percent}$~FS & $\pm\qty{0.008}{\percent}$~FS
   hasta 3200~ADU; $+\qty{0.66}{\percent}$ en 8000, donde satura el ADC
@@ -198,9 +198,9 @@ la capa cuando no da abasto.\label{t:concl-sw}}
   |>{\raggedright\arraybackslash}X|}
 \hline \encabezado \textbf{Camino} & \textbf{Medido} \\ \hline
 leer un registro & \qty{1.5}{\micro\second} en C, \qty{56.8}{\micro\second} por
-  el binding y \qty{10.5}{\micro\second} en Python puro \\ \hline
+  el \emph{binding} y \qty{10.5}{\micro\second} en Python puro \\ \hline
 leer el espectro (8192 canales) & \qty{1.70}{\milli\second} en C,
-  \qty{1.88}{\milli\second} por el binding y \qty{34.3}{\milli\second} en Python
+  \qty{1.88}{\milli\second} por el \emph{binding} y \qty{34.3}{\milli\second} en Python
   puro; \qty{3.5}{\milli\second} por la red \\ \hline
 osciloscopio por la BRAM, con el lazo en C & \qty{18.2}{\micro\second} de tiempo
   muerto por evento (mediana); 34~k/s guardados \\ \hline
@@ -219,7 +219,7 @@ $10^8$ eventos con los dos núcleos ocupados & la PL sola a 1.4~M/s y el lector
 
 \textbf{Lo que limita al osciloscopio es el PS.} Cada capa que se suma al camino
 de los datos baja la tasa: la PL sola escribe 1.42~M/s en el anillo, el lector
-de C copia 753~k/s y, verificando cada slot, 300~k/s, y la sesión de Python
+de C copia 753~k/s y, verificando cada \emph{slot}, 300~k/s, y la sesión de Python
 guarda 100~k/s. El escritor de la PL llega en la placa al techo de la simulación
 con todas las ventanas, así que el AXI y la DDR no lo frenan; con la sesión,
 \ruta{/dev/shm} da casi lo mismo que la SD, así que tampoco frena el disco. Lo
@@ -227,7 +227,7 @@ que limita es el software en los dos núcleos del ARM. El MCA no tiene este
 problema, porque acumula el histograma en la PL y el PS sólo lee el espectro:
 acepta 1.9~M/s, contra los 100~k/s de trazas que guarda el osciloscopio.
 
-\textbf{El costo del binding es por llamada, no por dato.} Pasar por
+\textbf{El costo del \emph{binding} es por llamada, no por dato.} Pasar por
 \codigo{ctypes} agrega unos \qty{55}{\micro\second} por llamada, que dominan al
 leer un registro y casi no pesan al leer el espectro (un \qty{10}{\percent} sobre
 C). Por eso los lazos por evento están en C, y en Python quedan la sesión, los
@@ -253,7 +253,7 @@ PS.
 A continuación se describen algunos de los pasos que quedan para llevar el
 sistema a una medición real y para mejorarlo.
 \begin{itemize}
-  \item \textbf{Implementar el sistema en un setup experimental real.} Es la
+  \item \textbf{Implementar el sistema en un \emph{setup} experimental real.} Es la
     última etapa de validación: un detector con su preamplificador en IN1 y
     fuentes de calibración. Con pulsos reales se miden la resolución en energía,
     la linealidad y la tasa, y se ve cuánto de lo que agrega el canal analógico
@@ -263,7 +263,7 @@ sistema a una medición real y para mejorarlo.
     puede comparar en papel con sus especificaciones, cuidando que las cifras
     sean comparables: la INL, por ejemplo, la dan sobre casi todo el rango, y la
     nuestra está medida hasta 3200~ADU.
-  \item \textbf{Obtener feedback de usuarios y comprobar la facilidad de uso de
+  \item \textbf{Obtener \emph{feedback} de usuarios y comprobar la facilidad de uso de
     la API y la GUI.} Darle el sistema a usuarios del laboratorio con una tarea
     fija, como calibrar el canal, adquirir un espectro y guardar las trazas, y
     medir cuánto tardan y dónde se traban, con la GUI y con la API.

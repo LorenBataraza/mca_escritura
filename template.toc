@@ -2,13 +2,14 @@
 \contentsline {chapter}{\'{I}ndice de contenidos}{\es@scroman {v}}{section*.1}%
 \contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {xi}}{section*.3}%
 \contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {xv}}{section*.5}%
-\contentsline {chapter}{Resumen}{\es@scroman {xvii}}{section*.7}%
+\contentsline {chapter}{Lista de siglas}{\es@scroman {xvii}}{chapter*.7}%
+\contentsline {chapter}{Resumen}{\es@scroman {xxi}}{section*.8}%
 \contentsline {chapter}{\numberline {1}Tipos de usuario y aplicación}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Analizador multicanal}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Guía de usuario}{1}{section.1.2}%
 \contentsline {subsection}{\numberline {1.2.1}Pasos requeridos para la utilización}{2}{subsection.1.2.1}%
 \contentsline {section}{\numberline {1.3}Aplicación cliente en Python}{3}{section.1.3}%
-\contentsline {section}{Referencias}{6}{section*.14}%
+\contentsline {section}{Referencias}{6}{section*.15}%
 \contentsline {chapter}{\numberline {2}Analizador multicanal}{8}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Descripción mínima}{8}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}Distribución diferencial de alturas}{10}{subsection.2.1.1}%
@@ -30,7 +31,7 @@
 \contentsline {subsection}{\numberline {2.6.3}No linealidad diferencial (DNL)}{32}{subsection.2.6.3}%
 \contentsline {subsection}{\numberline {2.6.4}Resolución de par de pulsos}{32}{subsection.2.6.4}%
 \contentsline {subsection}{\numberline {2.6.5}Selección del tipo de bineado}{33}{subsection.2.6.5}%
-\contentsline {section}{Referencias}{34}{section*.37}%
+\contentsline {section}{Referencias}{34}{section*.38}%
 \contentsline {chapter}{\numberline {3}Hardware empleado}{35}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Por qué un módulo de aceleración de HW en vez de un microcontrolador}{35}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Módulos de aceleración de hardware}{38}{section.3.2}%
@@ -46,37 +47,37 @@
 \contentsline {subsection}{\numberline {3.6.1}Entrada analógica presente: ADC}{54}{subsection.3.6.1}%
 \contentsline {subsection}{\numberline {3.6.2}Calibración recomendada por Pitaya}{55}{subsection.3.6.2}%
 \contentsline {subsection}{\numberline {3.6.3}Conectores de expansión}{56}{subsection.3.6.3}%
-\contentsline {section}{Referencias}{57}{section*.65}%
+\contentsline {section}{Referencias}{57}{section*.66}%
 \contentsline {chapter}{\numberline {4}Conceptos de diseño de hardware}{59}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Diseño digital}{59}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Elementos de diseño}{59}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Waveforms}{59}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.1}\emph {Waveforms}}{59}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}Mecanismos de transferencia de datos}{60}{subsection.4.2.2}%
 \contentsline {subsection}{\numberline {4.2.3}Sistemas insensibles a la latencia}{62}{subsection.4.2.3}%
-\contentsline {subsubsection}{Pérdidas de transacciones por back-pressure}{65}{section*.71}%
-\contentsline {section}{\numberline {4.3}Bus custom de Pitaya}{67}{section.4.3}%
+\contentsline {subsubsection}{Pérdidas de transacciones por \emph {back-pressure}}{65}{section*.72}%
+\contentsline {section}{\numberline {4.3}Bus \emph {custom} de Pitaya}{67}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Rendimiento del bus}{68}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Waveforms de transacciones por \texttt {axi4\_slave}}{69}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.2}\emph {Waveforms} de transacciones por \texttt {axi4\_slave}}{69}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}Mapa de registros}{71}{subsection.4.3.3}%
 \contentsline {subsection}{\numberline {4.3.4}Modos de falla del bus interno}{72}{subsection.4.3.4}%
 \contentsline {subsection}{\numberline {4.3.5}Módulo de configuración}{72}{subsection.4.3.5}%
 \contentsline {section}{\numberline {4.4}Verificación}{74}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Técnicas de verificación}{75}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}Exploración del espacio de entrada}{76}{subsection.4.4.2}%
-\contentsline {section}{Referencias}{76}{section*.83}%
+\contentsline {section}{Referencias}{76}{section*.84}%
 \contentsline {chapter}{\numberline {5}Implementación del multitrigger}{78}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Flujo de utilización del módulo}{79}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Fuentes de triggering}{80}{section.5.2}%
+\contentsline {section}{\numberline {5.2}Fuentes de \emph {triggering}}{80}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Elección de fuentes}{81}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Vulnerabilidades del mecanismo por OR}{81}{section.5.4}%
 \contentsline {section}{\numberline {5.5}Vista general del multitrigger}{82}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Función de timestamping}{83}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.1}Función de \emph {timestamping}}{83}{subsection.5.5.1}%
 \contentsline {subsection}{\numberline {5.5.2}Tiempo de relanzamiento}{83}{subsection.5.5.2}%
-\contentsline {subsubsection}{Señal de re-armado de cada fuente}{84}{section*.87}%
-\contentsline {subsubsection}{Relanzamiento del sistema con la OR}{84}{section*.88}%
-\contentsline {subsubsection}{Cuándo mide los pulsos perdidos}{84}{section*.89}%
-\contentsline {subsubsection}{Conteo en el MCA}{85}{section*.90}%
-\contentsline {section}{Referencias}{85}{section*.92}%
+\contentsline {subsubsection}{Señal de re-armado de cada fuente}{84}{section*.88}%
+\contentsline {subsubsection}{Relanzamiento del sistema con la OR}{84}{section*.89}%
+\contentsline {subsubsection}{Cuándo mide los pulsos perdidos}{84}{section*.90}%
+\contentsline {subsubsection}{Conteo en el MCA}{85}{section*.91}%
+\contentsline {section}{Referencias}{85}{section*.93}%
 \contentsline {chapter}{\numberline {6}Implementación del MCA}{87}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Flujo de utilización del módulo}{88}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Vista general del módulo}{89}{section.6.2}%
@@ -85,8 +86,8 @@
 \contentsline {section}{\numberline {6.5}Métodos de recuperación del pulso}{96}{section.6.5}%
 \contentsline {subsection}{\numberline {6.5.1}Cálculo secuencial de estimadores}{97}{subsection.6.5.1}%
 \contentsline {subsection}{\numberline {6.5.2}Recuperación de la línea de base}{98}{subsection.6.5.2}%
-\contentsline {subsubsection}{Metodologías básicas de recuperación de la línea de base}{98}{section*.99}%
-\contentsline {subsubsection}{Metodologías avanzadas de recuperación de la línea de base}{98}{section*.100}%
+\contentsline {subsubsection}{Metodologías básicas de recuperación de la línea de base}{98}{section*.100}%
+\contentsline {subsubsection}{Metodologías avanzadas de recuperación de la línea de base}{98}{section*.101}%
 \contentsline {subsection}{\numberline {6.5.3}Utilización de trapecios en el multitrigger y en el MCA}{99}{subsection.6.5.3}%
 \contentsline {subsection}{\numberline {6.5.4}Recuperación por conformación}{99}{subsection.6.5.4}%
 \contentsline {subsection}{\numberline {6.5.5}Utilización del banco de trapecios}{102}{subsection.6.5.5}%
@@ -96,14 +97,14 @@
 \contentsline {subsection}{\numberline {6.6.3}Determinación de estadísticos: \texttt {mca\_slot}}{108}{subsection.6.6.3}%
 \contentsline {subsection}{\numberline {6.6.4}Publicación a histograma: \texttt {mca\_publish}}{111}{subsection.6.6.4}%
 \contentsline {subsection}{\numberline {6.6.5}Divisor restaurador: \texttt {mca\_div\_restore}}{113}{subsection.6.6.5}%
-\contentsline {subsection}{\numberline {6.6.6}Módulo de zoom: \texttt {mca\_zoom}}{113}{subsection.6.6.6}%
+\contentsline {subsection}{\numberline {6.6.6}Módulo de \emph {zoom}: \texttt {mca\_zoom}}{113}{subsection.6.6.6}%
 \contentsline {subsection}{\numberline {6.6.7}Discriminador: \texttt {mca\_discriminator}}{114}{subsection.6.6.7}%
 \contentsline {subsection}{\numberline {6.6.8}Módulo de histograma: \texttt {mca\_hist}}{114}{subsection.6.6.8}%
-\contentsline {section}{Referencias}{115}{section*.113}%
+\contentsline {section}{Referencias}{115}{section*.114}%
 \contentsline {chapter}{\numberline {7}Resultados de mérito}{116}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Etapas de experimentos y validación}{116}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Resultados de generación externa controlada}{117}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Setup de generación interna}{117}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.1}\emph {Setup} de generación interna}{117}{subsection.7.2.1}%
 \contentsline {section}{\numberline {7.3}Resultados de generación interna}{119}{section.7.3}%
 \contentsline {subsection}{\numberline {7.3.1}Comparación de la tasa de medición obtenida vs.\ la excitada}{119}{subsection.7.3.1}%
 \contentsline {subsection}{\numberline {7.3.2}Error de tasa estimada}{120}{subsection.7.3.2}%
@@ -111,100 +112,100 @@
 \contentsline {subsection}{\numberline {7.3.4}Medición de la resolución de par de pulsos y sobreestimación de pulsos}{121}{subsection.7.3.4}%
 \contentsline {subsection}{\numberline {7.3.5}Medición del corrimiento del centroide}{122}{subsection.7.3.5}%
 \contentsline {subsection}{\numberline {7.3.6}Medición de la no linealidad integral (INL) del conformado trapezoidal}{123}{subsection.7.3.6}%
-\contentsline {subsection}{\numberline {7.3.7}Medición del walk de disparo}{123}{subsection.7.3.7}%
+\contentsline {subsection}{\numberline {7.3.7}Medición del \emph {walk} de disparo}{123}{subsection.7.3.7}%
 \contentsline {subsection}{\numberline {7.3.8}Medición de la DNL (no linealidad diferencial)}{124}{subsection.7.3.8}%
 \contentsline {subsection}{\numberline {7.3.9}Sensibilidad al ajuste del polo-cero}{125}{subsection.7.3.9}%
 \contentsline {subsection}{\numberline {7.3.10}Medición de deriva del canal analógico}{126}{subsection.7.3.10}%
-\contentsline {section}{\numberline {7.4}Throughput para el osciloscopio}{126}{section.7.4}%
-\contentsline {chapter}{\numberline {8}Implementación del OSC}{128}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Función del osciloscopio}{128}{section.8.1}%
-\contentsline {subsection}{\numberline {8.1.1}Caminos de datos}{129}{subsection.8.1.1}%
-\contentsline {subsection}{\numberline {8.1.2}Vista general del osciloscopio base}{129}{subsection.8.1.2}%
-\contentsline {subsection}{\numberline {8.1.3}Flujo de funcionamiento básico}{130}{subsection.8.1.3}%
-\contentsline {section}{\numberline {8.2}Cambios realizados en la versión básica del proyecto}{132}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Versión anillo de eventos}{133}{section.8.3}%
-\contentsline {subsection}{\numberline {8.3.1}Funcionamiento del footer}{135}{subsection.8.3.1}%
-\contentsline {subsection}{\numberline {8.3.2}Metodología de utilización del anillo}{135}{subsection.8.3.2}%
-\contentsline {subsection}{\numberline {8.3.3}Panorama del módulo del anillo}{137}{subsection.8.3.3}%
-\contentsline {section}{\numberline {8.4}Funcionamiento del módulo de ring de eventos}{138}{section.8.4}%
-\contentsline {subsection}{\numberline {8.4.1}Cálculo de tiempo muerto y contadores presentes}{141}{subsection.8.4.1}%
-\contentsline {section}{\numberline {8.5}Detalles de submódulos}{142}{section.8.5}%
-\contentsline {subsection}{\numberline {8.5.1}Módulo de captura de ventana: \texttt {event\_window\_capture}}{142}{subsection.8.5.1}%
-\contentsline {subsection}{\numberline {8.5.2}Buffer elástico: \texttt {event\_stage\_fifo}}{146}{subsection.8.5.2}%
-\contentsline {subsection}{\numberline {8.5.3}Módulo de escritura: \texttt {event\_slot\_writer}}{147}{subsection.8.5.3}%
-\contentsline {section}{Referencias}{149}{section*.148}%
-\contentsline {chapter}{\numberline {9}Implementación del TOP (integración)}{150}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Sistema base de Pitaya: módulo de integración}{150}{section.9.1}%
-\contentsline {subsection}{\numberline {9.1.1}Vista general del TOP}{150}{subsection.9.1.1}%
-\contentsline {subsection}{\numberline {9.1.2}Cambios realizados en el TOP original}{153}{subsection.9.1.2}%
-\contentsline {subsection}{\numberline {9.1.3}Redes de reloj y de reset}{153}{subsection.9.1.3}%
-\contentsline {subsection}{\numberline {9.1.4}Datapath y cálculo de tiempo muerto en integración}{155}{subsection.9.1.4}%
-\contentsline {subsection}{\numberline {9.1.5}Registros de integración}{156}{subsection.9.1.5}%
-\contentsline {section}{Referencias}{157}{section*.157}%
-\contentsline {chapter}{\numberline {10}Software}{158}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Capas de software}{158}{section.10.1}%
-\contentsline {subsection}{\numberline {10.1.1}Elección del sistema operativo}{160}{subsection.10.1.1}%
-\contentsline {subsection}{\numberline {10.1.2}Facilidades del Linux}{161}{subsection.10.1.2}%
-\contentsline {subsection}{\numberline {10.1.3}Funcionalidades de software presente}{162}{subsection.10.1.3}%
-\contentsline {subsection}{\numberline {10.1.4}Modos de fallo en el HW implementado}{163}{subsection.10.1.4}%
-\contentsline {section}{\numberline {10.2}API: \emph {Application Programming Interface}}{164}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Driver en C++: \texttt {libmca}}{165}{section.10.3}%
-\contentsline {subsection}{\numberline {10.3.1}Bloques implementados y métodos de handlers}{167}{subsection.10.3.1}%
-\contentsline {subsection}{\numberline {10.3.2}Adquisición de un evento mediante la API}{169}{subsection.10.3.2}%
-\contentsline {subsection}{\numberline {10.3.3}Binding y clases de sesión Python}{169}{subsection.10.3.3}%
-\contentsline {section}{\numberline {10.4}Guardado de archivos para el MCA y el OSC}{171}{section.10.4}%
-\contentsline {subsection}{\numberline {10.4.1}Contenido de los archivos de trazas del osciloscopio}{173}{subsection.10.4.1}%
-\contentsline {subsubsection}{Trazas en formato \texttt {.npz}}{173}{section*.171}%
-\contentsline {subsubsection}{Metodología de escritura}{174}{section*.173}%
-\contentsline {subsubsection}{Localización de guardado}{175}{section*.175}%
-\contentsline {subsubsection}{Script de guardado de trazas de datos}{175}{section*.176}%
-\contentsline {subsubsection}{Flujo de sesión de adquisición}{177}{section*.180}%
-\contentsline {section}{\numberline {10.5}Protocolo de red}{179}{section.10.5}%
-\contentsline {subsection}{\numberline {10.5.1}Modo de exportación de datos del ring}{179}{subsection.10.5.1}%
-\contentsline {section}{\numberline {10.6}Resultados de benchmark}{181}{section.10.6}%
-\contentsline {subsection}{\numberline {10.6.1}Resultados de benchmark para \texttt {libmca}}{181}{subsection.10.6.1}%
-\contentsline {subsection}{\numberline {10.6.2}Guardado de archivos en disco}{181}{subsection.10.6.2}%
-\contentsline {section}{Referencias}{182}{section*.189}%
-\contentsline {chapter}{\numberline {11}Verificación de normativa nacional e internacional}{183}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Análisis de ARN}{183}{section.11.1}%
-\contentsline {section}{\numberline {11.2}Análisis de IAEA}{184}{section.11.2}%
-\contentsline {section}{\numberline {11.3}Normas de medición y de equipo}{186}{section.11.3}%
-\contentsline {section}{Referencias}{186}{section*.194}%
-\contentsline {chapter}{\numberline {12}Conclusiones y futuros pasos}{188}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Conclusiones}{188}{section.12.1}%
-\contentsline {subsection}{\numberline {12.1.1}Parámetros del sistema implementado}{188}{subsection.12.1.1}%
-\contentsline {subsection}{\numberline {12.1.2}Desempeño del hardware}{190}{subsection.12.1.2}%
-\contentsline {subsection}{\numberline {12.1.3}Desempeño del software}{192}{subsection.12.1.3}%
-\contentsline {section}{\numberline {12.2}Posibles futuros pasos}{194}{section.12.2}%
-\contentsline {chapter}{\numberline {A}Capturas de la aplicación}{196}{appendix.Alph1}%
-\contentsline {chapter}{\numberline {B}Complementos del analizador multicanal}{206}{appendix.Alph2}%
-\contentsline {section}{\numberline {B.1}Posibles detectores empleados}{206}{section.Alph2.1}%
-\contentsline {section}{\numberline {B.2}Aplicaciones del MCA 2D}{207}{section.Alph2.2}%
-\contentsline {section}{Referencias}{209}{section*.210}%
-\contentsline {chapter}{\numberline {C}Complementos del hardware empleado}{210}{appendix.Alph3}%
-\contentsline {section}{\numberline {C.1}Criterios de selección de plataforma de HW}{210}{section.Alph3.1}%
-\contentsline {section}{\numberline {C.2}Detalles de las CLB}{211}{section.Alph3.2}%
-\contentsline {section}{\numberline {C.3}Detalles de las entradas analógicas rápidas}{212}{section.Alph3.3}%
-\contentsline {section}{\numberline {C.4}Detalles de la salida analógica rápida: DAC}{213}{section.Alph3.4}%
-\contentsline {subsection}{\numberline {C.4.1}El conversor AD9767}{215}{subsection.Alph3.4.1}%
-\contentsline {subsection}{\numberline {C.4.2}Respuesta en frecuencia e impedancia de salida}{216}{subsection.Alph3.4.2}%
-\contentsline {section}{Referencias}{218}{section*.219}%
-\contentsline {chapter}{\numberline {D}Detalles del multitrigger}{219}{appendix.Alph4}%
-\contentsline {section}{\numberline {D.1}Detalles de los submódulos}{219}{section.Alph4.1}%
-\contentsline {subsection}{\numberline {D.1.1}Disparo por pendiente \texttt {mt\_slope\_trig}}{220}{subsection.Alph4.1.1}%
-\contentsline {subsection}{\numberline {D.1.2}Disparo por polo-cero \texttt {mt\_pz\_trig}}{221}{subsection.Alph4.1.2}%
-\contentsline {subsection}{\numberline {D.1.3}Escudo \texttt {trigger\_shield}}{222}{subsection.Alph4.1.3}%
-\contentsline {subsection}{\numberline {D.1.4}Selección de fuentes \texttt {mt\_trig\_src} y lógica de eventos \texttt {mt\_event\_logic}}{223}{subsection.Alph4.1.4}%
-\contentsline {subsection}{\numberline {D.1.5}Configuración \texttt {mt\_cfg}}{223}{subsection.Alph4.1.5}%
-\contentsline {section}{\numberline {D.2}Mapa de memoria}{223}{section.Alph4.2}%
-\contentsline {section}{\numberline {D.3}Verificación}{225}{section.Alph4.3}%
-\contentsline {section}{Referencias}{226}{section*.226}%
-\contentsline {chapter}{\numberline {E}Detalles del osciloscopio}{227}{appendix.Alph5}%
-\contentsline {section}{\numberline {E.1}Versión básica}{227}{section.Alph5.1}%
-\contentsline {subsection}{\numberline {E.1.1}FSM de la captura por BRAM}{227}{subsection.Alph5.1.1}%
-\contentsline {section}{\numberline {E.2}Regmap de la versión con anillo de eventos}{229}{section.Alph5.2}%
-\contentsline {chapter}{\numberline {F}Complementos del software}{232}{appendix.Alph6}%
-\contentsline {section}{\numberline {F.1}Estructuras internas de \texttt {libmca}}{232}{section.Alph6.1}%
-\contentsline {section}{\numberline {F.2}Detalle de los hilos de captura}{234}{section.Alph6.2}%
-\contentsline {section}{\numberline {F.3}Programación del bitstream}{235}{section.Alph6.3}%
-\contentsline {chapter}{Agradecimientos}{237}{section*.231}%
+\contentsline {section}{\numberline {7.4}\emph {Throughput} para el osciloscopio}{126}{section.7.4}%
+\contentsline {chapter}{\numberline {8}Implementación del OSC}{130}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Función del osciloscopio}{130}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Caminos de datos}{131}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Vista general del osciloscopio base}{131}{subsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.1.3}Flujo de funcionamiento básico}{132}{subsection.8.1.3}%
+\contentsline {section}{\numberline {8.2}Cambios realizados en la versión básica del proyecto}{134}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Versión anillo de eventos}{135}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Funcionamiento del \emph {footer}}{137}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}Metodología de utilización del anillo}{137}{subsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.3.3}Panorama del módulo del anillo}{139}{subsection.8.3.3}%
+\contentsline {section}{\numberline {8.4}Funcionamiento del módulo de ring de eventos}{140}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}Cálculo de tiempo muerto y contadores presentes}{143}{subsection.8.4.1}%
+\contentsline {section}{\numberline {8.5}Detalles de submódulos}{144}{section.8.5}%
+\contentsline {subsection}{\numberline {8.5.1}Módulo de captura de ventana: \texttt {event\_window\_capture}}{144}{subsection.8.5.1}%
+\contentsline {subsection}{\numberline {8.5.2}\emph {Buffer} elástico: \texttt {event\_stage\_fifo}}{148}{subsection.8.5.2}%
+\contentsline {subsection}{\numberline {8.5.3}Módulo de escritura: \texttt {event\_slot\_writer}}{149}{subsection.8.5.3}%
+\contentsline {section}{Referencias}{151}{section*.149}%
+\contentsline {chapter}{\numberline {9}Implementación del TOP (integración)}{152}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Sistema base de Pitaya: módulo de integración}{152}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Vista general del TOP}{152}{subsection.9.1.1}%
+\contentsline {subsection}{\numberline {9.1.2}Cambios realizados en el TOP original}{155}{subsection.9.1.2}%
+\contentsline {subsection}{\numberline {9.1.3}Redes de reloj y de \emph {reset}}{155}{subsection.9.1.3}%
+\contentsline {subsection}{\numberline {9.1.4}\emph {Datapath} y cálculo de tiempo muerto en integración}{157}{subsection.9.1.4}%
+\contentsline {subsection}{\numberline {9.1.5}Registros de integración}{158}{subsection.9.1.5}%
+\contentsline {section}{Referencias}{159}{section*.158}%
+\contentsline {chapter}{\numberline {10}Software}{160}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Capas de software}{160}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}Elección del sistema operativo}{162}{subsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.1.2}Facilidades del Linux}{163}{subsection.10.1.2}%
+\contentsline {subsection}{\numberline {10.1.3}Funcionalidades de software presente}{164}{subsection.10.1.3}%
+\contentsline {subsection}{\numberline {10.1.4}Modos de fallo en el HW implementado}{165}{subsection.10.1.4}%
+\contentsline {section}{\numberline {10.2}API: \emph {Application Programming Interface}}{166}{section.10.2}%
+\contentsline {section}{\numberline {10.3}\emph {Driver} en C++: \texttt {libmca}}{167}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}Bloques implementados y métodos de \emph {handlers}}{169}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.3.2}Adquisición de un evento mediante la API}{171}{subsection.10.3.2}%
+\contentsline {subsection}{\numberline {10.3.3}\emph {Binding} y clases de sesión Python}{171}{subsection.10.3.3}%
+\contentsline {section}{\numberline {10.4}Guardado de archivos para el MCA y el OSC}{173}{section.10.4}%
+\contentsline {subsection}{\numberline {10.4.1}Contenido de los archivos de trazas del osciloscopio}{175}{subsection.10.4.1}%
+\contentsline {subsubsection}{Trazas en formato \texttt {.npz}}{175}{section*.172}%
+\contentsline {subsubsection}{Metodología de escritura}{176}{section*.174}%
+\contentsline {subsubsection}{Localización de guardado}{177}{section*.176}%
+\contentsline {subsubsection}{\emph {Script} de guardado de trazas de datos}{177}{section*.177}%
+\contentsline {subsubsection}{Flujo de sesión de adquisición}{180}{section*.181}%
+\contentsline {section}{\numberline {10.5}Protocolo de red}{181}{section.10.5}%
+\contentsline {subsection}{\numberline {10.5.1}Modo de exportación de datos del ring}{182}{subsection.10.5.1}%
+\contentsline {section}{\numberline {10.6}Resultados de \emph {benchmark}}{183}{section.10.6}%
+\contentsline {subsection}{\numberline {10.6.1}Resultados de \emph {benchmark} para \texttt {libmca}}{184}{subsection.10.6.1}%
+\contentsline {subsection}{\numberline {10.6.2}Guardado de archivos en disco}{184}{subsection.10.6.2}%
+\contentsline {section}{Referencias}{185}{section*.190}%
+\contentsline {chapter}{\numberline {11}Verificación de normativa nacional e internacional}{186}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Análisis de ARN}{186}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Análisis de IAEA}{187}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Normas de medición y de equipo}{189}{section.11.3}%
+\contentsline {section}{Referencias}{189}{section*.195}%
+\contentsline {chapter}{\numberline {12}Conclusiones y futuros pasos}{191}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Conclusiones}{191}{section.12.1}%
+\contentsline {subsection}{\numberline {12.1.1}Parámetros del sistema implementado}{191}{subsection.12.1.1}%
+\contentsline {subsection}{\numberline {12.1.2}Desempeño del hardware}{193}{subsection.12.1.2}%
+\contentsline {subsection}{\numberline {12.1.3}Desempeño del software}{195}{subsection.12.1.3}%
+\contentsline {section}{\numberline {12.2}Posibles futuros pasos}{197}{section.12.2}%
+\contentsline {chapter}{\numberline {A}Capturas de la aplicación}{199}{appendix.Alph1}%
+\contentsline {chapter}{\numberline {B}Complementos del analizador multicanal}{209}{appendix.Alph2}%
+\contentsline {section}{\numberline {B.1}Posibles detectores empleados}{209}{section.Alph2.1}%
+\contentsline {section}{\numberline {B.2}Aplicaciones del MCA 2D}{210}{section.Alph2.2}%
+\contentsline {section}{Referencias}{212}{section*.211}%
+\contentsline {chapter}{\numberline {C}Complementos del hardware empleado}{213}{appendix.Alph3}%
+\contentsline {section}{\numberline {C.1}Criterios de selección de plataforma de HW}{213}{section.Alph3.1}%
+\contentsline {section}{\numberline {C.2}Detalles de las CLB}{214}{section.Alph3.2}%
+\contentsline {section}{\numberline {C.3}Detalles de las entradas analógicas rápidas}{215}{section.Alph3.3}%
+\contentsline {section}{\numberline {C.4}Detalles de la salida analógica rápida: DAC}{216}{section.Alph3.4}%
+\contentsline {subsection}{\numberline {C.4.1}El conversor AD9767}{218}{subsection.Alph3.4.1}%
+\contentsline {subsection}{\numberline {C.4.2}Respuesta en frecuencia e impedancia de salida}{219}{subsection.Alph3.4.2}%
+\contentsline {section}{Referencias}{221}{section*.220}%
+\contentsline {chapter}{\numberline {D}Detalles del multitrigger}{222}{appendix.Alph4}%
+\contentsline {section}{\numberline {D.1}Detalles de los submódulos}{222}{section.Alph4.1}%
+\contentsline {subsection}{\numberline {D.1.1}Disparo por pendiente \texttt {mt\_slope\_trig}}{223}{subsection.Alph4.1.1}%
+\contentsline {subsection}{\numberline {D.1.2}Disparo por polo-cero \texttt {mt\_pz\_trig}}{224}{subsection.Alph4.1.2}%
+\contentsline {subsection}{\numberline {D.1.3}Escudo \texttt {trigger\_shield}}{225}{subsection.Alph4.1.3}%
+\contentsline {subsection}{\numberline {D.1.4}Selección de fuentes \texttt {mt\_trig\_src} y lógica de eventos \texttt {mt\_event\_logic}}{226}{subsection.Alph4.1.4}%
+\contentsline {subsection}{\numberline {D.1.5}Configuración \texttt {mt\_cfg}}{226}{subsection.Alph4.1.5}%
+\contentsline {section}{\numberline {D.2}Mapa de memoria}{226}{section.Alph4.2}%
+\contentsline {section}{\numberline {D.3}Verificación}{228}{section.Alph4.3}%
+\contentsline {section}{Referencias}{229}{section*.227}%
+\contentsline {chapter}{\numberline {E}Detalles del osciloscopio}{230}{appendix.Alph5}%
+\contentsline {section}{\numberline {E.1}Versión básica}{230}{section.Alph5.1}%
+\contentsline {subsection}{\numberline {E.1.1}FSM de la captura por BRAM}{230}{subsection.Alph5.1.1}%
+\contentsline {section}{\numberline {E.2}Regmap de la versión con anillo de eventos}{232}{section.Alph5.2}%
+\contentsline {chapter}{\numberline {F}Complementos del software}{235}{appendix.Alph6}%
+\contentsline {section}{\numberline {F.1}Estructuras internas de \texttt {libmca}}{235}{section.Alph6.1}%
+\contentsline {section}{\numberline {F.2}Detalle de los hilos de captura}{237}{section.Alph6.2}%
+\contentsline {section}{\numberline {F.3}Programación del \emph {bitstream}}{238}{section.Alph6.3}%
+\contentsline {chapter}{Agradecimientos}{241}{section*.232}%

@@ -9,7 +9,7 @@
 \graphicspath{{figs/cap7/}{figs/comunes/}}
 
 \begin{destacado}
-En esta sección describimos (1) las funcionalidades ofrecidas por el módulo
+En este capítulo describimos (1) las funcionalidades ofrecidas por el módulo
 MCA, (2) su método de utilización desde el PS, (3) una vista general del módulo
 a nivel de HW, (4) el análisis del tiempo muerto y de los eventos perdidos, (5)
 los métodos de recuperación del pulso y (6) los detalles de implementación de
@@ -25,23 +25,23 @@ multitrigger (MT): el disparo \codigo{trig\_i}, que marca el comienzo de cada
 evento, el veto \codigo{veto\_i} y el estado de re-armado del disparo,
 \codigo{trig\_arm\_i}. Provee las siguientes funcionalidades:
 \begin{itemize}
-  \item \textbf{Histogramas de features 1D y 2D}: un espectro de 8192 canales y
+  \item \textbf{Histogramas de \emph{features} 1D y 2D}: un espectro de 8192 canales y
     un mapa de $128 \times 64$ bines. La cantidad de bines se fija en la
-    síntesis; por registro se elige qué feature va a cada eje y qué rango de
-    ella cubre (zoom).
-  \item \textbf{Once features por evento}, calculadas a la vez sobre el mismo
+    síntesis; por registro se elige qué \emph{feature} va a cada eje y qué rango de
+    ella cubre (\emph{zoom}).
+  \item \textbf{Once \emph{features} por evento}, calculadas a la vez sobre el mismo
     pulso: pico, integral, dos de forma, la altura del conformado trapezoidal,
     y los tiempos y las marcas de solape con los pulsos vecinos
     (Tabla~\ref{t:implmca-estimadores}).
   \item \textbf{Medición de hasta \codigo{N\_ACC} eventos simultáneos}, cada uno
-    en su ranura. El bitstream trae \codigo{N\_ACC = 3}, y el registro
+    en su ranura. El \emph{bitstream} trae \codigo{N\_ACC = 3}, y el registro
     \codigo{cfg\_n\_acc} elige cuántas se usan.
   \item \textbf{Banco de conformados trapezoidales} con corrección polo-cero:
     cada evento se publica con la forma más larga que sus vecinos permiten.
   \item \textbf{Línea de base} fija o con seguidor IIR.
   \item \textbf{Rechazo por criterios configurables}: una ventana de amplitud
     (sobre el pico o la integral) al cerrar cada evento, y un discriminador que
-    acepta los eventos con una feature elegida dentro, o fuera, de un
+    acepta los eventos con una \emph{feature} elegida dentro, o fuera, de un
     intervalo.
   \item \textbf{Reporte del tiempo muerto y de los eventos perdidos}: el tiempo
     de adquisición desglosado por causa, la ocupación de las ranuras, tres
@@ -51,7 +51,7 @@ evento, el veto \codigo{veto\_i} y el estado de re-armado del disparo,
 
 El criterio de finalización de eventos no se elige: la ventana la abre siempre
 el disparo del MT y la cierra una compuerta fija. El cierre por histéresis se
-retiró al pasar a medir varios pulsos a la vez, porque con ventanas solapadas el
+retiró al pasar a medir varios pulsos a la vez, porque con ventanas superpuestas el
 cruce de bajada es el de la señal sumada y cerraría todas juntas.
 
 %==============================================================================
@@ -60,7 +60,7 @@ cruce de bajada es el de la señal sumada y cerraría todas juntas.
 
 En la Fig.~\ref{f:implmca-secuencia} se presenta el flujo de utilización.
 Empieza con una \textbf{fase de configuración}, con \codigo{run = 0}, que se
-realiza mediante el bus custom de Pitaya. A continuación se usan los comandos de
+realiza mediante el bus \emph{custom} de Pitaya. A continuación se usan los comandos de
 control de la adquisición; en la figura se presenta la secuencia limpieza,
 arranque, parada y lectura. Después de la limpieza (\codigo{CTRL.clear})
 esperamos \codigo{clear\_busy = 0}, que indica que terminó el barrido de borrado
@@ -80,7 +80,7 @@ lanzamiento de medición.\label{f:implmca-secuencia}}
 Cuando un bin llega al tope ($2^{32}-1$) se levanta la bandera \codigo{full} de
 ese histograma (\codigo{full\_1d} o \codigo{full\_2d}), que se mantiene hasta
 la próxima limpieza. Por defecto el histograma entero deja de contar, y los
-eventos que no entran van a \codigo{cnt\_full\_supp}. Así no hay overflow en el
+eventos que no entran van a \codigo{cnt\_full\_supp}. Así no hay \emph{overflow} en el
 bin, y el espectro no se distorsiona: todos los canales dejan de contar en el
 mismo instante, así que sus áreas relativas siguen siendo comparables. Los
 relojes, en cambio, siguen corriendo, y la exposición del espectro congelado es
@@ -123,19 +123,19 @@ reloj del ADC (\qty{125}{\mega\hertz}) y procesa una muestra por ciclo.
       aplican la ventana de amplitud: si el evento cae afuera, la ranura se
       libera sin publicar.
     \item Divisores \codigo{mca\_div\_restore} (dos, en paralelo): calculan las
-      dos features de forma, $Q_{cola}/Q_{tot}$ y $\text{pico}/Q_{tot}$, como
+      dos \emph{features} de forma, $Q_{cola}/Q_{tot}$ y $\text{pico}/Q_{tot}$, como
       fracciones de 16 bits.
   \end{enumerate}
   \item \textbf{Publicación} (naranja):
   \begin{enumerate}
     \item Publicador \codigo{mca\_publish}: atiende las ranuras cerradas de a
       una, en orden de cierre. Carga los divisores, elige la forma del banco,
-      arma el \textbf{bus de features} y libera la ranura: 18 ciclos por evento.
+      arma el \textbf{bus de \emph{features}} y libera la ranura: 18 ciclos por evento.
       Las ranuras cerradas son la cola de publicación; no hay una FIFO aparte.
-    \item Selección de eje y zoom \codigo{mca\_zoom}: un mux 16:1 por eje elige
-      la feature, y el zoom la convierte en el índice del bin.
+    \item Selección de eje y \emph{zoom} \codigo{mca\_zoom}: un mux 16:1 por eje elige
+      la \emph{feature}, y el \emph{zoom} la convierte en el índice del bin.
     \item Discriminador \codigo{mca\_discriminator}: acepta o rechaza el evento
-      según una feature cualquiera del bus.
+      según una \emph{feature} cualquiera del bus.
     \item Histogramas \codigo{mca\_hist} (dos): el espectro 1D y el mapa 2D,
       cada uno en su BRAM, con un incremento por ciclo.
   \end{enumerate}
@@ -151,7 +151,7 @@ la Sec.~\ref{S:implmca-submodulos}.
 Vista general del módulo analizador multicanal. La muestra entra con el canal
 ya elegido, decimada y retrasada, atraviesa \codigo{mca\_pulse\_feature} (la
 línea de base, la ventana de medición y la publicación) y cae en el bus de
-features, del que cuelgan los ejes, el discriminador y los histogramas. El color
+\emph{features}, del que cuelgan los ejes, el discriminador y los histogramas. El color
 indica la función de cada bloque, y los números sobre las flechas son anchos en
 bits.\label{f:implmca-panorama}}
 \end{figure}
@@ -161,10 +161,10 @@ bits.\label{f:implmca-panorama}}
 \label{S:implmca-perdidos}
 
 Seguimos el criterio de la Sec.~\ref{S:osc-tiempo-muerto}: recorremos el
-datapath y vemos qué hace cada etapa cuando no puede tomar un dato nuevo. Una
+\emph{datapath} y vemos qué hace cada etapa cuando no puede tomar un dato nuevo. Una
 etapa \textbf{bloquea} si puede frenar a la anterior, y \textbf{descarta} si su
 entrada no tiene \emph{ready} y el dato se pierde. Cada descarte tiene su
-contador. En la Fig.~\ref{f:implmca-descarte} se presenta el datapath del MCA
+contador. En la Fig.~\ref{f:implmca-descarte} se presenta el \emph{datapath} del MCA
 desde este punto de vista.
 
 La primera etapa es el disparo, que es externo al MCA: lo genera el MT, y le
@@ -179,15 +179,15 @@ etapas que descartan y dos que sólo bloquean:
     publicador trabaja no libera la ranura que atiende, y las cerradas esperan;
     cuando no queda ninguna libre, el asignador no tiene dónde abrir. Esta
     contrapresión es la que se convierte en tiempo muerto.
-  \item Los \textbf{histogramas} no pueden frenar al bus de features. Un
+  \item Los \textbf{histogramas} no pueden frenar al bus de \emph{features}. Un
     incremento que choca con una lectura del bus o con el barrido de borrado, o
     que llega con el histograma lleno, se pierde.
 \end{itemize}
 
 \begin{figure}[H]
 \centering\includegraphics{cap7_freno_descarte}
-\caption[Datapath del MCA: dónde se frena y dónde se descarta]{%
-Entrada por el módulo de multitrigger, datapath principal del MCA y los
+\caption[\emph{Datapath} del MCA: dónde se frena y dónde se descarta]{%
+Entrada por el módulo de multitrigger, \emph{datapath} principal del MCA y los
 contadores asociados a cada fase. Las flechas rojas salen de las etapas que
 descartan, cada una hacia su contador, y las de vuelta son la contrapresión de
 las ranuras y del publicador, que sólo bloquean. Las grises son cortes por
@@ -320,7 +320,7 @@ $T_{real} - T_{live}$, y no habría forma de repartir la pérdida entre los
 bloques.
 
 Por eso el tiempo de adquisición se \textbf{tesela}: se parte en casilleros que
-no se solapan y que entre todos lo cubren, y cada ciclo con \codigo{run} suma
+no se superponen y que entre todos lo cubren, y cada ciclo con \codigo{run} suma
 en exactamente uno. Cada casillero es un reloj de 64 bits, y cuando en un ciclo
 se cumplen varias condiciones decide una prioridad fija, la del orden de la
 Tabla~\ref{t:implmca-teselado}. Así ningún ciclo se cuenta dos veces ni queda
@@ -356,7 +356,7 @@ suma en el primero cuya condición se cumple. Cuentan ciclos de
 \end{tabularx}
 \end{table}
 
-La prioridad resuelve los dos solapamientos, y en los dos casos el orden tiene
+La prioridad resuelve las dos superposiciones, y en los dos casos el orden tiene
 un motivo:
 \begin{itemize}
   \item \textbf{El veto va primero.} Es la convención de la compuerta de un
@@ -438,8 +438,7 @@ tiempo muerto.
 \end{itemize}
 
 Los modelos de tiempo muerto, que predicen estos valores a partir de la tasa y
-del largo de la ventana, se presentan en la Sec.~\ref{S:ap-mca-modelos} del
-Apéndice.
+del largo de la ventana, se presentan en la Sec.~\ref{S:ap-mca-modelos}.
 
 %==============================================================================
 \section{Métodos de recuperación del pulso}
@@ -447,14 +446,14 @@ Apéndice.
 
 El punto de partida de todos los métodos es el disparo de eventos: cada disparo
 marca dónde empieza un pulso, y el MCA lo mide en una ventana que arranca ahí.
-Cuando dos pulsos se solapan, la ventana de uno contiene parte del otro, y hay
+Cuando dos pulsos se superponen, la ventana de uno contiene parte del otro, y hay
 cuatro políticas posibles, que se presentan en la
 Tabla~\ref{t:implmca-politicas}.
 
 \begin{table}[H]
 \centering
-\caption[Políticas para un pulso que se solapa con otro]{%
-Políticas para un pulso que se solapa con otro. Las tres primeras procesan cada
+\caption[Políticas para un pulso que se superpone con otro]{%
+Políticas para un pulso que se superpone con otro. Las tres primeras procesan cada
 evento por separado, a medida que llegan las muestras; la cuarta tiene que
 procesar juntos los eventos del par.\label{t:implmca-politicas}}
 \small
@@ -463,11 +462,11 @@ procesar juntos los eventos del par.\label{t:implmca-politicas}}
   |>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
 \hline \encabezado & \textbf{Sin corrección (1)} & \textbf{Descartar (2)} &
   \textbf{Rescate único (3)} & \textbf{Rescate total (4)} \\ \hline
-Qué se hace con un pulso solapado & se mide igual, y sale contaminado & se mide
+Qué se hace con un pulso superpuesto & se mide igual, y sale contaminado & se mide
   y se marca, y no llega al histograma & se mide con un estimador que no ve a
   sus vecinos & se mide junto con sus vecinos, y se separan \\ \hline
 Eventos publicados por disparo & 1 & 0 o 1 & 1 & 1 \\ \hline
-Entrada al cálculo de features & flujo de muestras & flujo de muestras & flujo
+Entrada al cálculo de \emph{features} & flujo de muestras & flujo de muestras & flujo
   de muestras & por transacción: los eventos del par, juntos \\ \hline
 En este MCA & la primera versión, el MCA1 & las marcas de solape y el
   discriminador & el banco de trapecios, en \codigo{F\_TRAP} & no se
@@ -562,7 +561,7 @@ que se presentan a continuación.
 \subsubsection{Metodologías avanzadas de recuperación de la línea de base}
 \label{S:implmca-lb-avanzadas}
 
-Hasta la sección anterior teníamos un procesamiento que (1) no tenía en cuenta
+Hasta la Sec.~\ref{S:implmca-lb-basicas} teníamos un procesamiento que (1) no tenía en cuenta
 la señal de entrada y (2) era un filtro simple. Los métodos avanzados tienen en
 cuenta la familia de los pulsos y los disparos. Hay dos familias:
 \begin{itemize}
@@ -632,7 +631,7 @@ sumas móviles, de $k$ y de $l = k+m$ muestras,
   \label{e:implmca-trapecio}
 \end{equation}
 donde $M$ es la constante polo-cero, que se elige para que $a_M = a$
-(Apéndice~\refpend{S:ap-mca-conformado}{detalles de la conformación
+(Sec.~\refpend{S:ap-mca-conformado}{detalles de la conformación
 trapezoidal: esa sección de la nota está comentada}). Si $M$ no coincide con la
 cola del pulso, la cancelación no es exacta: a la salida queda un resto de la
 cola, una exponencial de constante $\tau$ que sigue después del trapecio, y un
@@ -643,8 +642,8 @@ $k$ muestras, una meseta de $m$ y una bajada de $k$. Se presenta en la
 Fig.~\ref{f:implmca-trapecio}. Su largo total es $2k+m$ por larga que sea la
 cola de la entrada, y esa huella finita es lo que permite separar pulsos
 apilados. La deconvolución sola es el caso $k = 1$, porque $B_1 = 1$: en el
-hardware la pregunta no es deconvolución o trapecio, sino qué $k$. En el
-Apéndice~\refpend{S:ap-mca-conformado}{detalles de la conformación trapezoidal:
+hardware la pregunta no es deconvolución o trapecio, sino qué $k$. En la
+Sec.~\refpend{S:ap-mca-conformado}{detalles de la conformación trapezoidal:
 esa sección de la nota está comentada} se muestra cómo se obtiene analíticamente
 y en HW.
 
@@ -696,7 +695,7 @@ propiedades:
     \end{equation}
     Es menos que en el pico, porque $l < \tau$, pero no se cancela. Por eso la
     base se resta antes del trapecio (Sec.~\ref{S:implmca-lb-basicas}).
-  \item \textbf{Tolera la pérdida balística y el jitter del disparo.} La pérdida
+  \item \textbf{Tolera la pérdida balística y el \emph{jitter} del disparo.} La pérdida
     balística se presenta en la Sec.~\ref{S:mca-tipos-conformado}. El trapecio
     de un pulso real es el ideal convolucionado con su subida, de largo $t_c$:
     las esquinas se redondean y la parte plana de la meseta se achica a
@@ -774,10 +773,10 @@ la Sec.~\ref{S:implmca-recuperacion}, así que no tienen subsección propia.
 \label{S:implmca-estimadores}
 
 Cada evento se publica con todos sus estimadores a la vez, en un \textbf{bus de
-features} de 16 posiciones de 16 bits (Fig.~\ref{f:implmca-bus}). El bus es
+\emph{features}} de 16 posiciones de 16 bits (Fig.~\ref{f:implmca-bus}). El bus es
 interno: el ARM no lo ve, y lo que configura es qué posición alimenta cada eje
 del histograma y cuál mira el discriminador. Como las posiciones son fijas,
-cambiar de estimador no cambia el bitstream ni los pulsos medidos: el mismo
+cambiar de estimador no cambia el \emph{bitstream} ni los pulsos medidos: el mismo
 pulso puede ir al espectro por su pico y al mapa 2D por su integral y su forma.
 
 Llamamos $x = v - b$ a la muestra $v$ con la línea de base $b$ restada, y
@@ -794,7 +793,7 @@ carga que llega después de $G_s$ muestras del disparo, y su fracción de
 $Q_{tot}$ mide cuánto pesa la componente lenta del pulso: es el método de
 comparación de carga~\cite{Brooks1959}, con el que se distinguen, por ejemplo,
 los neutrones de los gammas en un centellador orgánico. Que $G_s$ se cuente
-desde el disparo, y no desde el pico, hace a $Q_{cola}$ inmune al jitter del
+desde el disparo, y no desde el pico, hace a $Q_{cola}$ inmune al \emph{jitter} del
 instante del pico. \codigo{F\_TRAP}, en cambio, no suma en toda la ventana sino
 en una \textbf{región de la meseta} propia de cada forma del banco: $2^{lw}$
 muestras que empiezan \codigo{off} muestras después del disparo, configuradas
@@ -804,8 +803,8 @@ el procesamiento que recibe cada estimador.
 
 \begin{table}[H]
 \centering
-\caption[Estimadores del bus de features]{%
-Estimadores del bus de features, agrupados por lo que miden, y el procesamiento
+\caption[Estimadores del bus de \emph{features}]{%
+Estimadores del bus de \emph{features}, agrupados por lo que miden, y el procesamiento
 que recibe cada uno. Los tiempos y separaciones se cuentan en muestras válidas.
 Los estimadores de solape no miran la señal sino los disparos del MT; cómo se
 calculan se detalla en la Sec.~\ref{S:ap-mca-solape}. Las posiciones 11 a 15
@@ -864,7 +863,7 @@ ya decayó, y depende del centellador. Las regiones de la meseta de las formas
 del banco también tienen que entrar en la compuerta larga, y cada forma tiene un
 bit de lectura que avisa si no entra (Sec.~\ref{S:ap-mca-mapa}).
 
-\textbf{Por qué el recorte a cero.} Las features de forma son fracciones entre
+\textbf{Por qué el recorte a cero.} Las \emph{features} de forma son fracciones entre
 0 y 1 sólo si todas las muestras que se suman son no negativas: entonces
 $0 \le Q_{cola} \le Q_{tot}$ y $\text{pico} \le Q_{tot}$, que es lo que necesita
 el divisor, con el numerador menor que el denominador y los dos sin signo. Con
@@ -885,11 +884,11 @@ La línea de base también afecta a \codigo{F\_TRAP}: el trapecio deja pasar la
 continua, así que un error $\varepsilon$ en la base corre \codigo{F\_TRAP} en una
 fracción $\approx \frac{\varepsilon}{A}\,\frac{k+m}{\tau}$ de su altura: menos
 que al pico, pero no se cancela. Además del procesamiento de cada estimador, hay
-dos filtros que actúan sobre el evento entero, sea cual sea la feature que se
+dos filtros que actúan sobre el evento entero, sea cual sea la \emph{feature} que se
 histogramea: la ventana de amplitud, que se evalúa al cerrar sobre el pico o
 sobre la integral (\codigo{cfg\_amp\_src}), y el discriminador, que mira una
-feature cualquiera del bus. Por último, cada eje pasa la feature que eligió por
-su propio zoom.
+\emph{feature} cualquiera del bus. Por último, cada eje pasa la \emph{feature} que eligió por
+su propio \emph{zoom}.
 
 \subsection{Segmentación de eventos:
 \texorpdfstring{\texttt{mca\_window}}{mca\_window}}
@@ -925,7 +924,7 @@ Fig.~\ref{f:implmca-window} podemos identificar las siguientes regiones:
   \item \textbf{Umbrales} (verde): los límites de la ventana de amplitud se
     escalan una sola vez, para todas las ranuras.
   \item \textbf{Ranuras} (verde): las \codigo{N\_ACC} instancias de
-    \codigo{mca\_slot}, que se describen en la subsección siguiente. Nadie
+    \codigo{mca\_slot}, que se describen en la Sec.~\ref{S:implmca-slot}. Nadie
     cierra una ranura desde afuera: cada una cierra sola cuando su largo llega a
     la \codigo{gate\_long} que retuvo al abrir, y vuelve a estar libre cuando el
     publicador la suelta.
@@ -1056,7 +1055,7 @@ cada evento:
     del banco que se publica en \codigo{F\_TRAP}, así que la elección no agrega
     latencia.
   \item Cuando terminan, carga en un solo flanco las 16 posiciones del bus de
-    features, lo marca válido durante un ciclo (\codigo{ev\_valid}) y libera la
+    \emph{features}, lo marca válido durante un ciclo (\codigo{ev\_valid}) y libera la
     ranura.
 \end{enumerate}
 
@@ -1089,8 +1088,8 @@ quién lo consume en \codigo{mca\_top}.
 
 \begin{figure}[H]
 \centering\includegraphics{cap7_bus_features}
-\caption[Bus de features]{%
-Bus de features. Cada ranura cerrada guarda su resultado hasta que el publicador
+\caption[Bus de \emph{features}]{%
+Bus de \emph{features}. Cada ranura cerrada guarda su resultado hasta que el publicador
 la libera, y la cola de índices guarda el orden en que cerraron (en el ejemplo,
 la 2 y después la 0). \codigo{ev\_feat} es un único registro de 256 bits, 16
 posiciones de 16 bits que se cargan en el mismo flanco que \codigo{ev\_valid} y
@@ -1103,7 +1102,7 @@ multiplexor 16:1, el discriminador incluido.\label{f:implmca-bus}}
 \texorpdfstring{\texttt{mca\_div\_restore}}{mca\_div\_restore}}
 \label{S:implmca-div}
 
-Las dos features de forma, $Q_{cola}/Q_{tot}$ y $\text{pico}/Q_{tot}$, se
+Las dos \emph{features} de forma, $Q_{cola}/Q_{tot}$ y $\text{pico}/Q_{tot}$, se
 calculan con dos \textbf{divisores restauradores}. Las dos son fracciones entre
 0 y 1, y el divisor las entrega como un entero de 16 bits:
 \begin{equation}
@@ -1119,7 +1118,7 @@ división larga en binario~\citecap{Parhami2010}{13}: saca un bit del cociente
 por ciclo, con una comparación y una resta y sin multiplicadores, así que los 16
 bits salen en 16 ciclos, sea cual sea el ancho de los operandos.
 
-Los dos divisores trabajan en paralelo, uno por feature. Comparten el
+Los dos divisores trabajan en paralelo, uno por \emph{feature}. Comparten el
 denominador $Q_{tot}$ y el arranque, así que el segundo no agrega tiempo. La
 latencia es fija, incluso en los casos borde, y eso es deliberado: hace que el
 tiempo que tarda el publicador por evento sea siempre el mismo, y con él el
@@ -1136,36 +1135,36 @@ inválida (\codigo{cnt\_rej\_psd}): el evento entra al 1D, pero no al 2D. El
 ancho inverso sólo llega a 1 con un pulso de una sola muestra, y en ese caso
 satura en \codigo{0xFFFF}.
 
-\subsection{Módulo de zoom:
+\subsection{Módulo de \emph{zoom}:
 \texorpdfstring{\texttt{mca\_zoom}}{mca\_zoom}}
 \label{S:implmca-zoom}
 
-Antes del zoom, un mux 16:1 por eje elige qué feature del bus va a ese eje
+Antes del \emph{zoom}, un mux 16:1 por eje elige qué \emph{feature} del bus va a ese eje
 (\codigo{cfg\_sel\_1d}, \codigo{cfg\_sel\_2dx} y \codigo{cfg\_sel\_2dy}), con la
-numeración de la Tabla~\ref{t:implmca-estimadores}. El zoom le asigna a esa
-feature el índice del bin. La ventana del eje es
-$\left[k\,2^{16-z},\ (k+1)\,2^{16-z}\right)$, con $z$ el nivel de zoom y $k$ el
+numeración de la Tabla~\ref{t:implmca-estimadores}. El \emph{zoom} le asigna a esa
+\emph{feature} el índice del bin. La ventana del eje es
+$\left[k\,2^{16-z},\ (k+1)\,2^{16-z}\right)$, con $z$ el nivel de \emph{zoom} y $k$ el
 índice de la ventana, $0 \le k < 2^z$, como se presenta en la
-Fig.~\ref{f:implmca-zoom}. Con $z = 0$, que es el valor de reset, la ventana es
-el rango completo de la feature, y el bin son sus bits más altos. La ventana
+Fig.~\ref{f:implmca-zoom}. Con $z = 0$, que es el valor de \emph{reset}, la ventana es
+el rango completo de la \emph{feature}, y el bin son sus bits más altos. La ventana
 empieza en un múltiplo de su ancho, y su ancho es una potencia de dos. Así la
-cuenta es sólo de bits: la feature está adentro si sus $z$ bits más altos valen
+cuenta es sólo de bits: la \emph{feature} está adentro si sus $z$ bits más altos valen
 $k$, y el bin son los bits siguientes, sin restar ni multiplicar. Además, los
 bins de un nivel son subdivisiones exactas de los del anterior: un bin de nivel
-$z$ es la suma de dos de nivel $z+1$. Por eso espectros tomados con zoom
+$z$ es la suma de dos de nivel $z+1$. Por eso espectros tomados con \emph{zoom}
 distinto se combinan sumando enteros, sin re-muestrear.
 
 Un evento fuera de la ventana satura: va al último bin si está por encima y al
 primero si está por debajo, así que los bins de los extremos avisan del
-desborde. El zoom no mejora la resolución: sólo achica la pérdida por bineado
+desborde. El \emph{zoom} no mejora la resolución: sólo achica la pérdida por bineado
 (Sec.~\ref{S:implmca-fisher-bineado}). Sirve para ubicar el eje sobre una región
 de interés y para poder usar un histograma más chico.
 
 \begin{figure}[H]
 \centering\includegraphics{cap7_zoom_ventanas}
-\caption[El zoom de un eje del histograma]{%
-El zoom de un eje, para el espectro 1D (feature de 16 bits, 8192 canales). (a)
-En el nivel $z$ el rango de la feature se parte en $2^z$ ventanas iguales y
+\caption[El \emph{zoom} de un eje del histograma]{%
+El \emph{zoom} de un eje, para el espectro 1D (\emph{feature} de 16 bits, 8192 canales). (a)
+En el nivel $z$ el rango de la \emph{feature} se parte en $2^z$ ventanas iguales y
 alineadas, y la ventana $k$ ocupa el histograma entero. Con $z = 2$ y $k = 1$,
 un evento adentro cae en el bin proporcional, y los de afuera saturan en el
 primer y en el último canal. (b) La misma cuenta en bits: los $z$ bits altos se
@@ -1177,14 +1176,14 @@ descarta.\label{f:implmca-zoom}}
 \texorpdfstring{\texttt{mca\_discriminator}}{mca\_discriminator}}
 \label{S:implmca-discr}
 
-Acepta o rechaza el evento según una feature del bus, elegida con
-\codigo{cfg\_discr\_sel}. Con \codigo{cfg\_discr\_out = 0} acepta si la feature
+Acepta o rechaza el evento según una \emph{feature} del bus, elegida con
+\codigo{cfg\_discr\_sel}. Con \codigo{cfg\_discr\_out = 0} acepta si la \emph{feature}
 está en $[\min, \max]$, y con \codigo{cfg\_discr\_out = 1}, si está afuera;
 deshabilitado, acepta todo. Con $\min > \max$ el intervalo es vacío, así que
 rechaza todo o acepta todo, según el modo. Un evento rechazado no va a ninguno
 de los dos histogramas y se cuenta en \codigo{cnt\_rej\_discr}.
 
-Está después de los divisores para que pueda mirar las features de forma, que no
+Está después de los divisores para que pueda mirar las \emph{features} de forma, que no
 existen hasta que el divisor termina: un corte en $\text{pico}/Q_{tot}$ separa
 los pulsos apilados, que son más anchos, de los limpios. El costo es que todo
 evento paga la latencia del publicador antes de poder ser rechazado.

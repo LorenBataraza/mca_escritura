@@ -21,21 +21,21 @@ Sec.~\ref{S:res-throughput-osc}.
 \label{S:osc-funcion}
 
 Su nombre deriva de su funcionamiento principal, que es exactamente igual al de
-un osciloscopio. El mismo guarda en un buffer interno una \textbf{traza} de la
+un osciloscopio. El mismo guarda en un \emph{buffer} interno una \textbf{traza} de la
 señal a su entrada. Esta traza consiste en medidas previas y posteriores al
 disparador. Este tipo de funcionalidad es típica de un sistema de HW
-programable, debido a que es de las mejores formas de debug de un datapath.
+programable, debido a que es de las mejores formas de \emph{debug} de un \emph{datapath}.
 Otros puntos importantes de funcionalidad consisten en:
 \begin{itemize}
-  \item Largo de traza: en la versión base es un buffer circular fijo de
+  \item Largo de traza: en la versión base es un \emph{buffer} circular fijo de
     $2^\text{RSZ}$ muestras por canal (16384 en el diseño original de Pitaya,
-    8192 en este proyecto), del que se configura el largo post-trigger; en la
+    8192 en este proyecto), del que se configura el largo \emph{post-trigger}; en la
     versión con anillo de eventos (Sec.~\ref{S:osc-anillo-eventos}) la ventana
     \codigo{pre+post} es configurable hasta 1024 muestras (con \codigo{pre}
     $\leq$ 1023), y por defecto vale 32 (\codigo{pre=8}, \codigo{post=24}).
-  \item Mediciones a tiempo de clock de sistema o con un diezmado programable
+  \item Mediciones a tiempo de \emph{clock} de sistema o con un diezmado programable
     (desde 1 hasta 65536).
-  \item Disparo por una señal de evento (trigger).
+  \item Disparo por una señal de evento (\emph{trigger}).
 \end{itemize}
 Como tenemos toda la información del pulso, no consideramos necesario realizar
 un procesamiento en HW de seguimiento de línea de base o compensación de la
@@ -49,14 +49,14 @@ La versión original del osciloscopio proveniente de Pitaya implementa
 Fig.~\ref{f:osc-panorama-pitaya}, en la que se presentan dos interfaces AXI: la
 primera interactúa con AXI\_GP0 mediante el bus interno del sistema
 (\codigo{sys\_bus}), mientras que la segunda escribe en la DDR por los puertos
-AXI\_HP0 y AXI\_HP1 (mediante dos bridges, ver la
+AXI\_HP0 y AXI\_HP1 (mediante dos \emph{bridges}, ver la
 Sec.~\ref{S:top-vista-general}). Esta interfaz utiliza un esquema de volcado de
 datos del tipo \emph{fire and forget} hacia una región de memoria DDR; el
 problema de este esquema es que no nos dice nada de la segmentación de los
 eventos ni de la consistencia en la lectura de los datos. Estos detalles se
 presentan en la Sec.~\ref{S:osc-anillo-eventos}.
 
-Mientras que el bus custom utiliza un handshake completo para leer/escribir
+Mientras que el bus \emph{custom} utiliza un \emph{handshake} completo para leer/escribir
 secciones de 32 bits (ver la Sec.~\ref{S:intro-hw-bus-custom}). En la
 Sec.~\ref{S:osc-flujo-basico} presentamos los detalles de utilización de esta
 modalidad.
@@ -67,48 +67,48 @@ modalidad.
 Un esquema del funcionamiento del mismo se encuentra en la
 Fig.~\ref{f:osc-panorama-pitaya}. Vemos dos regiones: \textbf{una sección
 compartida} por todos los canales, representada por bloques en gris, y
-\textbf{una cadena de adquisición por stream de datos}. A esta última sección la
+\textbf{una cadena de adquisición por \emph{stream} de datos}. A esta última sección la
 subdividimos en otras 4; si hacemos una descripción breve individual por módulo
 obtenemos:
 \begin{itemize}
   \item \textbf{Cadena de acondicionamiento} (bloques azul claro):
   \begin{itemize}
-    \item \codigo{rp\_scope\_calib}: calibración de offset y ganancia,
+    \item \codigo{rp\_scope\_calib}: calibración de \emph{offset} y ganancia,
       $y = \mathrm{sat}\big((x + \text{offset}) \cdot \text{gain}\big)$, con
       saturación al rango de la muestra.
     \item \codigo{osc\_filter}: es un ecualizador IIR que tiene como objetivo
       compensar la respuesta en frecuencia del \emph{front-end} analógico
       (coeficientes \codigo{aa/bb/kk/pp} por canal). Estos son los
-      coeficientes comentados en la sección de calibración de Pitaya
-      (Sec.~\ref{S:hw-calibracion}).
+      coeficientes de calibración de Pitaya comentados en la
+      Sec.~\ref{S:hw-calibracion}.
     \item \codigo{rp\_decim}: reduce la tasa de muestreo por un factor de 1 a
       65536, quedándose con una muestra de cada N o promediándolas
       (\codigo{AVG\_EN}). Llamamos a la unidad de tiempo reducida \emph{tick} y
       no \emph{clock}, para no confundirnos con el reloj del sistema.
-    \item \codigo{rp\_delay}: como la salida del trigger está desfasada de los
-      datos, este módulo lo compensa: 1 ciclo para los triggers por nivel de
+    \item \codigo{rp\_delay}: como la salida del \emph{trigger} está desfasada de los
+      datos, este módulo lo compensa: 1 ciclo para los \emph{triggers} por nivel de
       los canales y 2 para el externo y el del ASG.
   \end{itemize}
-  \item \textbf{Cadena de triggering} (bloques amarillos): se calcula en
+  \item \textbf{Cadena de \emph{triggering}} (bloques amarillos): se calcula en
     paralelo a la cadena de acondicionamiento.
   \begin{itemize}
     \item \codigo{rp\_adc\_trig}: utiliza un disparador con histéresis de tipo
-      Schmitt sobre el stream \emph{sin retrasar} del diezmador. Emite un pulso
+      Schmitt sobre el \emph{stream} \textbf{sin retrasar} del diezmador. Emite un pulso
       de un ciclo en cada flanco de subida (\codigo{trig\_p}) y de bajada
       (\codigo{trig\_n}).
     \item \codigo{rp\_trig\_src}: elige una fuente entre los flancos de los
-      canales, el trigger externo, el ASG y el de software (código de 4 bits).
+      canales, el \emph{trigger} externo, el ASG y el de software (código de 4 bits).
   \end{itemize}
   \item \textbf{Manejo de captura}:
   \begin{itemize}
-    \item \codigo{rp\_bram\_sm}: implementa la FSM de armado, post-trigger y
-      congelado del buffer, sobre la que el PS hace los 3 pasos de la sección
-      siguiente. Se explica en detalle en la Sec.~\ref{S:ap-osc-fsm-bram} del
-      Apéndice.
+    \item \codigo{rp\_bram\_sm}: implementa la FSM de armado, \emph{post-trigger} y
+      congelado del \emph{buffer}, sobre la que el PS hace los 3 pasos de la
+      Sec.~\ref{S:osc-flujo-basico}. Se explica en detalle en la
+      Sec.~\ref{S:ap-osc-fsm-bram}.
   \end{itemize}
   \item \textbf{Manejo de transacciones}:
   \begin{itemize}
-    \item \codigo{rp\_acq\_bram}: buffer circular de $2^\text{RSZ}$ muestras de
+    \item \codigo{rp\_acq\_bram}: \emph{buffer} circular de $2^\text{RSZ}$ muestras de
       14 bits (RSZ = 14 en el original, 13 en este proyecto). Se lee mediante
       el \codigo{sys\_bus}, una muestra por transacción.
     \item \codigo{rp\_axi\_sm}: camino paralelo que hace uso de \emph{direct
@@ -121,9 +121,9 @@ obtenemos:
 \centering\includegraphics{cap8_panorama_scope_pitaya}
 \caption[Módulo OSC original de Pitaya]{%
 Módulo OSC original de Pitaya. Contiene una cadena de preprocesamiento (azul),
-sección de triggering interno (amarillo) y externo (módulo
+sección de \emph{triggering} interno (amarillo) y externo (módulo
 \codigo{rp\_ext\_trig} en gris), submódulo de configuración (en gris), lógica de
-captura de datos y manejo de transacciones por bus custom (verde) y camino de
+captura de datos y manejo de transacciones por bus \emph{custom} (verde) y camino de
 datos por HP (\codigo{rp\_axi\_sm} en naranja claro).\label{f:osc-panorama-pitaya}}
 \end{figure}
 
@@ -131,7 +131,7 @@ Mientras que si desarrollamos los \textbf{bloques compartidos} encontramos los
 dos siguientes:
 \begin{itemize}
   \item \codigo{rp\_ext\_trig}: es un \emph{debouncer} de longitud configurable
-    para el trigger externo y del ASG.
+    para el \emph{trigger} externo y del ASG.
   \item \codigo{rp\_scope\_cfg}: guarda la configuración y maneja los comandos
     desde SW a la FSM. Multiplexa hacia \codigo{sys\_bus} la lectura del estado
     y de la BRAM.
@@ -141,7 +141,7 @@ dos siguientes:
 \label{S:osc-flujo-basico}
 
 El proyecto base de Pitaya ya contaba con un módulo capaz de implementar una
-versión básica de esta funcionalidad mediante el bus custom. En la
+versión básica de esta funcionalidad mediante el bus \emph{custom}. En la
 Fig.~\ref{f:osc-secuencia-basica} se presentan los pasos para realizar una
 captura: primeramente tenemos que realizar todas las configuraciones
 necesarias, mientras que por traza capturada tenemos que seguir los siguientes
@@ -149,42 +149,42 @@ pasos:
 \begin{enumerate}
   \item \textbf{Armado} (\emph{arm}): es mandar el comando de armado
     \codigo{CMD\_ARM}, que se realiza escribiendo un 1 a este registro. Indica al
-    módulo que terminó de trabajar con su buffer interno y que es capaz de
+    módulo que terminó de trabajar con su \emph{buffer} interno y que es capaz de
     sobreescribirlo.
   \item \textbf{Chequeo de finalización de captura} (congelamiento): se lee la
     variable \codigo{ADC\_STATE} hasta que la vemos en alto. Representa que el
     módulo terminó de adquirir la traza deseada y se encuentra disponible para
     leer.
-  \item \textbf{Lectura}: el buffer interno se encuentra congelado; en este
+  \item \textbf{Lectura}: el \emph{buffer} interno se encuentra congelado; en este
     estado se realizan las transacciones de lectura necesarias para extraer
 \end{enumerate}
 
 \begin{figure}[H]
 \centering\includegraphics{cap8_secuencia_osc}
 \caption[Secuencia de una captura del OSC básico]{%
-Secuencia de una captura del OSC básico vista desde el PS, en modo single-shot
-(\codigo{keep = 0}). El PS arma, sondea \codigo{ADC\_STATE} hasta que el buffer
+Secuencia de una captura del OSC básico vista desde el PS, en modo \emph{single-shot}
+(\codigo{keep = 0}). El PS arma, sondea \codigo{ADC\_STATE} hasta que el \emph{buffer}
 queda congelado y recién entonces lee los punteros y la traza por el bus.
 Mientras el PS lee, la captura está detenida.\label{f:osc-secuencia-basica}}
 \end{figure}
 
-Un sistema de adquisición ``continua'' realiza un loop en estas tres fases. El
+Un sistema de adquisición ``continua'' realiza un \emph{loop} en estas tres fases. El
 sistema también aporta un registro de configuración \codigo{keep} (modo
-continuo): con \codigo{keep=1} el buffer nunca se congela, y después de cada
-post-trigger la escritura sigue y la FSM queda esperando el próximo trigger. Se
+continuo): con \codigo{keep=1} el \emph{buffer} nunca se congela, y después de cada
+\emph{post-trigger} la escritura sigue y la FSM queda esperando el próximo \emph{trigger}. Se
 detiene escribiendo \codigo{keep=0} y esperando que el sistema se congele.
 
-Para que no tengamos sobreescritura del buffer, tenemos que estar seguros de que
-no tenemos triggers mientras realizamos la lectura. Esto puede ser el caso si
-nosotros lanzamos el trigger de forma externa o por SW. En el caso de no tener
-control sobre el trigger, el modo \codigo{keep} no es deseable, debido a que
-podemos tener \emph{tearing}: bajo este efecto, una lectura del buffer puede
+Para que no tengamos sobreescritura del \emph{buffer}, tenemos que estar seguros de que
+no tenemos \emph{triggers} mientras realizamos la lectura. Esto puede ser el caso si
+nosotros lanzamos el \emph{trigger} de forma externa o por SW. En el caso de no tener
+control sobre el \emph{trigger}, el modo \codigo{keep} no es deseable, debido a que
+podemos tener \emph{tearing}: bajo este efecto, una lectura del \emph{buffer} puede
 resultar de una cantidad arbitraria de capturas.
 
 En la Fig.~\ref{f:osc-secuencia-basica} las flechas PS$\rightarrow$PL son
 escrituras (la configuración y el \codigo{arm}) y las PL$\rightarrow$PS son
-lecturas (el estado, y los punteros y el buffer una vez congelado). Todas las
-transacciones se realizan mediante el ``handshake completo'' explicado en la
+lecturas (el estado, y los punteros y el \emph{buffer} una vez congelado). Todas las
+transacciones se realizan mediante el ``\emph{handshake} completo'' explicado en la
 Sec.~\ref{S:intro-hw-transferencia}.
 
 El ciclo completo (armar, esperar el congelado, leer la ventana y volver a
@@ -200,7 +200,7 @@ Sec.~\ref{S:osc-anillo-eventos} presenta cómo se elimina esa espera.
 \label{S:osc-cambios}
 
 Las diferencias principales fueron dos. Primeramente, \textbf{aislamos la cadena
-de acondicionamiento y exportamos la cadena de triggering} a su propio módulo
+de acondicionamiento y exportamos la cadena de \emph{triggering}} a su propio módulo
 \textbf{multitrigger}, explicado en el Cap.~\ref{C:multitrigger}. Por otro lado,
 volcamos como salidas los pasos intermedios del DSP mediante la utilización de
 tres seleccionadores llamados \textbf{mca}, \textbf{mtrg} y \textbf{osc}; estos
@@ -210,9 +210,9 @@ detalle.
 
 \begin{figure}[H]
 \centering\includegraphics{cap8_panorama_scope_mt}
-\caption[Módulo del scope utilizado en este proyecto]{%
-Módulo del scope utilizado en este proyecto (\codigo{rp\_scope\_mt\_com}). La
-cadena de triggering pasa a \codigo{mt\_top}, plegado (con sombra), y tres
+\caption[Módulo del \emph{scope} utilizado en este proyecto]{%
+Módulo del \emph{scope} utilizado en este proyecto (\codigo{rp\_scope\_mt\_com}). La
+cadena de \emph{triggering} pasa a \codigo{mt\_top}, plegado (con sombra), y tres
 \codigo{dsp\_tap\_mux} (en gris) eligen de qué nodo del DSP toma su muestra cada
 consumidor: MCA, multitrigger y OSC. \codigo{trigger\_event} dispara a la vez la
 captura de todos los canales, y todo corre en
@@ -227,8 +227,8 @@ El osciloscopio original de Red Pitaya cuenta con un camino de datos paralelo,
 implementado en \codigo{rp\_axi\_sm} (no confundir con la
 \codigo{rp\_bram\_sm}). En la Fig.~\ref{f:osc-deep-memory} se presenta el
 mecanismo: después de un armado, las muestras se escriben de forma continua en
-la memoria DDR del PS mediante la interfaz HP (en este camino el PL es master),
-igual que en la BRAM, y tras el post-trigger la escritura se congela y se
+la memoria DDR del PS mediante la interfaz HP (en este camino el PL es \emph{master}),
+igual que en la BRAM, y tras el \emph{post-trigger} la escritura se congela y se
 actualizan los registros internos del módulo dentro del PL. Para averiguar en
 qué sección de los 2~MB se encuentra el pulso, se tiene que realizar una
 transacción de lectura al PL acerca de estas variables.
@@ -237,10 +237,10 @@ transacción de lectura al PL acerca de estas variables.
 \centering\includegraphics{cap8_deep_memory}
 \caption[Esquema del \emph{deep memory} de Pitaya]{%
 Esquema del \emph{deep memory} de Pitaya (\codigo{rp\_axi\_sm}) como generador,
-buffer y consumidor. Las muestras van a DDR por HP, donde entran muchas
-ventanas, pero dónde cayó el trigger se anota en un único registro
+\emph{buffer} y consumidor. Las muestras van a DDR por HP, donde entran muchas
+ventanas, pero dónde cayó el \emph{trigger} se anota en un único registro
 (\codigo{WP\_TRIG}). La entrada queda congelada hasta que el PS lo lee por el bus
-y re-arma: se comporta como un buffer de $K = 1$. Es un esquema, no una
+y re-arma: se comporta como un \emph{buffer} de $K = 1$. Es un esquema, no una
 medición.\label{f:osc-deep-memory}}
 \end{figure}
 
@@ -260,51 +260,51 @@ ser muy útil si queremos obtener trazas considerablemente largas.
 
 Este bloqueo se debe a que la presencia de un nuevo evento puede reescribir
 cualquiera de los valores previos; esto \textbf{es considerar que la totalidad
-del resto del buffer no se puede sobreescribir}, y no es necesariamente verdad.
-Cada evento puede tomar una región de memoria dedicada en el buffer, de largo y
+del resto del \emph{buffer} no se puede sobreescribir}, y no es necesariamente verdad.
+Cada evento puede tomar una región de memoria dedicada en el \emph{buffer}, de largo y
 posición fija en DDR; esta región tiene en cuenta la segmentación del pulso en
-hardware. La comparación entre el buffer segmentado y el original se presenta en
+hardware. La comparación entre el \emph{buffer} segmentado y el original se presenta en
 la Fig.~\ref{f:osc-ring-vs-buffer}. A cada región para un pulso la llamamos
 casillero (\emph{slot}), y \textbf{contiene las variables de control que antes
 transferíamos por GP0}. En la Fig.~\ref{f:osc-ring-vs-buffer}(b) se presenta su
 estructura interna, que consiste en las regiones:
 \begin{itemize}
-  \item \textbf{Header} (cabecera): contiene los valores de metadata del
-    evento; incluye el timestamp, la cantidad de canales, la cantidad de
-    muestras, el número en la secuencia y el snapshot de trigger (qué trigger lo
+  \item \textbf{\emph{Header}} (cabecera): contiene los valores de \emph{metadata} del
+    evento; incluye el \emph{timestamp}, la cantidad de canales, la cantidad de
+    muestras, el número en la secuencia y el \emph{snapshot} de \emph{trigger} (qué \emph{trigger} lo
     lanzó).
   \item \textbf{Datos+relleno}: contiene las muestras de la ventana más una
-    región inválida para normalizar el ancho de los slots.
-  \item \textbf{Footer}: es la marca de \emph{commit}: indica que el slot está
-    completo. Si el slot se puede volver a escribir no lo dice el footer sino
+    región inválida para normalizar el ancho de los \emph{slots}.
+  \item \textbf{\emph{Footer}}: es la marca de \emph{commit}: indica que el \emph{slot} está
+    completo. Si el \emph{slot} se puede volver a escribir no lo dice el \emph{footer} sino
     los créditos (\codigo{RD\_SLOT}).
 \end{itemize}
 
 \begin{figure}[H]
 \centering\includegraphics{cap8_ring_vs_buffer}
-\caption[Dónde queda un evento en DDR: buffer circular y anillo de slots]{%
-Dónde queda un evento en DDR. (a) Buffer circular: las muestras se escriben
+\caption[Dónde queda un evento en DDR: \emph{buffer} circular y anillo de \emph{slots}]{%
+Dónde queda un evento en DDR. (a) \emph{Buffer} circular: las muestras se escriben
 corridas, y sólo el último evento tiene puntero (\codigo{wp\_trig}); los
-anteriores habría que buscarlos en software. (b) Anillo de slots: cada evento
-ocupa un slot de largo fijo, con cabecera, muestras, relleno y el footer
+anteriores habría que buscarlos en software. (b) Anillo de \emph{slots}: cada evento
+ocupa un \emph{slot} de largo fijo, con cabecera, muestras, relleno y el \emph{footer}
 \codigo{\{\textasciitilde seq, seq\}}, y su dirección se calcula como
 \codigo{SLOT\_BASE + (seq mod N)$\cdot$SLOT\_SZ}.\label{f:osc-ring-vs-buffer}}
 \end{figure}
 
 Esta implementación libera ancho de banda en el canal (no estamos transfiriendo)
 y, mucho más importante, podemos subdividir la lectura del mismo en hasta la
-cantidad de slots que deseemos. Este esquema de comunicaciones se suele
+cantidad de \emph{slots} que deseemos. Este esquema de comunicaciones se suele
 describir como \emph{descriptor ring}~\cite{Virtio12,Corbet2005}. A
 continuación describimos cómo funciona la sección de control, vista desde el PS.
 
-\subsection{Funcionamiento del footer}
+\subsection{Funcionamiento del \emph{footer}}
 \label{S:osc-footer}
 
-Es una \textbf{marca de \emph{commit} al final del slot}: si no tiene el valor
+Es una \textbf{marca de \emph{commit} al final del \emph{slot}}: si no tiene el valor
 esperado, el PS no lee el resto. Es el mecanismo habitual cuando un mensaje es
 largo o su latencia es desconocida: se escribe el cuerpo y, al final, una marca
-que confirma que todo lo anterior ya llegó. Como el PL escribe el slot en orden
-de dirección, ver el footer con el \codigo{seq} esperado garantiza que la
+que confirma que todo lo anterior ya llegó. Como el PL escribe el \emph{slot} en orden
+de dirección, ver el \emph{footer} con el \codigo{seq} esperado garantiza que la
 cabecera y las muestras ya están en la DDR. El PS tampoco tiene que confirmar
 cada evento: devuelve \textbf{créditos} publicando \codigo{RD\_SLOT} una vez por
 lote, y el PL escribe de forma ininterrumpida mientras le queden créditos.
@@ -317,26 +317,26 @@ de lote porque se aprovecha que los elementos ya están en DDR para agruparlos e
 regiones contiguas y así realizar movimientos de datos más eficientes. Para que
 esto funcione de forma correcta tenemos que configurar los parámetros de la
 región de memoria; estos sólo se latchean con la adquisición parada, y
-escribirlos corriendo se ignora y levanta la flag \codigo{err\_cfg}. Incluyen:
+escribirlos corriendo se ignora y levanta la \emph{flag} \codigo{err\_cfg}. Incluyen:
 \begin{enumerate}
   \item Tamaño \codigo{RING\_SZ} y posición de la región de DDR volátil (este
     tipo de acceso a memoria debe configurarse en el OS; el anillo usa la región
     de 32~MB en \codigo{0x0A00\_0000} que el proyecto de Pitaya reserva para el
     analizador lógico, y no la de 2~MB del \emph{deep memory}).
   \item Tamaño del \codigo{SLOT\_SHIFT}.
-  \item Cantidad de slots, que no se escribe: el módulo la deriva como
+  \item Cantidad de \emph{slots}, que no se escribe: el módulo la deriva como
     \codigo{N\_SLOTS = RING\_SZ \textgreater\textgreater{} SLOT\_SHIFT}. Todos
     deben entrar en la región DDR asignada.
-  \item Tamaño de PRE y POST trigger de la ventana. La cabecera, la ventana y el
-    footer deben entrar en un slot de $2^\text{SLOT\_SHIFT}$ bytes.
+  \item Tamaño de PRE y POST \emph{trigger} de la ventana. La cabecera, la ventana y el
+    \emph{footer} deben entrar en un \emph{slot} de $2^\text{SLOT\_SHIFT}$ bytes.
 \end{enumerate}
 Antes de escribir la geometría, el PS para el anillo, espera que llegue a
-\codigo{STOPPED} y escribe \codigo{CTRL.clr}. Esto vacía el stage, el escritor
+\codigo{STOPPED} y escribe \codigo{CTRL.clr}. Esto vacía el \emph{stage}, el escritor
 y el \codigo{axi\_wr\_fifo}, pone en cero \codigo{WR\_SLOT}, \codigo{RD\_SLOT},
 \codigo{SEQ} y los contadores de descarte, y limpia \codigo{err\_cfg}. Después
-el PS \textbf{pone en cero el footer de cada slot}, escribiendo directamente en
-la DDR: el slot $k$ de la corrida anterior tiene el mismo \codigo{seq} que
-tendrá el de esta, con un footer válido, y sin borrarlo la primera vuelta lo
+el PS \textbf{pone en cero el \emph{footer} de cada \emph{slot}}, escribiendo directamente en
+la DDR: el \emph{slot} $k$ de la corrida anterior tiene el mismo \codigo{seq} que
+tendrá el de esta, con un \emph{footer} válido, y sin borrarlo la primera vuelta lo
 entregaría como nuevo. Con una barrera de por medio escribe la geometría, la
 relee (\codigo{N\_SLOTS}, \codigo{err\_cfg} y \codigo{WR\_SLOT = 0}) y recién
 entonces activa el módulo con \codigo{CTRL.run} (ver la
@@ -346,18 +346,18 @@ Por simplicidad, asociamos un único hilo de ejecución dentro del PS para este
 módulo. El código del Cap.~\ref{C:sw} realiza lo siguiente:
 \begin{enumerate}
   \item Lee \codigo{WR\_SLOT} por GP0 una vez por lote de eventos, para saber
-    cuántos slots hay candidatos.
-  \item Valida el footer de cada uno en la DDR. El primero que no está corta el
-    bloque, porque \codigo{WR\_SLOT} avanza cuando el FIFO acepta el footer, no
-    cuando el footer llega a la DDR.
+    cuántos \emph{slots} hay candidatos.
+  \item Valida el \emph{footer} de cada uno en la DDR. El primero que no está corta el
+    bloque, porque \codigo{WR\_SLOT} avanza cuando el FIFO acepta el \emph{footer}, no
+    cuando el \emph{footer} llega a la DDR.
   \item Pone una barrera de memoria, que ordena los accesos: garantiza que los
-    footers se leyeron antes que los datos (ver la
+    \emph{footers} se leyeron antes que los datos (ver la
     Sec.~\ref{S:hw-modelo-memoria}). Recién después lee la cabecera y las
     muestras.
   \item Pone otra barrera y publica \codigo{RD\_SLOT} una vez por bloque,
-    devolviendo los créditos de todos sus slots.
+    devolviendo los créditos de todos sus \emph{slots}.
 \end{enumerate}
-Con el buffer circular el trabajo era \textbf{por evento}, y la captura queda
+Con el \emph{buffer} circular el trabajo era \textbf{por evento}, y la captura queda
 congelada mientras el PS lee. Con el ring es \textbf{por lote} y la captura no
 se detiene.
 
@@ -365,19 +365,19 @@ se detiene.
 \centering\includegraphics{cap8_secuencia_ring}
 \caption[Flujo de utilización del anillo de eventos]{%
 Flujo de utilización del anillo de eventos. Tenemos tres fases: (1)
-inicialización, (2) arranque y (3) lectura por lote, con el commit dado por el
-footer (\codigo{seq}) y el acknowledge por la escritura de
+inicialización, (2) arranque y (3) lectura por lote, con el \emph{commit} dado por el
+\emph{footer} (\codigo{seq}) y el \emph{acknowledge} por la escritura de
 \codigo{RD\_SLOT}.\label{f:osc-secuencia-ring}}
 \end{figure}
 
-Si se quisiera, se podría sondear sólo el footer y no leer \codigo{WR\_SLOT}. La
+Si se quisiera, se podría sondear sólo el \emph{footer} y no leer \codigo{WR\_SLOT}. La
 diferencia es que sin \codigo{WR\_SLOT} el lazo no toca el GP0, pero el PS no
-sabe cuántos slots hay listos y tiene que leer los footers de a uno hasta dar
+sabe cuántos \emph{slots} hay listos y tiene que leer los \emph{footers} de a uno hasta dar
 con uno que no está. Con \codigo{WR\_SLOT}, una sola lectura por bloque
 ($\sim$\qty{2.3}{\micro\second}, repartidos entre todos los eventos del bloque)
-dice cuántos pedir, y el commit lo sigue dando el footer.
+dice cuántos pedir, y el \emph{commit} lo sigue dando el \emph{footer}.
 
-En la siguiente sección mostramos la vista general del módulo que implementa la
+En la Sec.~\ref{S:osc-panorama-anillo} mostramos la vista general del módulo que implementa la
 comunicación mediante el anillo.
 
 \subsection{Panorama del módulo del anillo}
@@ -386,20 +386,20 @@ comunicación mediante el anillo.
 El anillo reemplaza al camino a DDR original: \codigo{rp\_axi\_sm} queda
 deshabilitado (\codigo{EN\_AXI = 0}) y en su lugar se usa
 \codigo{event\_ring\_top}, con las conexiones de la
-Fig.~\ref{f:osc-panorama-scope-ring}. En el bitstream el anillo no está dentro
-del scope sino en el TOP, al lado de él, con esas mismas conexiones. Se dejó el
+Fig.~\ref{f:osc-panorama-scope-ring}. En el \emph{bitstream} el anillo no está dentro
+del \emph{scope} sino en el TOP, al lado de él, con esas mismas conexiones. Se dejó el
 camino original por AXI\_GP0 y la BRAM porque la versión original del módulo
 contenía ambos caminos, y por compatibilidad del mapa de registros.
 
 \begin{figure}[H]
 \centering\includegraphics{cap8_panorama_scope_ring}
-\caption[Conexión del anillo de eventos con el scope]{%
-Conexión del anillo de eventos con el scope. \codigo{event\_ring\_top} toma el
+\caption[Conexión del anillo de eventos con el \emph{scope}]{%
+Conexión del anillo de eventos con el \emph{scope}. \codigo{event\_ring\_top} toma el
 lugar de \codigo{rp\_axi\_sm}, el camino a DDR. La BRAM se mantiene porque es la
 que leen \codigo{librp} y la secuencia del OSC básico. Los bloques con sombra
 están plegados: su interior está en los panoramas de \codigo{mt\_top} y
-\codigo{event\_ring\_top}. En el bitstream el anillo se instancia en el TOP, al
-lado del scope, con estas mismas conexiones.\label{f:osc-panorama-scope-ring}}
+\codigo{event\_ring\_top}. En el \emph{bitstream} el anillo se instancia en el TOP, al
+lado del \emph{scope}, con estas mismas conexiones.\label{f:osc-panorama-scope-ring}}
 \end{figure}
 
 %==============================================================================
@@ -407,17 +407,17 @@ lado del scope, con estas mismas conexiones.\label{f:osc-panorama-scope-ring}}
 \label{S:osc-ring-funcionamiento}
 
 En la Fig.~\ref{f:osc-freno-descarte} se puede ver la cadena principal del
-datapath del módulo de ring de eventos \codigo{event\_ring\_top}, que contiene
+\emph{datapath} del módulo de ring de eventos \codigo{event\_ring\_top}, que contiene
 los siguientes submódulos:
 \begin{itemize}
   \item \codigo{event\_window\_capture}: es el que segmenta las muestras de la
     entrada en las trazas correspondientes a subir al FIFO.
-  \item \codigo{event\_stage\_fifo}: es un \textbf{buffer
+  \item \codigo{event\_stage\_fifo}: es un \textbf{\emph{buffer}
     elástico}~\cite{Cortadella2006} que guarda todas las fuentes de datos de un
-    evento en buffers separados.
+    evento en \emph{buffers} separados.
   \item \codigo{event\_slot\_writer}: arma la trama de bits que representa un
-    slot a partir de los datos de los buffers de la etapa anterior, es decir,
-    serializa un evento a un slot del anillo en DDR. Sale por la misma interfaz
+    \emph{slot} a partir de los datos de los \emph{buffers} de la etapa anterior, es decir,
+    serializa un evento a un \emph{slot} del anillo en DDR. Sale por la misma interfaz
     simplificada de Instrumentation Technologies que usaba
     \codigo{rp\_axi\_sm}, para seguir el formato del sistema original.
   \item \codigo{axi\_wr\_fifo}: módulo de paquetizado del proyecto original de
@@ -430,9 +430,9 @@ los siguientes submódulos:
 \centering\includegraphics{cap8_ring_freno_descarte}
 \caption[Dónde se frena y dónde se descarta en el anillo]{%
 Dónde se frena y dónde se descarta en el anillo cuando algo no alcanza. Sólo la
-captura descarta, porque el trigger y las muestras le llegan sin
+captura descarta, porque el \emph{trigger} y las muestras le llegan sin
 \codigo{ready}: el evento que no puede tomar lo pierde entero y lo cuenta
-(flecha roja). El stage y el escritor sólo bloquean, y su contrapresión
+(flecha roja). El \emph{stage} y el escritor sólo bloquean, y su contrapresión
 (flechas de vuelta) sube hasta la captura sin perder datos. Los números son las
 filas de la Tabla~\ref{t:osc-freno-descarte}.\label{f:osc-freno-descarte}}
 \end{figure}
@@ -444,24 +444,24 @@ actual.
 
 Si analizamos la composición interna del módulo, además de la cadena principal
 (en naranja claro) identificamos las siguientes cinco secciones de lógica
-propias del top:
+propias del \emph{top}:
 \begin{itemize}
   \item \textbf{Submódulo de configuración}: sección compartida explicada en la
     Sec.~\ref{S:intro-hw-modulo-config}.
-  \item \textbf{Timestamp}: contador de 64 bits que avanza con cada
+  \item \textbf{\emph{Timestamp}}: contador de 64 bits que avanza con cada
     \codigo{dv}. Vuelve a 0 en \codigo{STOPPED}, así que $t = 0$ es el arranque
     de la corrida. La captura lo copia en la cabecera de cada evento.
-  \item \textbf{Créditos}: calcula los slots ocupados en la DDR como
+  \item \textbf{Créditos}: calcula los \emph{slots} ocupados en la DDR como
     \codigo{wr\_slot $-$ rd\_slot}, así que funciona aunque los contadores den
     la vuelta. \codigo{credit\_ok = ocupados \textless{} N\_slots}.
     \codigo{rd\_slot} lo publica el PS cuando termina de leer un lote. Sin
-    crédito, el writer espera para no pisar un slot que el PS todavía no leyó.
+    crédito, el \emph{writer} espera para no pisar un \emph{slot} que el PS todavía no leyó.
   \item \textbf{Dirección}: indica los valores límite dados los registros de
-    configuración internos, stop = \codigo{SLOT\_BASE + RING\_SZ $-$ 8}.
+    configuración internos, \emph{stop} = \codigo{SLOT\_BASE + RING\_SZ $-$ 8}.
   \item \textbf{Contrapresión}: calcula una ocupación propia del
-    \codigo{axi\_wr\_fifo} por el master. Hace falta porque el FIFO del
+    \codigo{axi\_wr\_fifo} por el \emph{master}. Hace falta porque el FIFO del
     proyecto de Pitaya no expone su nivel y \textbf{descarta en silencio si se
-    pushea estando lleno}. Si aun así el FIFO desborda, queda un sticky
+    pushea estando lleno}. Si aun así el FIFO desborda, queda un \emph{sticky}
     \codigo{err\_fifo\_ovf}.
 \end{itemize}
 
@@ -469,10 +469,10 @@ propias del top:
 \centering\includegraphics{cap8_panorama_event_ring_top}
 \caption[Estructura interna de \codigo{event\_ring\_top}]{%
 Estructura interna de \codigo{event\_ring\_top}. Contiene la cadena de la
-Fig.~\ref{f:osc-freno-descarte} (en naranja claro) y la lógica propia del top:
-configuración, timestamp, créditos, dirección, contrapresión y FSM global. El
+Fig.~\ref{f:osc-freno-descarte} (en naranja claro) y la lógica propia del \emph{top}:
+configuración, \emph{timestamp}, créditos, dirección, contrapresión y FSM global. El
 PS no lee ningún registro por evento: lee \codigo{WR\_SLOT} y publica
-\codigo{RD\_SLOT} una vez por lote, y valida cada slot por su footer en DDR.
+\codigo{RD\_SLOT} una vez por lote, y valida cada \emph{slot} por su \emph{footer} en DDR.
 \codigo{gen\_eventos} está entre la entrada y la captura; apagado, es un paso
 directo.\label{f:osc-panorama-ring-top}}
 \end{figure}
@@ -480,14 +480,14 @@ directo.\label{f:osc-panorama-ring-top}}
 Nos quedó por explicar el \textbf{manejo de la FSM}: en la
 Fig.~\ref{f:osc-fsm-ring} se puede observar una FSM global de tres estados
 (\codigo{STOPPED}, \codigo{RUNNING}, \codigo{DRAINING}). En \codigo{STOPPED} se
-vacían el stage, el escritor y el \codigo{axi\_wr\_fifo}, y se ponen en cero
-\codigo{wr\_slot}, \codigo{rd\_slot} y el timestamp; es el único estado en que
-se acepta la geometría. En \codigo{RUNNING} la captura acepta triggers. Al bajar
-\codigo{CTRL.run} pasa a \codigo{DRAINING}: la captura no acepta triggers nuevos
+vacían el \emph{stage}, el escritor y el \codigo{axi\_wr\_fifo}, y se ponen en cero
+\codigo{wr\_slot}, \codigo{rd\_slot} y el \emph{timestamp}; es el único estado en que
+se acepta la geometría. En \codigo{RUNNING} la captura acepta \emph{triggers}. Al bajar
+\codigo{CTRL.run} pasa a \codigo{DRAINING}: la captura no acepta \emph{triggers} nuevos
 pero termina la ventana en vuelo, y vuelve a \codigo{STOPPED} recién cuando la
-captura y el escritor están libres, el stage no tiene eventos y el
+captura y el escritor están libres, el \emph{stage} no tiene eventos y el
 \codigo{axi\_wr\_fifo} largó su última palabra. Así una parada nunca deja un
-slot sin su footer.
+\emph{slot} sin su \emph{footer}.
 
 \begin{figure}[H]
 \centering\includegraphics{cap8_fsm_event_ring_top}
@@ -497,7 +497,7 @@ en \codigo{STATUS[1:0]}. \codigo{DRAINING} deja terminar la ventana en vuelo y
 vacía la cadena antes de volver a \codigo{STOPPED}. Si se para con el anillo
 lleno, no termina hasta que el PS devuelve créditos o escribe
 \codigo{CTRL.clr}. Llegar a \codigo{STOPPED} pone en cero los contadores de
-slot.\label{f:osc-fsm-ring}}
+\emph{slot}.\label{f:osc-fsm-ring}}
 \end{figure}
 
 \subsection{Cálculo de tiempo muerto y contadores presentes}
@@ -531,13 +531,13 @@ y 4 \textbf{descartan} el evento entero en la captura y lo cuentan en
   |l|>{\raggedright\arraybackslash}X|}
 \hline \encabezado \textbf{Nivel} & \textbf{Recurso} & \textbf{Señal} &
   \textbf{Qué pasa al agotarse} \\ \hline
-1 & slots de DDR & \codigo{credit\_ok} & el writer \textbf{se frena} en
+1 & \emph{slots} de DDR & \codigo{credit\_ok} & el \emph{writer} \textbf{se frena} en
   \codigo{W\_IDLE} \\ \hline
-2 & \codigo{axi\_wr\_fifo} & \codigo{wr\_rdy} & el writer \textbf{se frena} a
-  mitad de slot \\ \hline
-3 & stage (muestras + metadatos) & \codigo{s\_accept} & la captura
+2 & \codigo{axi\_wr\_fifo} & \codigo{wr\_rdy} & el \emph{writer} \textbf{se frena} a
+  mitad de \emph{slot} \\ \hline
+3 & \emph{stage} (muestras + metadatos) & \codigo{s\_accept} & la captura
   \textbf{descarta entero} $\rightarrow$ \codigo{drop\_full} \\ \hline
-4 & la captura misma & \codigo{busy} & trigger durante el drenaje
+4 & la captura misma & \codigo{busy} & \emph{trigger} durante el drenaje
   $\rightarrow$ \codigo{drop\_busy} \\ \hline
 \end{tabularx}
 \end{table}
@@ -551,33 +551,33 @@ y 4 \textbf{descartan} el evento entero en la captura y lo cuentan en
 \label{S:osc-window-capture}
 
 Reemplaza el rol de \codigo{rp\_bram\_sm}. Este módulo es común a todos los
-slots, y su funcionalidad consiste en que por cada \textbf{trigger se extrae una
+\emph{slots}, y su funcionalidad consiste en que por cada \textbf{\emph{trigger} se extrae una
 ventana de muestras como un AXI-Stream}; la misma incluye \codigo{pre} antes y
 \codigo{post} desde el disparo.
 \begin{itemize}
-  \item Tiene \textbf{una sola memoria}, el pre-buffer: un buffer circular de
+  \item Tiene \textbf{una sola memoria}, el \emph{pre-buffer}: un \emph{buffer} circular de
     $2^{11}$ palabras que se escribe siempre y del que salen tanto el pre como
     el post. Los metadatos del evento (\codigo{m\_ts}, \codigo{m\_snap},
     \codigo{m\_nsamp}) se guardan en tres registros.
   \item El evento se acepta o se descarta entero; esto se decide en el ciclo del
-    trigger, antes de emitir el \emph{start of frame} (SOF).
+    \emph{trigger}, antes de emitir el \emph{start of frame} (SOF).
 \end{itemize}
 
 Tenemos una segmentación de las ventanas de captura mediante la utilización de
 símbolos que representan el inicio de una ventana, llamado \emph{start of frame}
 (SOF), y el final de la ventana, llamado \emph{end of frame} (EOF). La FSM del
 sistema se presenta en la Fig.~\ref{f:osc-fsm-window}; lo más importante es que
-mueve \textbf{sólo el lado de lectura del pre-buffer} y consta de tres estados.
+mueve \textbf{sólo el lado de lectura del \emph{pre-buffer}} y consta de tres estados.
 
-Con \codigo{run\_i} en 1, cada \codigo{dv} (data valid) escribe una palabra y
+Con \codigo{run\_i} en 1, cada \codigo{dv} (\emph{data valid}) escribe una palabra y
 avanza \codigo{wr\_ptr}, en cualquier estado.
 
 La señal \codigo{m\_accept} la da \codigo{event\_stage\_fifo}, indica si tiene
-lugar disponible y se mira únicamente en el ciclo de trigger:
+lugar disponible y se mira únicamente en el ciclo de \emph{trigger}:
 \begin{enumerate}
-  \item \codigo{IDLE}: espera el trigger.
+  \item \codigo{IDLE}: espera el \emph{trigger}.
   \begin{itemize}
-    \item Si el stage no tiene lugar (\codigo{m\_accept\_i = 0}), sale un pulso
+    \item Si el \emph{stage} no tiene lugar (\codigo{m\_accept\_i = 0}), sale un pulso
       de \codigo{drop\_full\_o} y la FSM se queda en \codigo{ST\_IDLE}.
     \item Si tiene lugar, en el mismo ciclo carga
       \codigo{rd\_ptr $\leftarrow$ wr\_ptr $-$ pre},
@@ -600,15 +600,15 @@ lugar disponible y se mira únicamente en el ciclo de trigger:
       \codigo{ch\_idx}; con el último canal descuenta \codigo{samp\_left}.
       \codigo{m\_sof\_o} sale con el canal 0 de la primera muestra y
       \codigo{m\_eof\_o} con el último canal de la última, y ahí pasa a
-      \codigo{ST\_TAIL}. Un trigger en este estado no se acepta: sale un pulso
+      \codigo{ST\_TAIL}. Un \emph{trigger} en este estado no se acepta: sale un pulso
       de \codigo{drop\_busy\_o}.\end{sloppypar}
   \end{enumerate}
   \item \codigo{TAIL}: \textbf{dura un ciclo}; deja que \codigo{m\_eof\_o}
-    salga por su registro antes de aceptar un trigger nuevo (un trigger en este
+    salga por su registro antes de aceptar un \emph{trigger} nuevo (un \emph{trigger} en este
     ciclo también se cuenta como \codigo{drop\_busy}), y vuelve a
     \codigo{ST\_IDLE}. La captura queda ocupada
-    $(\text{pre}+\text{post})\cdot N_\text{CH} + 2$ ciclos después del trigger
-    aceptado, así que dos triggers sólo se aceptan si están separados al menos
+    $(\text{pre}+\text{post})\cdot N_\text{CH} + 2$ ciclos después del \emph{trigger}
+    aceptado, así que dos \emph{triggers} sólo se aceptan si están separados al menos
     $2S+3$ ciclos (con $S$ = \codigo{pre+post} y $N_\text{CH}=2$), que es la
     ventana ciega que medimos en placa. Esto vale sin diezmado (\codigo{dv} en
     todos los ciclos); con diezmado $D$ el post llega a una muestra cada $D$
@@ -620,23 +620,23 @@ lugar disponible y se mira únicamente en el ciclo de trigger:
 \centering\includegraphics{cap8_fsm_window_capture}
 \caption[FSM de captura de un evento]{%
 FSM de captura de un evento (\codigo{event\_window\_capture}). Mueve sólo el
-lado de lectura del pre-buffer; la escritura sigue en cualquier estado.
-\codigo{m\_accept\_i} se mira una sola vez, en el ciclo del trigger: sin lugar,
-el evento se descarta entero (\codigo{drop\_full}), y un trigger en
+lado de lectura del \emph{pre-buffer}; la escritura sigue en cualquier estado.
+\codigo{m\_accept\_i} se mira una sola vez, en el ciclo del \emph{trigger}: sin lugar,
+el evento se descarta entero (\codigo{drop\_full}), y un \emph{trigger} en
 \codigo{DRAIN} o \codigo{TAIL} se pierde como \codigo{drop\_busy}. Con el
 anillo en \codigo{RUNNING} todo flanco queda contado:
-\codigo{EV\_CNT + DROP\_BUSY + DROP\_FULL} = triggers.\label{f:osc-fsm-window}}
+\codigo{EV\_CNT + DROP\_BUSY + DROP\_FULL} = \emph{triggers}.\label{f:osc-fsm-window}}
 \end{figure}
 
 Mientras que en la Fig.~\ref{f:osc-panorama-window} podemos identificar:
 \begin{enumerate}
   \item \textbf{Flanco y decisión} (amarillo):
   \begin{enumerate}
-    \item \codigo{trig\_d} guarda el trigger del ciclo anterior y
+    \item \codigo{trig\_d} guarda el \emph{trigger} del ciclo anterior y
       \codigo{trig\_edge = trig\_i $\land$ $\lnot$trig\_d}: se toma el flanco y
       no el nivel, porque el disparo por software puede durar más de un ciclo
       de \codigo{adc\_clk} (en placa daba dos eventos por disparo).
-    \item \codigo{trig\_edge $\land$ accept\_trig\_i $\land$ idle} es un trigger
+    \item \codigo{trig\_edge $\land$ accept\_trig\_i $\land$ idle} es un \emph{trigger}
       que la captura puede tomar; con \codigo{m\_accept\_i} se separa en
       \codigo{acepta} (carga punteros y metadatos, arranca la FSM) o
       \codigo{drop\_full} (sin lugar aguas abajo, el evento se descarta
@@ -649,7 +649,7 @@ Mientras que en la Fig.~\ref{f:osc-panorama-window} podemos identificar:
     y \codigo{m\_nsamp $\leftarrow$ pre\_i + post\_i}, el largo por canal.
   \item \textbf{FSM de ventana} (gris, en el centro): es la de la
     Fig.~\ref{f:osc-fsm-window}.
-  \item \textbf{Manejo de punteros y el pre-buffer} (azul):
+  \item \textbf{Manejo de punteros y el \emph{pre-buffer}} (azul):
   \begin{enumerate}
     \item Tenemos una extensión de signo previa de 14 a 16 bits por canal (la
       palabra de los dos canales pasa de 28 a 32 bits).
@@ -659,7 +659,7 @@ Mientras que en la Fig.~\ref{f:osc-panorama-window} podemos identificar:
     \item El comparador \codigo{rd\_ptr $\neq$ wr\_ptr} da
       \codigo{rd\_avail}.
   \end{enumerate}
-  \item \textbf{Pedir palabra}: decide en qué ciclo se lee el pre-buffer. Cada
+  \item \textbf{Pedir palabra}: decide en qué ciclo se lee el \emph{pre-buffer}. Cada
     palabra trae las $N_\text{CH}$ muestras de un instante, pero la salida
     entrega una por ciclo, así que una palabra alcanza para $N_\text{CH}$
     ciclos.
@@ -667,7 +667,7 @@ Mientras que en la Fig.~\ref{f:osc-panorama-window} podemos identificar:
     \item Se pide una palabra cuando no hay ninguna pendiente de serializar
       (\codigo{$\lnot$word\_val}), o cuando la pendiente está entregando su
       último canal (\codigo{ch\_last}): como la lectura tarda un ciclo, la
-      palabra nueva llega justo a tiempo y el stream no tiene huecos.
+      palabra nueva llega justo a tiempo y el \emph{stream} no tiene huecos.
     \item La lectura se hace sólo si hay dato
       (\codigo{do\_read = want\_word $\land$ rd\_avail}); en el post espera a
       que llegue la muestra siguiente.
@@ -684,14 +684,14 @@ Mientras que en la Fig.~\ref{f:osc-panorama-window} podemos identificar:
   \end{enumerate}
   \item \textbf{Serializador}:
   \begin{enumerate}
-    \item \codigo{word\_r} guarda la palabra leída del pre-buffer (las
+    \item \codigo{word\_r} guarda la palabra leída del \emph{pre-buffer} (las
       $N_\text{CH}$ muestras de un instante) y un mux elegido por
       \codigo{ch\_idx} saca un canal por ciclo. \codigo{m\_val},
       \codigo{m\_dat}, \codigo{m\_sof} y \codigo{m\_eof} van registrados
       juntos; \codigo{m\_sof} sale con \codigo{ch\_idx = 0} y
       \codigo{samp\_left = m\_nsamp}, y \codigo{m\_eof} con \codigo{ch\_last} y
       \codigo{samp\_left = 1}.
-    \item El stream queda con los canales intercalados:
+    \item El \emph{stream} queda con los canales intercalados:
       \codigo{ch0[k], ch1[k], ch0[k+1], \ldots}.
     \item Como se lee una palabra cada $N_\text{CH}$ ciclos y se escribe una por
       ciclo, el rezago entre punteros crece hasta
@@ -708,7 +708,7 @@ Mientras que en la Fig.~\ref{f:osc-panorama-window} podemos identificar:
 Vista general de \codigo{event\_window\_capture} a nivel de operación. Una sola
 memoria guarda el pre y el post: al aceptar, \codigo{rd\_ptr} arranca
 \codigo{pre} palabras atrás de \codigo{wr\_ptr}. Desde ahí se lee una palabra
-cada $N_\text{CH}$ ciclos mientras el pre-buffer se sigue escribiendo a una por
+cada $N_\text{CH}$ ciclos mientras el \emph{pre-buffer} se sigue escribiendo a una por
 ciclo. El serializador saca un canal por ciclo con un mux elegido por
 \codigo{ch\_idx}. Las redes con nombre se conectan por nombre (\codigo{wv} =
 \codigo{word\_val}), y \codigo{NOMBRE=valor} son los parámetros con que lo
@@ -717,24 +717,24 @@ instancia \codigo{event\_ring\_top}.\label{f:osc-panorama-window}}
 
 La FSM de la ventana es muy parecida a la presentada en la
 Fig.~\ref{f:ap-osc-fsm-bram}, debido a que tiene el mismo objetivo: segmentar
-con un trigger en la entrada un evento dado. Las diferencias ahora son:
+con un \emph{trigger} en la entrada un evento dado. Las diferencias ahora son:
 \begin{enumerate}
   \item No tenemos un estado de ``armado'', sino que ese bit de información
-    (armado/desarmado), que representaba si podíamos sobreescribir el buffer
+    (armado/desarmado), que representaba si podíamos sobreescribir el \emph{buffer}
     interno de los datos, se presenta como entrada del módulo en la señal
     \codigo{m\_accept\_i}: hay lugar aguas abajo para la ventana entera. La
     entrada \codigo{accept\_trig\_i} es otra cosa: la da la FSM global y vale 1
     sólo en \codigo{RUNNING}.
-  \item El buffer no se congela: el pre-buffer se escribe siempre y la ventana
-    se copia a un stream, así que la captura vuelve a estar lista sin
+  \item El \emph{buffer} no se congela: el \emph{pre-buffer} se escribe siempre y la ventana
+    se copia a un \emph{stream}, así que la captura vuelve a estar lista sin
     intervención del PS.
 \end{enumerate}
 
-\subsection{Buffer elástico:
+\subsection{\emph{Buffer} elástico:
 \texorpdfstring{\texttt{event\_stage\_fifo}}{event\_stage\_fifo}}
 \label{S:osc-stage-fifo}
 
-Este buffer elástico se denomina \emph{stage} porque no guarda únicamente las
+Este \emph{buffer} elástico se denomina \emph{stage} porque no guarda únicamente las
 muestras del evento, sino que también tiene una cola de metadatos; las mismas
 \textbf{en esta instancia se encuentran desacopladas}. En la
 Fig.~\ref{f:osc-panorama-stage} se presenta un diagrama de la misma, que
@@ -750,7 +750,7 @@ incluye:
   \item \textbf{Cola de muestras}: $2^{12}$ muestras de 16 bits en BRAM, con
     punteros \codigo{wr\_ptr}/\codigo{rd\_ptr} y nivel \codigo{lvl}; cuenta
     cada muestra que entra y sale. La salida está registrada en
-    \codigo{dout\_r}, así que la muestra vale un ciclo después del pop.
+    \codigo{dout\_r}, así que la muestra vale un ciclo después del \emph{pop}.
   \item \textbf{Criterio de aceptación}: requerimos espacio en ambas colas. Con
     \codigo{free \textgreater= win\_len\_i} comprobamos que tenemos el
     suficiente espacio en \codigo{mem}, mientras que \codigo{meta\_full} indica
@@ -774,22 +774,22 @@ cuatro.\label{f:osc-panorama-stage}}
 \texorpdfstring{\texttt{event\_slot\_writer}}{event\_slot\_writer}}
 \label{S:osc-slot-writer}
 
-Este módulo serializa un evento a un slot del anillo en DDR. Tiene como salida
+Este módulo serializa un evento a un \emph{slot} del anillo en DDR. Tiene como salida
 un AXI-Stream clásico \{\codigo{wr\_data}, \codigo{wr\_val}, \codigo{wr\_rdy}\}
 de 64 bits, y escribe exactamente $2^{\text{SLOT\_SHIFT}-3}$ palabras por
 evento, en orden de dirección creciente, para que el generador lineal de
-direcciones del \codigo{axi\_wr\_fifo} las coloque sin saltos. El layout del
-slot se presenta en la Tabla~\ref{t:osc-layout-slot}.
+direcciones del \codigo{axi\_wr\_fifo} las coloque sin saltos. El \emph{layout} del
+\emph{slot} se presenta en la Tabla~\ref{t:osc-layout-slot}.
 
 \begin{table}[H]
 \centering
-\caption[Layout de un slot del anillo en DDR]{%
-Layout de un slot del anillo en DDR. Las cuatro primeras palabras (32~B) son la
+\caption[\emph{Layout} de un \emph{slot} del anillo en DDR]{%
+\emph{Layout} de un \emph{slot} del anillo en DDR. Las cuatro primeras palabras (32~B) son la
 cabecera, y la cuarta está reservada.\label{t:osc-layout-slot}}
 \small
 \begin{tabularx}{\textwidth}{|l|>{\raggedright\arraybackslash}X|}
-\hline \encabezado \textbf{Offset} & \textbf{Contenido} \\ \hline
-\codigo{0x00} & \codigo{timestamp[63:0]}: ticks desde el arranque de la
+\hline \encabezado \textbf{\emph{Offset}} & \textbf{Contenido} \\ \hline
+\codigo{0x00} & \codigo{timestamp[63:0]}: \emph{ticks} desde el arranque de la
   corrida \\ \hline
 \codigo{0x08} & \codigo{\{flags[7:0], n\_ch[7:0], n\_samp[15:0],
   seq[31:0]\}} \\ \hline
@@ -799,20 +799,20 @@ cabecera, y la cuarta está reservada.\label{t:osc-layout-slot}}
 \codigo{0x20} \ldots & muestras int16, 4 por palabra, canales
   \textbf{intercalados}: \codigo{ch0[k], ch1[k], ch0[k+1], \ldots} \\ \hline
 \ldots & relleno de ceros hasta la anteúltima palabra \\ \hline
-\codigo{SLOT\_SZ $-$ 8} & \textbf{footer}
+\codigo{SLOT\_SZ $-$ 8} & \textbf{\emph{footer}}
   \codigo{\{\textasciitilde seq[31:0], seq[31:0]\}} \\ \hline
 \end{tabularx}
 \end{table}
 
-El footer lleva \codigo{\{\textasciitilde seq, seq\}} para que una lectura rota
+El \emph{footer} lleva \codigo{\{\textasciitilde seq, seq\}} para que una lectura rota
 o vieja se detecte comparando las dos mitades, sin depender de que el 0 sea un
-valor especial. El relleno hace que todos los slots midan lo mismo: la dirección
-de un slot se calcula como
+valor especial. El relleno hace que todos los \emph{slots} midan lo mismo: la dirección
+de un \emph{slot} se calcula como
 \codigo{SLOT\_BASE + (n mod N\_SLOTS)$\cdot$SLOT\_SZ}, sin consultar nada. Si la
-ventana no entra en el slot, el escritor la trunca, cierra el slot con su footer
-y levanta el sticky \codigo{err\_slot\_ovf}, en vez de pisar el slot siguiente.
+ventana no entra en el \emph{slot}, el escritor la trunca, cierra el \emph{slot} con su \emph{footer}
+y levanta el \emph{sticky} \codigo{err\_slot\_ovf}, en vez de pisar el \emph{slot} siguiente.
 Cada palabra se sostiene en la salida hasta que \codigo{axi\_wr\_fifo} la acepta
-con \codigo{wr\_rdy\_i}, con el handshake \codigo{valid}/\codigo{ready} de
+con \codigo{wr\_rdy\_i}, con el \emph{handshake} \codigo{valid}/\codigo{ready} de
 AXI~\citecap{AMBAAXI}{A3}.
 
 En la Fig.~\ref{f:osc-panorama-writer} se presenta un diagrama general del
@@ -820,23 +820,23 @@ módulo. Por simplicidad no expandimos sus bloques, que tienen las siguientes
 funciones:
 \begin{itemize}
   \item \textbf{Cabecera} (naranja): \codigo{ts}, \codigo{snapshot} y
-    \codigo{nsamp} se toman del stage al empezar el evento.
+    \codigo{nsamp} se toman del \emph{stage} al empezar el evento.
   \item \textbf{Empaquetador} (azul): junta 4 muestras de 16 bits en una
     palabra de 64 bits. Pide una muestra por ciclo, y la que cierra la palabra
     sólo con la salida libre, para no tener que guardar una palabra si la salida
     está ocupada.
-  \item \textbf{FSM del slot} (gris): recorre \codigo{W\_IDLE} $\rightarrow$
+  \item \textbf{FSM del \emph{slot}} (gris): recorre \codigo{W\_IDLE} $\rightarrow$
     \codigo{W\_HDR} $\rightarrow$ \codigo{W\_DATA} $\rightarrow$
     \codigo{W\_PAD} $\rightarrow$ \codigo{W\_FOOT} $\rightarrow$
     \codigo{W\_DONE}, y toma un evento sólo si hay crédito.
-  \item \textbf{Palabras del slot} (gris): \codigo{word\_idx} cuenta las
+  \item \textbf{Palabras del \emph{slot}} (gris): \codigo{word\_idx} cuenta las
     palabras escritas hasta $2^{\text{SLOT\_SHIFT}-3}-1$, y decide cuándo
     termina el relleno.
   \item \textbf{Mux y salida} (naranja): el estado elige qué palabra sale
-    (cabecera, muestras, relleno o footer), y la salida la sostiene hasta
+    (cabecera, muestras, relleno o \emph{footer}), y la salida la sostiene hasta
     \codigo{wr\_rdy}.
-  \item \textbf{Contadores de slot} (gris): \codigo{wr\_slot} y \codigo{seq}
-    suben cuando el FIFO acepta el footer.
+  \item \textbf{Contadores de \emph{slot}} (gris): \codigo{wr\_slot} y \codigo{seq}
+    suben cuando el FIFO acepta el \emph{footer}.
 \end{itemize}
 
 \begin{figure}[H]
@@ -844,27 +844,27 @@ funciones:
 \caption[Vista general de \codigo{event\_slot\_writer}]{%
 Vista general de \codigo{event\_slot\_writer}. El estado de la FSM elige qué
 palabra sale: cuatro de cabecera, las muestras empaquetadas de a cuatro, el
-relleno de ceros y el footer \codigo{\{\textasciitilde seq, seq\}}. Cada palabra
+relleno de ceros y el \emph{footer} \codigo{\{\textasciitilde seq, seq\}}. Cada palabra
 se sostiene hasta que el \codigo{axi\_wr\_fifo} la acepta, así que la
 contrapresión frena al escritor sin perder muestras; \codigo{wr\_slot} y
-\codigo{seq} suben recién cuando se acepta el footer.\label{f:osc-panorama-writer}}
+\codigo{seq} suben recién cuando se acepta el \emph{footer}.\label{f:osc-panorama-writer}}
 \end{figure}
 
-\textbf{FSM del slot}: en la Fig.~\ref{f:osc-fsm-writer} se presenta la FSM de
+\textbf{FSM del \emph{slot}}: en la Fig.~\ref{f:osc-fsm-writer} se presenta la FSM de
 trabajo, que cuenta con 6 estados que forman un ciclo bajo funcionamiento
 típico. El módulo de comprobación de créditos trabaja ciclo a ciclo, y se tiene
 la variable \codigo{credit\_ok} en alto cuando los créditos libres son mayores a
 cero.
 \begin{itemize}
-  \item Bajo un reset se va a \codigo{W\_IDLE}, donde espera a tener créditos de
+  \item Bajo un \emph{reset} se va a \codigo{W\_IDLE}, donde espera a tener créditos de
     escritura y un evento completo en la cola de metadatos
     (\codigo{s\_meta\_val}). Con las dos condiciones copia los metadatos,
-    calcula el largo del slot y pasa a \codigo{W\_HDR}. Sin créditos \textbf{no
-    descarta, se frena}: la contrapresión sube al stage y el descarte ocurre
+    calcula el largo del \emph{slot} y pasa a \codigo{W\_HDR}. Sin créditos \textbf{no
+    descarta, se frena}: la contrapresión sube al \emph{stage} y el descarte ocurre
     arriba, en la captura, donde se puede descartar el evento entero y
-    contarlo. \codigo{W\_DONE} da el slot por cerrado cuando el footer fue
+    contarlo. \codigo{W\_DONE} da el \emph{slot} por cerrado cuando el \emph{footer} fue
     aceptado por el \codigo{axi\_wr\_fifo}: ahí avanzan \codigo{wr\_slot} y
-    \codigo{seq}, hace el pop del metadato y vuelve a \codigo{W\_IDLE}.
+    \codigo{seq}, hace el \emph{pop} del metadato y vuelve a \codigo{W\_IDLE}.
 \end{itemize}
 En \codigo{W\_HDR}, \codigo{W\_DATA}, \codigo{W\_PAD} y \codigo{W\_FOOT} cada
 palabra espera que el \codigo{axi\_wr\_fifo} la acepte (\codigo{wr\_rdy}) para
@@ -873,13 +873,13 @@ Fig.~\ref{f:osc-fsm-writer}.
 
 \begin{figure}[H]
 \centering\includegraphics{cap8_fsm_slot_writer}
-\caption[FSM del escritor de slots]{%
-FSM del escritor de slots. Tiene tres fases: \codigo{W\_IDLE}, la transferencia
+\caption[FSM del escritor de \emph{slots}]{%
+FSM del escritor de \emph{slots}. Tiene tres fases: \codigo{W\_IDLE}, la transferencia
 (el grupo punteado: \codigo{W\_HDR}, \codigo{W\_DATA}, \codigo{W\_PAD} y
 \codigo{W\_FOOT}) y \codigo{W\_DONE}. Sin crédito se queda en \codigo{W\_IDLE}
 con \codigo{no\_credit = 1}: se frena, no descarta. En la transferencia cada
-palabra se sostiene hasta que el \codigo{axi\_wr\_fifo} la acepta, y el slot se
-cierra recién cuando el FIFO acepta el footer.\label{f:osc-fsm-writer}}
+palabra se sostiene hasta que el \codigo{axi\_wr\_fifo} la acepta, y el \emph{slot} se
+cierra recién cuando el FIFO acepta el \emph{footer}.\label{f:osc-fsm-writer}}
 \end{figure}
 
 % Bibliografía de este capítulo. Va al final del archivo, siempre.

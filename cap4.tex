@@ -5,9 +5,11 @@
 % Figuras de ESTE capítulo + las compartidas. Siempre al principio del archivo.
 \graphicspath{{figs/cap4/}{figs/comunes/}}
 
+\begin{destacado}
 En este capítulo se analiza qué normativa nacional e internacional alcanza al
 MCA, en qué carácter (obligación, guía de diseño o buena práctica) y qué parte
 del trabajo responde a cada una.
+\end{destacado}
 
 \section{Análisis de ARN}
 \label{S:norm-arn}
@@ -111,13 +113,13 @@ trabajo.\label{t:norm-ciclo-vida-62566}}
 especificación de requisitos & mapas de registros e interfaces de cada módulo,
   Sec.~\ref{S:ap-mca-mapa} &
   cubierto, sin trazabilidad formal requisito $\rightarrow$ prueba \\ \hline
-verificación por simulación & testbenches por módulo,
+verificación por simulación & \emph{testbenches} por módulo,
   Sec.~\ref{S:intro-hw-verificacion} & cubierto \\ \hline
 modelo de referencia independiente del RTL & modelo en Python comparado contra
   el RTL & cubierto \\ \hline
 verificación en el dispositivo & generación interna y externa controlada,
   Sec.~\ref{S:res-etapas-validacion} & cubierto \\ \hline
-validación con física real & medición con setup experimental & pendiente
+validación con física real & medición con \emph{setup} experimental & pendiente
   \\ \hline
 verificación formal y análisis estático & --- & no realizado \\ \hline
 equivalencia RTL $\leftrightarrow$ netlist & --- & no realizado \\ \hline
@@ -166,7 +168,7 @@ GUM~\cite{GUM2008} & expresión de la incertidumbre de medición &
   Cap.~\ref{C:resultados} \\ \hline
 IEC 61010-1~\cite{IEC61010-1} e IEC 61326-1~\cite{IEC61326-1} & seguridad
   eléctrica y compatibilidad electromagnética de equipos de laboratorio & la
-  placa es un producto comercial; el trabajo cambia el bitstream y el
+  placa es un producto comercial; el trabajo cambia el \emph{bitstream} y el
   software, no el hardware \\ \hline
 \end{tabularx}
 \end{table}

@@ -1461,6 +1461,16 @@ INPUT ./template.lot
 INPUT template.lot
 INPUT template.lot
 OUTPUT template.lot
+INPUT ./siglas.tex
+INPUT ./siglas.tex
+INPUT ./siglas.tex
+INPUT siglas.tex
+INPUT ./siglas.tex
+INPUT ./siglas.tex
+INPUT siglas.tex
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmbx10.tfm
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmri10.tfm
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ts1-lmr10.tfm
 INPUT ./resumen.tex
 INPUT ./resumen.tex
 INPUT ./resumen.tex
@@ -1482,8 +1492,8 @@ INPUT cap6.tex
 INPUT ./cap6.tex
 INPUT cap6.tex
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmbx12.tfm
-INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmbx10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmr10.tfm
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmbxi10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmtt10.tfm
 INPUT ./figs/cap6//cap6_mcpha_client.png
 INPUT figs/cap6//cap6_mcpha_client.png
@@ -1491,7 +1501,6 @@ INPUT ./figs/cap6//cap6_mcpha_client.png
 INPUT ./figs/cap6//cap6_mcpha_client.png
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmr8.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmr6.tfm
-INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmri10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmcsc10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/rm-lmr10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/lmmi10.tfm
@@ -1612,7 +1621,6 @@ INPUT ./figs/cap2//cap2_offload_uc.pdf
 INPUT figs/cap2//cap2_offload_uc.pdf
 INPUT ./figs/cap2//cap2_offload_uc.pdf
 INPUT ./figs/cap2//cap2_offload_uc.pdf
-INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmbxi10.tfm
 INPUT ./figs/cap2//cap2_historia_plataformas.pdf
 INPUT figs/cap2//cap2_historia_plataformas.pdf
 INPUT ./figs/cap2//cap2_historia_plataformas.pdf
@@ -1648,6 +1656,7 @@ INPUT ./figs/cap2//cap2_bloques_basicos_fpga.pdf
 INPUT figs/cap2//cap2_bloques_basicos_fpga.pdf
 INPUT ./figs/cap2//cap2_bloques_basicos_fpga.pdf
 INPUT ./figs/cap2//cap2_bloques_basicos_fpga.pdf
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmbxi10.tfm
 INPUT ./figs/cap2//cap2_interfaces_zynq.png
 INPUT figs/cap2//cap2_interfaces_zynq.png
 INPUT ./figs/cap2//cap2_interfaces_zynq.png
@@ -1669,7 +1678,6 @@ INPUT figs/cap2//cap2_diagrama_bloques_pitaya.pdf
 INPUT ./figs/cap2//cap2_diagrama_bloques_pitaya.pdf
 INPUT ./figs/cap2//cap2_diagrama_bloques_pitaya.pdf
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ts1-lmbx10.tfm
-INPUT /usr/share/texmf/fonts/tfm/public/lm/ts1-lmr10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmtti10.tfm
 INPUT ./cap5.tex
 INPUT ./cap5.tex
@@ -1705,10 +1713,12 @@ INPUT ./figs/cap5//cap5_etapas_vs_descartes.pdf
 INPUT figs/cap5//cap5_etapas_vs_descartes.pdf
 INPUT ./figs/cap5//cap5_etapas_vs_descartes.pdf
 INPUT ./figs/cap5//cap5_etapas_vs_descartes.pdf
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmbxi10.tfm
 INPUT ./figs/cap5//cap5_contrato_sys_bus.pdf
 INPUT figs/cap5//cap5_contrato_sys_bus.pdf
 INPUT ./figs/cap5//cap5_contrato_sys_bus.pdf
 INPUT ./figs/cap5//cap5_contrato_sys_bus.pdf
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmsso12.tfm
 INPUT ./figs/cap5//cap5_latencia_sys_bus.pdf
 INPUT figs/cap5//cap5_latencia_sys_bus.pdf
 INPUT ./figs/cap5//cap5_latencia_sys_bus.pdf
@@ -2011,7 +2021,6 @@ INPUT figs/cap10//cap10_kernel_linux.pdf
 INPUT ./figs/cap10//cap10_kernel_linux.pdf
 INPUT ./figs/cap10//cap10_kernel_linux.pdf
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmtk10.tfm
-INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmbxi10.tfm
 INPUT ./figs/cap10//cap10_niveles.pdf
 INPUT figs/cap10//cap10_niveles.pdf
 INPUT ./figs/cap10//cap10_niveles.pdf
@@ -2207,6 +2216,7 @@ INPUT ./figs/apendices//apC_panorama_trigger_shield.pdf
 INPUT figs/apendices//apC_panorama_trigger_shield.pdf
 INPUT ./figs/apendices//apC_panorama_trigger_shield.pdf
 INPUT ./figs/apendices//apC_panorama_trigger_shield.pdf
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmbxi10.tfm
 INPUT ./apend6.tex
 INPUT ./apend6.tex
 INPUT ./apend6.tex
@@ -2341,6 +2351,7 @@ INPUT /usr/share/texmf/fonts/type1/public/lm/lmri8.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmri9.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmss12.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb
+INPUT /usr/share/texmf/fonts/type1/public/lm/lmsso12.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmsy5.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb

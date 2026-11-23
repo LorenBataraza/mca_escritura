@@ -42,7 +42,7 @@ $s[n] = s[n-1] + (x[n] - x[n-L]) - (x[n-L-G] - x[n-2L-G])$, con tres líneas de
 retardo en cascada ($L$, $G$ y $L$ muestras) de una sola toma cada una, que la
 síntesis implementa como registros de desplazamiento~\cite{UG474}. Las líneas
 avanzan sólo con la muestra válida (\codigo{adc\_dv\_i}), así que el filtro
-funciona igual sobre la señal decimada que a 125~MS/s. No tienen reset: un
+funciona igual sobre la señal decimada que a 125~MS/s. No tienen \emph{reset}: un
 contador \codigo{fill} cuenta las muestras que entraron desde el último
 re-arranque, y una toma más vieja que eso lee 0. Así $s$ es exactamente el
 filtro aplicado a una señal sin historia previa, y mientras la ventana de
@@ -73,19 +73,19 @@ que la pendiente, sólo para pulsos positivos.
 \label{S:ap-mt-shield}
 
 Cuando dispara una fuente habilitada en \codigo{SHIELD\_SRC}, deja inhabilitados
-a los destinos de \codigo{SHIELD\_DST} durante un holdoff programable, y al
+a los destinos de \codigo{SHIELD\_DST} durante un \emph{holdoff} programable, y al
 expirar los vuelve a armar. Usa un solo contador para todos los destinos, que se
 recarga con cada disparo de una fuente. Fuentes y destinos son vectores
 independientes: las fuentes son los disparos de los canales y la entrada
 externa (flancos y nivel), y los destinos, los canales y el MCA. Con el mismo
 contador resuelve dos cosas: que un canal no se re-dispare con su propio pulso
 (Sec.~\ref{S:mt-vulnerabilidades}) y el veto al MCA. Con el nivel externo como
-fuente, el veto dura lo que la línea más el holdoff.
+fuente, el veto dura lo que la línea más el \emph{holdoff}.
 
 \begin{figure}[H]
 \centering\includegraphics{apC_panorama_trigger_shield}
 \caption[Implementación del escudo]{%
-Implementación de \codigo{trigger\_shield}: el contador de holdoff, el pulso de
+Implementación de \codigo{trigger\_shield}: el contador de \emph{holdoff}, el pulso de
 re-armado hacia los canales y el veto al MCA.\label{f:ap-mt-shield}}
 \end{figure}
 
@@ -99,15 +99,15 @@ estructura se ve en la Fig.~\ref{f:mt-panorama}.
 \codigo{rp\_trig\_src} original~\cite{RedPitayaFPGA} con dos diferencias: la
 máscara es una OR y no un selector de una sola fuente, y la salida va
 registrada. Al disparar engancha \codigo{adc\_trg\_dis}, que impide que el
-flanco siguiente vuelva a disparar hasta el clear, que da el software o el
-escudo al expirar su holdoff. En single-shot además limpia la máscara; en modo
-continuo la máscara persiste y alcanza con el clear.
+flanco siguiente vuelva a disparar hasta el \emph{clear}, que da el software o el
+escudo al expirar su \emph{holdoff}. En \emph{single-shot} además limpia la máscara; en modo
+continuo la máscara persiste y alcanza con el \emph{clear}.
 
 \codigo{mt\_event\_logic} no tiene lógica de disparo propia. Instancia un
 \codigo{mt\_trig\_src} por canal y el escudo, y saca el evento conjunto
 (\codigo{trigger\_event}, la OR de los disparos de los canales),
-\codigo{trig\_arm} y el snapshot de las fuentes que dispararon el último evento.
-El snapshot toma las fuentes retrasadas un ciclo, para alinearlas con el
+\codigo{trig\_arm} y el \emph{snapshot} de las fuentes que dispararon el último evento.
+El \emph{snapshot} toma las fuentes retrasadas un ciclo, para alinearlas con el
 registro de \codigo{mt\_trig\_src}; sin ese retardo guardaría las del ciclo
 equivocado.
 
@@ -125,7 +125,7 @@ propio borde.
 
 En la Tabla~\ref{t:ap-mt-mapa} se presentan los registros del multitrigger con
 su desplazamiento respecto de la base del módulo. Los registros por canal se repiten cada 4
-bytes, de ch0 a ch3. Con todos los registros en su valor de reset el módulo no
+bytes, de ch0 a ch3. Con todos los registros en su valor de \emph{reset} el módulo no
 dispara: el disparo por software también pasa por la máscara (es el bit 0 de
 \codigo{OR\_MASK}).
 
@@ -137,8 +137,8 @@ Mapa de registros del multitrigger.\label{t:ap-mt-mapa}}
 \setlength{\tabcolsep}{3pt}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.13\textwidth}|c|l|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{0.15\textwidth}|}
 \hline
-\encabezado \textbf{Offset} & \textbf{Acceso} & \textbf{Registro}
-  & \textbf{Contenido} & \textbf{Reset} \\ \hline
+\encabezado \textbf{\emph{Offset}} & \textbf{Acceso} & \textbf{Registro}
+  & \textbf{Contenido} & \textbf{\emph{Reset}} \\ \hline
 \codigo{0x000} & R & \codigo{MAGIC}
   & \codigo{0x4D545247} (\codigo{\textquotedbl MTRG\textquotedbl}) & constante \\ \hline
 \codigo{0x004} & R & \codigo{CAPS}
@@ -157,7 +157,7 @@ Mapa de registros del multitrigger.\label{t:ap-mt-mapa}}
 \codigo{0x020} & W & \codigo{TRIG\_SW}
   & disparo por software, un bit por canal & lee \codigo{0} \\ \hline
 \codigo{0x024} & W & \codigo{TRIG\_DIS\_CLR}
-  & clear del enganche, un bit por canal & lee \codigo{0} \\ \hline
+  & \emph{clear} del enganche, un bit por canal & lee \codigo{0} \\ \hline
 \codigo{0x028} & R & \codigo{TRG\_STATE}
   & máscara activa, 8~b por canal & \codigo{0} \\ \hline
 \codigo{0x040}~+~4$\cdot$ch & RW & \codigo{OR\_MASK}
@@ -182,7 +182,7 @@ Mapa de registros del multitrigger.\label{t:ap-mt-mapa}}
 \section{Verificación}
 \label{S:ap-mt-verificacion}
 
-En la Tabla~\ref{t:ap-mt-tests} se presentan los testbenches del módulo. Los dos
+En la Tabla~\ref{t:ap-mt-tests} se presentan los \emph{testbenches} del módulo. Los dos
 disparos con filtro se comparan contra un modelo de referencia (\emph{golden
 model})~\cite{Bergeron2003} en cada ciclo; el resto se verifica con casos
 dirigidos, cada uno con su valor esperado. \codigo{tb\_mt\_top} prueba el módulo
@@ -190,13 +190,13 @@ entero a través de su borde, es decir, el cableado entre los submódulos.
 
 \begin{table}[H]
 \centering
-\caption[Testbenches del multitrigger]{%
-Testbenches del multitrigger.\label{t:ap-mt-tests}}
+\caption[\emph{Testbenches} del multitrigger]{%
+\emph{Testbenches} del multitrigger.\label{t:ap-mt-tests}}
 \footnotesize
 \setlength{\tabcolsep}{3pt}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{0.2\textwidth}|}
 \hline
-\encabezado \textbf{Testbench} & \textbf{Qué verifica} & \textbf{Referencia} \\ \hline
+\encabezado \textbf{\emph{Testbench}} & \textbf{Qué verifica} & \textbf{Referencia} \\ \hline
 \codigo{tb\_mt\_slope\_trig} & el filtro y los pulsos por escalón; que ni la
   continua ni una rampa lenta disparen; el re-arranque al cambiar $L$ o $G$; la
   señal de re-armado & modelo de suma directa \\ \hline
@@ -204,17 +204,17 @@ Testbenches del multitrigger.\label{t:ap-mt-tests}}
   continua; el re-arranque; pares de pulsos; la señal decimada; la señal de
   re-armado & modelo del trapecio y del comparador, bit a bit \\ \hline
 \codigo{tb\_mt\_trig\_src} & la máscara OR; el enganche \codigo{adc\_trg\_dis}
-  y su clear; el disparo por software sujeto a \codigo{dly\_valp}; las fuentes
+  y su \emph{clear}; el disparo por software sujeto a \codigo{dly\_valp}; las fuentes
   de pendiente y polo-cero & casos dirigidos \\ \hline
-\codigo{tb\_trigger\_shield} & el holdoff de fuentes a destinos, con
+\codigo{tb\_trigger\_shield} & el \emph{holdoff} de fuentes a destinos, con
   \codigo{dur = 0} y con \codigo{dur} $>$ 0 & casos dirigidos \\ \hline
 \codigo{tb\_mt\_event\_logic} & \codigo{trigger\_event} como OR de los canales;
-  el snapshot (enganche, borrado, alineación con el evento); que un
+  el \emph{snapshot} (enganche, borrado, alineación con el evento); que un
   \codigo{TRIG\_SW} dé un solo evento; \codigo{trig\_arm} con la máscara vacía,
   fuentes fuera de la máscara, el re-armado y el enganche del escudo
   & casos dirigidos \\ \hline
 \codigo{tb\_mt\_cfg} & cada registro contra el mapa anterior; los accesos
-  heredados del bus del osciloscopio; el fan-out entre canales; el contrato del
+  heredados del bus del osciloscopio; el \emph{fan-out} entre canales; el contrato del
   bus en todo su espacio de direcciones & mapa de registros anterior \\ \hline
 \codigo{tb\_mt\_top} & cada tipo de disparo configurado por registros hasta
   \codigo{trigger\_event} (nivel, pendiente, polo-cero, externo, software,

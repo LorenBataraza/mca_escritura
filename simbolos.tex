@@ -1,0 +1,65 @@
+% Índice de símbolos. Generado a partir de la primera definición de cada
+% símbolo en los capítulos; la última columna es la sección donde se define.
+\chapter*{Índice de símbolos}
+\addcontentsline{toc}{chapter}{Índice de símbolos}
+\markboth{Índice de símbolos}{Índice de símbolos}
+
+{\small
+\begin{longtable}{|>{\centering\arraybackslash}p{0.13\textwidth}%
+  |>{\raggedright\arraybackslash}p{\dimexpr0.67\textwidth-6\tabcolsep-4\arrayrulewidth\relax}%
+  |>{\raggedright\arraybackslash}p{0.20\textwidth}|}
+\hline \encabezado \textbf{Símbolo} & \textbf{Descripción} & \textbf{Definido en} \\ \hline
+\endfirsthead
+\hline \encabezado \textbf{Símbolo} & \textbf{Descripción} & \textbf{Definido en} \\ \hline
+\endhead
+\multicolumn{3}{|l|}{\textbf{Letras latinas}} \\ \hline
+$A$ & Amplitud del pulso exponencial a la entrada del conformado. & Sec.~\ref{S:implmca-trapezoidal} \\ \hline
+$a_M$ & Coeficiente de deconvolución del polo-cero, $a_M = M/(1+M)$. & Sec.~\ref{S:implmca-trapezoidal} \\ \hline
+$B$ & Largo de datos que mueven la generación y el consumo de un \emph{buffer}. & Sec.~\ref{S:intro-hw-latencia} \\ \hline
+$b$ & Línea de base que se resta a cada muestra. & Sec.~\ref{S:implmca-lb-basicas} \\ \hline
+$D$, $R$ & Factor de diezmado. & Sec.~\ref{S:top-datapath} \\ \hline
+$dN/dH$ & Distribución diferencial de alturas (DDA), salida del MCA. & Sec.~\ref{S:mca-dda} \\ \hline
+$E$ & Término de amplificación de error de la corrección por tiempo muerto. & Sec.~\ref{S:mca-modelos-tiempo-muerto} \\ \hline
+$f_{clk}$ & Frecuencia del reloj del sistema. & Sec.~\ref{S:implmca-teselado} \\ \hline
+$f_s$ & Frecuencia de muestreo. & Sec.~\ref{S:mca-cadena-medicion} \\ \hline
+$G$ & Separación entre las dos sumas del disparo por pendiente, en muestras. & Sec.~\ref{S:ap-mt-slope} \\ \hline
+$G_s$ & Compuerta corta (\codigo{gate\_short}), en muestras. & Sec.~\ref{S:implmca-estimadores} \\ \hline
+$g$ & Ganancia de ruido de un estimador. & Sec.~\ref{S:res-ruido} \\ \hline
+$H$ & Altura del pulso. & Sec.~\ref{S:mca-dda} \\ \hline
+$I_{FS}$ & Corriente de fondo de escala del DAC. & Sec.~\ref{S:ap-hw-ad9767} \\ \hline
+$K$ & Cantidad de eventos que entran en la región de memoria del osciloscopio. & Sec.~\ref{S:osc-anillo-eventos} \\ \hline
+$k$ & Largo de la subida (y de la bajada) del trapecio, en muestras. En el módulo de \emph{zoom}, índice de la ventana. & Sec.~\ref{S:implmca-trapezoidal} \\ \hline
+$L$ & Largo de cada suma del disparo por pendiente, en muestras. & Sec.~\ref{S:ap-mt-slope} \\ \hline
+$lw$ & Corrimiento, en bits, de la suma de la meseta del trapecio. & Sec.~\ref{S:implmca-estimadores} \\ \hline
+$M$ & Constante polo-cero del conformado trapezoidal. & Sec.~\ref{S:implmca-trapezoidal} \\ \hline
+$m$ & Tasa registrada de eventos. En el trapecio, largo de la meseta en muestras. & Sec.~\ref{S:mca-modelos-tiempo-muerto} \\ \hline
+$N$ & Cantidad de fuentes de disparo del multitrigger. & Cap.~\ref{C:multitrigger} \\ \hline
+$N_\text{CH}$ & Cantidad de canales que captura el osciloscopio. & Sec.~\ref{S:osc-window-capture} \\ \hline
+$N_s$ & Cantidad de \emph{streams} de datos. & Cap.~\ref{C:multitrigger} \\ \hline
+$n$ & Tasa real (incidente) de eventos. & Sec.~\ref{S:mca-modelos-tiempo-muerto} \\ \hline
+$Q_{tot}$, $Q_{cola}$ & Carga total del pulso y carga de su cola. & Sec.~\ref{S:implmca-estimadores} \\ \hline
+RSZ & Logaritmo en base 2 del largo del \emph{buffer} del osciloscopio. & Sec.~\ref{S:osc-funcion} \\ \hline
+$s$ & Salida del filtro del disparo por pendiente. & Sec.~\ref{S:ap-mt-slope} \\ \hline
+spp & Muestras en el flanco del pulso (\emph{samples per pulse}). & Sec.~\ref{S:hw-por-que-acelerador} \\ \hline
+$T_{live}$ & Tiempo vivo de la adquisición. & Sec.~\ref{S:implmca-teselado} \\ \hline
+$T_{real}$ & Tiempo real (de reloj) de la adquisición. & Sec.~\ref{S:implmca-teselado} \\ \hline
+$T_{veto}$ & Tiempo con el veto activo, excluido de la medición. & Sec.~\ref{S:implmca-teselado} \\ \hline
+$t_c$ & Largo de la subida de un pulso real. & Sec.~\ref{S:implmca-trapezoidal} \\ \hline
+$u$ & Tiempo normalizado por la constante de tiempo del conformador. & Sec.~\ref{S:mca-tipos-conformado} \\ \hline
+$V_{LLD}$ & Umbral inferior del discriminador (\emph{lower level discriminator}). & Sec.~\ref{S:mca-cadena-medicion} \\ \hline
+$v$ & Muestra cruda de la señal. & Sec.~\ref{S:implmca-estimadores} \\ \hline
+$W$ & Duración de la ventana de coincidencia del multitrigger. & Sec.~\ref{S:mt-vulnerabilidades} \\ \hline
+$x$ & Muestra con la línea de base restada. & Sec.~\ref{S:implmca-estimadores} \\ \hline
+$z$ & Nivel de \emph{zoom} del histograma. & Sec.~\ref{S:implmca-zoom} \\ \hline
+\multicolumn{3}{|l|}{\textbf{Letras griegas}} \\ \hline
+$\Delta$ & Ancho de un canal del histograma (ancho de cuantización). & Sec.~\ref{S:mca-origen-nombre} \\ \hline
+$\Delta t$ & Separación entre los dos pulsos de un par. & Sec.~\ref{S:res-par} \\ \hline
+$\Delta T$ & Separación entre eventos sucesivos. & Sec.~\ref{S:mca-modelos-tiempo-muerto} \\ \hline
+$\varepsilon$ & Error en la estimación de la línea de base. & Sec.~\ref{S:implmca-trapezoidal} \\ \hline
+$\hat\lambda$ & Estimador de la tasa real de eventos. & Sec.~\ref{S:implmca-teselado} \\ \hline
+$\rho$ & Carga ofrecida, $\rho = n\tau$. & Sec.~\ref{S:mca-modelos-tiempo-muerto} \\ \hline
+$\sigma$ & Desvío estándar del ruido por muestra; ancho de un pico. & Sec.~\ref{S:implmca-trapezoidal} \\ \hline
+$\sigma_0$ & Ruido de fondo que no depende del estimador. & Sec.~\ref{S:res-ruido} \\ \hline
+$\tau$ & Tiempo muerto. En el conformado, constante de la cola exponencial del pulso. & Sec.~\ref{S:mca-modelos-tiempo-muerto} \\ \hline
+\end{longtable}
+}

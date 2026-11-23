@@ -6,7 +6,7 @@
 \graphicspath{{figs/cap3/}{figs/comunes/}}
 
 Este es un módulo simple secuencial clásico que toma las $N$ \textbf{fuentes de
-entradas} existentes en el diseño y su salida principal son los trigger
+entradas} existentes en el diseño y su salida principal son los \emph{trigger}
 referentes al inicio de eventos para cada uno de los $N_s$ \emph{stream} de
 datos. En la Fig.~\ref{f:ap-mt-interfaz} se presenta las interfaces del mismo,
 este tiene la capacidad de:
@@ -30,8 +30,8 @@ este tiene la capacidad de:
       considera por nivel alto de la señal de evento}, si una fuente se
       mantuviera alta durante varios ciclos estaría relanzando la adquisición de
       forma ininterrumpida.
-    \item El tiempo de \textbf{relanzamiento del trigger}: muchas
-      implementaciones de triggers no pueden redisparar por una cantidad N de
+    \item El tiempo de \textbf{relanzamiento del \emph{trigger}}: muchas
+      implementaciones de \emph{triggers} no pueden redisparar por una cantidad N de
       ciclos posteriores a un evento. El ejemplo más sencillo es el flanco
       positivo por nivel, en el cual tenemos que partir de la región inferior
       dado un nivel fijo y pasar a una región superior sobre este nivel fijo, de
@@ -55,11 +55,11 @@ utilizar este módulo:
     \codigo{SLOPE\_CFG} con \codigo{en} = 1, y, si hace falta, el escudo en
     \codigo{SHIELD\_CFG}. Fuera de eso, el orden de las escrituras no importa:
     con la máscara en 0 ninguna dispara.
-  \item \textbf{Clear}: escribimos \codigo{TRIG\_DIS\_CLR}, que borra el
+  \item \textbf{\emph{Clear}}: escribimos \codigo{TRIG\_DIS\_CLR}, que borra el
     enganche \codigo{adc\_trg\_dis} y el \codigo{SNAPSHOT} del disparo
     anterior.
-  \item \textbf{Armado}: armamos el scope, que habilita la escritura al buffer
-    hasta que llega el disparo y termina el post-trigger, y después escribimos
+  \item \textbf{Armado}: armamos el \emph{scope}, que habilita la escritura al \emph{buffer}
+    hasta que llega el disparo y termina el \emph{post-trigger}, y después escribimos
     \codigo{OR\_MASK} con las fuentes de este disparo. Desde ese momento el canal
     dispara con la primera fuente de la máscara.
   \item \textbf{Disparo y lectura}: al disparar, \codigo{mt\_trig\_src} engancha
@@ -67,10 +67,10 @@ utilizar este módulo:
     sondea \codigo{DIS\_FLAGS} hasta que \codigo{dis\_act} = 1 y lee
     \codigo{SNAPSHOT} para saber qué fuentes dispararon.
   \item \textbf{Re-armado}: para el disparo siguiente volvemos al paso 3, con la
-    configuración intacta. En single-shot el disparo también borra
+    configuración intacta. En \emph{single-shot} el disparo también borra
     \codigo{OR\_MASK}, por lo que hay que volver a escribirla; en modo continuo
-    la máscara persiste y alcanza con el clear. El clear también lo genera
-    \codigo{trigger\_shield} al expirar su holdoff, si el canal está entre los
+    la máscara persiste y alcanza con el \emph{clear}. El \emph{clear} también lo genera
+    \codigo{trigger\_shield} al expirar su \emph{holdoff}, si el canal está entre los
     destinos del escudo.
 \end{enumerate}
 
@@ -82,17 +82,17 @@ multitrigger.\label{f:mt-secuencia}}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Fuentes de triggering}
+\section{Fuentes de \emph{triggering}}
 \label{S:mt-fuentes}
 
-La cantidad de triggers disponibles en el módulo es parametrizable, el diseño
+La cantidad de \emph{triggers} disponibles en el módulo es parametrizable, el diseño
 original contaba con $N_t=16$, dado que queríamos extender la cantidad de
 fuentes por la utilización de nuevos tipos de eventos (por ejemplo originarios
 por pendiente de señal). Decidimos que era buena idea doblar la cantidad a
 $N_t=32$. Podríamos tomar un número mayor pero por un lado no lo vimos
 necesario, no creemos que tengamos que necesitar simultáneamente tantas fuentes
 de forma independiente y por otro lado aumentar la cantidad requiere más
-recursos y complejiza \textbf{timing}, esto quiere decir que podemos hacer
+recursos y complejiza \textbf{\emph{timing}}, esto quiere decir que podemos hacer
 cadenas lógicas generalmente no más largas que 6 operaciones lógicas
 concatenadas. Visto esto identificamos:
 \begin{itemize}
@@ -102,22 +102,22 @@ concatenadas. Visto esto identificamos:
     $\log(N_t)$.
 \end{itemize}
 
-Los triggers presentes en el diseño original consistían en los siguientes:
+Los \emph{triggers} presentes en el diseño original consistían en los siguientes:
 \begin{itemize}
   \item \textbf{ADC por nivel}: podemos decidir los que queramos, en un primer
     momento ponemos 4 dependiendo del modelo Pitaya (n/p).
-  \item \textbf{ASG}: trigger de la generación de señales interna (n/p).
-  \item \textbf{External}: triggers externos (n/p).
-  \item \textbf{Manual}: un trigger manual.
+  \item \textbf{ASG}: \emph{trigger} de la generación de señales interna (n/p).
+  \item \textbf{\emph{External}}: \emph{triggers} externos (n/p).
+  \item \textbf{Manual}: un \emph{trigger} manual.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Elección de fuentes}
 \label{S:mt-eleccion}
 
-Cada stream de captura $i \in \{1,\ldots,N_\text{CH}\}$ decide el inicio de un
+Cada \emph{stream} de captura $i \in \{1,\ldots,N_\text{CH}\}$ decide el inicio de un
 evento a partir de las mismas $N$ fuentes de disparo. Se instancia un
-\codigo{mt\_trig\_src} por stream, y cada uno combina las fuentes en una única
+\codigo{mt\_trig\_src} por \emph{stream}, y cada uno combina las fuentes en una única
 señal de disparo. La pregunta de diseño es qué función de disparo
 $f(\text{trig}_1,\ldots,\text{trig}_N)$ implementar.
 
@@ -138,9 +138,9 @@ La implementación combinacional tiene dos detalles:
     su tabla de verdad, $2^N$ bits. El espacio de funciones con $f(\vec 0)=0$
     tiene $2^{2^N-1}$ elementos. Y aun para $N$ chico, obliga al usuario a
     enumerar todas las n-tuplas, que no es algo deseable.
-  \item \textbf{Trabajo sobre el mismo ciclo de clock.}
+  \item \textbf{Trabajo sobre el mismo ciclo de \emph{clock}.}
   \begin{enumerate}
-    \item Una función combinacional compara las fuentes \emph{en el mismo ciclo
+    \item Una función combinacional compara las fuentes \textbf{en el mismo ciclo
       de reloj}. Distintos tipos de fuentes originarias de un mismo pulso
       (nivel, pendiente, externa) llegan con retardos relativos distintos y en
       general dependientes de la amplitud.
@@ -157,7 +157,7 @@ independientemente del alineamiento de las fuentes en la entrada, esto quiere
 decir que \textbf{no perdemos información}, como mucho disparamos datos de más.
 Para la AND y la XOR eso exige que los disparos coincidan exactamente, lo que en
 la práctica no ocurre, y podemos obtener este análisis en un futuro mediante la
-adquisición total y el procesamiento offline.
+adquisición total y el procesamiento \emph{offline}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Vulnerabilidades del mecanismo por OR}
@@ -171,7 +171,7 @@ ventana se implementa en dos niveles:
 \begin{itemize}
   \item El enganche \codigo{adc\_trg\_dis} de \codigo{mt\_trig\_src}, que
     bloquea el canal desde el ciclo siguiente al disparo;
-  \item El holdoff programable del \codigo{trigger\_shield}, que re-arma el
+  \item El \emph{holdoff} programable del \codigo{trigger\_shield}, que re-arma el
     canal (o vetea a otros) recién al expirar.
 \end{itemize}
 
@@ -182,7 +182,7 @@ ventana se implementa en dos niveles:
 En la Fig.~\ref{f:mt-panorama} se presenta el módulo. Sus bloques se agrupan por
 función, que en la figura se distingue por color: la \textbf{detección} de las
 fuentes, la \textbf{selección} de cuáles disparan, el \textbf{escudo} y los
-\textbf{registros}. En la Tabla~\ref{t:mt-submodulos} se resume qué hace cada
+\textbf{registros}. En la Tabla~\ref{t:mt-submodulos} se \emph{resume} qué hace cada
 submódulo.
 
 \begin{figure}[H]
@@ -219,12 +219,12 @@ Submódulos del multitrigger.\label{t:mt-submodulos}}
 \codigo{mt\_trig\_src} & selección de las fuentes de un canal
   & 29 fuentes $\rightarrow$ disparo del canal
   & máscara OR en lugar de un selector; enganche \codigo{adc\_trg\_dis} \\ \hline
-\codigo{trigger\_shield} & escudo: holdoff y veto
-  & disparos y entrada externa $\rightarrow$ clear por canal, veto al MCA
+\codigo{trigger\_shield} & escudo: \emph{holdoff} y veto
+  & disparos y entrada externa $\rightarrow$ \emph{clear} por canal, veto al MCA
   & fuentes y destinos independientes, un solo contador \\ \hline
 \codigo{mt\_event\_logic} & une los canales, el escudo y las salidas
   & disparos por canal $\rightarrow$ \codigo{trigger\_event},
-    \codigo{trig\_arm}, snapshot
+    \codigo{trig\_arm}, \emph{snapshot}
   & no tiene lógica de disparo propia: es la topología \\ \hline
 \codigo{mt\_cfg} & registros
   & bus del sistema $\rightarrow$ máscaras, escudo, umbrales
@@ -232,11 +232,11 @@ Submódulos del multitrigger.\label{t:mt-submodulos}}
 \end{tabularx}
 \end{table}
 
-Las decisiones de diseño de los submódulos con lógica propia se presentan en el
-Apéndice~\ref{S:ap-mt-submodulos}. Los puertos y registros de todos están en sus
+Las decisiones de diseño de los submódulos con lógica propia se presentan en la
+Sec.~\ref{S:ap-mt-submodulos}. Los puertos y registros de todos están en sus
 hojas de datos, en el repositorio.
 
-\subsection{Función de timestamping}
+\subsection{Función de \emph{timestamping}}
 \label{S:mt-timestamping}
 
 En el mismo ciclo de reloj del pulso de evento se captura el valor de un
@@ -274,12 +274,12 @@ señales de re-armado: quien lo consume no necesita saber qué disparo se utiliz
 Además de las señales de re-armado, el criterio incluye:
 \begin{itemize}
   \item \textbf{El enganche.} Después de cada disparo, el canal queda enganchado
-    (\codigo{adc\_trg\_dis}) hasta el clear y no puede disparar. Con el auto
+    (\codigo{adc\_trg\_dis}) hasta el \emph{clear} y no puede disparar. Con el auto
     re-armado del \codigo{trigger\_shield} y \codigo{dur = 0} dura un ciclo; con
-    \codigo{dur = D}, $D + 1$ ciclos. El holdoff sobre el propio canal cuenta
+    \codigo{dur = D}, $D + 1$ ciclos. El \emph{holdoff} sobre el propio canal cuenta
     como relanzamiento. El escudo hacia el MCA, en cambio, es un veto y va a su
     propio casillero.
-  \item \textbf{La máscara vacía}, que da 0. En single-shot la máscara se borra
+  \item \textbf{La máscara vacía}, que da 0. En \emph{single-shot} la máscara se borra
     después del disparo, así que el sistema queda en relanzamiento hasta que el
     PS vuelva a armarlo.
   \item \textbf{Un ciclo de adelanto.} \codigo{trig\_arm} va registrado y lo
@@ -323,7 +323,7 @@ El MT no cuenta. El contador está en el MCA, \codigo{t\_rearm} (64 bits,
 \codigo{0x0D8}/\codigo{0x0DC}), y forma parte del \textbf{teselado} del tiempo
 de adquisición: un conjunto de contadores, que llamamos casilleros, en el que
 cada ciclo de reloj con \codigo{run} suma en exactamente uno. Como los
-casilleros no se solapan y entre todos cubren todo el tiempo, ningún ciclo se
+casilleros no se superponen y entre todos cubren todo el tiempo, ningún ciclo se
 cuenta dos veces ni queda sin contar, y su suma es el tiempo real. Cuando en un
 mismo ciclo se cumplen varias condiciones, decide una prioridad fija, veto $>$
 $\mathtt{t\_win}$ $>$ $\mathtt{t\_div}$ $>$ $\mathtt{t\_rearm}$ $>$ livetime, de

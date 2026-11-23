@@ -19,6 +19,196 @@
 
 \refsection{10}
   \datalist[entry]{none/global//global/global}
+    \entry{Knoll2010}{book}{}
+      \name{author}{1}{}{%
+        {{hash=b3b1b42c7c2fbd3232b45837ae3874e0}{%
+           family={Knoll},
+           familyi={K\bibinitperiod},
+           given={G.\bibnamedelimi F.},
+           giveni={G\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Hoboken, NJ}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{b3b1b42c7c2fbd3232b45837ae3874e0}
+      \strng{fullhash}{b3b1b42c7c2fbd3232b45837ae3874e0}
+      \strng{bibnamehash}{b3b1b42c7c2fbd3232b45837ae3874e0}
+      \strng{authorbibnamehash}{b3b1b42c7c2fbd3232b45837ae3874e0}
+      \strng{authornamehash}{b3b1b42c7c2fbd3232b45837ae3874e0}
+      \strng{authorfullhash}{b3b1b42c7c2fbd3232b45837ae3874e0}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{4}
+      \field{title}{Radiation Detection and Measurement}
+      \field{year}{2010}
+    \endentry
+    \entry{Rossi1930}{article}{}
+      \name{author}{1}{}{%
+        {{hash=ba8bd957992443203368a19d1034ef1c}{%
+           family={Rossi},
+           familyi={R\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{ba8bd957992443203368a19d1034ef1c}
+      \strng{fullhash}{ba8bd957992443203368a19d1034ef1c}
+      \strng{bibnamehash}{ba8bd957992443203368a19d1034ef1c}
+      \strng{authorbibnamehash}{ba8bd957992443203368a19d1034ef1c}
+      \strng{authornamehash}{ba8bd957992443203368a19d1034ef1c}
+      \strng{authorfullhash}{ba8bd957992443203368a19d1034ef1c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{title}{Method of registering multiple simultaneous impulses of several {Geiger's} counters}
+      \field{volume}{125}
+      \field{year}{1930}
+      \field{pages}{636}
+      \range{pages}{1}
+    \endentry
+    \entry{Leo1994}{book}{}
+      \name{author}{1}{}{%
+        {{hash=4963ffa2ffe6b5d9aab04444dc44c98f}{%
+           family={Leo},
+           familyi={L\bibinitperiod},
+           given={W.\bibnamedelimi R.},
+           giveni={W\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlín}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{4963ffa2ffe6b5d9aab04444dc44c98f}
+      \strng{fullhash}{4963ffa2ffe6b5d9aab04444dc44c98f}
+      \strng{bibnamehash}{4963ffa2ffe6b5d9aab04444dc44c98f}
+      \strng{authorbibnamehash}{4963ffa2ffe6b5d9aab04444dc44c98f}
+      \strng{authornamehash}{4963ffa2ffe6b5d9aab04444dc44c98f}
+      \strng{authorfullhash}{4963ffa2ffe6b5d9aab04444dc44c98f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{note}{Edición revisada}
+      \field{title}{Techniques for Nuclear and Particle Physics Experiments: A How-to Approach}
+      \field{year}{1994}
+    \endentry
+    \entry{RedPitayaFPGA}{online}{}
+      \name{author}{1}{}{%
+        {{hash=5933a557af910702489aacfcca3f3ee2}{%
+           family={{Red Pitaya}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{fullhash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{bibnamehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{authorbibnamehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{authornamehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{authorfullhash}{5933a557af910702489aacfcca3f3ee2}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Repositorio del diseño de la FPGA}
+      \field{title}{RedPitaya-FPGA}
+      \verb{urlraw}
+      \verb https://github.com/RedPitaya/RedPitaya-FPGA
+      \endverb
+      \verb{url}
+      \verb https://github.com/RedPitaya/RedPitaya-FPGA
+      \endverb
+      \warn{\item Datamodel: Entry 'RedPitayaFPGA' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined}
+    \endentry
+    \entry{Muller1973}{article}{}
+      \name{author}{1}{}{%
+        {{hash=7dcfc405d58d740971ff3e8b370b095f}{%
+           family={Müller},
+           familyi={M\bibinitperiod},
+           given={J.\bibnamedelimi W.},
+           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{7dcfc405d58d740971ff3e8b370b095f}
+      \strng{fullhash}{7dcfc405d58d740971ff3e8b370b095f}
+      \strng{bibnamehash}{7dcfc405d58d740971ff3e8b370b095f}
+      \strng{authorbibnamehash}{7dcfc405d58d740971ff3e8b370b095f}
+      \strng{authornamehash}{7dcfc405d58d740971ff3e8b370b095f}
+      \strng{authorfullhash}{7dcfc405d58d740971ff3e8b370b095f}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nuclear Instruments and Methods}
+      \field{title}{Dead-time problems}
+      \field{volume}{112}
+      \field{year}{1973}
+      \field{pages}{47\bibrangedash 57}
+      \range{pages}{11}
+    \endentry
+    \entry{Schmitt1938}{article}{}
+      \name{author}{1}{}{%
+        {{hash=700e6b51b97c309030159b801cfa50cd}{%
+           family={Schmitt},
+           familyi={S\bibinitperiod},
+           given={O.\bibnamedelimi H.},
+           giveni={O\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{700e6b51b97c309030159b801cfa50cd}
+      \strng{fullhash}{700e6b51b97c309030159b801cfa50cd}
+      \strng{bibnamehash}{700e6b51b97c309030159b801cfa50cd}
+      \strng{authorbibnamehash}{700e6b51b97c309030159b801cfa50cd}
+      \strng{authornamehash}{700e6b51b97c309030159b801cfa50cd}
+      \strng{authorfullhash}{700e6b51b97c309030159b801cfa50cd}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Scientific Instruments}
+      \field{number}{1}
+      \field{title}{A thermionic trigger}
+      \field{volume}{15}
+      \field{year}{1938}
+      \field{pages}{24\bibrangedash 26}
+      \range{pages}{3}
+    \endentry
+    \entry{Wolff1982}{article}{}
+      \name{author}{1}{}{%
+        {{hash=c5096c47a7ea16581766c6468f49b59a}{%
+           family={Wolff},
+           familyi={W\bibinitperiod},
+           given={R.\bibnamedelimi W.},
+           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{c5096c47a7ea16581766c6468f49b59a}
+      \strng{fullhash}{c5096c47a7ea16581766c6468f49b59a}
+      \strng{bibnamehash}{c5096c47a7ea16581766c6468f49b59a}
+      \strng{authorbibnamehash}{c5096c47a7ea16581766c6468f49b59a}
+      \strng{authornamehash}{c5096c47a7ea16581766c6468f49b59a}
+      \strng{authorfullhash}{c5096c47a7ea16581766c6468f49b59a}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Operations Research}
+      \field{number}{2}
+      \field{title}{Poisson Arrivals See Time Averages}
+      \field{volume}{30}
+      \field{year}{1982}
+      \field{pages}{223\bibrangedash 231}
+      \range{pages}{9}
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{11}
+  \datalist[entry]{none/global//global/global}
     \entry{Wolff1982}{article}{}
       \name{author}{1}{}{%
         {{hash=c5096c47a7ea16581766c6468f49b59a}{%
@@ -159,7 +349,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{12}
+\refsection{13}
   \datalist[entry]{none/global//global/global}
     \entry{Virtio12}{manual}{}
       \name{author}{1}{}{%
@@ -308,7 +498,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{13}
+\refsection{14}
   \datalist[entry]{none/global//global/global}
     \entry{RedPitayaFPGA}{online}{}
       \name{author}{1}{}{%
@@ -484,7 +674,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{14}
+\refsection{15}
   \datalist[entry]{none/global//global/global}
     \entry{Crockett2014}{book}{}
       \name{author}{4}{}{%
@@ -748,7 +938,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{15}
+\refsection{16}
   \datalist[entry]{none/global//global/global}
     \entry{Ley24804}{misc}{}
       \name{author}{1}{}{%
@@ -1128,7 +1318,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{18}
+\refsection{19}
   \datalist[entry]{none/global//global/global}
     \entry{Knoll2010}{book}{}
       \name{author}{1}{}{%
@@ -1161,7 +1351,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{19}
+\refsection{20}
   \datalist[entry]{none/global//global/global}
     \entry{Crockett2014}{book}{}
       \name{author}{4}{}{%
@@ -1357,7 +1547,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{20}
+\refsection{21}
   \datalist[entry]{none/global//global/global}
     \entry{Jordanov1994}{article}{}
       \name{author}{2}{}{%
@@ -1554,7 +1744,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{5}
+\refsection{6}
   \datalist[entry]{none/global//global/global}
     \entry{RepoReleases}{online}{}
       \field{sortinit}{1}
@@ -1627,7 +1817,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{6}
+\refsection{7}
   \datalist[entry]{none/global//global/global}
     \entry{Knoll2010}{book}{}
       \name{author}{1}{}{%
@@ -1733,8 +1923,8 @@
       \strng{authorbibnamehash}{1584e359ca2fac191866dec69fdf8322}
       \strng{authornamehash}{1584e359ca2fac191866dec69fdf8322}
       \strng{authorfullhash}{1584e359ca2fac191866dec69fdf8322}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{3}
@@ -1843,8 +2033,8 @@
       \strng{authorbibnamehash}{b13c6e3755f22639dfc7518cf2820901}
       \strng{authornamehash}{b13c6e3755f22639dfc7518cf2820901}
       \strng{authorfullhash}{b13c6e3755f22639dfc7518cf2820901}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the 29th International Cosmic Ray Conference}
@@ -1874,8 +2064,8 @@
       \strng{authorbibnamehash}{9e02c695d9a57f6e8669b26d9be3e077}
       \strng{authornamehash}{9e02c695d9a57f6e8669b26d9be3e077}
       \strng{authorfullhash}{9e02c695d9a57f6e8669b26d9be3e077}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eid}{030001}
@@ -1987,8 +2177,8 @@
       \strng{authorbibnamehash}{472abfae8142fdb6f39d081303e8af85}
       \strng{authornamehash}{472abfae8142fdb6f39d081303e8af85}
       \strng{authorfullhash}{472abfae8142fdb6f39d081303e8af85}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{number}{IEEE Std 1241-2010}
@@ -1998,7 +2188,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{7}
+\refsection{8}
   \datalist[entry]{none/global//global/global}
     \entry{STM32H723}{manual}{}
       \name{author}{1}{}{%
@@ -2792,7 +2982,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{8}
+\refsection{9}
   \datalist[entry]{none/global//global/global}
     \entry{AMBAAXI}{manual}{}
       \name{author}{1}{}{%
@@ -3467,196 +3657,6 @@
       \field{year}{2000}
       \field{pages}{108\bibrangedash 125}
       \range{pages}{18}
-    \endentry
-  \enddatalist
-\endrefsection
-
-\refsection{9}
-  \datalist[entry]{none/global//global/global}
-    \entry{Knoll2010}{book}{}
-      \name{author}{1}{}{%
-        {{hash=b3b1b42c7c2fbd3232b45837ae3874e0}{%
-           family={Knoll},
-           familyi={K\bibinitperiod},
-           given={G.\bibnamedelimi F.},
-           giveni={G\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Hoboken, NJ}%
-      }
-      \list{publisher}{1}{%
-        {Wiley}%
-      }
-      \strng{namehash}{b3b1b42c7c2fbd3232b45837ae3874e0}
-      \strng{fullhash}{b3b1b42c7c2fbd3232b45837ae3874e0}
-      \strng{bibnamehash}{b3b1b42c7c2fbd3232b45837ae3874e0}
-      \strng{authorbibnamehash}{b3b1b42c7c2fbd3232b45837ae3874e0}
-      \strng{authornamehash}{b3b1b42c7c2fbd3232b45837ae3874e0}
-      \strng{authorfullhash}{b3b1b42c7c2fbd3232b45837ae3874e0}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{4}
-      \field{title}{Radiation Detection and Measurement}
-      \field{year}{2010}
-    \endentry
-    \entry{Rossi1930}{article}{}
-      \name{author}{1}{}{%
-        {{hash=ba8bd957992443203368a19d1034ef1c}{%
-           family={Rossi},
-           familyi={R\bibinitperiod},
-           given={B.},
-           giveni={B\bibinitperiod}}}%
-      }
-      \strng{namehash}{ba8bd957992443203368a19d1034ef1c}
-      \strng{fullhash}{ba8bd957992443203368a19d1034ef1c}
-      \strng{bibnamehash}{ba8bd957992443203368a19d1034ef1c}
-      \strng{authorbibnamehash}{ba8bd957992443203368a19d1034ef1c}
-      \strng{authornamehash}{ba8bd957992443203368a19d1034ef1c}
-      \strng{authorfullhash}{ba8bd957992443203368a19d1034ef1c}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Nature}
-      \field{title}{Method of registering multiple simultaneous impulses of several {Geiger's} counters}
-      \field{volume}{125}
-      \field{year}{1930}
-      \field{pages}{636}
-      \range{pages}{1}
-    \endentry
-    \entry{Leo1994}{book}{}
-      \name{author}{1}{}{%
-        {{hash=4963ffa2ffe6b5d9aab04444dc44c98f}{%
-           family={Leo},
-           familyi={L\bibinitperiod},
-           given={W.\bibnamedelimi R.},
-           giveni={W\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Berlín}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{4963ffa2ffe6b5d9aab04444dc44c98f}
-      \strng{fullhash}{4963ffa2ffe6b5d9aab04444dc44c98f}
-      \strng{bibnamehash}{4963ffa2ffe6b5d9aab04444dc44c98f}
-      \strng{authorbibnamehash}{4963ffa2ffe6b5d9aab04444dc44c98f}
-      \strng{authornamehash}{4963ffa2ffe6b5d9aab04444dc44c98f}
-      \strng{authorfullhash}{4963ffa2ffe6b5d9aab04444dc44c98f}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{2}
-      \field{note}{Edición revisada}
-      \field{title}{Techniques for Nuclear and Particle Physics Experiments: A How-to Approach}
-      \field{year}{1994}
-    \endentry
-    \entry{RedPitayaFPGA}{online}{}
-      \name{author}{1}{}{%
-        {{hash=5933a557af910702489aacfcca3f3ee2}{%
-           family={{Red Pitaya}},
-           familyi={R\bibinitperiod}}}%
-      }
-      \strng{namehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{fullhash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{bibnamehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{authorbibnamehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{authornamehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{authorfullhash}{5933a557af910702489aacfcca3f3ee2}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Repositorio del diseño de la FPGA}
-      \field{title}{RedPitaya-FPGA}
-      \verb{urlraw}
-      \verb https://github.com/RedPitaya/RedPitaya-FPGA
-      \endverb
-      \verb{url}
-      \verb https://github.com/RedPitaya/RedPitaya-FPGA
-      \endverb
-      \warn{\item Datamodel: Entry 'RedPitayaFPGA' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined}
-    \endentry
-    \entry{Muller1973}{article}{}
-      \name{author}{1}{}{%
-        {{hash=7dcfc405d58d740971ff3e8b370b095f}{%
-           family={Müller},
-           familyi={M\bibinitperiod},
-           given={J.\bibnamedelimi W.},
-           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
-      }
-      \strng{namehash}{7dcfc405d58d740971ff3e8b370b095f}
-      \strng{fullhash}{7dcfc405d58d740971ff3e8b370b095f}
-      \strng{bibnamehash}{7dcfc405d58d740971ff3e8b370b095f}
-      \strng{authorbibnamehash}{7dcfc405d58d740971ff3e8b370b095f}
-      \strng{authornamehash}{7dcfc405d58d740971ff3e8b370b095f}
-      \strng{authorfullhash}{7dcfc405d58d740971ff3e8b370b095f}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Nuclear Instruments and Methods}
-      \field{title}{Dead-time problems}
-      \field{volume}{112}
-      \field{year}{1973}
-      \field{pages}{47\bibrangedash 57}
-      \range{pages}{11}
-    \endentry
-    \entry{Schmitt1938}{article}{}
-      \name{author}{1}{}{%
-        {{hash=700e6b51b97c309030159b801cfa50cd}{%
-           family={Schmitt},
-           familyi={S\bibinitperiod},
-           given={O.\bibnamedelimi H.},
-           giveni={O\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
-      }
-      \strng{namehash}{700e6b51b97c309030159b801cfa50cd}
-      \strng{fullhash}{700e6b51b97c309030159b801cfa50cd}
-      \strng{bibnamehash}{700e6b51b97c309030159b801cfa50cd}
-      \strng{authorbibnamehash}{700e6b51b97c309030159b801cfa50cd}
-      \strng{authornamehash}{700e6b51b97c309030159b801cfa50cd}
-      \strng{authorfullhash}{700e6b51b97c309030159b801cfa50cd}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of Scientific Instruments}
-      \field{number}{1}
-      \field{title}{A thermionic trigger}
-      \field{volume}{15}
-      \field{year}{1938}
-      \field{pages}{24\bibrangedash 26}
-      \range{pages}{3}
-    \endentry
-    \entry{Wolff1982}{article}{}
-      \name{author}{1}{}{%
-        {{hash=c5096c47a7ea16581766c6468f49b59a}{%
-           family={Wolff},
-           familyi={W\bibinitperiod},
-           given={R.\bibnamedelimi W.},
-           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
-      }
-      \strng{namehash}{c5096c47a7ea16581766c6468f49b59a}
-      \strng{fullhash}{c5096c47a7ea16581766c6468f49b59a}
-      \strng{bibnamehash}{c5096c47a7ea16581766c6468f49b59a}
-      \strng{authorbibnamehash}{c5096c47a7ea16581766c6468f49b59a}
-      \strng{authornamehash}{c5096c47a7ea16581766c6468f49b59a}
-      \strng{authorfullhash}{c5096c47a7ea16581766c6468f49b59a}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Operations Research}
-      \field{number}{2}
-      \field{title}{Poisson Arrivals See Time Averages}
-      \field{volume}{30}
-      \field{year}{1982}
-      \field{pages}{223\bibrangedash 231}
-      \range{pages}{9}
     \endentry
   \enddatalist
 \endrefsection
