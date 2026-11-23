@@ -1,0 +1,997 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Qué tipo de entrada usar para libros y partes de libros (biblatex):
+%
+%   @book          libro completo, un solo autor/equipo de autores.
+%                  Para apuntar a un capítulo o página se usa el localizador
+%                  en la CITA, no en la entrada:  \cite[45]{clave}
+%                                                 \citecap{clave}{5}
+%
+%   @inbook        capítulo de un libro, escrito por el MISMO autor del libro.
+%                  'title' = título del capítulo, 'booktitle' = título del libro.
+%
+%   @incollection  capítulo/contribución de un libro colectivo, con autor propio
+%                  distinto del editor. Lleva 'editor'.
+%
+%   @mvbook        obra en varios tomos. Para citar un tomo concreto:
+%                  \volcite{2}[45]{clave}
+%
+% Campos útiles: edition, location (ex-'address'), series, volume, doi, url,
+% urldate, langid. biblatex ignora los que no aplican al tipo.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% --- Ejemplos de libros y partes de libros --- %%%
+
+@BOOK{Sakurai2011,
+  author    = {Sakurai, J. J. and Napolitano, Jim},
+  title     = {Modern Quantum Mechanics},
+  edition   = {2},
+  publisher = {Addison-Wesley},
+  location  = {Boston},
+  year      = {2011},
+}
+
+@BOOK{Jackson1998,
+  author    = {Jackson, John David},
+  title     = {Classical Electrodynamics},
+  edition   = {3},
+  publisher = {John Wiley \& Sons},
+  location  = {New York},
+  year      = {1998},
+}
+
+% Capítulo de libro del mismo autor: la referencia ES el capítulo.
+@INBOOK{Shankar1994Cap13,
+  author    = {Shankar, Ramamurti},
+  title     = {The Hydrogen Atom},
+  booktitle = {Principles of Quantum Mechanics},
+  chapter   = {13},
+  pages     = {353--364},
+  edition   = {2},
+  publisher = {Springer},
+  location  = {New York},
+  year      = {1994},
+}
+
+%%% --- Entradas originales de la template --- %%%
+
+@INCOLLECTION{Laricch2009AAMOP_ICBp3,
+  author = { Laricchia, G. and  Armitage, S. and  K\"{o}ver, \'{A}. and  Murtagh, D.
+      J.},
+  title = {Ionizing Collisions by Positrons and Positronium Impact on the Inert
+      Atoms},
+  year = {2009},
+  volume = {56},
+  booktitle = {Advances in Atomic, Molecular and Optical Physics},
+  publisher = {Academic Press, Inc.},
+  pages = {3},
+}
+           
+@INCOLLECTION{Briggs1991AAMOP_TTOp1,
+  author = { Briggs, J. S. and  Macek, J. H.},
+  editor = { Briggs, J. S. and  Macek, J. H.},
+  title = {The theory of fast ion-atom collisions},
+  year = {1991},
+  volume = {28},
+  booktitle = {Advances in Atomic, Molecular and Optical Physics},
+  publisher = {Academic Press, Inc.},
+  pages = {1-74},
+}
+
+@ARTICLE{Bohm1952PRp166,
+  author = { Bohm, David},
+  title = {A Suggested Interpretation of the Quantum Theory in Terms of ``{Hidden}"
+      Variables. {I}},
+  journal = {Physical Review},
+  year = {1952},
+  volume = {85},
+  pages = {166-179},
+}
+
+@ARTICLE{Bohm1952PRp180,
+  author = { Bohm, David},
+  title = {A Suggested Interpretation of the Quantum Theory in Terms of ``{Hidden}"
+      Variables. {II}},
+  journal = {Physical Review},
+  year = {1952},
+  volume = {85},
+  pages = {180-193},
+}
+
+@ARTICLE{Bohr1913PMp10,
+  author = { Bohr, N.},
+  journal = {Phil. Mag.},
+  year = {1913},
+  volume = {25},
+  pages = {10},
+}
+
+@ARTICLE{Philipp1982NCBSp75,
+  author = { Philippidis, C. and  Bohm, D. and  Kaye, R. D.},
+  title = {{The Aharonov-Bohm effect and the quantum potential}},
+  journal = {Nuovo Cimento B Serie},
+  year = {1982},
+  volume = {71},
+  pages = {75-88},
+}
+
+@article{Hunter07CSE,
+        Address = {10662 LOS VAQUEROS CIRCLE, PO BOX 3014, LOS ALAMITOS, CA 90720-1314 USA},
+        Author = {Hunter, John D.},
+        Date-Added = {2010-09-23 12:22:10 -0700},
+        Date-Modified = {2010-09-23 12:22:10 -0700},
+        Isi = {000245668100019},
+        Isi-Recid = {155389429},
+        Journal = {Computing In Science \& Engineering},
+        Month = {May-Jun},
+        Number = {3},
+        Pages = {90--95},
+        Publisher = {IEEE COMPUTER SOC},
+        Times-Cited = {21},
+        Title = {Matplotlib: A 2D graphics environment},
+        Type = {Editorial Material},
+        Volume = {9},
+        Year = {2007},
+        Abstract = {Matplotlib is a 2D graphics package used for Python for application
+                    development, interactive scripting, and publication-quality image
+                    generation across user interfaces and operating systems.},
+        Bdsk-Url-1 = {http://gateway.isiknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=Alerting&SrcApp=Alerting&DestApp=WOS&DestLinkType=FullRecord;KeyUT=000245668100019}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% --- Cap. 1: Analizador multicanal --- %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@book{Knoll2010,
+  author    = {Knoll, G. F.},
+  title     = {Radiation Detection and Measurement},
+  edition   = {4},
+  publisher = {Wiley},
+  location  = {Hoboken, NJ},
+  year      = {2010},
+}
+
+@article{Sheppard1898,
+  author       = {Sheppard, W. F.},
+  title        = {On the calculation of the most probable values of
+                  frequency-constants, for data arranged according to
+                  equidistant division of a scale},
+  journaltitle = {Proceedings of the London Mathematical Society},
+  series       = {1},
+  volume       = {29},
+  pages        = {353--380},
+  year         = {1898},
+}
+
+@online{AmptekDPPMCA,
+  author  = {{Amptek}},
+  title   = {{DPPMCA} Display and Acquisition Software},
+  url     = {https://www.amptek.com/software/dp5-digital-pulse-processor-software/dppmca-display-acquisition-software},
+}
+
+@book{Oppenheim2010,
+  author    = {Oppenheim, A. V. and Schafer, R. W.},
+  title     = {Discrete-Time Signal Processing},
+  edition   = {3},
+  publisher = {Pearson},
+  location  = {Upper Saddle River, NJ},
+  year      = {2010},
+}
+
+@online{RedPitayaDocs,
+  author  = {{Red Pitaya}},
+  title   = {Red Pitaya Documentation},
+  note    = {Developer Guide, Hardware, STEMlab 125-14 (Original Gen)},
+  url     = {https://redpitaya.readthedocs.io/en/latest/developerGuide/hardware/ORIG_GEN/125-14/top.html},
+}
+
+@article{Jordanov1994,
+  author       = {Jordanov, V. T. and Knoll, G. F.},
+  title        = {Digital synthesis of pulse shapes in real time for high
+                  resolution radiation spectroscopy},
+  journaltitle = {Nuclear Instruments and Methods in Physics Research A},
+  volume       = {345},
+  pages        = {337--345},
+  year         = {1994},
+}
+
+@book{Nicholson1974,
+  author    = {Nicholson, P. W.},
+  title     = {Nuclear Electronics},
+  publisher = {Wiley},
+  location  = {Londres},
+  year      = {1974},
+}
+
+@inproceedings{Allison2005,
+  author     = {Allison, P. and others},
+  title      = {Observing muon decays in water {Cherenkov} detectors at the
+                {Pierre Auger Observatory}},
+  booktitle  = {Proceedings of the 29th International Cosmic Ray Conference},
+  location   = {Pune},
+  pages      = {101--106},
+  year       = {2005},
+  note       = {Pierre Auger Collaboration},
+  eprint     = {astro-ph/0509238},
+  eprinttype = {arXiv},
+}
+
+@article{PDG2024,
+  author       = {Navas, S. and others},
+  title        = {Review of Particle Physics},
+  journaltitle = {Physical Review D},
+  volume       = {110},
+  eid          = {030001},
+  year         = {2024},
+  note         = {Particle Data Group},
+}
+
+@article{Muller1973,
+  author       = {Müller, J. W.},
+  title        = {Dead-time problems},
+  journaltitle = {Nuclear Instruments and Methods},
+  volume       = {112},
+  pages        = {47--57},
+  year         = {1973},
+}
+
+@article{Corless1996,
+  author       = {Corless, R. M. and Gonnet, G. H. and Hare, D. E. G. and
+                  Jeffrey, D. J. and Knuth, D. E.},
+  title        = {On the {Lambert} {W} function},
+  journaltitle = {Advances in Computational Mathematics},
+  volume       = {5},
+  pages        = {329--359},
+  year         = {1996},
+}
+
+@manual{GUM2008,
+  author = {{JCGM}},
+  title  = {Evaluation of measurement data --- Guide to the expression of
+            uncertainty in measurement},
+  number = {JCGM 100:2008 (GUM)},
+  year   = {2008},
+}
+
+@manual{IEEE1241,
+  author = {{IEEE}},
+  title  = {IEEE Standard for Terminology and Test Methods for
+            Analog-to-Digital Converters},
+  number = {IEEE Std 1241-2010},
+  year   = {2011},
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% --- Cap. 2: Hardware empleado --- %%%
+%%% Hojas de datos y guias de usuario: @manual con el codigo del documento en
+%%% 'number'. Las que no tienen año en la nota quedan sin año (biber avisa).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@manual{STM32H723,
+  author = {{STMicroelectronics}},
+  title  = {STM32H723VE/VG/ZE/ZG: Arm Cortex-M7 32-bit 550 MHz MCU},
+  type   = {Hoja de datos},
+  number = {DS13313, Rev. 3},
+  year   = {2021},
+}
+
+@manual{STM32F407,
+  author = {{STMicroelectronics}},
+  title  = {STM32F405xx/STM32F407xx: Arm Cortex-M4 32-bit MCU+FPU},
+  type   = {Hoja de datos},
+  number = {DS8626},
+}
+
+@manual{TMS320F2837xD,
+  author = {{Texas Instruments}},
+  title  = {TMS320F2837xD Dual-Core Microcontrollers},
+  type   = {Hoja de datos},
+  number = {SPRS880},
+}
+
+@book{Crockett2014,
+  author    = {Crockett, L. H. and Elliot, R. A. and Enderwitz, M. A. and
+               Stewart, R. W.},
+  title     = {The Zynq Book: Embedded Processing with the ARM Cortex-A9 on the
+               Xilinx Zynq-7000 All Programmable SoC},
+  edition   = {1},
+  publisher = {Strathclyde Academic Media},
+  location  = {Glasgow},
+  year      = {2014},
+}
+
+@article{Trimberger2015,
+  author       = {Trimberger, S. M.},
+  title        = {Three Ages of {FPGAs}: A Retrospective on the First Thirty
+                  Years of {FPGA} Technology},
+  journaltitle = {Proceedings of the IEEE},
+  volume       = {103},
+  number       = {3},
+  pages        = {318--331},
+  year         = {2015},
+}
+
+@manual{UG984,
+  author = {{AMD/Xilinx}},
+  title  = {MicroBlaze Processor Reference Guide},
+  number = {UG984},
+}
+
+@article{Weicker1984,
+  author       = {Weicker, R. P.},
+  title        = {Dhrystone: A Synthetic Systems Programming Benchmark},
+  journaltitle = {Communications of the ACM},
+  volume       = {27},
+  number       = {10},
+  pages        = {1013--1030},
+  year         = {1984},
+}
+
+@manual{DS083,
+  author = {{Xilinx}},
+  title  = {Virtex-II Pro and Virtex-II Pro X Platform FPGAs: Complete Data Sheet},
+  number = {DS083},
+}
+
+@manual{UG200,
+  author = {{Xilinx}},
+  title  = {Embedded Processor Block in Virtex-5 FPGAs Reference Guide},
+  number = {UG200},
+}
+
+@manual{UG585,
+  author = {{AMD/Xilinx}},
+  title  = {Zynq-7000 SoC Technical Reference Manual},
+  number = {UG585},
+}
+
+@manual{DS190,
+  author = {{AMD/Xilinx}},
+  title  = {Zynq-7000 SoC Data Sheet: Overview},
+  number = {DS190},
+}
+
+@manual{UG474,
+  author = {{Xilinx}},
+  title  = {7 Series FPGAs Configurable Logic Block User Guide},
+  number = {UG474},
+}
+
+@manual{UG473,
+  author = {{Xilinx}},
+  title  = {7 Series FPGAs Memory Resources User Guide},
+  number = {UG473},
+}
+
+@manual{UG479,
+  author = {{Xilinx}},
+  title  = {7 Series DSP48E1 Slice User Guide},
+  number = {UG479},
+}
+
+@manual{UG472,
+  author = {{Xilinx}},
+  title  = {7 Series FPGAs Clocking Resources User Guide},
+  number = {UG472},
+}
+
+@manual{UG471,
+  author = {{Xilinx}},
+  title  = {7 Series FPGAs SelectIO Resources User Guide},
+  number = {UG471},
+}
+
+@manual{UG480,
+  author = {{Xilinx}},
+  title  = {7 Series FPGAs and Zynq-7000 SoC XADC Dual 12-Bit 1 MSPS
+            Analog-to-Digital Converter User Guide},
+  number = {UG480},
+}
+
+@manual{AMBAAXI,
+  author = {{Arm}},
+  title  = {AMBA AXI and ACE Protocol Specification},
+  number = {IHI 0022},
+}
+
+@online{RedPitayaFPGA,
+  author = {{Red Pitaya}},
+  title  = {RedPitaya-FPGA},
+  note   = {Repositorio del diseño de la FPGA},
+  url    = {https://github.com/RedPitaya/RedPitaya-FPGA},
+}
+
+@manual{PG059,
+  author = {{Xilinx}},
+  title  = {AXI Interconnect v2.1 LogiCORE IP Product Guide},
+  number = {PG059},
+}
+
+@manual{DDI0388,
+  author = {{Arm}},
+  title  = {Cortex-A9 Technical Reference Manual},
+  number = {DDI 0388},
+}
+
+@manual{DDI0406C,
+  author = {{Arm}},
+  title  = {ARM Architecture Reference Manual, ARMv7-A and ARMv7-R edition},
+  number = {DDI 0406C},
+}
+
+@manual{DDI0407,
+  author = {{Arm}},
+  title  = {Cortex-A9 MPCore Technical Reference Manual},
+  number = {DDI 0407},
+}
+
+@book{Nagarajan2020,
+  author    = {Nagarajan, V. and Sorin, D. J. and Hill, M. D. and Wood, D. A.},
+  title     = {A Primer on Memory Consistency and Cache Coherence},
+  edition   = {2},
+  publisher = {Morgan \& Claypool},
+  year      = {2020},
+}
+
+@online{DebianArmHF,
+  author = {{Debian}},
+  title  = {ArmHardFloatPort},
+  note   = {Debian Wiki},
+  url    = {https://wiki.debian.org/ArmHardFloatPort},
+}
+
+@online{LinuxMMU,
+  author = {{Linux kernel}},
+  title  = {\texttt{arch/arm/mm/mmu.c}, función \texttt{phys\_mem\_access\_prot}},
+  url    = {https://github.com/torvalds/linux/blob/master/arch/arm/mm/mmu.c},
+}
+
+@manual{LTC2145,
+  author = {{Analog Devices (Linear Technology)}},
+  title  = {LTC2145-14\slash LTC2144-14\slash LTC2143-14: 14-Bit, 125Msps\slash 105Msps\slash 80Msps
+            Low Power Dual ADCs},
+  type   = {Hoja de datos},
+}
+
+@online{RedPitayaFastIn,
+  author = {{Red Pitaya}},
+  title  = {Fast Analog Inputs},
+  note   = {Mediciones de la STEMlab 125-14 (Original Gen)},
+  url    = {https://redpitaya.readthedocs.io/en/latest/developerGuide/hardware/ORIG_GEN/measurements/STEMlab-125-14/fast_analog_inputs.html},
+}
+
+@online{RedPitayaSchematics,
+  author = {{Red Pitaya}},
+  title  = {Schematics STEMlab 125-14 v1.1},
+  url    = {https://downloads.redpitaya.com/doc/Schematics/Schematics_STEM_125-14_v1.1.pdf},
+}
+
+@online{RedPitayaCalib,
+  author = {{Red Pitaya}},
+  title  = {Calibration utility (calib)},
+  url    = {https://redpitaya.readthedocs.io/en/latest/appsFeatures/command_line_tools/utils/calib_util.html},
+}
+
+@manual{DS187,
+  author = {{AMD/Xilinx}},
+  title  = {Zynq-7000 SoC (Z-7007S, Z-7012S, Z-7014S, Z-7010, Z-7015, Z-7020):
+            DC and AC Switching Characteristics},
+  number = {DS187},
+}
+
+@manual{AD9767,
+  author = {{Analog Devices}},
+  title  = {AD9763/AD9765/AD9767: 10-/12-/14-Bit, 125 MSPS Dual TxDAC+
+            Digital-to-Analog Converters},
+  type   = {Hoja de datos},
+  number = {Rev. C},
+  year   = {2006},
+}
+
+@online{RedPitayaFastOut,
+  author = {{Red Pitaya}},
+  title  = {Fast Analog Outputs},
+  note   = {Mediciones de la STEMlab 125-14 (Original Gen)},
+  url    = {https://redpitaya.readthedocs.io/en/latest/developerGuide/hardware/ORIG_GEN/measurements/STEMlab-125-14/fast_analog_outputs.html},
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% --- Cap. 3: Implementacion del multitrigger --- %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@book{Leo1994,
+  author    = {Leo, W. R.},
+  title     = {Techniques for Nuclear and Particle Physics Experiments: A How-to
+               Approach},
+  edition   = {2},
+  note      = {Edición revisada},
+  publisher = {Springer},
+  location  = {Berlín},
+  year      = {1994},
+}
+
+@article{Rossi1930,
+  author       = {Rossi, B.},
+  title        = {Method of registering multiple simultaneous impulses of several
+                  {Geiger's} counters},
+  journaltitle = {Nature},
+  volume       = {125},
+  pages        = {636},
+  year         = {1930},
+}
+
+@article{Schmitt1938,
+  author       = {Schmitt, O. H.},
+  title        = {A thermionic trigger},
+  journaltitle = {Journal of Scientific Instruments},
+  volume       = {15},
+  number       = {1},
+  pages        = {24--26},
+  year         = {1938},
+}
+
+@article{Wolff1982,
+  author       = {Wolff, R. W.},
+  title        = {Poisson Arrivals See Time Averages},
+  journaltitle = {Operations Research},
+  volume       = {30},
+  number       = {2},
+  pages        = {223--231},
+  year         = {1982},
+}
+
+@article{Jordanov1994b,
+  author       = {Jordanov, V. T. and Knoll, G. F. and Huber, A. C. and
+                  Pantazis, J. A.},
+  title        = {Digital techniques for real-time pulse shaping in radiation
+                  measurements},
+  journaltitle = {Nuclear Instruments and Methods in Physics Research A},
+  volume       = {353},
+  pages        = {261--264},
+  year         = {1994},
+}
+
+@book{Nakhostin2017,
+  author    = {Nakhostin, M.},
+  title     = {Signal Processing for Radiation Detectors},
+  publisher = {Wiley},
+  location  = {Hoboken, NJ},
+  year      = {2017},
+}
+
+@manual{CAENWP2081,
+  author = {{CAEN}},
+  title  = {Digital Pulse Processing in Nuclear Physics},
+  type   = {White paper},
+  number = {WP2081},
+}
+
+@book{Bergeron2003,
+  author    = {Bergeron, J.},
+  title     = {Writing Testbenches: Functional Verification of {HDL} Models},
+  edition   = {2},
+  publisher = {Kluwer Academic},
+  location  = {Boston},
+  year      = {2003},
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% --- Cap. 4: Verificación de normativa nacional e internacional --- %%%
+
+@misc{Ley24804,
+  author       = {{República Argentina}},
+  title        = {Ley N\textsuperscript{o} 24.804: Ley Nacional de la Actividad Nuclear},
+  year         = {1997},
+}
+
+@manual{ARN_AR422,
+  author       = {{Autoridad Regulatoria Nuclear}},
+  title        = {Norma AR 4.2.2. Diseño de reactores de investigación},
+  edition      = {Revisión 1},
+  note         = {Resolución del Directorio N\textsuperscript{o} 18/02},
+  year         = {2002},
+  url          = {https://www.argentina.gob.ar/sites/default/files/4-2-2_r1.pdf},
+}
+
+@manual{ARN_AR1061,
+  author       = {{Autoridad Regulatoria Nuclear}},
+  title        = {Norma AR 10.6.1. Sistema de gestión para la seguridad en las
+                  instalaciones y prácticas},
+  edition      = {Revisión 0},
+  note         = {Resolución ARN N\textsuperscript{o} 36/2020},
+  year         = {2020},
+  url          = {https://www.argentina.gob.ar/normativa/nacional/norma-334353/texto},
+}
+
+@manual{ARN_AR1011,
+  author       = {{Autoridad Regulatoria Nuclear}},
+  title        = {Norma AR 10.1.1. Norma básica de seguridad radiológica},
+}
+
+@manual{IAEA_SSG37,
+  author       = {{IAEA}},
+  title        = {Instrumentation and Control Systems and Software Important to
+                  Safety for Research Reactors},
+  series       = {Specific Safety Guide},
+  number       = {SSG-37 (Rev. 1)},
+  location     = {Viena},
+  year         = {2023},
+  url          = {https://www-pub.iaea.org/MTCD/Publications/PDF/PUB2051_web.pdf},
+}
+
+@manual{IAEA_SSR3,
+  author       = {{IAEA}},
+  title        = {Safety of Research Reactors},
+  series       = {Specific Safety Requirements},
+  number       = {SSR-3},
+  location     = {Viena},
+  year         = {2016},
+}
+
+@manual{IAEA_SSG22,
+  author       = {{IAEA}},
+  title        = {Use of a Graded Approach in the Application of the Safety
+                  Requirements for Research Reactors},
+  series       = {Specific Safety Guide},
+  number       = {SSG-22 (Rev. 1)},
+}
+
+@manual{IEC61226,
+  author       = {{IEC}},
+  title        = {Nuclear power plants --- Instrumentation, control and
+                  electrical power systems important to safety ---
+                  Categorization of functions and classification of systems},
+  number       = {IEC 61226},
+}
+
+@manual{IEC62566-2,
+  author       = {{IEC}},
+  title        = {Nuclear power plants --- Instrumentation and control systems
+                  important to safety --- Development of HDL-programmed
+                  integrated circuits --- Part 2: HDL-programmed integrated
+                  circuits for systems performing category B or C functions},
+  number       = {IEC 62566-2:2020},
+  year         = {2020},
+}
+
+@manual{IEC62138,
+  author       = {{IEC}},
+  title        = {Nuclear power plants --- Instrumentation and control important
+                  to safety --- Software aspects for computer-based systems
+                  performing category B or C functions},
+  number       = {IEC 62138},
+}
+
+@manual{IEC61452,
+  author       = {{IEC}},
+  title        = {Nuclear instrumentation --- Measurement of activity or
+                  emission rate of gamma-ray emitting radionuclides ---
+                  Calibration and use of germanium-based spectrometers},
+  number       = {IEC 61452:2021},
+  edition      = {Ed. 2.0},
+  year         = {2021},
+  url          = {https://webstore.iec.ch/publication/63679},
+}
+
+@manual{IEEEN4214,
+  author       = {{ANSI/IEEE}},
+  title        = {Calibration and Use of Germanium Spectrometers for the
+                  Measurement of Gamma-Ray Emission Rates of Radionuclides},
+  number       = {ANSI/IEEE N42.14-1999},
+  year         = {1999},
+  note         = {Retirada},
+  url          = {https://standards.ieee.org/ieee/N42.14/3003/},
+}
+
+@manual{IEC62755,
+  author       = {{IEC}},
+  title        = {Radiation protection instrumentation --- Data format for
+                  radiation instruments used in the detection of illicit
+                  trafficking of radioactive materials},
+  number       = {IEC 62755},
+  note         = {Equivalente: ANSI/IEEE N42.42},
+}
+
+@manual{IEC61010-1,
+  author       = {{IEC}},
+  title        = {Safety requirements for electrical equipment for measurement,
+                  control, and laboratory use --- Part 1: General requirements},
+  number       = {IEC 61010-1},
+}
+
+@manual{IEC61326-1,
+  author       = {{IEC}},
+  title        = {Electrical equipment for measurement, control and laboratory
+                  use --- EMC requirements --- Part 1: General requirements},
+  number       = {IEC 61326-1},
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% --- Introducción al diseño en HW (cap5.tex) --- %%%
+
+@manual{AXIStream,
+  author    = {{Arm}},
+  title     = {AMBA 4 AXI4-Stream Protocol Specification},
+  number    = {IHI 0051A},
+  year      = {2010},
+}
+
+@book{Dally2004,
+  author    = {Dally, W. J. and Towles, B.},
+  title     = {Principles and Practices of Interconnection Networks},
+  publisher = {Morgan Kaufmann},
+  location  = {San Francisco},
+  year      = {2004},
+}
+
+@article{Carloni2001,
+  author    = {Carloni, L. P. and McMillan, K. L. and Sangiovanni-Vincentelli, A. L.},
+  title     = {Theory of Latency-Insensitive Design},
+  journaltitle = {IEEE Transactions on Computer-Aided Design of Integrated
+                  Circuits and Systems},
+  volume    = {20},
+  number    = {9},
+  pages     = {1059--1076},
+  year      = {2001},
+}
+
+@inproceedings{Cortadella2006,
+  author    = {Cortadella, J. and Kishinevsky, M. and Grundmann, B.},
+  title     = {Synthesis of Synchronous Elastic Architectures},
+  booktitle = {43rd Design Automation Conference (DAC)},
+  location  = {San Francisco, CA},
+  pages     = {657--662},
+  year      = {2006},
+}
+
+@inproceedings{Cummings2002,
+  author    = {Cummings, C. E.},
+  title     = {Simulation and Synthesis Techniques for Asynchronous {FIFO} Design},
+  booktitle = {Synopsys Users Group Conference (SNUG)},
+  location  = {San José, CA},
+  year      = {2002},
+}
+
+@article{Kendall1953,
+  author    = {Kendall, D. G.},
+  title     = {Stochastic Processes Occurring in the Theory of Queues and their
+               Analysis by the Method of the Imbedded {Markov} Chain},
+  journaltitle = {Annals of Mathematical Statistics},
+  volume    = {24},
+  number    = {3},
+  pages     = {338--354},
+  year      = {1953},
+}
+
+@book{Gross2008,
+  author    = {Gross, D. and Shortle, J. F. and Thompson, J. M. and Harris, C. M.},
+  title     = {Fundamentals of Queueing Theory},
+  edition   = {4},
+  publisher = {Wiley},
+  location  = {Hoboken, NJ},
+  year      = {2008},
+}
+
+@inproceedings{Cummings2008,
+  author    = {Cummings, C. E.},
+  title     = {Clock Domain Crossing ({CDC}) Design \& Verification Techniques
+               Using {SystemVerilog}},
+  booktitle = {Synopsys Users Group Conference (SNUG)},
+  location  = {Boston, MA},
+  year      = {2008},
+}
+
+@article{Ginosar2011,
+  author    = {Ginosar, R.},
+  title     = {Metastability and Synchronizers: A Tutorial},
+  journaltitle = {IEEE Design \& Test of Computers},
+  volume    = {28},
+  number    = {5},
+  pages     = {23--35},
+  year      = {2011},
+}
+
+@report{Foster2022,
+  author    = {Foster, H. D.},
+  title     = {2022 Wilson Research Group Functional Verification Study},
+  institution = {Siemens EDA},
+  type      = {Informe técnico},
+  year      = {2022},
+}
+
+@book{Keating2002,
+  author    = {Keating, M. and Bricaud, P.},
+  title     = {Reuse Methodology Manual for System-on-a-Chip Designs},
+  edition   = {3},
+  publisher = {Kluwer Academic},
+  location  = {Boston},
+  year      = {2002},
+}
+
+@book{Bhasker2009,
+  author    = {Bhasker, J. and Chadha, R.},
+  title     = {Static Timing Analysis for Nanometer Designs: A Practical Approach},
+  publisher = {Springer},
+  location  = {Nueva York},
+  year      = {2009},
+}
+
+@book{Seligman2023,
+  author    = {Seligman, E. and Schubert, T. and Kumar, M. V. A. K.},
+  title     = {Formal Verification: An Essential Toolkit for Modern {VLSI} Design},
+  edition   = {2},
+  publisher = {Morgan Kaufmann},
+  location  = {Cambridge, MA},
+  year      = {2023},
+}
+
+@inproceedings{Biere1999,
+  author    = {Biere, A. and Cimatti, A. and Clarke, E. and Zhu, Y.},
+  title     = {Symbolic Model Checking without {BDDs}},
+  booktitle = {Tools and Algorithms for the Construction and Analysis of
+               Systems (TACAS)},
+  series    = {LNCS},
+  number    = {1579},
+  publisher = {Springer},
+  location  = {Berlín},
+  pages     = {193--207},
+  year      = {1999},
+}
+
+@inproceedings{Sheeran2000,
+  author    = {Sheeran, M. and Singh, S. and Stålmarck, G.},
+  title     = {Checking Safety Properties Using Induction and a {SAT}-Solver},
+  booktitle = {Formal Methods in Computer-Aided Design (FMCAD)},
+  series    = {LNCS},
+  number    = {1954},
+  publisher = {Springer},
+  location  = {Berlín},
+  pages     = {108--125},
+  year      = {2000},
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% --- Tipos de usuario y APP (cap6.tex) --- %%%
+
+@online{RepoReleases,
+  title   = {RedPitaya-FPGA},
+  note    = {Repositorio de este trabajo, página de releases},
+  url     = {https://github.com/LorenBataraza/RedPitaya-FPGA/releases},
+}
+
+@online{RedPitayaQuickStart,
+  author  = {{Red Pitaya}},
+  title   = {Red Pitaya Documentation},
+  note    = {Quick start},
+  url     = {https://redpitaya.readthedocs.io/en/latest/quickStart/quickStart.html},
+}
+
+@online{DeminMCPHA,
+  author  = {Demin, P.},
+  title   = {Multichannel Pulse Height Analyzer},
+  note    = {Red Pitaya Notes},
+  url     = {https://pavel-demin.github.io/red-pitaya-notes/mcpha/},
+}
+
+% ---- cap10: Software (nota "PI - Software") ----
+@online{LEGENDHDF5,
+  author       = {{LEGEND Collaboration}},
+  title        = {{LEGEND} Data Format Specifications: {HDF5} File Format},
+  url          = {https://legend-exp.github.io/legend-data-format-specs/dev/hdf5},
+  urldate      = {2026-11-17}
+}
+
+@online{NumpyNEP1,
+  author       = {Kern, Robert},
+  title        = {{NEP} 1 --- A simple file format for {NumPy} arrays},
+  organization = {NumPy Enhancement Proposals},
+  year         = {2007},
+  url          = {https://numpy.org/neps/nep-0001-npy-format.html}
+}
+
+@book{Kerrisk2010,
+  author    = {Kerrisk, Michael},
+  title     = {The {Linux} Programming Interface},
+  publisher = {No Starch Press},
+  location  = {San Francisco},
+  year      = {2010}
+}
+
+@inproceedings{Pillai2014,
+  author    = {Pillai, Thanumalayan Sankaranarayana and Chidambaram, Vijay and Alagappan, Ramnatthan and Al-Kiswany, Samer and Arpaci-Dusseau, Andrea C. and Arpaci-Dusseau, Remzi H.},
+  title     = {All File Systems Are Not Created Equal: On the Complexity of Crafting Crash-Consistent Applications},
+  booktitle = {11th {USENIX} Symposium on Operating Systems Design and Implementation ({OSDI} '14)},
+  location  = {Broomfield, CO},
+  year      = {2014},
+  pages     = {433--448},
+  url       = {https://www.usenix.org/conference/osdi14/technical-sessions/presentation/pillai}
+}
+
+@incollection{Dijkstra1965,
+  author    = {Dijkstra, Edsger W.},
+  title     = {Cooperating Sequential Processes},
+  booktitle = {Programming Languages},
+  editor    = {Genuys, F.},
+  publisher = {Academic Press},
+  year      = {1968},
+  note      = {Publicado originalmente como EWD123, 1965},
+  url       = {https://www.cs.utexas.edu/~EWD/transcriptions/EWD01xx/EWD123.html}
+}
+
+@online{Beazley2010,
+  author       = {Beazley, David},
+  title        = {Understanding the {Python} {GIL}},
+  organization = {PyCon 2010, Atlanta, GA},
+  year         = {2010},
+  url          = {https://dabeaz.com/GIL}
+}
+
+% ---- cap12: Implementación TOP (nota "PI - Implementacion TOP (Integracion)") ----
+@book{Dally1998,
+  author    = {Dally, W. J. and Poulton, J. W.},
+  title     = {Digital Systems Engineering},
+  publisher = {Cambridge University Press},
+  location  = {Cambridge},
+  year      = {1998},
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% --- Implementación OSC (cap8.tex) --- %%%
+
+@manual{Virtio12,
+  author       = {{OASIS}},
+  title        = {Virtual I/O Device (VIRTIO) Version 1.2},
+  organization = {OASIS},
+  note         = {OASIS Committee Specification 01. Sección de \emph{virtqueues}
+                  (anillos de descriptores disponibles y usados)},
+  year         = {2022},
+}
+
+@book{Corbet2005,
+  author    = {Corbet, J. and Rubini, A. and Kroah-Hartman, G.},
+  title     = {Linux Device Drivers},
+  edition   = {3},
+  publisher = {O'Reilly},
+  location  = {Sebastopol, CA},
+  year      = {2005},
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% --- Implementación MCA (cap7.tex) --- %%%
+
+@book{Kleinrock1975,
+  author    = {Kleinrock, L.},
+  title     = {Queueing Systems, Volume 1: Theory},
+  publisher = {Wiley},
+  location  = {Nueva York},
+  year      = {1975},
+}
+
+@book{Smith1997,
+  author    = {Smith, S. W.},
+  title     = {The Scientist and Engineer's Guide to Digital Signal Processing},
+  publisher = {California Technical Publishing},
+  location  = {San Diego},
+  year      = {1997},
+}
+
+@article{Brooks1959,
+  author       = {Brooks, F. D.},
+  title        = {A scintillation counter with neutron and gamma-ray
+                  discriminators},
+  journaltitle = {Nuclear Instruments and Methods},
+  volume       = {4},
+  number       = {3},
+  pages        = {151--163},
+  year         = {1959},
+}
+
+@book{Parhami2010,
+  author    = {Parhami, B.},
+  title     = {Computer Arithmetic: Algorithms and Hardware Designs},
+  edition   = {2},
+  publisher = {Oxford University Press},
+  location  = {Nueva York},
+  year      = {2010},
+}

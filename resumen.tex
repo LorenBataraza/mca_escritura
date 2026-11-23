@@ -1,0 +1,41 @@
+\begin{resumen}%
+En este trabajo implementamos dos sistemas para medir los pulsos de un detector
+sobre la Red Pitaya STEMlab 125-14, una placa con un SoC Zynq-7010 y un ADC de
+14~bits a 125~MS/s. El osciloscopio por eventos (OSC) captura la traza completa
+de cada pulso, para analizarla después. El analizador multicanal (MCA), la
+herramienta central de la espectroscopía nuclear, no guarda los pulsos sino sus
+estadísticos. Los dos corren en la
+lógica programable (PL) y comparten el disparo, con seis fuentes combinables.
+El MCA mide la amplitud con un banco de tres filtros trapezoidales y la forma
+del pulso, que dan un espectro de 8192 canales y un mapa de amplitud $\times$
+forma, y usa tres ranuras de medición en paralelo para reducir el tiempo
+muerto. El OSC escribe las trazas en un anillo de eventos en la DDR. El
+procesador (PS) se queda con el control, la
+adquisición y el guardado, a través de una API en C y Python, un servidor de red
+y una aplicación gráfica. El diseño ocupa toda la FPGA y cierra el timing a
+\qty{125}{\mega\hertz}.
+
+Para caracterizar el sistema agregamos en la PL un generador de pulsos con
+alturas, formas, ruido y arribos programables, y medimos en el lazo digital y en
+el canal analógico de la placa. En el lazo digital la cadena no agrega un error
+medible: la INL del trapecio queda por debajo de \qty{0.002}{\percent}~FS y las
+líneas se corren menos de 1.5 canales hasta 3~M/s. Con 3~M/s de entrada el MCA
+acepta 1.9~M/s, y con el disparo por polo-cero la tasa estimada queda a
+\qty{3.7}{\percent} de la real; lo que limita la tasa ya no es el tiempo muerto
+sino el apilamiento de los pulsos. En el canal analógico lo que limita es su
+respuesta al escalón: el sobrepico y la caída lenta. El OSC guarda desde Python
+100~k/s trazas de 32 muestras, limitado por el PS y no por la PL ni por la
+memoria. El MCA no tiene esa limitación, porque acumula el histograma en la PL y
+el PS sólo lee el espectro.
+
+Por último, proponemos los pasos que quedan para llevar el sistema a una
+medición con un detector real: compensar la caída lenta del canal, estabilizar
+el espectro con la temperatura y compararlo con un MCA comercial.
+\end{resumen}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "template"
+%%% End:

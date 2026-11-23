@@ -1,0 +1,183 @@
+% Origen: Secciones/PI - Verificación de normativa nacional e internacional.md
+\chapter{Verificación de normativa nacional e internacional}
+\label{C:normativa}
+
+% Figuras de ESTE capítulo + las compartidas. Siempre al principio del archivo.
+\graphicspath{{figs/cap4/}{figs/comunes/}}
+
+En este capítulo se analiza qué normativa nacional e internacional alcanza al
+MCA, en qué carácter (obligación, guía de diseño o buena práctica) y qué parte
+del trabajo responde a cada una.
+
+\section{Análisis de ARN}
+\label{S:norm-arn}
+
+En Argentina, el único marco regulatorio nacional para la actividad nuclear es
+el de la Autoridad Regulatoria Nuclear (ARN). La Ley N\textsuperscript{o} 24.804
+le asigna la regulación de la seguridad radiológica y nuclear, y la faculta a
+dictar normas de cumplimiento obligatorio~\cite{Ley24804}. Sus normas (serie AR)
+son públicas. Para este trabajo son relevantes dos: la de diseño de reactores de
+investigación, AR~4.2.2~\cite{ARN_AR422}, y la de sistemas de gestión,
+AR~10.6.1~\cite{ARN_AR1061}. La ARN no tiene una norma específica para
+instrumentación y control digital, software ni FPGA. Su enfoque está basado en
+el desempeño: el responsable demuestra que cumple los objetivos de seguridad y
+elige los estándares técnicos con que lo hace.
+
+Las exigencias de la AR~4.2.2 recaen sobre los \textbf{sistemas importantes para
+la seguridad}. Que un equipo lo sea depende de la \textbf{función que cumple en
+la instalación}, no de cómo fue diseñado: es importante para la seguridad si su
+función, o su falla, puede afectar la seguridad radiológica o nuclear. Un equipo
+diseñado con el máximo rigor puede no serlo, y uno de laboratorio pasa a serlo
+si se lo usa para una función de seguridad. El criterio~42 lo deja explícito:
+``\emph{cuando un equipo o componente tiene varias funciones y una de las cuales
+es de seguridad, debe ser clasificado como parte del sistema de
+seguridad}''~\cite{ARN_AR422}.
+
+El MCA clasifica pulsos por amplitud y entrega espectros y eventos a una PC,
+Sec.~\ref{S:mca-descripcion-practica}. No actúa sobre ningún proceso, no tiene
+alarmas y su salida no interviene en decisiones de operación. Por lo tanto
+\textbf{no es un sistema importante para la seguridad}. Que no haya sido
+diseñado para esa función es una consecuencia de esto, no la razón: tampoco está
+calificado para cumplirla, como se discute en la Sec.~\ref{S:norm-iaea}.
+
+La AR~4.2.2 ``\emph{es aplicable al diseño de reactores de investigación tipo
+piscina y a las modificaciones de los sistemas importantes para la
+seguridad}''~\cite{ARN_AR422}. Un instrumento de medición que no forma parte de
+esos sistemas queda fuera de su alcance. Los criterios más cercanos a un MCA
+marcan el límite, Tabla~\ref{t:norm-criterios-ar422}.
+
+\begin{table}[H]
+\centering
+\caption[Criterios de la AR 4.2.2 más cercanos a un MCA]{%
+Criterios de la AR~4.2.2 más cercanos a un MCA. A modo de comparación, el
+criterio~34 exige a los sistemas de seguridad una tasa de falla por demanda
+inferior a $10^{-3}$.\label{t:norm-criterios-ar422}}
+\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{0.1\textwidth}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline \encabezado \textbf{Criterio} & \textbf{Qué establece} &
+  \textbf{Por qué no alcanza al MCA} \\ \hline
+42 & un equipo con una función de seguridad se clasifica como parte del
+  sistema de seguridad & el MCA no tiene funciones de seguridad \\ \hline
+50 & un sistema de calidad en el diseño que ``\emph{como mínimo, cubra los
+  sistemas importantes para la seguridad}'' & el MCA no es uno de ellos \\ \hline
+77 & un sistema de monitoreo de radiaciones con sensores en el reactor y
+  alarmas locales & el MCA no tiene alarmas ni integra ese sistema \\ \hline
+78 & tasa de falla de los sistemas de alarma y monitoreo de radiaciones
+  inferior a $10^{-2}$ por demanda & se aplica al sistema del criterio~77 \\ \hline
+79 a 81 & diseño de los dispositivos experimentales que se introducen en el
+  reactor & tratan materiales, integridad estructural y confinamiento; el MCA
+  es electrónica de lectura, afuera \\ \hline
+\end{tabularx}
+\end{table}
+
+El MCA pasaría a ser importante para la seguridad si su salida alimentara una
+alarma o el sistema de monitoreo de radiaciones, interviniera en decisiones de
+operación, o formara parte de un sistema de protección. En ese caso aplicaría
+como mínimo la meta de $10^{-2}$ por demanda del criterio~78, y el sistema de
+gestión de la AR~10.6.1, obligatoria para todas las instalaciones y prácticas
+reguladas~\cite{ARN_AR1061}.
+
+Las fuentes radiactivas que se usan para probar el instrumento quedan bajo la
+licencia de la institución que las tiene, según la Norma Básica de Seguridad
+Radiológica AR~10.1.1~\cite{ARN_AR1011}. Esto no impone requisitos sobre el MCA.
+
+\section{Análisis de IAEA}
+\label{S:norm-iaea}
+
+Como la ARN delega el detalle técnico, la referencia internacional es el
+Organismo Internacional de Energía Atómica (IAEA). Su guía específica es la
+SSG-37 (Rev.~1, 2023), sobre instrumentación, control y software importantes
+para la seguridad en reactores de investigación~\cite{IAEA_SSG37}. Desarrolla
+los requisitos de la SSR-3~\cite{IAEA_SSR3} y se aplica con \textbf{enfoque
+graduado}: el rigor exigido es proporcional a la importancia para la
+seguridad~\cite{IAEA_SSG22}. Para clasificar las funciones, la guía remite a
+categorías como las de la IEC~61226~\cite{IEC61226}, que separa las funciones
+en A, B y C según su importancia. Una función sin consecuencias para la
+seguridad queda \textbf{no clasificada}, que es el caso del MCA. La conclusión
+coincide con la de la Sec.~\ref{S:norm-arn}.
+
+Para funciones de categoría B y C, el ciclo de vida de los circuitos programados
+en HDL está definido en la IEC~62566-2~\cite{IEC62566-2}. El MCA no está
+obligado a cumplirla, pero sirve como vara para ubicar lo que hicimos y lo que
+no, Tabla~\ref{t:norm-ciclo-vida-62566}.
+
+\begin{table}[H]
+\centering
+\caption[Ciclo de vida de la IEC 62566-2 frente a este trabajo]{%
+Requisitos del ciclo de vida de la IEC~62566-2 frente a lo realizado en este
+trabajo.\label{t:norm-ciclo-vida-62566}}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.25\textwidth}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{0.22\textwidth}|}
+\hline \encabezado \textbf{Requisito} & \textbf{En este trabajo} &
+  \textbf{Estado} \\ \hline
+especificación de requisitos & mapas de registros e interfaces de cada módulo,
+  Sec.~\ref{S:ap-mca-mapa} &
+  cubierto, sin trazabilidad formal requisito $\rightarrow$ prueba \\ \hline
+verificación por simulación & testbenches por módulo,
+  Sec.~\ref{S:intro-hw-verificacion} & cubierto \\ \hline
+modelo de referencia independiente del RTL & modelo en Python comparado contra
+  el RTL & cubierto \\ \hline
+verificación en el dispositivo & generación interna y externa controlada,
+  Sec.~\ref{S:res-etapas-validacion} & cubierto \\ \hline
+validación con física real & medición con setup experimental & pendiente
+  \\ \hline
+verificación formal y análisis estático & --- & no realizado \\ \hline
+equivalencia RTL $\leftrightarrow$ netlist & --- & no realizado \\ \hline
+evaluación de componentes pre-desarrollados & placa, Linux y sistema de Red
+  Pitaya usados tal como vienen, Sec.~\ref{S:hw-red-pitaya} & no evaluable
+  \\ \hline
+\end{tabularx}
+\end{table}
+
+La última fila deja una conclusión: la plataforma es adecuada para un
+instrumento de medición, pero \textbf{no se podría calificar} para una función
+de seguridad. Evaluar Linux y el sistema de Red Pitaya como software
+pre-desarrollado, con el rigor de la IEC~62138~\cite{IEC62138}, no es viable.
+
+% En la nota este bloque figura como "(sin título)", con la pregunta: "¿va en
+% esta sección, con un título nuevo, o en otro capítulo?". Quedó como sección
+% propia de este capítulo, con el título provisorio de la nota.
+\section{Normas de medición y de equipo}
+\label{S:norm-medicion}
+
+Estas normas no son obligatorias para un prototipo de investigación, pero
+definen qué tiene que medir bien un espectrómetro y cómo se informa,
+Tabla~\ref{t:norm-medicion}.
+
+\begin{table}[H]
+\centering
+\caption[Normas de medición y de equipo que guían el diseño del MCA]{%
+Normas de medición y de equipo que guían el diseño del
+MCA.\label{t:norm-medicion}}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.17\textwidth}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{0.3\textwidth}|}
+\hline \encabezado \textbf{Norma} & \textbf{Qué trata} &
+  \textbf{Dónde se trata en este trabajo} \\ \hline
+IEC 61452:2021~\cite{IEC61452} & calibración y uso de espectrómetros de
+  germanio ($\approx$ \qty{45}{\kilo\electronvolt} a
+  \qty{3}{\mega\electronvolt}); la Ed.~2 incorpora electrónica digital, Monte
+  Carlo y límites de detección. Reemplaza a la ANSI/IEEE N42.14-1999,
+  retirada~\cite{IEEEN4214} & Sec.~\ref{S:mca-tiempo-muerto},
+  Sec.~\ref{S:mca-pileup},
+  Sec.~\ref{S:implmca-perdidos},
+  Sec.~\ref{S:implmca-teselado}
+  \\ \hline
+IEC 62755 / ANSI N42.42~\cite{IEC62755} & formato XML del espectro y sus
+  metadatos (detector, calibración, tiempo real y vivo) &
+  Sec.~\ref{S:sw-guardado} \\ \hline
+GUM~\cite{GUM2008} & expresión de la incertidumbre de medición &
+  Cap.~\ref{C:resultados} \\ \hline
+IEC 61010-1~\cite{IEC61010-1} e IEC 61326-1~\cite{IEC61326-1} & seguridad
+  eléctrica y compatibilidad electromagnética de equipos de laboratorio & la
+  placa es un producto comercial; el trabajo cambia el bitstream y el
+  software, no el hardware \\ \hline
+\end{tabularx}
+\end{table}
+
+El riesgo eléctrico real del montaje es la alta tensión del detector, que no
+forma parte del MCA.
+
+% Bibliografía de este capítulo. Va al final del archivo, siempre.
+\bibliografiacapitulo
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "template"
+%%% End:

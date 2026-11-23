@@ -1,0 +1,136 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \documentclass[12pt,papel,twoside]{ibtesis}
+% Nota: NO pasar 'pagebackref' aqu\'{\i}. Esa opci\'{o}n de hyperref choca con biblatex;
+% los back-references los genera biblatex con su propia opci\'{o}n backref=true
+% (ya activada en ibextra.sty).
+\documentclass[12pt,screen,twoside,openany]{ibtesis} % openany: sin hoja en blanco antes de cada capítulo
+% \documentclass[12pt,papel,singlespace,oneside]{ibtesis}
+% \documentclass[12pt,papel,preprint,singlespace,oneside]{ibtesis}
+
+
+%%%%%%%%%%%%%%%%%%%%% Paquetes extra %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Por conveniencia: aqu\'{\i} puede cargar todos los paquetes y definir los comandos 
+% que necesite
+\usepackage{ibextra}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% Informacion sobre la tesis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Implementación de un Analizador Multicanal y Osciloscopio en Plataforma SoC Red Pitaya}
+\author{Lorenzo Cabrera Blanch}
+\director{Mariana Mattenet}
+\renewcommand\directorname{Directora}
+\codirector{Mariano Gómez Berisso}
+\carrera{Proyecto Integrador de la Carrera de Ingeniería en Telecomunicaciones}
+\grado{}
+\laboratorio{MADLAB}
+\jurado{Lautaro Acha (Instituto Balseiro)\\
+Jeronimo Blostein (CNEA)}
+% Provisorias: revisar contra el glosario.
+\palabrasclave{analizador multicanal, Red Pitaya, FPGA, espectroscop\'{\i}a nuclear, tiempo muerto}
+\keywords{multichannel analyzer, nuclear spectroscopy, dead time, Red Pitaya, FPGA}
+% Si queremos poner la fecha manualmente:
+% \date{Diciembre de 2099}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\titlepagefalse % Si no quiere compilar la portada descomente esta linea
+%\includeonly{apendices} % Compilar s\'{o}lo estos archivos 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Figuras %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cada archivo de cap\'{\i}tulo redefine \graphicspath al principio apuntando a SU
+% carpeta (figs/cap1/, figs/cap2/, ...) m\'{a}s figs/comunes/ para lo compartido.
+% Este de ac\'{a} es el default para lo que se incluya fuera de un cap\'{\i}tulo
+% (car\'{a}tula, resumen, etc.).
+%
+% IMPORTANTE: \graphicspath es global, no se limita al archivo donde se declara.
+% Por eso TODO cap\'{\i}tulo nuevo debe empezar con su propio \graphicspath, si no
+% hereda el del cap\'{\i}tulo anterior.
+%
+% Alternativa (si prefer\'{\i}s un solo \graphicspath y nada en los cap\'{\i}tulos):
+%   \graphicspath{{figs/}{figs/comunes/}{figs/cap1/}{figs/cap2/}{figs/apendices/}}
+% Contra: si dos carpetas tienen un archivo con el mismo nombre, gana la primera
+% de la lista y es un bug dif\'{\i}cil de ver. Con una carpeta por cap\'{\i}tulo no pasa.
+\graphicspath{{figs/}{figs/comunes/}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Bibliograf\'{\i}a %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Archivos .bib. Se pueden agregar varios; las claves se comparten entre todos
+% los cap\'{\i}tulos, as\'{\i} que una misma referencia citada en el cap. 2 y en el 5
+% sale en las dos bibliograf\'{\i}as sin duplicar la entrada en el .bib.
+\addbibresource{mibib.bib}
+%\addbibresource{otro.bib}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+% Dentro del environment 'preliminary' va:
+% la dedicatoria, resumen, abstract, indices
+
+\begin{preliminary}
+
+% Escriba su dedicatoria
+\dedicatoria{A mi familia.\\
+A los hermanos que me dej\'{o} el IB.}
+
+%%% \'{I}ndices %%%%
+
+\tableofcontents                %\'{I}ndice
+
+\listoffigures                  %Figuras
+
+\listoftables                   %Tablas
+
+\include{resumen}
+
+\end{preliminary}
+
+
+% Podemos usar cualquiera de los dos comandos: \input o \include para incluir el texto
+% Los cap\'{\i}tulos de ejemplo de la template original quedaron en ejemplos/.
+\include{cap6}      % Tipos de usuario y aplicación (archivo cap6, capítulo 1)
+\include{cap1}      % Analizador multicanal
+\include{cap2}      % Hardware empleado
+\include{cap5}      % Conceptos de diseño de hardware (archivo cap5, capítulo 4)
+\include{cap3}      % Implementación del multitrigger
+\include{cap7}       % Implementación del MCA (señuelo)
+\include{cap9}       % Resultados de mérito
+\include{cap8}       % Implementación del OSC (señuelo)
+\include{cap12}      % Implementación del TOP (integración)
+\include{cap10}      % Software
+\include{cap4}      % Verificación de normativa nacional e internacional
+\include{cap11}      % Conclusiones y futuros pasos
+
+
+\appendix
+\include{apend4}    % Capturas de la aplicación (archivo apend4, apéndice A)
+\include{apend1}    % Complementos del analizador multicanal
+\include{apend2}    % Complementos del hardware empleado
+\include{apend3}    % Detalles del multitrigger
+\include{apend6}    % Detalles del osciloscopio (archivo apend6, apéndice E)
+\include{apend5}    % Complementos del software (archivo apend5, apéndice F)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Bibliograf\'{\i}a global %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Por default NO hay bibliograf\'{\i}a global: cada cap\'{\i}tulo imprime la suya al
+% final, con \bibliografiacapitulo (ver cap1.tex / apend1.tex).
+%
+% Si adem\'{a}s quer\'{e}s una bibliograf\'{\i}a \'{u}nica al final, descomentar el bloque de
+% abajo. Advertencia: biblatex no sabe unir refsections, as\'{\i} que la \'{u}nica forma
+% de listar todo junto es \nocite{*}, que imprime TODAS las entradas de los .bib,
+% incluidas las que no citaste en ning\'{u}n lado. Sirve si mibib.bib contiene
+% exactamente tus referencias y nada m\'{a}s.
+%
+%\begin{biblio}
+%\begin{refsection}
+%\nocite{*}
+%\printbibliography[heading=bibintoc,title=\bibname]
+%\end{refsection}
+%\end{biblio}
+
+
+\begin{postliminary}
+
+\begin{seccion}{Agradecimientos}
+Agradecimientos
+\end{seccion}
+
+\end{postliminary}
+
+\end{document}
+

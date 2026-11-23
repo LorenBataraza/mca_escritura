@@ -1,0 +1,79 @@
+\babel@toc {spanish}{}\relax 
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {1.1}{\ignorespaces Guía de utilización según el tipo de usuario}}{2}{table.caption.9}%
+\contentsline {table}{\numberline {1.2}{\ignorespaces Diferencias entre mcpha y la aplicación de este trabajo}}{5}{table.caption.11}%
+\contentsline {table}{\numberline {1.3}{\ignorespaces Pestañas de la aplicación y su contenido}}{6}{table.caption.12}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Familias de conformado principales}}{17}{table.caption.25}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Modelos de tiempo muerto no paralizable y paralizable}}{27}{table.caption.31}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Tasas de muestreo de los ADC de distintas plataformas}}{35}{table.caption.38}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Comparación de plataformas: reloj, ciclos por muestra y ADC}}{36}{table.caption.39}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Operaciones por muestra del procesamiento en un µC}}{37}{table.caption.40}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Especificaciones de las placas Red Pitaya más comunes}}{42}{table.caption.45}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces Recursos lógicos de los Zynq de las placas Red Pitaya}}{47}{table.caption.49}%
+\contentsline {table}{\numberline {3.6}{\ignorespaces Hardmacros especializadas dentro de la PL del Zynq}}{48}{table.caption.51}%
+\contentsline {table}{\numberline {3.7}{\ignorespaces Propiedades de las interconexiones AXI entre el PS y la PL}}{49}{table.caption.53}%
+\contentsline {table}{\numberline {3.8}{\ignorespaces Niveles de memoria del PS del Zynq-7010}}{51}{table.caption.56}%
+\contentsline {table}{\numberline {3.9}{\ignorespaces Conjuntos de instrucciones del Cortex-A9 y su uso en el proyecto}}{53}{table.caption.57}%
+\contentsline {table}{\numberline {3.10}{\ignorespaces Modelo de memoria de ARMv7}}{53}{table.caption.58}%
+\contentsline {table}{\numberline {3.11}{\ignorespaces Características del ADC LTC2145-14 y del front-end de entrada}}{55}{table.caption.60}%
+\contentsline {table}{\numberline {3.12}{\ignorespaces Tipos de calibración de fábrica de Red Pitaya}}{55}{table.caption.61}%
+\contentsline {table}{\numberline {3.13}{\ignorespaces Señales del conector E1 en la STEMlab 125-14}}{56}{table.caption.62}%
+\contentsline {table}{\numberline {3.14}{\ignorespaces Señales del conector E2 en la STEMlab 125-14}}{57}{table.caption.63}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Comparación de los esquemas de transferencia entre PL y PS}}{62}{table.caption.67}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Latencia de una transacción del bus custom}}{69}{table.caption.76}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Qué detecta cada técnica de verificación}}{75}{table.caption.81}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Submódulos del multitrigger}}{83}{table.caption.86}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces Contadores del tiempo muerto y de los eventos perdidos}}{93}{table.caption.96}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Casilleros del teselado del tiempo de adquisición}}{95}{table.caption.97}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces Políticas para un pulso que se solapa con otro}}{97}{table.caption.98}%
+\contentsline {table}{\numberline {6.4}{\ignorespaces Estimadores del bus de features}}{105}{table.caption.105}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {7.1}{\ignorespaces Configuración del MCA en las mediciones}}{119}{table.caption.117}%
+\contentsline {table}{\numberline {7.2}{\ignorespaces DNL de cada espectro con alturas uniformes}}{125}{table.caption.126}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {8.1}{\ignorespaces Recursos que pueden agotarse en el anillo}}{141}{table.caption.140}%
+\contentsline {table}{\numberline {8.2}{\ignorespaces Layout de un slot del anillo en DDR}}{147}{table.caption.144}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {9.1}{\ignorespaces Regiones del bus custom}}{152}{table.caption.150}%
+\contentsline {table}{\numberline {9.2}{\ignorespaces Relojes del TOP}}{154}{table.caption.152}%
+\contentsline {table}{\numberline {9.3}{\ignorespaces Nodos de la cadena de acondicionamiento}}{156}{table.caption.154}%
+\contentsline {table}{\numberline {9.4}{\ignorespaces Bloques de registros de \codigo {integration\_cfg}}}{157}{table.caption.155}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {10.1}{\ignorespaces Espacio del kernel y espacio de usuario}}{159}{table.caption.158}%
+\contentsline {table}{\numberline {10.2}{\ignorespaces Comparación de OS posibles en latencia}}{161}{table.caption.161}%
+\contentsline {table}{\numberline {10.3}{\ignorespaces Facilidades del SW que provee la distribución de Pitaya}}{163}{table.caption.163}%
+\contentsline {table}{\numberline {10.4}{\ignorespaces Estructura de nombres de la API}}{168}{table.caption.167}%
+\contentsline {table}{\numberline {10.5}{\ignorespaces Estructura de los archivos guardados}}{173}{table.caption.170}%
+\contentsline {table}{\numberline {10.6}{\ignorespaces Hilos de captura y sus tareas}}{176}{table.caption.178}%
+\contentsline {table}{\numberline {10.7}{\ignorespaces Cabecera de un bloque del stream de datos}}{180}{table.caption.185}%
+\contentsline {table}{\numberline {10.8}{\ignorespaces Costo de llamada de las operaciones de \codigo {libmca}}}{181}{table.caption.186}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {11.1}{\ignorespaces Criterios de la AR 4.2.2 más cercanos a un MCA}}{184}{table.caption.190}%
+\contentsline {table}{\numberline {11.2}{\ignorespaces Ciclo de vida de la IEC 62566-2 frente a este trabajo}}{185}{table.caption.191}%
+\contentsline {table}{\numberline {11.3}{\ignorespaces Normas de medición y de equipo que guían el diseño del MCA}}{186}{table.caption.192}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {12.1}{\ignorespaces Parámetros del sistema implementado}}{189}{table.caption.195}%
+\contentsline {table}{\numberline {12.2}{\ignorespaces Figuras de mérito del MCA medidas con \codigo {gen\_pulsos}}}{191}{table.caption.196}%
+\contentsline {table}{\numberline {12.3}{\ignorespaces Desempeño del software en la placa}}{193}{table.caption.197}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {B.1}{\ignorespaces Familias de detectores y sus parámetros característicos}}{207}{table.caption.207}%
+\contentsline {table}{\numberline {B.2}{\ignorespaces Principales aplicaciones del MCA 2D intracanal}}{208}{table.caption.208}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {C.1}{\ignorespaces Criterios de selección de plataforma de HW}}{210}{table.Alph3.1}%
+\contentsline {table}{\numberline {C.2}{\ignorespaces Diafonía entre los canales IN1 e IN2}}{213}{table.caption.212}%
+\contentsline {table}{\numberline {C.3}{\ignorespaces Características de las salidas analógicas rápidas}}{215}{table.caption.215}%
+\contentsline {table}{\numberline {C.4}{\ignorespaces Características del DAC AD9767}}{216}{table.caption.216}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {D.1}{\ignorespaces Mapa de registros del multitrigger}}{224}{table.caption.223}%
+\contentsline {table}{\numberline {D.2}{\ignorespaces Testbenches del multitrigger}}{225}{table.caption.224}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {E.1}{\ignorespaces Señales de \codigo {rp\_bram\_sm}}}{228}{table.caption.228}%
+\contentsline {table}{\numberline {E.2}{\ignorespaces Regmap del módulo \codigo {event\_ring\_top}}}{230}{table.Alph5.2}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {F.1}{\ignorespaces Estructuras internas de \codigo {libmca}}}{232}{table.Alph6.1}%

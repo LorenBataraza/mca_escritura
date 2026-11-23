@@ -1,0 +1,284 @@
+% Origen: Secciones/PI - Tipos de Usuario y APP.md
+% El archivo se llama cap6 por orden de creación, pero en template.tex va como
+% primer capítulo.
+\chapter{Tipos de usuario y aplicación}
+\label{C:usuario}
+
+% Figuras de ESTE capítulo + las compartidas. Siempre al principio del archivo.
+\graphicspath{{figs/cap6/}{figs/comunes/}}
+
+\begin{destacado}
+En este capítulo se describe qué parte de la tesis le sirve a cada tipo de
+usuario, los pasos para poner el sistema en marcha y la aplicación cliente que
+lo controla.
+\end{destacado}
+
+%==============================================================================
+\section{Analizador multicanal}
+\label{S:usr-mca}
+
+Un analizador multicanal (MCA) es un instrumento con el que podemos obtener un
+histograma de alguna característica, generalmente la altura máxima, de los
+pulsos de voltaje en su entrada. Es utilizado para protección radiológica,
+monitoreo ambiental, espectroscopía y análisis de materiales, entre otras
+aplicaciones. Sin embargo, su ámbito central es la espectroscopía nuclear, en
+particular la espectroscopía gamma, y se emplea también en espectroscopía alfa,
+de rayos X, en mediciones de neutrones y de otro tipo de partículas.
+
+Sus aplicaciones son variadas debido a que su función es extremadamente general
+y flexible, ya que permite: (1) procesar pulsos rápidos (hasta del orden de los
+ns), (2) agrupar la información y eliminarle el ruido y (3) compararla con
+espectros previamente conocidos.
+
+%==============================================================================
+\section{Guía de usuario}
+\label{S:usr-guia}
+
+Uno de los objetivos de este trabajo fue que el sistema pudiera aprovecharse en
+distintos niveles, por personas con \textbf{diferentes niveles de experticia
+técnica}. En particular,
+distinguimos tres tipos de usuarios:
+\begin{enumerate}
+  \item \textbf{Técnico}:
+  \begin{itemize}
+    \item Utiliza el sistema asumiendo que ya está calibrado y que trabaja de
+      forma correcta.
+    \item Sus mediciones sirven de referencia y no requieren validar la
+      calibración.
+    \item Se recomienda leer la Sec.~\ref{S:usr-app} y el Cap.~\ref{C:mca}.
+  \end{itemize}
+  \item \textbf{Calibrador}:
+  \begin{itemize}
+    \item Puede volver a poner un setup experimental a punto por su cuenta: mide
+      el canal analógico de la entrada y ajusta los parámetros de adquisición
+      para su detector.
+    \item Caracteriza el MCA con los scripts de campaña, para saber cuánto
+      confiar en las mediciones.
+    \item Requiere algo de conocimiento acerca del canal analógico en la entrada
+      y de los parámetros de adquisición del sistema.
+    \item Se recomienda leer \textbf{todo el contenido de la tesis}.
+  \end{itemize}
+  \item \textbf{Desarrollador}:
+  \begin{itemize}
+    \item Agrega funcionalidades o cambia la estructura del HW: los parámetros de
+      síntesis, la estructura del top o de los módulos individuales, y el SW que
+      los utiliza.
+    \item Se recomienda leer \textbf{todo el contenido de la tesis} y referirse
+      a libros de diseño digital; las fuentes del Cap.~\ref{C:intro-hw}
+      contienen una buena base inicial.
+  \end{itemize}
+\end{enumerate}
+
+El primero sólo quiere obtener una medición experimental, el segundo puede
+cambiar los parámetros de funcionamiento del sistema de medición y el último
+puede cambiar la estructura interna de los módulos y el SW que los utiliza. En la
+Tabla~\ref{t:usr-guia} se presenta qué necesita cada uno: qué quiere, qué
+descarga, con qué herramienta trabaja y qué conocimientos le hacen falta.
+
+\begin{table}[H]
+\centering
+\caption[Guía de utilización según el tipo de usuario]{%
+Guía de utilización según el tipo de usuario.\label{t:usr-guia}}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.19\textwidth}%
+  |>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X%
+  |>{\raggedright\arraybackslash}X|}
+\hline \encabezado & \textbf{Técnico} & \textbf{Calibrador} &
+  \textbf{Desarrollador} \\ \hline
+Quiere & Un espectro de su detector & Poner a punto el setup y caracterizar el
+  MCA & Cambiar el RTL y/o la API \\ \hline
+Descarga & \textbf{Release} (1.3~MB) & \textbf{Release} (1.3~MB) &
+  \textbf{Repositorio completo} (303~MB) \\ \hline
+Herramienta principal & APP (sin la pestaña Calibration) & APP con
+  Calibration + scripts de campaña & Todo: RTL, Vivado, API y tests \\ \hline
+Conocimiento C/Python & No es necesario & Mínimo & Sí, avanzado \\ \hline
+Conocimiento de Git & No es necesario & No es necesario & Sí \\ \hline
+\end{tabularx}
+\end{table}
+
+El Calibrador que quiera actualizar el software en la placa con \cmd|git pull|
+puede bajar, en lugar de la Release, un clon parcial del repositorio (7.5~MB) con
+sólo el software, la documentación y los bitstreams; en ese caso necesita un
+conocimiento básico de Git.
+
+\subsection{Pasos requeridos para la utilización}
+\label{S:usr-pasos}
+
+El Técnico y el Calibrador trabajan con la Release del
+repositorio~\cite{RepoReleases}, un paquete con los bitstreams y el software que
+salieron del mismo commit. Que viajen juntos importa: un bitstream viejo ignora
+en silencio las escrituras a los registros que no conoce, así que un software
+nuevo contra él no falla, sino que mide y entrega números plausibles y
+equivocados.
+
+En la placa:
+\begin{enumerate}
+  \item Conectar la placa de desarrollo a la red y la señal del detector a la
+    entrada IN1.
+  \begin{enumerate}
+    \item Ir a la guía de inicio de Red Pitaya~\cite{RedPitayaQuickStart} si se
+      encuentra algún problema.
+  \end{enumerate}
+  \item Acceder a la placa mediante un cliente ssh.
+  \item Descargar la Release dentro de la placa, descomprimirla e instalarla con
+    el comando de abajo, que además programa la PL y verifica que los
+    registros del MCA respondan:
+\begin{comando}
+sudo ./instalar.sh --cargar
+\end{comando}
+
+  \item Comprobar que la PL quedó programada con el bitstream de la Release:
+\begin{comando}
+python3 /opt/mca/software/campanas/preparar_placa.py
+\end{comando}
+
+  \item Iniciar el servidor de control remoto:
+\begin{comando}
+sudo python3 /opt/mca/software/app/mca_server.py --port 1001
+\end{comando}
+
+\end{enumerate}
+
+En la PC:
+\begin{enumerate}[resume]
+  \item Descargar la Release, descomprimirla e instalar las dependencias del
+    cliente:
+\begin{comando}
+pip install PyQt5 matplotlib numpy
+\end{comando}
+
+  \item Iniciar el cliente desde \ruta{software/}:
+\begin{comando}
+python3 app/mcamon.py --host <ip-de-la-pitaya> --port 1001 --conectar
+\end{comando}
+
+\end{enumerate}
+
+% sloppypar: los \verb no se cortan y el renglón se pasaba 5 pt.
+\begin{sloppypar}
+Antes de tener la placa, la APP puede probarse contra un MCA simulado con
+\cmd|make app-demo|, que levanta un servidor falso y el cliente en la misma PC.
+El Desarrollador, con el repositorio completo, hace los pasos 5 a 7 desde la PC
+con \cmd|make app| dentro de \ruta{prj/MCA}: sincroniza el software con la
+placa, levanta el servidor y abre el cliente.
+\end{sloppypar}
+
+%==============================================================================
+\section{Aplicación cliente en Python}
+\label{S:usr-app}
+
+Nos basamos en la aplicación mcpha desarrollada por Pavel
+Demin~\cite{DeminMCPHA}, que funciona en modalidad servidor-cliente con
+comunicación por sockets de red; en la Fig.~\ref{f:usr-mcpha} se observa una
+captura. La misma cuenta con:
+\begin{itemize}
+  \item Un servidor programado en C, que:
+  \begin{itemize}
+    \item Corre en el PS de la Pitaya y lee de la PL los histogramas de su MCA.
+    \item Implementa un protocolo de comunicación propio.
+  \end{itemize}
+  \item Un cliente programado en Python, que:
+  \begin{itemize}
+    \item Parsea los paquetes recibidos según ese protocolo.
+    \item Corre una GUI desarrollada en PyQt5.
+    \item Cuenta con las opciones de:
+    \begin{itemize}
+      \item Manejo de conexión.
+      \item Representación gráfica interactiva del histograma mediante
+        matplotlib.
+      \item Reporte de cantidad de cuentas.
+      \item Control de adquisición.
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\begin{figure}[H]
+\centering\includegraphics{cap6_mcpha_client}
+\caption[GUI de mcpha, de Pavel Demin]{%
+Captura de pantalla de la GUI de mcpha, implementada por Pavel Demin para su
+versión del MCA~\cite{DeminMCPHA}.\label{f:usr-mcpha}}
+\end{figure}
+
+La aplicación realizada en este trabajo, \codigo{mcamon} (por \emph{MCA
+monitor}), es una adaptación de esta GUI al HW y SW de este proyecto. Se controla
+desde un cliente externo conectado por red, escrito con PyQt5 y matplotlib, que
+le pide todo a \codigo{mca\_server.py}. A diferencia de mcpha, el servidor está
+escrito en Python: corre en la placa, llama a la API de adquisición ---que debajo
+usa libmca, en C--- y responde con el protocolo de la
+Sec.~\ref{S:sw-protocolo-red}.
+
+Casi todas las diferencias con mcpha las impone el hardware, que no es el mismo;
+se presentan en la Tabla~\ref{t:usr-diferencias-mcpha}.
+
+% [H]: es lo último del capítulo; como float quedaba solo detrás de las referencias.
+\begin{table}[H]
+\centering
+\caption[Diferencias entre mcpha y la aplicación de este trabajo]{%
+Diferencias entre mcpha y la aplicación de este
+trabajo.\label{t:usr-diferencias-mcpha}}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.36\textwidth}%
+  |>{\raggedright\arraybackslash}X|}
+\hline \encabezado \textbf{mcpha} & \textbf{Este trabajo} \\ \hline
+Dos MCA independientes, con una pestaña de espectro cada uno & Un solo MCA, con
+  un selector de canal IN1/IN2 \\ \hline
+4096 canales fijos & La cantidad de canales se lee del hardware (registro
+  \codigo{WIDTHS}); el cliente no la supone \\ \hline
+Temporizador de exposición en hardware & Lo implementa un hilo del servidor,
+  contra el tiempo vivo \\ \hline
+Negador por canal & No hay negador; en su lugar se elige si la amplitud es el
+  pico o la integral de carga \\ \hline
+--- & Contadores propios: rechazados por amplitud y por forma, apilados y
+  disparos perdidos; tiempos real, vivo y muerto, con el muerto desglosado por
+  etapa \\ \hline
+--- & Mapa 2D de forma de pulso y su figura de mérito \\ \hline
+\end{tabularx}
+\end{table}
+
+La interfaz está en inglés y trae las pestañas de la
+Tabla~\ref{t:usr-pestanas}; algunas aparecen sólo si el bitstream cargado trae el
+módulo correspondiente.
+
+% [H]: es lo último del capítulo; como float quedaba solo detrás de las referencias.
+\begin{table}[H]
+\centering
+\caption[Pestañas de la aplicación y su contenido]{%
+Pestañas de la aplicación y su contenido.\label{t:usr-pestanas}}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.2\textwidth}%
+  |>{\raggedright\arraybackslash}X|}
+\hline \encabezado \textbf{Pestaña} & \textbf{Qué trae} \\ \hline
+\textbf{Messages} & cada operación y cada error, con su hora \\ \hline
+\textbf{Spectrum} & el histograma 1D; la tasa de entrada instantánea y media;
+  los contadores (aceptados, rechazados, apilados, perdidos); el tiempo real,
+  vivo y muerto; los botones Start, Stop, Clear y de guardado; la lista de picos
+  con su FWHM y resolución \\ \hline
+\textbf{MCA settings} & la franja del MCA, con la tasa y las pérdidas de cada
+  etapa; abajo, los registros agrupados por función: preprocesamiento,
+  segmentación y ranuras, publicación \\ \hline
+\textbf{2D map (PSD)} & el mapa de amplitud $\times$ factor de forma
+  ($Q_\text{tail}/Q_\text{total}$) y la figura de mérito \\ \hline
+\textbf{Integration} & de qué punto de la cadena de procesamiento toma sus
+  muestras cada consumidor (OSC, multitrigger, MCA, \codigo{event\_ring}) y el
+  control global de todo el sistema (run, clear, reset) \\ \hline
+\textbf{Pulses} & las capturas del osciloscopio, como pulso o como mapa de
+  calor, y la tasa en el tiempo \\ \hline
+\textbf{OSC settings} & la franja del osciloscopio (y la del ring, si el
+  bitstream lo trae), los registros por etapa y la adquisición del ring a una
+  carpeta de la placa \\ \hline
+\textbf{Multitrigger} & la franja del disparo: las fuentes (nivel, pendiente,
+  polo-cero), las máscaras OR por canal y el shield \\ \hline
+\textbf{Generator} & el generador de pulsos por etapas (disparos, amplitud,
+  forma, salida) y el lazo digital hacia el MCA \\ \hline
+\textbf{Calibration} & la medición del canal analógico con una referencia
+  conocida (offset, ruido, ganancia, caída lenta, ancho de banda, diafonía) y la
+  base dinámica del MCA \\ \hline
+\end{tabularx}
+\end{table}
+
+En el Apéndice~\ref{C:ap-app} aparecen capturas de cada una de las pestañas.
+
+% Bibliografía de este capítulo. Va al final del archivo, siempre.
+\bibliografiacapitulo
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "template"
+%%% End:

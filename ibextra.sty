@@ -1,0 +1,400 @@
+%%%%%%%%%%%%%%%%%%%%% Paquetes extra %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% M\'{a}s informaci\'{o}n en http://en.wikibooks.org/wiki/LaTeX/Internationalization
+% LaTeX moderno (>= 2018) ya asume UTF-8, no hace falta inputenc.
+% T1 s\'{\i} hace falta: sin \'{e}l las palabras con acento no se separan bien en s\'{\i}labas.
+\usepackage[T1]{fontenc} % font encoding
+\usepackage{lmodern}     % versi\'{o}n vectorial de Computer Modern con cobertura T1
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Paquetes del cuerpo de la tesis %%%%%%%%%%%%%%%%%%%%%
+\usepackage{array,tabularx}  % columnas X que se ajustan al ancho de la p\'{a}gina
+\usepackage{siunitx}         % \qty{2.2}{\micro\second}, \unit{\nano\second}
+\usepackage{xcolor}          % para \refpend y los grises de abajo
+\usepackage{colortbl}        % color de las l\'{\i}neas y del encabezado de las tablas
+\usepackage{enumitem}        % espaciado de las listas
+\usepackage{pifont}          % \ding: s\'{\i}mbolos como el de la leyenda de la APP
+\usepackage{fontawesome5}    % \faExclamationTriangle
+\usepackage{float}           % [H]: figura fija donde est\'{a} (capturas paso a paso)
+\usepackage{longtable}       % tablas que siguen en la p\'{a}gina siguiente (estructuras de libmca)
+\usepackage{fancyvrb}        % entorno comando: l\'{\i}neas de terminal en su propio rengl\'{o}n
+\usepackage{fvextra}         % breaklines: cortar l\'{\i}neas largas dentro de comando
+\usepackage{tcolorbox}       % fondo del entorno comando y del entorno destacado
+\usepackage{url}             % \ruta: rutas que se pueden cortar en las /
+\usepackage{letltxmacro}     % copiar \includegraphics (tiene argumento opcional)
+\usepackage[figuresright]{rotating} % figuras apaisadas (todas giradas igual, arriba a la izquierda)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Formato de p\'{a}gina %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% M\'{a}rgenes m\'{a}s chicos que los de la clase (texto de 155 mm, arriba 30 mm).
+% 'reset' descarta lo que fij\'{o} ibtesis.cls; el resto se vuelve a dar ac\'{a}.
+\geometry{reset, a4paper, hmargin=20mm, top=22mm, bottom=18mm, includefoot}
+% Los anchos de conveniencia se calcularon con el \textwidth viejo.
+\setlength{\imsizeL}{0.9\textwidth}
+\setlength{\imsize}{0.7\textwidth}
+\setlength{\imsizeS}{0.5\textwidth}
+% fancyhdr fij\'{o} \headwidth con el \textwidth de la clase: la l\'{\i}nea del
+% encabezado quedaba m\'{a}s corta que el texto. Se iguala al ancho nuevo.
+\setlength{\headwidth}{\textwidth}
+\AtBeginDocument{\setlength{\headwidth}{\textwidth}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Listas %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sin espacio extra entre \item: con el interlineado 1.5 de la clase ya alcanza.
+\setlist{itemsep=0pt, parsep=0pt, topsep=3pt, partopsep=0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Ep\'{\i}grafes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ep\'{\i}grafe (r\'{o}tulo y texto) levemente en gris, en figuras y en tablas.
+\definecolor{epigrafe}{gray}{0.35}
+\DeclareCaptionFont{gris}{\color{epigrafe}}
+\captionsetup{font=gris, width=0.95\textwidth}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Figuras %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dentro de un figure, toda imagen ocupa el ancho del texto M\'{A}S \desbordefig de
+% cada lado (centrada), con la altura que le toque. Con 0mm el borde de la figura
+% queda alineado con el del p\'{a}rrafo.
+% Un [width=...] expl\'{\i}cito sigue funcionando y tambi\'{e}n queda centrado.
+% Fuera de un figure (car\'{a}tula, logos) \includegraphics no cambia.
+% En minipages y subfiguras (\linewidth < \textwidth) no desborda.
+\newlength{\desbordefig}
+\setlength{\desbordefig}{0mm}    % 0mm = figuras al ancho del texto
+\setkeys{Gin}{width=\linewidth, height=\alturafig, keepaspectratio}
+\LetLtxMacro{\@ibincludegraphics}{\includegraphics}
+\NewDocumentCommand{\@ibincludegraphicsancha}{s O{} m}{%
+  \ifdim\linewidth=\textwidth
+    \makebox[\linewidth][c]{%
+      \IfBooleanTF{#1}{\@ibincludegraphics*}{\@ibincludegraphics}%
+        [width=\dimexpr\linewidth+2\desbordefig\relax, #2]{#3}}%
+  \else
+    \IfBooleanTF{#1}{\@ibincludegraphics*}{\@ibincludegraphics}[#2]{#3}%
+  \fi}
+\AtBeginEnvironment{figure}{\let\includegraphics\@ibincludegraphicsancha}
+
+% Las figuras van justo despu\'{e}s del p\'{a}rrafo que las comenta: en el fuente se
+% escriben con \begin{figure}[H] (no flotan; no usar \floatplacement, rompe la
+% figuraapaisada). Si no entran, pasan a la p\'{a}gina siguiente y la anterior
+% queda corta: \raggedbottom evita que se estire el texto para llenarla.
+\raggedbottom
+
+% Ninguna figura sola en una p\'{a}gina. Dos partes:
+%  1) tope de altura: imagen + ep\'{\i}grafe tienen que entrar arriba de la p\'{a}gina
+%     (\topfraction) dejando lugar para texto. Los dibujos m\'{a}s altos que eso se
+%     achican y quedan m\'{a}s angostos;
+%  2) LaTeX no arma p\'{a}ginas de solo floats salvo que el float ocupe la p\'{a}gina
+%     entera (\floatpagefraction = 0.99999; con 0.99 una figura y una tabla que
+%     juntas llenaban la p\'{a}gina quedaban solas): una figura que no entra donde se la
+%     llama pasa arriba de la p\'{a}gina siguiente. La \'{u}nica excepci\'{o}n son las
+%     figuras apaisadas (figuraapaisada, m\'{a}s abajo), que miden \textheight.
+% Al final de un cap\'{\i}tulo (\clearpage) LaTeX igual vuelca lo que haya quedado
+% pendiente; el detector de abajo avisa si pasa.
+\newcommand{\alturafig}{0.62\textheight}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.6}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.99999}
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{1}
+\setcounter{totalnumber}{3}
+
+% Detector de p\'{a}ginas que quedan solo con floats (sin texto). Cada una deja en
+% el log una l\'{\i}nea "PAGINA-SOLO-FLOATS: pag. N". Para listarlas (-a porque el
+% log tiene bytes Latin-1 y grep lo tomar\'{\i}a por binario):
+%   grep -a PAGINA-SOLO-FLOATS template.log
+\newif\if@ibpaginafloats
+\pretocmd{\@vtryfc}{\global\@ibpaginafloatstrue}{}{\PackageWarningNoLine{ibextra}{No pude parchear \string\@vtryfc}}
+\AddToHook{shipout/before}{%
+  \if@ibpaginafloats
+    \typeout{PAGINA-SOLO-FLOATS: pag. \thepage\space(fisica \the\numexpr\ReadonlyShipoutCounter+1\relax)%
+      \ifcsname @ibrot@\the\numexpr\ReadonlyShipoutCounter+1\relax\endcsname\space apaisada, esperado\fi}%
+    \global\@ibpaginafloatsfalse
+  \fi}
+
+% Figura apaisada: para las que son mucho m\'{a}s anchas que altas (waveforms).
+% Va sola en una p\'{a}gina girada (lo arriba de la figura, hacia el lomo), y el
+% PDF muestra esa p\'{a}gina rotada en pantalla. Adentro, \linewidth es el alto de
+% la p\'{a}gina. Admite varias im\'{a}genes con su \caption y \label cada una.
+%   \begin{figuraapaisada}
+%   \includegraphics{a}\caption{...}\label{f:a}
+%   \end{figuraapaisada}
+% La rotaci\'{o}n en pantalla se resuelve en la segunda pasada (latexmk ya la hace):
+% cada figura apaisada anota en el .aux la p\'{a}gina f\'{\i}sica donde sali\'{o}.
+% Ojo: en shipout/before \ReadonlyShipoutCounter todav\'{\i}a vale N-1 (p\'{a}ginas ya
+% enviadas), de ah\'{\i} los +1.
+\newenvironment{figuraapaisada}
+  {\begin{sidewaysfigure}\@ibmarcarapaisada\centering
+   \captionsetup{width=0.9\linewidth}}
+  {\end{sidewaysfigure}}
+\newcommand{\@ibmarcarapaisada}{%
+  \protected@write\@auxout{}{\string\@ibpaginaapaisada{\noexpand\the\ReadonlyShipoutCounter}}}
+\newcommand{\@ibpaginaapaisada}[1]{\global\@namedef{@ibrot@#1}{}}
+\newtoks\@ibpageattr
+\AtBeginDocument{\@ibpageattr\expandafter{\the\pdfpageattr}}
+\AddToHook{shipout/before}{%
+  \ifcsname @ibrot@\the\numexpr\ReadonlyShipoutCounter+1\relax\endcsname
+    \global\pdfpageattr\expandafter{\the\@ibpageattr /Rotate 90}%
+  \else
+    \global\pdfpageattr\expandafter{\the\@ibpageattr}%
+  \fi}
+
+% Figura que puede no existir todav\'{\i}a (un dibujo de Excalidraw sin export SVG).
+% Si existe el PDF la incluye; si no, un recuadro rojo con el nombre del dibujo.
+%   \figurapend{figs/cap1/cap1_metodos_recuperacion}{Metodos_recuperacion_Pulso}
+\newcommand{\figurapend}[2]{%
+  \IfFileExists{#1.pdf}{\includegraphics{#1}}{%
+    \fbox{\parbox[c][4cm][c]{0.95\linewidth}{\centering\textcolor{red}{%
+      Figura pendiente: falta el SVG de \texttt{\detokenize{#2}}}}}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% C\'{o}digo: capa de formato %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Todo lo que es c\'{o}digo va en monoespaciada, con una marca seg\'{u}n qu\'{e} es.
+% El estilo se cambia ac\'{a}, en un solo lugar:
+%   \cmd|make app-demo|   comando de terminal en el texto: fondo gris. Lleva el
+%                         texto tal cual (como \verb), as\'{\i} que no va dentro de
+%                         \caption ni de otro argumento. No se corta de rengl\'{o}n.
+%   \ruta{prj/MCA}        archivo o carpeta: se puede cortar despu\'{e}s de cada /.
+%   \codigo{trig\_arm}    se\~{n}al, registro, m\'{o}dulo, par\'{a}metro o valor del HW o
+%                         del SW: azul oscuro. Funciona en epígrafes y tablas.
+%   \begin{comando}       l\'{\i}neas de terminal en su propio rengl\'{o}n: caja gris
+%   sudo ./instalar.sh    con el prompt $ delante de cada l\'{\i}nea; las
+%   \end{comando}         l\'{\i}neas largas se cortan y siguen con una flecha.
+\definecolor{codigofondo}{gray}{0.92}
+\definecolor{codigotexto}{RGB}{0,62,110}
+\NewDocumentCommand{\codigo}{m}{{\color{codigotexto}\ttfamily #1}}
+\NewDocumentCommand{\cmd}{v}{{\setlength{\fboxsep}{1.5pt}%
+  \colorbox{codigofondo}{\ttfamily\vphantom{Ay}#1}}}
+\DeclareUrlCommand\ruta{\def\UrlFont{\color{codigotexto}\ttfamily}}
+\newcommand{\@ibprompt}[1]{\textcolor{epigrafe}{\$}\ #1}
+\newenvironment{comando}{%
+  \VerbatimEnvironment
+  \begin{tcolorbox}[colback=codigofondo, colframe=codigofondo, boxrule=0pt,
+    arc=2pt, left=6pt, right=6pt, top=1pt, bottom=1pt,
+    left skip=1.5em, before skip=4pt, after skip=6pt]%
+  \begin{Verbatim}[fontsize=\small, breaklines, breakanywhere,
+    formatcom=\let\FancyVerbFormatText\@ibprompt]}%
+  {\end{Verbatim}\end{tcolorbox}}
+
+% Frase que la nota marca como cita (> ...): barra gris a la izquierda.
+\newtcolorbox{destacado}{colback=codigofondo!50, colframe=epigrafe, boxrule=0pt,
+  leftrule=2pt, sharp corners, left=8pt, right=8pt, top=4pt, bottom=4pt,
+  before skip=8pt, after skip=8pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Tablas %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Grilla completa en gris: | entre columnas y \hline entre filas. El
+% encabezado va sobre fondo gris claro con \encabezado al principio de la fila.
+%   \begin{tabularx}{\textwidth}{|l|X|}
+%   \hline \encabezado Columna & Otra \\ \hline
+%   dato & dato \\ \hline
+%   \end{tabularx}
+\definecolor{tablalinea}{gray}{0.65}
+\definecolor{tablaencabezado}{gray}{0.92}
+\arrayrulecolor{tablalinea}
+\renewcommand{\arraystretch}{1.3}
+\newcommand{\encabezado}{\rowcolor{tablaencabezado}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Cortes de l\'{\i}nea %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Un poco de estiramiento extra antes de dejar que una l\'{\i}nea con \texttt o una
+% palabra larga se salga del margen.
+\setlength{\emergencystretch}{2em}
+
+% Red de seguridad para texto pegado desde Obsidian: s\'{\i}mbolos Unicode que
+% pdflatex no conoce. En el texto nuevo conviene escribirlos en LaTeX ($\alpha$).
+\usepackage{newunicodechar}
+\newunicodechar{≈}{\ensuremath{\approx}}
+\newunicodechar{α}{\ensuremath{\alpha}}
+\newunicodechar{β}{\ensuremath{\beta}}
+\newunicodechar{γ}{\ensuremath{\gamma}}
+\newunicodechar{τ}{\ensuremath{\tau}}
+\newunicodechar{→}{\ensuremath{\rightarrow}}
+\newunicodechar{≥}{\ensuremath{\geq}}
+\newunicodechar{≤}{\ensuremath{\leq}}
+\newunicodechar{×}{\ensuremath{\times}}
+\newunicodechar{−}{\ensuremath{-}}
+\newunicodechar{⁴}{\textsuperscript{4}}
+\newunicodechar{₃}{\textsubscript{3}}
+\newunicodechar{●}{\ding{108}}                 % pifont
+\newunicodechar{⚠}{\faExclamationTriangle}   % fontawesome5
+
+% Referencia a un label que puede no existir todav\'{\i}a: secciones de las notas de
+% Obsidian que a\'{u}n no se pasaron a LaTeX. Si el label existe imprime \ref; si
+% no, el texto de respaldo en rojo, as\'{\i} en el PDF se ve qu\'{e} falta. Cuando se
+% pase el cap\'{\i}tulo destino con ese label, se resuelve solo.
+%   Sec.~\refpend{S:implmca-contadores}{Implementaci\'{o}n del MCA: contadores}
+% Para listar las pendientes:  grep -o 'refpend{[^}]*}' cap*.tex apend*.tex
+\newcommand{\refpend}[2]{%
+  \ifcsname r@#1\endcsname\ref{#1}\else\textcolor{red}{[#2]}\fi}
+
+% Marca en rojo una frase que en la nota de Obsidian quedó sin terminar.
+%   grep -n 'incompleto' cap*.tex apend*.tex
+% Cuerpo de un cap\'{\i}tulo se\~{n}uelo (todav\'{\i}a sin convertir): aviso en rojo.
+\newcommand{\capitulopendiente}[1]{%
+  \noindent\textcolor{red}{Cap\'{\i}tulo pendiente: falta convertir la nota\\
+  \texttt{\detokenize{#1}}.}}
+\newcommand{\incompleto}{\textcolor{red}{[incompleto en la nota]}}
+
+% Índices de figuras y tablas: el número (p. ej. 10.10) no entra en los 2.3em
+% de la clase desde que hay capítulos de dos cifras con 10+ tablas.
+\renewcommand*{\l@figure}{\@dottedtocline{1}{1.5em}{2.9em}}
+\let\l@table\l@figure
+
+% \usepackage{latexsym,amsfonts,amssymb,bbm} % S\'{\i}mbolos matem\'{a}ticos
+%\usepackage{multirow,multicol,booktabs} % Entornos varios para tablas
+%\usepackage{subfig} % Subfiguras y subtablas
+
+% Existen tres tama\~{n}os standard para las figuras, s\'{o}lo por conveniencia
+% Estos son los tama\~{n}os por default. Descomentar y cambiar seg\'{u}n la necesidad
+%\setlength{\imsizeL}{0.9\textwidth}
+%\setlength{\imsize}{0.7\textwidth}
+%\setlength{\imsizeS}{0.5\textwidth}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Estilo de la bibliograf\'{\i}a %%%%%%%%%%%%%%%%%%%%%%
+% Esquema: biblatex + biber (reemplaza al natbib + ibtesis.bst originales).
+%
+% Por qu\'{e} biblatex y no natbib/BibTeX:
+%   - refsection=chapter da una bibliograf\'{\i}a por cap\'{\i}tulo "gratis", y una
+%     misma clave puede repetirse en varios cap\'{\i}tulos sin conflicto: cada
+%     cap\'{\i}tulo la re-numera desde 1 en su propia lista.
+%   - soporta localizadores (p\'{a}gina, cap\'{\i}tulo, secci\'{o}n, ecuaci\'{o}n) en la cita:
+%     \cite[45]{clave} -> [3, p\'{a}g. 45]
+%   - maneja @inbook / @incollection correctamente para capítulos de libro.
+%
+% Para volver al esquema viejo (ibtesis.bst): comentar todo este bloque,
+% descomentar las 3 l\'{\i}neas de natbib del final, y en template.tex cambiar
+% \addbibresource{mibib.bib} por \bibliography{mibib}.
+\usepackage[
+  backend=biber,         % biber, no bibtex (necesario para refsection)
+  style=numeric-comp,    % [1], y comprime rangos: [2-5] en vez de [2,3,4,5]
+  citestyle=numeric-comp,
+  sorting=none,          % la bibliograf\'{\i}a sigue el orden de aparici\'{o}n
+  sortcites=true,        % \cite{b,a} imprime [1,2] ordenado
+  natbib=true,           % deja vivos \citep, \citet, \citeauthor, \citeyear
+  refsection=chapter,    % <-- UNA BIBLIOGRAFIA POR CAPITULO
+  backref=true,          % en la bibliograf\'{\i}a, link a la p\'{a}gina que cit\'{o}
+  backrefstyle=three,    % comprime "p\'{a}gs. 3, 4, 5" -> "p\'{a}gs. 3-5"
+  maxbibnames=10,        % hasta 10 autores antes de usar "et al."
+  minbibnames=10,
+  maxcitenames=2,        % en el texto, "Autor et al." a partir de 3
+  giveninits=true,       % "Bohm, D." en vez de "Bohm, David"
+  isbn=false,
+  eprint=true,
+  doi=true,
+]{biblatex}
+% URLs largas en la bibliograf\'{\i}a: permitir cortarlas despu\'{e}s de may\'{u}sculas,
+% min\'{u}sculas y n\'{u}meros (por default solo corta en / y .).
+\setcounter{biburlnumpenalty}{9000}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+% Entradas de la bibliograf\'{\i}a m\'{a}s chicas que el texto: letra \small,
+% interlineado simple (el cuerpo usa 1.5) y poco aire entre una entrada y otra.
+\renewcommand*{\bibfont}{\small\setstretch{1}}
+\setlength{\bibitemsep}{0.35\baselineskip}
+
+% ---- Separadores: [1, p\'{a}g. 45] con coma, al estilo del .bst original ----
+\renewcommand*{\postnotedelim}{\addcomma\space}
+\renewcommand*{\multicitedelim}{\addcomma}
+
+% ---- Encabezado de la bibliograf\'{\i}a de cada cap\'{\i}tulo ----
+% Entra en el \'{\i}ndice como secci\'{o}n del cap\'{\i}tulo, no como cap\'{\i}tulo aparte.
+\defbibheading{bibcapitulo}[Referencias]{%
+  \section*{#1}%
+  \phantomsection%
+  \addcontentsline{toc}{section}{#1}%
+}
+
+% Se pone al final de cada archivo de cap\'{\i}tulo.
+% Uso: \bibliografiacapitulo            -> t\'{\i}tulo "Referencias"
+%      \bibliografiacapitulo[Otro t\'{\i}tulo]
+\newcommand{\bibliografiacapitulo}[1][Referencias]{%
+  \printbibliography[heading=bibcapitulo,title={#1}]%
+}
+
+% ---- Atajos para citar con localizador ----
+% biblatex ya entiende \cite[45]{clave} y le pone "p\'{a}g." solo.
+% Estos atajos son para los casos en que el localizador NO es una p\'{a}gina.
+\newcommand{\citepag}[2]{\cite[#2]{#1}}            % \citepag{clave}{45}  o {45-48}
+\newcommand{\citecap}[2]{\cite[cap.~#2]{#1}}       % \citecap{libro}{7}
+\newcommand{\citesec}[2]{\cite[sec.~#2]{#1}}       % \citesec{libro}{3.2}
+\newcommand{\citeec}[2]{\cite[ec.~#2]{#1}}         % \citeec{paper}{12}
+\newcommand{\citefig}[2]{\cite[fig.~#2]{#1}}       % \citefig{paper}{4}
+
+% ---- Esquema anterior (natbib + ibtesis.bst). No usar junto con biblatex ----
+%\usepackage[nonamebreak,sort&compress]{natbib}
+%\setcitestyle{numbers,square,comma}
+%\bibliographystyle{ibtesis}
+
+%%%%%%%%%%%%%%%%%%%% Nomenclatura %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[noprefix,notintoc,spanish]{nomencl} % Para armar la tabla de abreviaturas (ver wiki del CAB)
+%\makenomenclature
+%
+%\renewcommand{\nompreamble}{%
+%Unidades m\'{a}s comunes, s{\'{\i}}mbolos, abreviaturas y siglas
+%utilizadas. Se incluye la p\'{a}gina con una descripci\'{o}n m\'{a}s detallada cuando sea
+%pertinente.\\ \\
+%}
+%\renewcommand{\pagedeclaration}[1]{,~#1}
+%\setlength{\nomitemsep}{-0.5\parsep}
+%
+%\newcommand\listofabbr{%
+%   \if@twocolumn
+%     \@restonecoltrue\onecolumn
+%   \else
+%      \@restonecolfalse
+%   \fi
+%   \cleardoublepage
+%   \phantomsection
+%   \addcontentsline{toc}{chapter}{\nomname}%
+%   \@mkboth{\MakeUppercase\nomname}{\MakeUppercase\nomname}%
+%   \printnomenclature[2.5cm]%
+%   \if@restonecol\twocolumn\fi}
+%
+%\newcommand{\abbr}[3]{\phantomsection\label{abbr:#1}\nomenclature[#1 ]{#2}{#3}}
+%\newcommand{\abbrp}[3]{\phantomsection\label{abbr:#1}\nomenclature[#1 ]{#2}{#3, \pageref{abbr:#1}}}
+
+%%%%%%%%%%%%% Definici\'{o}n de nuevos comandos %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Secciones (equivalentes a los normales de latex, pero facilitan el labeling/referencia
+%\newcommand{\chap}[2]{\chapter{#1\label{cap:#2}}}
+%\newcommand{\sect}[2]{\section{#1\label{sec:#2}}}
+%\newcommand{\ssect}[2]{\subsection{#1\label{ssec:#2}}}
+%\newcommand{\sssect}[2]{\subsubsection{#1\label{sssec:#2}}}
+%\newcommand{\appen}[2]{\chapter{#1\label{apen:#2}}}
+%\newcommand{\refcap}[1]{Cap.~\ref{cap:#1}}
+%\newcommand{\refsec}[1]{Sec.~\ref{sec:#1}}
+%\newcommand{\refapen}[1]{Ap\'{e}ndice~\ref{apen:#1}}
+
+% Ecuaciones (para agregar labels y referencias f\'{a}cil)
+%\newcommand{\eq}[2]{%           %Entorno equation con label
+% \begin{equation}%
+% #1 \label{eq:#2}%
+% \end{equation}}
+%\newcommand{\eqp}[3]{%          %Igual que el anterior, agregando signo de puntuaci\'{o}n
+% \eq{#1 \hspace{0.3cm} \textrm{#2}}{#3}}
+%\newcommand{\eqnn}[1]{%
+% \begin{equation*}%          %Entorno equation sin n\'{u}mero
+% #1 \nonumber%
+% \end{equation*}}
+%\newcommand{\eqpnn}[2]{%        %Igual que el anterior, agregando signo de puntuaci\'{o}n
+% \eqnn{#1 \hspace{0.3cm} \textrm{#2}}}
+%\newcommand{\subeq}[2]{%        %Entorno subequations con label
+% \begin{subequations}%
+% #1 \label{eq:#2}%
+% \end{subequations}}
+%\newcommand{\refec}[1]{Ec.~(\ref{eq:#1})}   %Para referirse a las ecuaciones definidas con los entornos anteriores
+%\newcommand{\refeq}[1]{(\ref{eq:#1})}
+%\newcommand{\parcial}[2]{\frac{\partial #1}{\partial #2}}     %Derivadas parciales
+%\newcommand{\parcialconst}[3]{\left.\parcial{#1}{#2}\right|_{#3}}
+
+% Tablas y Figuras (para simplificar el llamado y no olvidarse de nada)
+%\newcommand{\Figinsert}[6]{%             %Inserta una figura: #1 es el nombre del archivo, el label queda fig:#1
+% \begin{figure}[!#6]%                                      #2 es el ancho de la figura, #3 el \'{a}ngulo de giro
+% \begin{center}%                                           #4 es el caption, #5 es el caption corto para el {\'{\i}}ndice
+% \includegraphics*[width=#2,angle=#3]{#1}%                 #6 es el lugar (b,t,h,etc.)
+% \end{center}%
+% \vspace{-3ex}%
+% \caption[#5]{#4 \label{fig:#1}}%
+% \end{figure}}
+%\newcommand{\Tabinsert}[5]{%             %Inserta una tabla: el label queda tab:#1
+% \begin{table}[!#5]%                                      #2 es el contenido de la tabla (tabular)
+% \begin{center}%                                          #3 es el caption, #4 es el caption corto para el {\'{\i}}ndice
+% #2%                                                      #5 es el lugar (b,t,h,etc.)
+% \end{center}%
+% \vspace{-3ex}%  
+% \caption[#4]{#3 \label{tab:#1}}%
+% \end{table}}
+%\newcommand{\reffig}[1]{Fig.~\ref{fig:#1}}      %Para referirse a las tablas y figuras definidas con los entornos anteriores
+%\newcommand{\reftab}[1]{Tabla~\ref{tab:#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

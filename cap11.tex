@@ -1,0 +1,308 @@
+% Origen: Secciones/PI - Conclusiones y Futuros Pasos.md
+\chapter{Conclusiones y futuros pasos}
+\label{C:conclusiones}
+
+% Figuras de ESTE capítulo + las compartidas. Siempre al principio del archivo.
+\graphicspath{{figs/cap11/}{figs/comunes/}}
+
+%==============================================================================
+\section{Conclusiones}
+\label{S:concl}
+
+Implementamos un analizador multicanal y un osciloscopio por eventos sobre la
+Red Pitaya STEMlab 125-14. Todo el procesamiento de los pulsos corre en la PL:
+el disparo, la medición de la amplitud y de la forma, el histograma y la captura
+de las trazas. El PS se queda con el control, la adquisición y el guardado. El
+sistema final es el TOP de integración con el anillo de eventos
+(Cap.~\ref{C:top}), y lo caracterizamos
+con \codigo{gen\_pulsos} en el lazo digital y en el canal analógico
+OUT1 $\rightarrow$ IN1 (Cap.~\ref{C:resultados}).
+
+\subsection{Parámetros del sistema implementado}
+\label{S:concl-parametros}
+
+En la Tabla~\ref{t:concl-parametros} se presentan los parámetros fijados en la
+síntesis, que sólo cambian volviendo a sintetizar, y la ocupación de la FPGA.
+
+\begin{table}[H]
+\centering
+\caption[Parámetros del sistema implementado]{%
+Parámetros del sistema implementado: los que fija la síntesis del TOP de
+integración con el anillo de eventos y su ocupación de la
+Zynq-7010.\label{t:concl-parametros}}
+\small
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.16\textwidth}%
+  |>{\raggedright\arraybackslash}p{0.22\textwidth}%
+  |>{\raggedright\arraybackslash}X|}
+\hline \encabezado \textbf{Bloque} & \textbf{Parámetro} & \textbf{Valor} \\ \hline
+Plataforma & placa & Red Pitaya STEMlab 125-14: Zynq-7010, con dos núcleos ARM
+  Cortex-A9 \\ \hline
+ & ADC y DAC & 14 bits, 125~MS/s (\qty{8}{\nano\second} por muestra); entrada
+  en LV, $\pm\qty{1}{\volt}$ (1~ADU $\approx$ \qty{122}{\micro\volt}) \\ \hline
+MCA & espectro 1D & 8192 canales, con contadores de 32 bits que saturan
+  \\ \hline
+ & mapa 2D & $128 \times 64$ canales (amplitud $\times$ forma) \\ \hline
+ & ranuras de medición & 3 \\ \hline
+ & banco de trapecios & 3 formas, $(k, m) = (64, 48)$, $(32, 24)$ y $(8, 8)$,
+  con un polo-cero común \\ \hline
+ & publicador & uno, de 18 ciclos por evento \\ \hline
+ & contabilidad del tiempo & \codigo{realtime} = \codigo{vetotime} +
+  \codigo{t\_win} + \codigo{t\_div} + \codigo{t\_rearm} + \codigo{livetime}, al
+  ciclo \\ \hline
+Multitrigger & fuentes de disparo & nivel, pendiente ($L = 8$, $G = 4$),
+  polo-cero ($k = 2$, $m = 1$), externa, generador y software, combinadas con
+  una máscara OR \\ \hline
+Osciloscopio & captura & por la BRAM, un evento por vez, y por el anillo de
+  eventos en la DDR \\ \hline
+ & ventanas del anillo & de $8 + 24$ a $32 + 992$ muestras (antes + después
+  del disparo) \\ \hline
+Generador & \codigo{gen\_pulsos} & tabla de 1024 alturas; caída, subida y ruido
+  blanco programables; arribos periódicos o de Poisson; lazo digital \\ \hline
+FPGA & LUT & 14\,358 de 17\,600 (\qty{81.6}{\percent}) \\ \hline
+ & registros & 15\,513 de 35\,200 (\qty{44.1}{\percent}) \\ \hline
+ & slices & 4400 de 4400 (\qty{100}{\percent}) \\ \hline
+ & BRAM (bloques de 36~kb) & 33 de 60 (\qty{55}{\percent}) \\ \hline
+ & DSP & 10 de 80 (\qty{12.5}{\percent}) \\ \hline
+ & timing & cierra a \qty{125}{\mega\hertz}, con WNS = \qty{+0.008}{\nano\second}
+  y WHS = \qty{+0.040}{\nano\second} \\ \hline
+\end{tabularx}
+\end{table}
+
+El diseño ocupa las 4400 slices de la Zynq-7010, con el \qty{81.6}{\percent} de
+las LUT, y cierra el timing a \qty{125}{\mega\hertz} con
+\qty{8}{\pico\second} de margen. Para hacer lugar al anillo y a
+\codigo{gen\_pulsos} sacamos la captura del osciloscopio por AXI, que el anillo
+reemplaza, y bajamos el MCA de 4 a 3 ranuras y de 4 a 3 formas, lo que costó
+cerca del \qty{1}{\percent} de la tasa en la línea. La placa quedó llena: un
+bloque nuevo pide sacar otro o pasar a una FPGA más grande.
+
+\subsection{Desempeño del hardware}
+\label{S:concl-hw}
+
+En la Tabla~\ref{t:concl-hw} se resumen las figuras de mérito que medimos con
+\codigo{gen\_pulsos}. Salvo que se diga otra cosa, son con 3 ranuras, el banco
+de trapecios y la base fija.
+
+\begin{table}[H]
+\centering
+\caption[Figuras de mérito del MCA medidas con \codigo{gen\_pulsos}]{%
+Figuras de mérito del MCA medidas con \codigo{gen\_pulsos}, en el lazo digital
+y en el canal analógico OUT1 $\rightarrow$ IN1 con \qty{50}{\ohm}. Las
+amplitudes van en ADU y las posiciones del histograma en canales. ---: todavía
+sin medir en ese modo.\label{t:concl-hw}}
+\small
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.27\textwidth}%
+  |>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline \encabezado \textbf{Figura de mérito} & \textbf{Lazo digital} &
+  \textbf{Canal analógico} \\ \hline
+Tasa aceptada, con 3~M/s de entrada & 1.9~M/s & casi la misma \\ \hline
+Tasa en la línea, con 3~M/s de entrada & 1.2~M/s con el ASG y el polo-cero;
+  0.78~M/s con la pendiente & máximo de 0.43 a 0.53~M/s, con 1.5~M/s de entrada
+  \\ \hline
+Error de $\hat\lambda$, con 3~M/s de entrada & ASG $-\qty{1.7}{\percent}$;
+  polo-cero $-\qty{3.7}{\percent}$; pendiente $-\qty{18}{\percent}$ &
+  polo-cero $+\qty{5.1}{\percent}$, por los disparos de más sobre el sobrepico
+  \\ \hline
+Separación de los disparos de un par & polo-cero \qty{40}{\nano\second};
+  pendiente \qty{160}{\nano\second} & pendiente igual; el polo-cero vuelve a
+  disparar \\ \hline
+Separación de un par con las dos amplitudes en su línea &
+  \qty{128}{\nano\second} (polo-cero) y \qty{160}{\nano\second} (pendiente);
+  \qty{1.5}{\micro\second} con 1 ranura & pendiente igual; el polo-cero no lo
+  resuelve \\ \hline
+Umbral (mitad de los pulsos disparan) & polo-cero 48~ADU; pendiente 81~ADU &
+  51 y 82~ADU \\ \hline
+Walk del disparo & polo-cero \qty{8}{\nano\second}; pendiente
+  \qty{48}{\nano\second} & 16 y \qty{55}{\nano\second} \\ \hline
+INL del trapecio & $<\qty{0.002}{\percent}$~FS & $\pm\qty{0.008}{\percent}$~FS
+  hasta 3200~ADU; $+\qty{0.66}{\percent}$ en 8000, donde satura el ADC
+  \\ \hline
+DNL del MCA & $<\qty{1.5}{\percent}$ rms (cota: domina la tabla del generador)
+  & --- \\ \hline
+Ganancia de ruido, $k = 8$, 32 y 64 & 0.48, 0.24 y 0.18 & igual \\ \hline
+Piso de ruido $\sigma_0$, $k = 64$ & 0.06~ADU & 1.41~ADU \\ \hline
+Resolución en una línea de 1500~ADU, $k = 64$ y ruido 2.3~ADU & FWHM
+  \qty{0.07}{\percent} & FWHM \qty{0.24}{\percent} \\ \hline
+Corrimiento de la línea con la tasa & $< 1.5$ canales hasta 3~M/s &
+  $\sim 9$ canales a 400~k/s \\ \hline
+Ajuste del polo-cero & error nulo en $\Delta M = +0.03$ a
+  $+\qty{0.06}{\percent}$ & --- \\ \hline
+\end{tabularx}
+\end{table}
+
+De estas mediciones sacamos cinco conclusiones.
+
+\textbf{La cadena digital no agrega un error medible.} En el lazo digital la INL
+del trapecio queda por debajo de \qty{0.002}{\percent}~FS y las líneas se
+corren menos de 1.5 canales hasta 3~M/s. Lo que se aparta del ideal en el canal
+analógico es del canal, no del diseño. Esto también resuelve una limitación de
+la generación externa controlada, que no separaba la INL del generador de la del
+ADC: el canal de la placa da $\pm\qty{0.008}{\percent}$~FS hasta 3200~ADU, así
+que lo que mida de más un generador externo en ese rango es del generador.
+
+\textbf{Lo que limita la tasa es el apilamiento, no el tiempo muerto.} A 3~M/s
+de entrada, pasar de 1 a 3 ranuras sube los eventos aceptados de 0.73 a
+1.9~M/s: las ranuras sacan del camino casi todo el tiempo muerto. Lo que queda
+es la diferencia entre los aceptados y los que caen en su línea, 1.9 contra
+1.2~M/s, y es casi toda apilamiento: pulsos que el MCA mide con otro encima. Esa
+pérdida es estadística, depende de la tasa y del largo de la forma, y no baja
+con más ranuras.
+
+\textbf{El disparo fija el comportamiento a alta tasa.} El polo-cero separa dos
+disparos a \qty{40}{\nano\second} y registra en su línea lo mismo que el ASG,
+que dispara con cada pulso sin mirar la señal (1.23 contra 1.21~M/s a 3~M/s). La
+pendiente necesita \qty{160}{\nano\second} y es paralizable: su tasa en la línea
+llega a 0.97~M/s con 2~M/s de entrada y baja a 0.78 con 3~M/s. Eso llega a la
+tasa estimada: $\hat\lambda$ corrige el tiempo muerto de las ranuras y del
+publicador, y queda a $-\qty{1.7}{\percent}$ de la tasa real con el ASG y a
+$-\qty{3.7}{\percent}$ con el polo-cero, pero con la pendiente queda
+\qty{18}{\percent} abajo, porque el re-armado del disparo sólo se cuenta cuando
+hay una ranura libre. Con un canal sin sobrepico, el polo-cero es la fuente de
+disparo para medir.
+
+\textbf{En el canal analógico, lo que limita es el canal.} El canal
+OUT1 $\rightarrow$ IN1 con \qty{50}{\ohm} tiene una ganancia de 0.95, cae
+\qty{3}{\decibel} en \qty{52}{\mega\hertz} y tiene un piso de 4.7~ADU rms. Dos
+rasgos suyos explican casi todo lo que el modo analógico agrega:
+\begin{itemize}
+  \item \textbf{El sobrepico del \qty{24}{\percent}.} El polo-cero vuelve a
+    disparar sobre él desde unas 3200~ADU y deja de resolver pares, y desde unas
+    6990~ADU el ADC satura. La pendiente no lo ve.
+  \item \textbf{La caída lenta del \qty{7.3}{\percent}, en 3 a
+    \qty{13}{\micro\second}.} Las colas negativas de los pulsos se apilan y
+    bajan la base con la tasa, y el trapecio pasa ese error a la amplitud. Con
+    base fija la línea se corre unos 9 canales a 400~k/s, y la tasa en la línea
+    no pasa de 0.43 a 0.53~M/s.
+\end{itemize}
+
+Estos dos rasgos son del montaje de generación interna, y todavía no separamos
+cuánto viene de la salida y cuánto de la entrada; con un detector sólo se usa la
+entrada. La conclusión, igual, vale para cualquier canal: antes de medir hay que
+caracterizarlo, y una cola lenta hay que compensarla antes del MCA, como el
+polo-cero compensa la caída del pulso.
+
+\subsection{Desempeño del software}
+\label{S:concl-sw}
+
+En el software medimos cuánto cuesta cada capa del camino de los datos. Los
+resultados se resumen en la Tabla~\ref{t:concl-sw}.
+
+\begin{table}[H]
+\centering
+\caption[Desempeño del software en la placa]{%
+Desempeño del software en la placa, por capa del camino de los datos. «Al día»
+es la tasa más alta del barrido sin descartes ni atraso; «saturado», lo que lee
+la capa cuando no da abasto.\label{t:concl-sw}}
+\small
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.33\textwidth}%
+  |>{\raggedright\arraybackslash}X|}
+\hline \encabezado \textbf{Camino} & \textbf{Medido} \\ \hline
+leer un registro & \qty{1.5}{\micro\second} en C, \qty{56.8}{\micro\second} por
+  el binding y \qty{10.5}{\micro\second} en Python puro \\ \hline
+leer el espectro (8192 canales) & \qty{1.70}{\milli\second} en C,
+  \qty{1.88}{\milli\second} por el binding y \qty{34.3}{\milli\second} en Python
+  puro; \qty{3.5}{\milli\second} por la red \\ \hline
+osciloscopio por la BRAM, con el lazo en C & \qty{18.2}{\micro\second} de tiempo
+  muerto por evento (mediana); 34~k/s guardados \\ \hline
+anillo, la PL sola & 1.42~M/s con ventanas de $8 + 24$ muestras; 49~k/s con
+  $32 + 992$ \\ \hline
+anillo, el lector de C copiando & 753~k/s con $8 + 24$ \\ \hline
+anillo, el lector de C copiando y verificando & 300~k/s al día con $8 + 24$
+  (439~k/s saturado); de 70 a 98~MB/s saturado \\ \hline
+anillo, la sesión de Python guardando en \ruta{.npz} & 100~k/s al día con
+  $8 + 24$ (167~k/s saturado en la SD y 203~k/s en \ruta{/dev/shm}); 10~k/s con
+  $32 + 992$ \\ \hline
+$10^8$ eventos con los dos núcleos ocupados & la PL sola a 1.4~M/s y el lector
+  de C a 200~k/s, sin descartes ni errores \\ \hline
+\end{tabularx}
+\end{table}
+
+\textbf{Lo que limita al osciloscopio es el PS.} Cada capa que se suma al camino
+de los datos baja la tasa: la PL sola escribe 1.42~M/s en el anillo, el lector
+de C copia 753~k/s y, verificando cada slot, 300~k/s, y la sesión de Python
+guarda 100~k/s. El escritor de la PL llega en la placa al techo de la simulación
+con todas las ventanas, así que el AXI y la DDR no lo frenan; con la sesión,
+\ruta{/dev/shm} da casi lo mismo que la SD, así que tampoco frena el disco. Lo
+que limita es el software en los dos núcleos del ARM. El MCA no tiene este
+problema, porque acumula el histograma en la PL y el PS sólo lee el espectro:
+acepta 1.9~M/s, contra los 100~k/s de trazas que guarda el osciloscopio.
+
+\textbf{El costo del binding es por llamada, no por dato.} Pasar por
+\codigo{ctypes} agrega unos \qty{55}{\micro\second} por llamada, que dominan al
+leer un registro y casi no pesan al leer el espectro (un \qty{10}{\percent} sobre
+C). Por eso los lazos por evento están en C, y en Python quedan la sesión, los
+archivos y la aplicación. Con el lazo de la BRAM en C, el tiempo muerto por
+evento bajó de 252.7 a \qty{18.2}{\micro\second}.
+
+\textbf{El anillo absorbe las demoras del PS, hasta un punto.} Con $10^8$
+eventos y los dos núcleos ocupados por otros procesos, la PL a 1.4~M/s no
+descarta ninguno: el anillo absorbió una demora de \qty{30}{\milli\second} del
+lector. El lector de C cumple a 200~k/s, pero sin margen: una demora de medio
+segundo llenó el anillo al \qty{81}{\percent}. Con el ARM ocupado, la tasa
+segura para leer trazas de 32 muestras desde C está por debajo de 200~k/s.
+
+En resumen, el procesamiento en la PL rinde lo que permite la estadística de los
+arribos. Lo que queda por mejorar está en el canal analógico, en la estabilidad
+con la temperatura, que todavía no medimos, y en el camino de las trazas por el
+PS.
+
+%==============================================================================
+\section{Posibles futuros pasos}
+\label{S:concl-futuros}
+
+A continuación se describen algunos de los pasos que quedan para llevar el
+sistema a una medición real y para mejorarlo.
+\begin{itemize}
+  \item \textbf{Implementar el sistema en un setup experimental real.} Es la
+    última etapa de validación: un detector con su preamplificador en IN1 y
+    fuentes de calibración. Con pulsos reales se miden la resolución en energía,
+    la linealidad y la tasa, y se ve cuánto de lo que agrega el canal analógico
+    aparece también con el detector, que sólo usa la entrada.
+  \item \textbf{Comparar el funcionamiento con otros MCA comerciales.} Con el
+    mismo detector y la misma fuente, contra un MCA digital comercial. Antes se
+    puede comparar en papel con sus especificaciones, cuidando que las cifras
+    sean comparables: la INL, por ejemplo, la dan sobre casi todo el rango, y la
+    nuestra está medida hasta 3200~ADU.
+  \item \textbf{Obtener feedback de usuarios y comprobar la facilidad de uso de
+    la API y la GUI.} Darle el sistema a usuarios del laboratorio con una tarea
+    fija, como calibrar el canal, adquirir un espectro y guardar las trazas, y
+    medir cuánto tardan y dónde se traban, con la GUI y con la API.
+  \item \textbf{Crear una aplicación web al estilo de las de Red Pitaya.} Como un
+    cliente más del protocolo JSON del servidor, el mismo que usa la GUI, sin
+    cambiar nada en la placa.
+  \item \textbf{Crear una documentación oficial para el código de la API.} La
+    documentación ya está en el repositorio; falta publicarla como un sitio
+    generado a partir del código.
+  \item \textbf{Compensar la caída lenta del canal.} La base dinámica, que
+    corrige la base según la tasa estimada, ya está implementada en el software y
+    falta validarla en la placa. Corrige la base en promedio, pero no su
+    fluctuación de un pulso a otro. Para eso hay que invertir los polos lentos
+    del canal antes del MCA, con un filtro como el polo-cero del trapecio.
+  \item \textbf{Estabilizar el espectro.} Primero hay que medir la deriva del
+    sistema con la temperatura. Con eso, un lazo en el PS puede mantener un pico
+    de referencia en su canal, corrigiendo una ganancia fina y un desplazamiento
+    antes del histograma, como hacen los MCA comerciales. Para estabilizar la
+    electrónica alcanza con un pulser como \codigo{gen\_pulsos}; para
+    estabilizar también el detector hace falta una línea de la fuente.
+  \item \textbf{Contar el re-armado del disparo en $\hat\lambda$ aunque no haya
+    ranura libre.} Hoy \codigo{t\_rearm} sólo cuenta cuando hay una ranura
+    libre, y con la pendiente $\hat\lambda$ queda \qty{18}{\percent} abajo a
+    3~M/s. Un contador del re-armado que corra también con las ranuras ocupadas
+    debería corregir el tiempo muerto del disparo entero.
+  \item \textbf{Testear en otras plataformas con mayor cantidad de recursos.} La
+    Zynq-7010 quedó llena. Probar el diseño en una plataforma con más recursos,
+    como una con la Zynq-7020, que tiene unas tres veces más lógica, permitiría
+    recuperar la ranura y la forma del banco que sacamos, y agregar los bloques
+    de esta lista.
+  \item \textbf{Medir la salida de las trazas por la red.} El camino del anillo
+    de eventos por la red está implementado y probado sin la placa. Falta medir
+    en la placa cuánto da, contra los 100~k/s de la sesión que guarda en la SD.
+  \item \textbf{Agregar coincidencias y anticoincidencias.} Con dos detectores
+    en IN1 e IN2, o con un detector y un blindaje activo. El análisis y el
+    diseño están hechos; se llevan al RTL cuando haya un montaje que los use.
+\end{itemize}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "template"
+%%% End:
