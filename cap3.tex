@@ -1,43 +1,51 @@
 % Origen: Secciones/PI - Implementacion Multitrigger.md
-\chapter{Implementación del multitrigger}
+\chapter{Implementación -- Multitrigger (MT)}
 \label{C:multitrigger}
 
 % Figuras de ESTE capítulo + las compartidas. Siempre al principio del archivo.
 \graphicspath{{figs/cap3/}{figs/comunes/}}
 
-Este es un módulo simple secuencial clásico que toma las $N$ \textbf{fuentes de
-entradas} existentes en el diseño y su salida principal son los \emph{trigger}
-referentes al inicio de eventos para cada uno de los $N_s$ \emph{stream} de
-datos. En la Fig.~\ref{f:ap-mt-interfaz} se presenta las interfaces del mismo,
-este tiene la capacidad de:
+\begin{destacado}
+En este capítulo describimos el módulo multitrigger: (1) su flujo de utilización
+desde el PS, (2) las fuentes de disparo y por qué se combinan con una OR, (3)
+las vulnerabilidades de ese mecanismo y cómo se resuelven, y (4) una vista
+general del módulo, con el \emph{timestamping} y el tiempo de relanzamiento. Los
+detalles de los submódulos, el mapa de registros y la verificación se presentan
+en el Apéndice~\ref{C:ap-mt}.
+\end{destacado}
+
+Es un módulo secuencial clásico que toma las $N$ \textbf{fuentes de entrada}
+existentes en el diseño y entrega como salida principal los \emph{triggers} de
+inicio de evento de cada uno de los $N_s$ \emph{streams} de datos. En la
+Fig.~\ref{f:ap-mt-interfaz} se presentan sus interfaces. Tiene la capacidad
+de:
 \begin{itemize}
   \item Tener en cuenta hasta $N$ fuentes independientes, en nuestro diseño
     $N=32$.
-  \item \textbf{Las fuentes se habilitan} con vector máscara \codigo{OR\_MASK}.
-  \item Se puede \textbf{enmascarar eventos}, acción que llamamos escudar
-    (\emph{shielding}) con los siguientes parámetros:
+  \item \textbf{Habilitar las fuentes} con el vector máscara \codigo{OR\_MASK}.
+  \item \textbf{Enmascarar eventos}, acción que llamamos escudar
+    (\emph{shielding}), con los siguientes parámetros:
   \begin{itemize}
     \item El escudado tiene fuentes y destinos.
     \item Las fuentes de origen (src) de escudado bloquean el disparo de las
       fuentes que reciben el escudo.
-    \item La duración es un valor fijo y puede ser modificada por registros.
+    \item La duración es un valor fijo, configurable por registros.
   \end{itemize}
   \item Reportar la última fuente vista mediante un registro interno.
   \item \textbf{Puntos importantes}:
   \begin{itemize}
-    \item Las condiciones de funcionamiento estándar es que las \textbf{fuentes
-      sean un pulso}, esto es que duren un ciclo de reloj. \textbf{El disparo se
-      considera por nivel alto de la señal de evento}, si una fuente se
-      mantuviera alta durante varios ciclos estaría relanzando la adquisición de
-      forma ininterrumpida.
+    \item La condición de funcionamiento estándar es que las \textbf{fuentes
+      sean un pulso}, es decir, que duren un ciclo de reloj. \textbf{El disparo
+      se considera por nivel alto de la señal de evento}: si una fuente se
+      mantuviera alta durante varios ciclos, estaría relanzando la adquisición
+      de forma ininterrumpida.
     \item El tiempo de \textbf{relanzamiento del \emph{trigger}}: muchas
       implementaciones de \emph{triggers} no pueden redisparar por una cantidad N de
       ciclos posteriores a un evento. El ejemplo más sencillo es el flanco
       positivo por nivel, en el cual tenemos que partir de la región inferior
       dado un nivel fijo y pasar a una región superior sobre este nivel fijo, de
       forma que no podemos tener dos pulsos seguidos ya que estaríamos partiendo
-      de la región superior en el segundo ciclo. Estos valores se los exponen
-      mediante la utilización de registros internos.
+      de la región superior en el segundo ciclo. Estos valores se exponen mediante registros internos.
   \end{itemize}
 \end{itemize}
 
@@ -85,14 +93,13 @@ multitrigger.\label{f:mt-secuencia}}
 \section{Fuentes de \emph{triggering}}
 \label{S:mt-fuentes}
 
-La cantidad de \emph{triggers} disponibles en el módulo es parametrizable, el diseño
-original contaba con $N_t=16$, dado que queríamos extender la cantidad de
-fuentes por la utilización de nuevos tipos de eventos (por ejemplo originarios
-por pendiente de señal). Decidimos que era buena idea doblar la cantidad a
-$N_t=32$. Podríamos tomar un número mayor pero por un lado no lo vimos
-necesario, no creemos que tengamos que necesitar simultáneamente tantas fuentes
-de forma independiente y por otro lado aumentar la cantidad requiere más
-recursos y complejiza \textbf{\emph{timing}}, esto quiere decir que podemos hacer
+La cantidad de \emph{triggers} disponibles en el módulo es parametrizable. El
+diseño original contaba con $N_t=16$; como queríamos agregar fuentes con nuevos
+tipos de eventos (por ejemplo, por pendiente de la señal), decidimos doblar la
+cantidad a $N_t=32$. Podríamos tomar un número mayor, pero por un lado no lo
+vimos necesario, porque no creemos que haga falta usar simultáneamente tantas
+fuentes independientes, y por otro lado aumentar la cantidad requiere más
+recursos y complica el \textbf{\emph{timing}}: esto quiere decir que podemos hacer
 cadenas lógicas generalmente no más largas que 6 operaciones lógicas
 concatenadas. Visto esto identificamos:
 \begin{itemize}
@@ -105,7 +112,7 @@ concatenadas. Visto esto identificamos:
 Los \emph{triggers} presentes en el diseño original consistían en los siguientes:
 \begin{itemize}
   \item \textbf{ADC por nivel}: podemos decidir los que queramos, en un primer
-    momento ponemos 4 dependiendo del modelo Pitaya (n/p).
+    momento ponemos 4 dependiendo del modelo RedPitaya (n/p).
   \item \textbf{ASG}: \emph{trigger} de la generación de señales interna (n/p).
   \item \textbf{\emph{External}}: \emph{triggers} externos (n/p).
   \item \textbf{Manual}: un \emph{trigger} manual.
@@ -121,10 +128,10 @@ evento a partir de las mismas $N$ fuentes de disparo. Se instancia un
 señal de disparo. La pregunta de diseño es qué función de disparo
 $f(\text{trig}_1,\ldots,\text{trig}_N)$ implementar.
 
-En un primer momento parecería que la lógica combinacional es una buena idea,
-partimos de $f(\vec 0)=0$, esto quiere decir que si no tenemos ninguna fuente no
-vamos a querer un disparo de evento. Analizamos el caso más sencillo, dos
-entradas ($\text{trig}_1, \text{trig}_2$), para estas tenemos las siguientes
+En un primer momento parecería que la lógica combinacional es una buena idea.
+Partimos de $f(\vec 0)=0$, es decir, si no tenemos ninguna fuente no queremos
+un disparo de evento. Analizamos el caso más sencillo, dos entradas
+($\text{trig}_1, \text{trig}_2$), para las que tenemos las siguientes
 opciones:
 \begin{itemize}
   \item OR($\text{trig}_1, \text{trig}_2$): independiente.
@@ -137,7 +144,7 @@ La implementación combinacional tiene dos detalles:
   \item \textbf{Configuración exponencial.} Especificar $f$ arbitraria requiere
     su tabla de verdad, $2^N$ bits. El espacio de funciones con $f(\vec 0)=0$
     tiene $2^{2^N-1}$ elementos. Y aun para $N$ chico, obliga al usuario a
-    enumerar todas las n-tuplas, que no es algo deseable.
+    enumerar todas las n-tuplas, lo que no es deseable.
   \item \textbf{Trabajo sobre el mismo ciclo de \emph{clock}.}
   \begin{enumerate}
     \item Una función combinacional compara las fuentes \textbf{en el mismo ciclo
@@ -148,12 +155,12 @@ La implementación combinacional tiene dos detalles:
       sincronización entre dominios de reloj. Las latencias internas se pueden
       compensar en hardware, pero estas no. Una AND o una XOR de un solo ciclo
       es, entonces, frágil: su resultado depende del desfase entre fuentes y no
-      solo de qué fuentes se activaron.
+      sólo de qué fuentes se activaron.
   \end{enumerate}
 \end{enumerate}
 
-Para las tres ventanas vistas la OR es la única que asegura la adquisición
-independientemente del alineamiento de las fuentes en la entrada, esto quiere
+De las tres funciones vistas, la OR es la única que asegura la adquisición
+independientemente del alineamiento de las fuentes en la entrada; esto quiere
 decir que \textbf{no perdemos información}, como mucho disparamos datos de más.
 Para la AND y la XOR eso exige que los disparos coincidan exactamente, lo que en
 la práctica no ocurre, y podemos obtener este análisis en un futuro mediante la
@@ -163,8 +170,8 @@ adquisición total y el procesamiento \emph{offline}.
 \section{Vulnerabilidades del mecanismo por OR}
 \label{S:mt-vulnerabilidades}
 
-El costo de la OR es que un \textbf{mismo pulso puede activar varias fuentes},
-que una \textbf{OR suelta contaría como varios eventos}. Eso se resuelve con una
+El costo de la OR es que un \textbf{mismo pulso puede activar varias fuentes}, y una \textbf{OR sola lo
+contaría como varios eventos}. Eso se resuelve con una
 ventana de duración $W$ iniciada por el primer disparo. Durante esa ventana, los
 disparos siguientes se consideran parte del mismo evento. En el diseño la
 ventana se implementa en dos niveles:
@@ -172,7 +179,7 @@ ventana se implementa en dos niveles:
   \item El enganche \codigo{adc\_trg\_dis} de \codigo{mt\_trig\_src}, que
     bloquea el canal desde el ciclo siguiente al disparo;
   \item El \emph{holdoff} programable del \codigo{trigger\_shield}, que re-arma el
-    canal (o vetea a otros) recién al expirar.
+    canal (o veta a otros) recién al expirar.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -182,7 +189,7 @@ ventana se implementa en dos niveles:
 En la Fig.~\ref{f:mt-panorama} se presenta el módulo. Sus bloques se agrupan por
 función, que en la figura se distingue por color: la \textbf{detección} de las
 fuentes, la \textbf{selección} de cuáles disparan, el \textbf{escudo} y los
-\textbf{registros}. En la Tabla~\ref{t:mt-submodulos} se \emph{resume} qué hace cada
+\textbf{registros}. En la Tabla~\ref{t:mt-submodulos} se resume qué hace cada
 submódulo.
 
 \begin{figure}[H]
@@ -239,10 +246,9 @@ hojas de datos, en el repositorio.
 \subsection{Función de \emph{timestamping}}
 \label{S:mt-timestamping}
 
-En el mismo ciclo de reloj del pulso de evento se captura el valor de un
-contador interno del PL, este se mantiene hasta el siguiente evento, funciona
-como referencia temporal. Este valor se lo exporta del módulo, es leído por el
-OSC para hacer un \emph{timestamping} de los eventos medidos.
+En el mismo ciclo de reloj del pulso de evento se captura el valor de un contador interno de la PL, que se mantiene hasta el
+siguiente evento y funciona como referencia temporal. Este valor sale del módulo
+y lo lee el OSC para hacer el \emph{timestamping} de los eventos medidos.
 
 \subsection{Tiempo de relanzamiento}
 \label{S:mt-relanzamiento}
@@ -268,7 +274,7 @@ original de Red Pitaya y no expone su estado.
 Con la OR, el sistema dispara si dispara cualquiera de las fuentes habilitadas.
 El criterio es entonces: \textbf{el sistema está en relanzamiento cuando ninguna
 fuente habilitada puede disparar}, es decir, cuando todas están desarmadas. La
-señal \codigo{trig\_arm} vale 1 fuera de ese estado. El criterio solo usa las
+señal \codigo{trig\_arm} vale 1 fuera de ese estado. El criterio sólo usa las
 señales de re-armado: quien lo consume no necesita saber qué disparo se utiliza.
 
 Además de las señales de re-armado, el criterio incluye:
@@ -295,7 +301,7 @@ MCA.
 \subsubsection{Cuándo mide los pulsos perdidos}
 
 El tiempo de relanzamiento se mide para estimar cuántos pulsos se pierden. Ese
-paso supone que, si alguna fuente está armada, el pulso se detecta, y eso solo
+paso supone que, si alguna fuente está armada, el pulso se detecta, y eso sólo
 vale si la fuente armada \textbf{reacciona a ese pulso}. La condición es
 entonces que \textbf{cada fuente habilitada reaccione a todos los pulsos que se
 miden}. Si se cumple, el tiempo de relanzamiento coincide con el tiempo en que
@@ -307,7 +313,7 @@ Si no se cumple, una fuente puede estar armada sin reaccionar al pulso. Por
 ejemplo, con el polo-cero de IN1 y el de IN2 habilitados y el MCA midiendo IN1:
 después de un pulso en IN1, el polo-cero de IN1 queda desarmado, pero el de IN2
 sigue armado porque no le llegó nada. \codigo{trig\_arm} vale 1, y un pulso que
-llegue a IN1 en ese lapso se pierde contado como livetime. Lo mismo pasa con dos
+llegue a IN1 en ese lapso se pierde contado como \emph{livetime}. Lo mismo pasa con dos
 fuentes sobre la misma señal y umbrales distintos: con la de umbral bajo
 desarmada, un pulso que no alcanza el umbral alto se pierde. En esos casos
 $\mathtt{t\_rearm}$ es una cota inferior. También lo es con las fuentes que no
@@ -326,7 +332,7 @@ cada ciclo de reloj con \codigo{run} suma en exactamente uno. Como los
 casilleros no se superponen y entre todos cubren todo el tiempo, ningún ciclo se
 cuenta dos veces ni queda sin contar, y su suma es el tiempo real. Cuando en un
 mismo ciclo se cumplen varias condiciones, decide una prioridad fija, veto $>$
-$\mathtt{t\_win}$ $>$ $\mathtt{t\_div}$ $>$ $\mathtt{t\_rearm}$ $>$ livetime, de
+$\mathtt{t\_win}$ $>$ $\mathtt{t\_div}$ $>$ $\mathtt{t\_rearm}$ $>$ \emph{livetime}, de
 modo que
 \begin{equation}
   T_\text{real} = T_\text{veto} + \mathtt{t\_win} + \mathtt{t\_div}
@@ -334,12 +340,12 @@ modo que
   \label{e:mt-teselado}
 \end{equation}
 El resto de los casilleros se presenta en la
-Sec.~\refpend{S:implmca-teselado}{Implementación del MCA: teselado del tiempo de adquisición}.
+Sec.~\ref{S:implmca-teselado}.
 
 El relanzamiento va después del tiempo muerto del MCA porque, sin ranura libre,
 el pulso se pierde igual, esté o no armado el disparo, y contar ese ciclo dos
 veces sobreestimaría la pérdida. $\mathtt{t\_rearm}$ es entonces el tiempo
-muerto que \textbf{agrega} el disparo cuando el MCA podía abrir, y livetime
+muerto que \textbf{agrega} el disparo cuando el MCA podía abrir, y \emph{livetime}
 queda como lo que un pulso ve de verdad: alguna ranura libre y el disparo
 armado. Con arribos Poisson~\cite{Wolff1982} y la condición cumplida, la
 fracción de pulsos perdida por el relanzamiento es
@@ -347,9 +353,6 @@ fracción de pulsos perdida por el relanzamiento es
   P_\text{rearm} = \frac{\mathtt{t\_rearm}}{T_\text{real} - T_\text{veto}}
   \label{e:mt-p-rearm}
 \end{equation}
-La suma con el tiempo muerto del MCA se presenta en la
-Sec.~\refpend{S:top-tiempo-muerto}{Implementación TOP: «Tiempo muerto por módulo», sección
-que ya no existe en la nota}.
 
 % Bibliografía de este capítulo. Va al final del archivo, siempre.
 \bibliografiacapitulo

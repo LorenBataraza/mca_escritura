@@ -40,7 +40,7 @@ llevan a S2.\label{f:ap-osc-fsm-bram}}
 \caption[Señales de \codigo{rp\_bram\_sm}]{%
 Señales de \codigo{rp\_bram\_sm}. Las de estado definen la FSM; las banderas son
 \emph{sticky} y se borran sólo con \codigo{arm} o \codigo{rst}. RSZ vale 14 en
-el diseño original de Pitaya y 13 en este proyecto.\label{t:ap-osc-senales-bram}}
+el diseño original de RedPitaya y 13 en este proyecto.\label{t:ap-osc-senales-bram}}
 \small
 \begin{tabularx}{\textwidth}{|l|c|>{\raggedright\arraybackslash}X|l|l|}
 \hline \encabezado \textbf{Señal} & \textbf{Ancho} & \textbf{Significado} &
@@ -75,7 +75,7 @@ cada muestra válida se escribe en la BRAM, y avanzan \codigo{adc\_wp} y
 \codigo{adc\_wp\_trig} guarda dónde cayó el disparo y \codigo{adc\_we\_cnt} deja
 de contar. En S2 se siguen escribiendo muestras mientras \codigo{adc\_dly\_cnt}
 baja; cuando llega a 1, \codigo{adc\_we} cae, \codigo{adc\_dly\_end} pasa a 1 y
-el \emph{buffer} queda congelado ($S2\rightarrow S0$). Ése es el «terminó» que el PS
+el \emph{buffer} queda congelado ($S2\rightarrow S0$). Ése es el ``terminó'' que el PS
 sondea en \codigo{ADC\_STATE}. Dos detalles:
 \begin{itemize}
   \item La FSM no espera a que se llene el \emph{pre-trigger}: un \emph{trigger} inmediatamente
@@ -94,7 +94,7 @@ el \emph{tearing} de la Sec.~\ref{S:osc-flujo-basico}.
 
 \textbf{Un \codigo{arm} durante el \emph{post-trigger}.} La otra transición
 $S2\rightarrow S1$ es un \codigo{arm} en plena captura, y plantea una decisión:
-terminar la captura en curso o empezar una nueva. Pitaya eligió reiniciar.
+terminar la captura en curso o empezar una nueva. RedPitaya eligió reiniciar.
 \codigo{arm} baja \codigo{adc\_dly\_do} y borra las banderas, y la captura
 vuelve a empezar desde S1.
 
@@ -175,7 +175,7 @@ lecturas cierran en módulo $2^{32}$.\label{t:ap-osc-regmap}} \\
   \textgreater\textgreater{} SLOT\_SHIFT}; derivado, no es un registro & ---
   \\ \hline
 \codigo{0x30} & R & \codigo{DROP\_BUSY} & \emph{triggers} durante el drenaje de la
-  ventana anterior (tiempo muerto del PL) & 0 \\ \hline
+  ventana anterior (tiempo muerto de la PL) & 0 \\ \hline
 \codigo{0x34} & R & \codigo{DROP\_FULL} & \emph{triggers} sin lugar aguas abajo
   (tiempo muerto del consumidor) & 0 \\ \hline
 \codigo{0x38} & R & \codigo{EV\_CNT} & eventos aceptados por la captura & 0

@@ -2,7 +2,7 @@
 % El "Apéndice" de la nota va en apend7.tex (Detalles del MCA). Lo que en la nota
 % está entre %% (datapath del trapecio, funcionamiento interno del conformado,
 % criterio de separación, elección de parámetros) no se transcribe.
-\chapter{Implementación del MCA}
+\chapter{Implementación -- Analizador Multicanal (MCA)}
 \label{C:implmca}
 
 % Figuras de ESTE capítulo + las compartidas. Siempre al principio del archivo.
@@ -60,7 +60,7 @@ cruce de bajada es el de la señal sumada y cerraría todas juntas.
 
 En la Fig.~\ref{f:implmca-secuencia} se presenta el flujo de utilización.
 Empieza con una \textbf{fase de configuración}, con \codigo{run = 0}, que se
-realiza mediante el bus \emph{custom} de Pitaya. A continuación se usan los comandos de
+realiza mediante el bus \emph{custom} de RedPitaya. A continuación se usan los comandos de
 control de la adquisición; en la figura se presenta la secuencia limpieza,
 arranque, parada y lectura. Después de la limpieza (\codigo{CTRL.clear})
 esperamos \codigo{clear\_busy = 0}, que indica que terminó el barrido de borrado
@@ -386,9 +386,7 @@ también es distinto:
     tasa.
   \item \codigo{t\_rearm} es tiempo muerto del disparo, no del MCA. Se descuenta
     para estimar la tasa, porque en ese lapso ningún pulso genera disparo, y en
-    la integración se le atribuye al MT
-    (Sec.~\refpend{S:top-tiempo-muerto}{Implementación TOP: «Tiempo muerto por
-    módulo», sección que ya no existe en la nota}).
+    la integración se le atribuye al MT.
   \item \codigo{t\_win} y \codigo{t\_div} son el tiempo muerto del MCA, pero por
     causas distintas. En \codigo{t\_win} todas las ranuras están midiendo, y
     sólo se achica con más ranuras o con una compuerta más corta. En
@@ -630,9 +628,7 @@ sumas móviles, de $k$ y de $l = k+m$ muestras,
   a_M = \frac{M}{1+M}
   \label{e:implmca-trapecio}
 \end{equation}
-donde $M$ es la constante polo-cero, que se elige para que $a_M = a$
-(Sec.~\refpend{S:ap-mca-conformado}{detalles de la conformación
-trapezoidal: esa sección de la nota está comentada}). Si $M$ no coincide con la
+donde $M$ es la constante polo-cero, que se elige para que $a_M = a$. Si $M$ no coincide con la
 cola del pulso, la cancelación no es exacta: a la salida queda un resto de la
 cola, una exponencial de constante $\tau$ que sigue después del trapecio, y un
 pulso que llega encima la suma a su altura. Cuánto pesa un error en $M$ se
@@ -642,10 +638,7 @@ $k$ muestras, una meseta de $m$ y una bajada de $k$. Se presenta en la
 Fig.~\ref{f:implmca-trapecio}. Su largo total es $2k+m$ por larga que sea la
 cola de la entrada, y esa huella finita es lo que permite separar pulsos
 apilados. La deconvolución sola es el caso $k = 1$, porque $B_1 = 1$: en el
-hardware la pregunta no es deconvolución o trapecio, sino qué $k$. En la
-Sec.~\refpend{S:ap-mca-conformado}{detalles de la conformación trapezoidal:
-esa sección de la nota está comentada} se muestra cómo se obtiene analíticamente
-y en HW.
+hardware la pregunta no es deconvolución o trapecio, sino qué $k$.
 
 \begin{figure}[H]
 \centering\includegraphics[width=0.6\linewidth]{cap7_trapecio_anatomia}
@@ -683,7 +676,7 @@ propiedades:
     Sec.~\ref{S:res-ruido}.
   \item \textbf{Saca la cola de los pulsos anteriores, pero no la línea de base
     continua.} El término polo-cero convierte cada exponencial en un escalón,
-    así que la «base» que se mueve con el apilamiento desaparece de la cuenta.
+    así que la ``base'' que se mueve con el apilamiento desaparece de la cuenta.
     Una base continua, en cambio, pasa: un error de base $\varepsilon$ es un
     escalón constante en la entrada, y el trapecio lo deja pasar con ganancia
     $16\,k\,l$. Relativo a la altura de un pulso de amplitud $A$, que es
@@ -710,8 +703,7 @@ propiedades:
     huella dura $2k+m$ muestras, el segundo pulso de un par mide limpio si llega
     a más de $\approx k+m$ muestras del primero. Las distancias no las da el
     trapecio sino los disparos del MT, en \codigo{F\_DTPREV} y
-    \codigo{F\_DTNEXT} (Sec.~\refpend{S:ap-mca-separacion}{criterio de
-    separación: esa sección de la nota está comentada}).
+    \codigo{F\_DTNEXT}.
 \end{itemize}
 
 \subsection{Utilización del banco de trapecios}
@@ -764,7 +756,7 @@ lento de diferente largo. Presentamos los largos 64/48, 32/24 y
 En esta sección se presentan los detalles de implementación de los submódulos
 de la Fig.~\ref{f:implmca-panorama}. Si se quiere ir al \emph{ground truth}, hay
 que analizar el RTL de los módulos, en el directorio \ruta{prj/MCA/modulos/mca}
-del repositorio del proyecto \incompleto{} (falta el enlace).
+del repositorio del proyecto~\cite{RepoMultitrigger}.
 \codigo{mca\_pulse\_feature} sólo conecta \codigo{mca\_window} con
 \codigo{mca\_publish}, y la línea de base y el banco de trapecios se presentan en
 la Sec.~\ref{S:implmca-recuperacion}, así que no tienen subsección propia.
@@ -875,7 +867,7 @@ del eje de forma. El recorte tiene un costo. En las muestras de la ventana en
 las que la señal está en la base, el ruido deja de promediar a cero, porque sólo
 queda su mitad positiva: con ruido gaussiano de desvío $\sigma$, cada una de
 esas muestras suma en promedio $E[\max(n, 0)] = \sigma/\sqrt{2\pi} \approx
-0.4\,\sigma$. Cuántas muestras de la ventana quedan en el nivel del ruido
+0,4\,\sigma$. Cuántas muestras de la ventana quedan en el nivel del ruido
 depende de la amplitud del pulso, así que el sesgo es mayor en los pulsos
 chicos: es una no linealidad de \codigo{F\_INT} cerca de cero. El trapecio usa
 $x$ con signo y no tiene este sesgo.
@@ -1112,7 +1104,7 @@ calculan con dos \textbf{divisores restauradores}. Las dos son fracciones entre
 \end{equation}
 Numerador y denominador son enteros sin signo de 32 bits, tal como salen de la
 ranura, y el cociente es una fracción en punto fijo con 16 bits fraccionarios y
-sin parte entera (Q0.16): una fracción de 0.5 sale como $2^{15}$, y el cociente
+sin parte entera (Q0.16): una fracción de 0,5 sale como $2^{15}$, y el cociente
 ocupa directamente el rango completo del bus. El divisor restaurador es la
 división larga en binario~\citecap{Parhami2010}{13}: saca un bit del cociente
 por ciclo, con una comparación y una resta y sin multiplicadores, así que los 16
@@ -1150,12 +1142,12 @@ el rango completo de la \emph{feature}, y el bin son sus bits más altos. La ven
 empieza en un múltiplo de su ancho, y su ancho es una potencia de dos. Así la
 cuenta es sólo de bits: la \emph{feature} está adentro si sus $z$ bits más altos valen
 $k$, y el bin son los bits siguientes, sin restar ni multiplicar. Además, los
-bins de un nivel son subdivisiones exactas de los del anterior: un bin de nivel
+bines de un nivel son subdivisiones exactas de los del anterior: un bin de nivel
 $z$ es la suma de dos de nivel $z+1$. Por eso espectros tomados con \emph{zoom}
 distinto se combinan sumando enteros, sin re-muestrear.
 
 Un evento fuera de la ventana satura: va al último bin si está por encima y al
-primero si está por debajo, así que los bins de los extremos avisan del
+primero si está por debajo, así que los bines de los extremos avisan del
 desborde. El \emph{zoom} no mejora la resolución: sólo achica la pérdida por bineado
 (Sec.~\ref{S:implmca-fisher-bineado}). Sirve para ubicar el eje sobre una región
 de interés y para poder usar un histograma más chico.

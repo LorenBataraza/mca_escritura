@@ -12,8 +12,7 @@
 A continuación se presentan las decisiones de diseño de los submódulos con
 lógica propia. Los puertos, registros y latencias de cada uno están en su hoja
 de datos, en \ruta{prj/MCA/docs/datasheet} del repositorio, y el
-\emph{ground truth} es el RTL, en \ruta{prj/MCA/modulos/mt}
-\textbf{\textcolor{red}{(AGREGAR LINK)}}. En la Fig.~\ref{f:ap-mt-interfaz} se
+\emph{ground truth} es el RTL, en \ruta{prj/MCA/modulos/mt}~\cite{RepoMultitrigger}. En la Fig.~\ref{f:ap-mt-interfaz} se
 presenta la interfaz del módulo completo.
 
 \begin{figure}[H]
@@ -65,8 +64,7 @@ retardo en LUT, sin BRAM. Cada pulso sale como un trapecio que vuelve a cero a
 las $2k + m$ muestras, apoyado en cero aunque haya una cola debajo. Por eso
 separa pulsos cercanos y ve un pulso chico sobre la cola de uno grande, donde la
 pendiente queda ciega porque no cancela el polo. El trapecio se presenta en la
-Sec.~\refpend{S:implmca-trapezoidal}{Implementación del MCA: recuperación por
-conformación trapezoidal}; a la salida tiene el mismo comparador con histéresis
+Sec.~\ref{S:implmca-trapezoidal}; a la salida tiene el mismo comparador con histéresis
 que la pendiente, sólo para pulsos positivos.
 
 \subsection{Escudo \texorpdfstring{\texttt{trigger\_shield}}{trigger\_shield}}

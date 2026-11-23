@@ -1,5 +1,5 @@
 % Origen: Secciones/PI - Implementacion TOP (Integracion).md
-\chapter{Implementación del TOP (integración)}
+\chapter{Implementación -- Integración (TOP)}
 \label{C:top}
 
 % Figuras de ESTE capítulo + las compartidas. Siempre al principio del archivo.
@@ -7,13 +7,13 @@
 
 \begin{destacado}
 Este capítulo habla de (1) qué es y qué incluye un módulo de integración, (2) el
-módulo base original de Pitaya, versión 0.94, en el que nos basamos, y los
+módulo base original de RedPitaya, versión 0.94, en el que nos basamos, y los
 cambios aplicados, (3) los posibles caminos que puede tener el \emph{datapath} y (4)
 los registros de configuración del mismo~\cite{RedPitayaFPGA}.
 \end{destacado}
 
 %==============================================================================
-\section{Sistema base de Pitaya: módulo de integración}
+\section{Sistema base de RedPitaya: módulo de integración}
 \label{S:top-sistema-base}
 
 Este es el archivo cabecera (TOP) del diseño, y es el responsable de:
@@ -37,7 +37,7 @@ TOP, mientras que el nuestro, \codigo{event\_ring\_red\_pitaya\_top}, se present
 Fig.~\ref{f:top-panorama} y está constituido por los siguientes subsistemas:
 \begin{itemize}
   \item \textbf{Módulo del PS}: \codigo{red\_pitaya\_ps}, que pertenecía al
-    sistema original de Pitaya.
+    sistema original de RedPitaya.
   \begin{itemize}
     \item Toma las señales físicas del módulo e instancia estructuras que las
       representan.
@@ -130,8 +130,8 @@ la vuelta hay simplemente un MUX cuyo selector es el mismo
 
 \begin{figure}[H]
 \centering\includegraphics{cap12_estructura_sys_bus}
-\caption[\emph{Interconnect} principal del bus \emph{custom} de Pitaya]{%
-Esquema del \emph{interconnect} principal del bus \emph{custom} de Pitaya: una topología en
+\caption[\emph{Interconnect} principal del bus \emph{custom} de RedPitaya]{%
+Esquema del \emph{interconnect} principal del bus \emph{custom} de RedPitaya: una topología en
 estrella en la que \codigo{axi4\_slave} es el único maestro y los ocho \emph{slots} son
 los esclavos.\label{f:top-interconnect}}
 \end{figure}
@@ -316,7 +316,7 @@ hardware dejaría de ser idéntico al original.
 Hay dos consecuencias para el uso. Como el \codigo{event\_ring} toma lo mismo
 que el MCA, \codigo{ROUTE\_MCA} mueve a los dos. Y el MT toma por defecto el nodo
 C, posterior al diezmado, así que diezmar para ver una ventana más larga en el
-OSC también diezma la señal con la que se disparan el MCA y el ring, salvo que
+OSC también diezma la señal con la que se disparan el MCA y el \emph{ring}, salvo que
 se cambie \codigo{ROUTE\_MTRG}.
 
 A la izquierda de la Fig.~\ref{f:top-datapath} está el lazo digital: con el bit

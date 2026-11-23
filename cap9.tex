@@ -17,8 +17,7 @@ interna y posterior canalización a un lazo analógico del módulo MCA.
 \section{Etapas de experimentos y validación}
 \label{S:res-etapas-validacion}
 
-Esto es aislar las dependencias en la cadena de adquisición; en particular
-identificamos las siguientes:
+Las etapas buscan aislar las dependencias en la cadena de adquisición; en particular, identificamos las siguientes:
 \begin{itemize}
   \item \textbf{Simulación} (Monte-Carlo):
   \begin{itemize}
@@ -61,9 +60,9 @@ identificamos las siguientes:
 Este fue el primer sistema de medición real que implementamos. Conectamos las
 dos entradas analógicas de alta velocidad a los dos canales de salida del
 generador de ondas Rigol DG-4162. Ambas conexiones utilizaban un coaxial
-KingSignal RG-58 con conectores macho SMA en las terminales de la Pitaya y
+KingSignal RG-58 con conectores macho SMA en las terminales de la RedPitaya y
 conector BNC en la terminal del Rigol. El Rigol se controló por su puerto
-trasero del tipo USB-Host, manejado por la Pitaya; la comunicación se realizó
+trasero del tipo USB-Host, manejado por la RedPitaya; la comunicación se realizó
 mediante el protocolo especializado Rigol USB TMC \emph{Driver}. En la
 Fig.~\ref{f:res-setup-externo} se presenta de forma esquemática el \emph{setup};
 mediante \codigo{ssh} teníamos control de los \emph{scripts} de testeo.
@@ -74,7 +73,7 @@ mediante \codigo{ssh} teníamos control de los \emph{scripts} de testeo.
 Esquema de verificación inicial.\label{f:res-setup-externo}}
 \end{figure}
 
-Aún así, este sistema cuenta con las siguientes limitaciones:
+Aun así, este sistema cuenta con las siguientes limitaciones:
 \begin{itemize}
   \item Techo de \emph{throughput}: la generación de pulsos con este sistema
     tiene como límite 794~kEv/s.
@@ -91,8 +90,8 @@ La versión más simple de realizarla es mediante el lazo interno a la PL:
 ponemos en la entrada de nuestros medidores la salida de un módulo que genera
 estímulos controlados (\codigo{gen\_pulsos}), y a esto lo llamamos \textbf{lazo
 digital}. El \textbf{lazo analógico}, en cambio, canaliza la salida del ASG al
-OUT1 de la Pitaya, que se conecta a IN1. En este caso testearíamos el sistema
-anterior más los efectos producidos por los front-end analógicos, el ADC, el
+OUT1 de la RedPitaya, que se conecta a IN1. En este caso testearíamos el sistema
+anterior más los efectos producidos por los \emph{front-end} analógicos, el ADC, el
 DAC, las terminaciones SMA y el cable coaxial. Este \emph{setup} se puede observar en
 la Fig.~\ref{f:res-conexion-in-out}.
 
@@ -160,10 +159,9 @@ Formas del banco de trapecios & 3 (\codigo{N\_FORMAS}) \\ \hline
 \label{S:res-tasa}
 
 Para medir la tasa de eventos, hicimos un barrido de la tasa de entrada de
-10~k/s a 3~M/s. Los arribos son de Poisson, con dos líneas de 500 y 1300
-cuentas (60/40) y $\tau = \qty{2}{\micro\second}$. Los resultados con el ASG y
+10~k/s a 3~M/s. Los arribos son de Poisson, con dos líneas de 500 y 1300~ADU (60/40) y $\tau = \qty{2}{\micro\second}$. Los resultados con el ASG y
 de 1 a 3 ranuras se presentan en la Fig.~\ref{f:res-tasa}. Con 3 ranuras y
-3~M/s de entrada, el MCA acepta 1.9~M/s y entrega 1.2~M/s buenos.
+3~M/s de entrada, el MCA acepta 1,9~M/s y entrega 1,2~M/s buenos.
 
 \begin{figure}[H]
 \centering\includegraphics{cap9_meritos_tasa}
@@ -192,7 +190,7 @@ contra la tasa de entrada. Línea llena: lazo digital; a trazos: canal analógic
 OUT1 $\rightarrow$ IN1 con \qty{50}{\ohm}.\label{f:res-tasa-fuentes}}
 \end{figure}
 
-El ASG refiere a la salida del generador de pulsos que indica cuándo un pulso
+El ASG es la salida del generador de pulsos que indica cuándo un pulso
 sale del sistema; un \emph{trigger} ideal debería ser igual a esta ciclo a ciclo (a
 menos de un retardo fijo).
 
@@ -239,7 +237,7 @@ $\sigma^2 = (g\,\sigma_\text{ruido})^2 + \sigma_0^2$.\label{f:res-ruido}}
 \end{figure}
 
 La ganancia de ruido $g$ baja con la subida $k$ del trapecio como $1/\sqrt{k}$
-(0.48, 0.24 y 0.18 para $k = 8$, 32 y 64) y es la misma en los dos modos; el
+(0,48, 0,24 y 0,18 para $k = 8$, 32 y 64) y es la misma en los dos modos; el
 canal analógico agrega el piso $\sigma_0$ del ADC.
 
 % Desde acá las figuras van con [H]: el texto es corto y como floats se
@@ -248,13 +246,12 @@ canal analógico agrega el piso $\sigma_0$ del ADC.
   pulsos}
 \label{S:res-par}
 
-Para medir la resolución de pulsos dobles, generamos pares de 4000 y 2400
-cuentas y barrimos la separación $\Delta t$ entre ellos de 2 a 512 ciclos de
+Para medir la resolución de pulsos dobles, generamos pares de 4000 y 2400~ADU y barrimos la separación $\Delta t$ entre ellos de 2 a 512 ciclos de
 \qty{8}{\nano\second}, con 2000 pares por punto. Con 1 ranura, los dos pulsos
-salen bien recién desde $\Delta t = 192$. La resolución fija la ranura: el
-segundo pulso tiene que esperar a que se libere. En el canal analógico, la
+salen bien recién desde $\Delta t = 192$. En ese caso, la resolución la fija la ranura: el segundo pulso tiene
+que esperar a que se libere. En el canal analógico, la
 pendiente se comporta igual. El polo-cero, en cambio, vuelve a disparar sobre el
-sobrepico del \qty{24}{\percent}, con hasta 3.8 disparos por par, y casi nunca
+sobrepico del \qty{24}{\percent}, con hasta 3,8 disparos por par, y casi nunca
 deja los dos pulsos buenos (Fig.~\ref{f:res-par}).
 
 \begin{figure}[H]
@@ -277,21 +274,19 @@ presentan en la Fig.~\ref{f:res-corrimiento}, con una curva por línea.
 \centering\includegraphics{cap9_meritos_corrimiento}
 \caption[Corrimiento del centroide contra la tasa de entrada]{%
 Corrimiento del centroide de cada línea contra la tasa de entrada (trapecio,
-ASG, 3 ranuras, base fija). En el lazo digital no tenemos corrimiento
-apreciable hasta 1~MEv/s, donde se vuelve menor de 2
-canales.\label{f:res-corrimiento}}
+ASG, 3 ranuras, base fija). En el lazo digital las líneas se corren menos de
+1,5 canales en todo el barrido.\label{f:res-corrimiento}}
 \end{figure}
 
-En el lazo digital las líneas no se mueven más de 2 canales; el canal analógico,
-por otro lado, tiene un error que sigue la misma ecuación que vimos antes
-\incompleto{} (falta la ecuación del error). Aún así, este elemento no es
-corregible porque no es interno a nuestro módulo. Nos habla de la transferencia
-analógica del canal. Por esta razón se recomienda
-realizar esta medición previa para obtener la curva de respuesta del
-corrimiento y poder compensar de forma automática según los valores obtenidos.
-Es importante, igualmente, utilizar el mismo conexionado del \emph{setup} con el que
-estemos trabajando, pero en vez de utilizar como salida el sensor, conectar a
-OUT1.
+En el lazo digital las líneas se corren menos de 1,5 canales en todo el barrido.
+En el canal analógico, en cambio, hay un error que sigue la misma forma de la
+Ec.~\eqref{e:res-ruido}, una suma en cuadratura. Este error no se puede corregir
+dentro del MCA, porque no es interno a nuestro módulo: es la transferencia
+analógica del canal. Sí se puede compensar midiéndolo, y por eso se recomienda
+hacer esta medición antes, para obtener la curva de corrimiento contra la tasa y
+compensar de forma automática según los valores obtenidos. Para eso hay que usar
+el mismo conexionado del \emph{setup} con el que se vaya a trabajar, pero con
+OUT1 conectada a la entrada en lugar del detector.
 
 \begin{destacado}
 Estas \textbf{desviaciones se explican por el apilamiento} sobre las colas
@@ -309,7 +304,7 @@ Con los mismos pulsos aislados medimos la línea del trapecio en cada amplitud.
 Ajustamos una recta entre 200 y 3200~ADU, donde nada satura, y calculamos el
 residuo en \% del fondo de escala (8191~ADU). Los resultados se presentan en la
 Fig.~\ref{f:res-inl}. En el lazo digital, el residuo es menor que
-\qty{0.002}{\percent}~FS (0.16~ADU) en todo el rango.
+\qty{0.002}{\percent}~FS (0,16~ADU) en todo el rango.
 
 \begin{figure}[H]
 \centering\includegraphics{cap9_meritos_inl}
@@ -328,14 +323,14 @@ sobrepico; este efecto de disparo se presenta en la Sec.~\ref{S:res-walk}.
 
 Para medir el umbral y el \emph{walk} de cada fuente de disparo, barrimos la amplitud
 de pulsos aislados de 20 a 8000~ADU, con 400 pulsos por punto y un ruido de
-2.3~ADU. Los resultados se presentan en la Fig.~\ref{f:res-walk}. En cada punto
+2,3~ADU. Los resultados se presentan en la Fig.~\ref{f:res-walk}. En cada punto
 medimos tres cosas. La curva del panel (a) da la fracción de pulsos que disparan
 y nos dice el umbral efectivo a utilizar. El polo-cero dispara la mitad de los
 pulsos en 48~ADU y la pendiente en 81. En el canal analógico, 51 y 82: el canal
 casi no mueve el umbral. El panel (b) es el \emph{walk}, el retardo del disparo, a
 partir de \codigo{t\_subida}. El polo-cero se atrasa 1 ciclo
 (\qty{8}{\nano\second}) con los pulsos chicos y la pendiente 6 ciclos
-(\qty{48}{\nano\second}). En el canal analógico, 2 y 6.9 ciclos. En el panel
+(\qty{48}{\nano\second}). En el canal analógico, 2 y 6,9 ciclos. En el panel
 (c) están los disparos por pulso: el ASG dispara una vez siempre, porque no mira
 la señal. En el canal analógico, el polo-cero vuelve a disparar \textbf{sobre el
 sobrepico desde unas 3200~ADU}.
@@ -344,7 +339,7 @@ sobrepico desde unas 3200~ADU}.
 \centering\includegraphics{cap9_meritos_walk}
 \caption[El disparo contra la amplitud de un pulso aislado]{%
 El disparo contra la amplitud de un pulso aislado (400 pulsos por punto, ruido
-de 2.3~ADU). (a) Fracción de pulsos que disparan, (b) retardo del disparo, en
+de 2,3~ADU). (a) Fracción de pulsos que disparan, (b) retardo del disparo, en
 ciclos de \qty{8}{\nano\second}, (c) disparos por pulso.\label{f:res-walk}}
 \end{figure}
 
@@ -352,9 +347,9 @@ ciclos de \qty{8}{\nano\second}, (c) disparos por pulso.\label{f:res-walk}}
 \label{S:res-dnl}
 
 Para medir la DNL, generamos alturas uniformes de 500 a 5615~ADU, en pasos de
-5~ADU, con ruido $\sigma = 18.5$~ADU por muestra como \emph{dither}. Para que no
+5~ADU, con ruido $\sigma = 18,5$~ADU por muestra como \emph{dither}. Para que no
 haya apilamiento, usamos pulsos de $\tau = 50$ muestras cada 300 ciclos,
-12.5~M pulsos en total. La DNL de cada canal es cuánto se apartan sus cuentas de
+12,5~M pulsos en total. La DNL de cada canal es cuánto se apartan sus cuentas de
 la meseta, y la comparamos con la que da la estadística de Poisson con esas
 cuentas. Los resultados se presentan en la Tabla~\ref{t:res-dnl}.
 
@@ -395,7 +390,7 @@ del primero: si la $M$ no la cancela, esa cola entra en su amplitud. Medimos el
 error de las dos amplitudes contra los pulsos aislados.
 
 Los resultados se presentan en la Fig.~\ref{f:res-polo-cero}. El error de $A_2$
-se anula en $\Delta M = +0.03$ a $+\qty{0.06}{\percent}$. La $M$ que calcula
+se anula en $\Delta M = +0,03$ a $+\qty{0.06}{\percent}$. La $M$ que calcula
 \codigo{gen\_pulsos\_mq} para el generador es la que cancela su cola. El error
 de $A_1$, que no tiene nada debajo, no se mueve.
 
@@ -422,11 +417,11 @@ ganancia.
 
 Los resultados se presentan en la Fig.~\ref{f:res-deriva}: en \qty{2}{\hour} la
 ganancia recorre 210~ppm, con una pendiente de $-40$~ppm/h. Las líneas recorren
-0.8~ADU (la de 1500) y 1.1~ADU (la de 4000), y el \emph{offset} 0.6~ADU. De un minuto
-al siguiente las líneas saltan unas 0.12~ADU, 15 veces el error estadístico de
-cada punto (0.008~ADU). La temperatura fue de 41.8 a \qty{42.7}{\degreeCelsius},
+0,8~ADU (la de 1500) y 1,1~ADU (la de 4000), y el \emph{offset} 0,6~ADU. De un minuto
+al siguiente las líneas saltan unas 0,12~ADU, 15 veces el error estadístico de
+cada punto (0,008~ADU). La temperatura fue de 41,8 a \qty{42.7}{\degreeCelsius},
 salvo el primer punto, a \qty{43.2}{\degreeCelsius}. Contra ella la ganancia da
-$-144$~ppm/\unit{\degreeCelsius}, con $r = -0.65$. Con un rango de
+$-144$~ppm/\unit{\degreeCelsius}, con $r = -0,65$. Con un rango de
 \qty{1}{\degreeCelsius}, haría falta variar la temperatura a propósito para
 separar la temperatura del tiempo.
 
@@ -450,11 +445,11 @@ ciclo de lectura de un evento, (2) la agrupación de eventos en un archivo y (3)
 la escritura del archivo. La (1) está dada por el HW y la librería de SW, la (2)
 únicamente por el SW y la (3) por la capacidad de salida de datos, que puede ser
 escritura a la SD o de red. Estas diferencias se presentan en el
-Cap.~\ref{C:sw}. En la Fig.~\ref{f:res-throughput} se comparan los siguientes
+Apéndice~\ref{C:sw}. En la Fig.~\ref{f:res-throughput} se comparan los siguientes
 caminos del \codigo{event\_ring}, que nombramos por el destino de los eventos:
 \begin{itemize}
 \item DDR: la escritura a DDR.
-\item Lector del ring: el lector de C del ring corrido sin guardado en memoria
+\item Lector del \emph{ring}: el lector de C del \emph{ring} corrido sin guardado en memoria
   secundaria (Sec.~\ref{S:sw-bench-libmca}).
 \item SD: el OSC a la SD de la placa por el SW en formato \ruta{.npz}, presentado
   en la Sec.~\ref{S:sw-guardado}.
@@ -479,13 +474,13 @@ la captura saca la ventana a un canal por ciclo y mientras tanto los
 dos eventos tienen que estar separados al menos $2S+3$ ciclos
 (Sec.~\ref{S:osc-window-capture}). Con $S=32$ son 67 ciclos de
 \qty{8}{\nano\second}, \qty{536}{\nano\second}, y el techo es
-$1/\qty{536}{\nano\second}$ $\approx$ 1.87~M/s; con $S=1024$ son 2051 ciclos y el
+$1/\qty{536}{\nano\second}$ $\approx$ 1,87~M/s; con $S=1024$ son 2051 ciclos y el
 techo baja a 61~k/s. Con arribos de Poisson la captura se comporta como un
 tiempo muerto no paralizable, $m = n/(1+n\tau)$: con $n=3$~M/s y
-$\tau=\qty{536}{\nano\second}$ da 1.15~M/s, que es lo que medimos en la DDR.
+$\tau=\qty{536}{\nano\second}$ da 1,15~M/s, cerca de los 1,2~M/s que medimos en la DDR.
 
 Las líneas punteadas son los techos. En (a), \codigo{red} y \codigo{SD} son los
-techos de cada destino medidos con el ring lleno. En (b), \codigo{captura sola}
+techos de cada destino medidos con el \emph{ring} lleno. En (b), \codigo{captura sola}
 es el techo de la captura por su tiempo muerto de $2S+3$ ciclos,
 \codigo{TCP solo} el techo por la velocidad de conexión TCP medida con la placa
 utilizada (50~MB/s) y \codigo{MCA a 3 M/s} es la tasa
@@ -502,12 +497,12 @@ medidas contra las de entrada, con ventanas de 8 + 24 muestras. (b) Techo de
 cada etapa contra el largo de la ventana.\label{f:res-throughput}}
 \end{figure}
 
-En la Fig.~\ref{f:res-throughput}.a vemos cómo cada etapa recorta la capacidad
+En la Fig.~\ref{f:res-throughput}(a) vemos cómo cada etapa recorta la capacidad
 de adquisición. Todos los caminos siguen la recta ideal mientras la entrada está
 por debajo de su techo y después se aplanan. A 3~M/s de entrada el MCA
-registra 1.9~M/s, la captura pone 1.2~M/s en la DDR, el lector
-de C del ring lee todo hasta 300~k/s de entrada y se queda en
-439~k/s, a la PC por la red llegan 0.3~M/s y a la SD
+registra 1,9~M/s, la captura pone 1,2~M/s en la DDR, el lector
+de C del \emph{ring} lee todo hasta 300~k/s de entrada y se queda en
+439~k/s, a la PC por la red llegan 0,3~M/s y a la SD
 87~k/s. Cada etapa sostiene lo que le pasa la anterior hasta su propio
 techo, así que el camino completo queda fijado por la etapa más lenta. Esto
 viene de que tenemos mayor \emph{throughput} para escribir memoria primaria que
@@ -516,26 +511,25 @@ el bus del controlador del Zynq, es la etapa más lenta, y la red queda en el
 medio.
 
 La velocidad de adquisición tiene como techo fijo el sistema presentado en HW,
-pero ese techo no es el que limita: con ventanas cortas la captura pasa
-1.4~M/s y lo que se guarda de forma persistente es entre 5 y 16 veces
-menos. En la Fig.~\ref{f:res-throughput}.b vemos que al alargar la ventana
+pero ese techo no es el que limita: con ventanas cortas la captura pasa 1,2~M/s y lo que se guarda de forma persistente es entre 5 y 16 veces
+menos. En la Fig.~\ref{f:res-throughput}(b) vemos que al alargar la ventana
 todos los techos bajan. La captura pierde por su tiempo muerto, el lector de C
 queda un poco abajo y la red y la SD bajan como su ancho de banda sobre los
 bytes por evento ($32+4S$): con 1024 muestras la DDR pasa 49~k/s, el
-lector 23~k/s, la red 8.2~k/s y la SD 3.7~k/s. Para el MCA
+lector 23~k/s, la red 8,2~k/s y la SD 3,7~k/s. Para el MCA
 el largo de la ventana no importa, porque no guarda muestras: este es el motivo
 por el que, a igual tasa de entrada, el MCA siempre registra más eventos que el
 osciloscopio.
 
-La mejora presente por el osciloscopio se presenta en la comparación con el
+La mejora del osciloscopio se ve en la comparación con el
 camino original por la BRAM, que se lee palabra a palabra por el bus. Con
-ventanas de 32 muestras, librp desde Python llega a 4.4~k/s y el lector
-de C de la BRAM a 49~k/s, mientras que el lector de C del ring lee
+ventanas de 32 muestras, librp desde Python llega a 4,4~k/s y el lector
+de C de la BRAM a 49~k/s, mientras que el lector de C del \emph{ring} lee
 439~k/s: \textbf{100 veces el camino original} y 9 veces el mismo lector
-sobre la BRAM. Aún guardando los eventos, por la red llegan 0.3~M/s, unas
+sobre la BRAM. Aun guardando los eventos, por la red llegan 0,3~M/s, unas
 70 veces el camino original sin guardar. Con 1024 muestras la diferencia se
-achica, porque domina el volumen de datos: el lector del ring pasa
-23~k/s contra 1.0~k/s de Python y 2.0~k/s del lector de C
+achica, porque domina el volumen de datos: el lector del \emph{ring} pasa
+23~k/s contra 1,0~k/s de Python y 2,0~k/s del lector de C
 sobre la BRAM.
 
 %%% Local Variables:

@@ -13,7 +13,7 @@
 
 Las capturas se tomaron con la APP conectada al MCA simulado
 (\cmd|make app-demo|); por eso la barra superior indica \codigo{127.0.0.1} y
-«\emph{simulated}», y los valores que se ven ilustran la interfaz, no son mediciones.
+``\emph{simulated}'', y los valores que se ven ilustran la interfaz, no son mediciones.
 Esa barra es común a todas las pestañas: el botón de conexión, la IP y el puerto
 del servidor, y un resumen del \emph{bitstream} cargado (la versión del MCA, la cantidad
 de canales del histograma, las ranuras y la fuente del disparo del MCA).
@@ -72,7 +72,7 @@ la tasa de eventos en el tiempo, con el momento de la captura
 marcado.\label{f:ap-app-pulses}}
 \end{figure}
 
-Mientras que a continuación presentamos las pestañas de configuración del MCA,
+A continuación presentamos las pestañas de configuración del MCA,
 del OSC, del multitrigger, del generador de pulsos y de calibración, y la de
 mensajes. Las pestañas de configuración comparten la misma organización: arriba,
 una franja con el camino de los datos por etapas, con los colores del diagrama de
@@ -90,7 +90,7 @@ del multitrigger abre una ranura, las compuertas de las ranuras y la publicació
 re-armado, por falta de ranura libre y del publicador, y bajo la publicación,
 las de colisiones. Abajo, los parámetros en tres columnas: preprocesamiento
 (entrada y base), segmentación y ranuras (cantidad de ranuras y compuertas \emph{short}
-y long), y publicación (eje del histograma, discriminador e histograma). La
+y \emph{long}), y publicación (eje del histograma, discriminador e histograma). La
 leyenda marca qué cambios mezclan dos configuraciones en el histograma (●) y
 cuáles, mal puestos, dejan el sistema sin eventos (⚠).
 
@@ -105,25 +105,25 @@ ranuras, y publicación.\label{f:ap-app-mca-settings}}
 En la Fig.~\ref{f:ap-app-osc-settings} se presenta la pestaña OSC \emph{settings}. La
 franja de arriba sigue al osciloscopio: la entrada (\emph{offset}, ganancia y filtro),
 la decimación, el disparo que llega del multitrigger y la captura en BRAM, que
-alimenta la pestaña \emph{Pulses}. La de abajo sigue al ring, cuando el \emph{bitstream} lo
+alimenta la pestaña \emph{Pulses}. La de abajo sigue al \emph{ring}, cuando el \emph{bitstream} lo
 trae: el disparo o el generador de eventos abren una ventana con muestras antes y
-después del disparo, que se escribe en el ring de la DDR y se vuelca a archivos
+después del disparo, que se escribe en el \emph{ring} de la DDR y se vuelca a archivos
 en una carpeta de la placa. Abajo están los registros por etapa: el \emph{offset} y la
 ganancia de calibración de cada canal, la decimación, el estado de la captura y
-la configuración del ring (estímulo, ventana, carpeta, formato de archivo y
+la configuración del \emph{ring} (estímulo, ventana, carpeta, formato de archivo y
 memoria), con \emph{Start} y \emph{Stop} para su adquisición.
 
 \begin{figure}[H]
 \centering\includegraphics{apD_mcamon_osc_settings}
 \caption[Pestaña OSC \emph{settings}]{%
-Pestaña OSC \emph{settings}: arriba, las franjas del osciloscopio y del ring; abajo,
-los registros por etapa y la adquisición del ring a una carpeta de la
+Pestaña OSC \emph{settings}: arriba, las franjas del osciloscopio y del \emph{ring}; abajo,
+los registros por etapa y la adquisición del \emph{ring} a una carpeta de la
 placa.\label{f:ap-app-osc-settings}}
 \end{figure}
 
 En la Fig.~\ref{f:ap-app-multitrigger} se presenta la pestaña Multitrigger,
 donde se configura el único disparo del sistema, que comparten la captura del
-osciloscopio, el MCA y el ring. La franja va desde las entradas (IN1, IN2, DIO0,
+osciloscopio, el MCA y el \emph{ring}. La franja va desde las entradas (IN1, IN2, DIO0,
 el generador y el disparo por software) a las fuentes (nivel, pendiente,
 polo-cero), a la máscara OR que elige qué fuentes disparan cada canal y al
 evento que llega a la captura y al MCA; debajo está el \emph{shield}, que re-arma los
@@ -153,7 +153,7 @@ una tabla de 1024 alturas, la forma $h$ con su decaimiento $\tau_d$ y su subida
 $\tau_r$, y la salida, con la base $B$, el ruido $r$ y la saturación a 14 bits,
 hacia el DAC (OUT1, OUT2). Abajo están los controles de cada etapa, el lazo
 digital, que lleva el generador a la entrada del MCA sin pasar por el DAC, y el
-estado del generador. «\emph{Apply}» escribe la configuración entera y detiene el
+estado del generador. ``\emph{Apply}'' escribe la configuración entera y detiene el
 generador.
 
 \begin{figure}[H]
@@ -166,7 +166,7 @@ MCA.\label{f:ap-app-generator}}
 
 En la Fig.~\ref{f:ap-app-calibration} se presenta la pestaña \emph{Calibration}. La
 franja va de la referencia (el generador por OUT1 o una cuadrada externa) al
-canal analógico (cable, carga, front-end y ADC), al modelo del canal (un FIR más
+canal analógico (cable, carga, \emph{front-end} y ADC), al modelo del canal (un FIR más
 polos lentos, que producen una caída lenta) y a la base del MCA, fija o
 dinámica. Abajo, a la izquierda, están la referencia, la conexión medida y la
 tabla con el origen de la caída lenta, una fila por conexión; al centro, los
@@ -188,7 +188,7 @@ En la Fig.~\ref{f:ap-app-messages} se presenta la pestaña \emph{Messages}, que
 registra cada operación y cada error con su hora. En la captura se ven la
 conexión al MCA simulado, con la cantidad de canales y si el \emph{bitstream} trae el
 mapa 2D, y el arranque de la adquisición. El registro se puede guardar en un
-archivo con «\emph{Save log}…».
+archivo con ``\emph{Save log}…''.
 
 \begin{figure}[H]
 \centering\includegraphics{apD_mcamon_messages}

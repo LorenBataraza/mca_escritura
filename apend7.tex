@@ -1,10 +1,10 @@
 % Origen: sección "Apéndice" de Secciones/PI - Implementacion MCA.md
-% Archivo apend7 por orden de creación; en template.tex va después de apend3.
+% Archivo apend7 por orden de creación; en template.tex va después de apend1 (apéndice C).
 % Lo que en la nota está entre %% (datapath del trapecio, funcionamiento interno
 % del conformado trapezoidal, criterio de separación, elección de parámetros)
 % no se transcribe.
 \chapter{Detalles del MCA}
-\label{C:ap-mca}
+\label{C:ap-mca-detalles}
 
 % Figuras de este apéndice + las compartidas.
 \graphicspath{{figs/apendices/}{figs/comunes/}}
@@ -199,7 +199,7 @@ presentes.
 \subsection{Presupuesto de memoria por canal}
 \label{S:ap-mca-presupuesto}
 
-Los recursos lógicos de memoria en el PL son ambos \textbf{volátiles}. En la
+Los recursos lógicos de memoria en la PL son ambos \textbf{volátiles}. En la
 Tabla~\ref{t:ap-mca-recursos} se presenta, en orden creciente, la cantidad total
 de LUT6 y de RAMB36.
 
@@ -229,9 +229,9 @@ $\times$ es la razón entre los dos.\label{t:ap-mca-recursos}}
 \begin{tabular}{|l|r|r|r|}
 \hline \encabezado \textbf{Recurso de la PL} & \textbf{XC7Z010} &
   \textbf{XC7Z020} & $\boldsymbol{\times}$ \\ \hline
-LUT6 & 17\,600 & 53\,200 & 3.0 \\ \hline
-Flip-flops & 35\,200 & 106\,400 & 3.0 \\ \hline
-Block RAM (RAMB36) & 60 (2.1~Mb) & 140 (4.9~Mb) & 2.3 \\ \hline
+LUT6 & 17\,600 & 53\,200 & 3,0 \\ \hline
+Flip-flops & 35\,200 & 106\,400 & 3,0 \\ \hline
+Block RAM (RAMB36) & 60 (2,1~Mb) & 140 (4,9~Mb) & 2,3 \\ \hline
 \end{tabular}
 \end{table}
 
@@ -395,7 +395,7 @@ reservados: se escriben sin efecto y se leen en cero.\label{t:ap-mca-regmap}}
   los dos ejes del 2D \\ \hline
 \codigo{0x098} & RW & \codigo{cfg\_discr\_ctrl} & \codigo{[0]} habilita;
   \codigo{[1]} acepta afuera del intervalo; \codigo{[7:4]} \emph{feature} \\ \hline
-\codigo{0x09C}, \codigo{0x0A0} & RW & \codigo{cfg\_discr\_min/max} &
+\codigo{0x09C}, \codigo{0x0A0} & RW & \codigo{cfg\_discr\_min}/\allowbreak\codigo{max} &
   \codigo{[15:0]} intervalo del discriminador \\ \hline
 \codigo{0x0A4} & RW & \codigo{cfg\_hist\_ctrl} & \codigo{[0]}
   \codigo{keep\_full}: seguir contando con un bin lleno \\ \hline

@@ -92,7 +92,7 @@ Cada \emph{slice}, a su vez, contiene~\cite{UG474}:
 \section{Detalles de las entradas analógicas rápidas}
 \label{S:ap-hw-entradas}
 
-En la Fig.~\ref{f:ap-hw-frontend} aparece el front-end analógico de las entradas
+En la Fig.~\ref{f:ap-hw-frontend} aparece el \emph{front-end} analógico de las entradas
 rápidas.
 
 \begin{figure}[H]
@@ -129,8 +129,8 @@ oficial de Red Pitaya.
 
 \begin{figure}[H]
 \centering\includegraphics{apB_respuesta_frontend_in}
-\caption[Respuesta en frecuencia del front-end de entrada]{%
-Módulo de la respuesta en frecuencia del front-end de entrada analógica, de la
+\caption[Respuesta en frecuencia del \emph{front-end} de entrada]{%
+Módulo de la respuesta en frecuencia del \emph{front-end} de entrada analógica, de la
 documentación de Red Pitaya~\cite{RedPitayaFastIn}. La caída de $-3$~dB está en
 aproximadamente 50~MHz.\label{f:ap-hw-respuesta-in}}
 \end{figure}
@@ -151,7 +151,7 @@ pruebas de generación interna por el canal analógico
 \centering\includegraphics{apB_dac_etapa_salida}
 \caption[Conexión del DAC AD9767 en la STEMlab 125-14]{%
 Conexión del DAC AD9767 en la STEMlab 125-14, de la documentación de Red
-Pitaya~\cite{RedPitayaFastOut}. Las resistencias serie de 49.9~$\Omega$ (R188 y
+Pitaya~\cite{RedPitayaFastOut}. Las resistencias serie de 49,9~$\Omega$ (R188 y
 R189) están sin montar.\label{f:ap-hw-dac-etapa}}
 \end{figure}
 
@@ -179,7 +179,7 @@ Carga especificada & \textbf{50~$\Omega$}: las salidas sin uso se terminan, y
 Ancho de banda & 50~MHz ($-3$~dB) en la medición; la página de la placa
   declara DC--60~MHz~\cite{RedPitayaDocs} \\ \hline
 Límite de \emph{slew rate} & 200~V/µs \\ \hline
-Potencia a fondo de escala & $>$~9~dBm; 9.5~dBm típicos con una senoide de
+Potencia a fondo de escala & $>$~9~dBm; 9,5~dBm típicos con una senoide de
   1~MHz (±1~V de pico sobre 50~$\Omega$ serían 10~dBm) \\ \hline
 Armónicos a 8~dBm & $-51$, $-49$, $-48$ y $-53$~dBc a 1, 10, 20 y 45~MHz
   \\ \hline
@@ -206,7 +206,7 @@ $0{,}35/f_{-3\,\text{dB}} \approx 7$~ns.
 El AD9767 es un DAC con salida en corriente. Cada canal entrega un par de
 corrientes complementarias, cuya suma es la corriente de fondo de escala
 $I_{FS}$. Esa corriente la fijan una resistencia externa $R_{SET}$, en el pin
-FSADJ, y la referencia interna de 1.20~V:
+FSADJ, y la referencia interna de 1,20~V:
 \begin{equation}
   I_{FS} = 32\,\frac{V_{REF}}{R_{SET}}, \qquad
   I_{OUTA} = I_{FS}\,\frac{\text{código}}{2^{14}}, \qquad
@@ -229,18 +229,18 @@ $I_{FS}$~=~20~mA y salida diferencial.\label{t:ap-hw-ad9767}}
 \encabezado & \textbf{Valor} \\ \hline
 Resolución y tasa máxima & 14 bit, 125~MSPS \\ \hline
 Salida & corriente complementaria, $I_{FS}$ de 2 a 20~mA \\ \hline
-Rango de cumplimiento (\emph{compliance}) & $-1.0$ a $+1.25$~V \\ \hline
-INL / DNL a 25~°C & ±1.5 / ±1.0~LSB típicos; ±3.5 / ±2.5~LSB máximos \\ \hline
-Apareamiento de ganancia entre canales & ±0.1~\% FSR típico \\ \hline
-Establecimiento al 0.1~\% & 35~ns \\ \hline
-Subida y bajada (10--90~\%) & 2.5~ns \\ \hline
+Rango de cumplimiento (\emph{compliance}) & $-1,0$ a $+1,25$~V \\ \hline
+INL / DNL a 25~°C & ±1,5 / ±1,0~LSB típicos; ±3,5 / ±2,5~LSB máximos \\ \hline
+Apareamiento de ganancia entre canales & ±0,1~\% FSR típico \\ \hline
+Establecimiento al 0,1~\% & 35~ns \\ \hline
+Subida y bajada (10--90~\%) & 2,5~ns \\ \hline
 Impulso de \emph{glitch} & 5~pV$\cdot$s \\ \hline
 SFDR a 125~MSPS & 67~dBc con $f_{out}$~=~25~MHz · 70~dBc con 40~MHz \\ \hline
 \end{tabularx}
 \end{table}
 
 Los 35~ns de establecimiento son unas 4 muestras: un escalón del DAC no queda
-dentro del 0.1~\% de su valor final hasta la cuarta o quinta muestra, aparte de
+dentro del 0,1~\% de su valor final hasta la cuarta o quinta muestra, aparte de
 lo que agregue la etapa de salida.
 
 \subsection{Respuesta en frecuencia e impedancia de salida}
@@ -249,7 +249,7 @@ lo que agregue la etapa de salida.
 En la Fig.~\ref{f:ap-hw-dac-respuesta} se presenta la respuesta en frecuencia
 de la salida medida por Red Pitaya, con OUT1 a 0~dBm y la otra salida y las dos
 entradas terminadas en 50~$\Omega$. Es plana dentro de medio dB hasta unos
-35~MHz, con un pequeño sobrepico (+0.3~dB) cerca de 25~MHz, y cae 3~dB en unos
+35~MHz, con un pequeño sobrepico (+0,3~dB) cerca de 25~MHz, y cae 3~dB en unos
 50~MHz.
 
 % Las dos curvas van juntas, lado a lado: por separado la segunda quedaba sola
@@ -274,7 +274,7 @@ de Red Pitaya~\cite{RedPitayaFastOut}. El eje horizontal está en Hz.
 \end{figure}
 
 La salida no es una fuente de 50~$\Omega$: el esquemático prevé una resistencia
-serie de 49.9~$\Omega$ por canal (R188 y R189), pero está sin montar. La
+serie de 49,9~$\Omega$ por canal (R188 y R189), pero está sin montar. La
 impedancia de salida, en la Fig.~\ref{f:ap-hw-dac-impedancia}, es de alrededor
 de 1~$\Omega$ a 100~kHz, sube a unos 10~$\Omega$ en 1~MHz y a unos 20~$\Omega$
 en 10~MHz, y por encima de los 40~MHz presenta resonancias de hasta

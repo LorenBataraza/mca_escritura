@@ -55,8 +55,7 @@ Conceptualmente, al cerrarse la ventana tenemos un vector con todas las muestras
 del evento, que se transfiere a un extractor de características que calcula
 todos los estadísticos en paralelo. En el hardware los estadísticos se calculan
 muestra a muestra mientras la ventana está abierta, sin guardar el vector (ver
-Sec.~\refpend{S:implmca-recuperacion}{Implementación del MCA: métodos de
-recuperación del pulso}). En la Fig.~\ref{f:mca-senal} se presenta únicamente la
+Sec.~\ref{S:implmca-recuperacion}). En la Fig.~\ref{f:mca-senal} se presenta únicamente la
 altura máxima, con un punto verde en el ápice de cada pulso.
 
 Cada vez que se cierra una ventana, el valor del estadístico se transfiere al
@@ -87,8 +86,7 @@ Fig.~\ref{f:mca-histograma} se presenta el espectro final, con la evolución de
 la acumulación en barras apiladas: la capa inferior corresponde a las primeras
 12 cuentas, la del medio a las cuentas 13 a 64 y la superior a las cuentas 65 a
 227. El borde superior de cada capa es el espectro en ese instante. Con las
-primeras 12 cuentas no se puede afirmar nada; recién con la acumulación completa
-las dos líneas del espectro se distinguen como líneas. A la izquierda del umbral
+primeras 12 cuentas no se puede afirmar nada; recién con la acumulación completa se distinguen las dos líneas del espectro. A la izquierda del umbral
 \codigo{thr} el espectro está vacío por construcción, y no por falta de
 estadística.
 
@@ -140,8 +138,7 @@ pulsos cuya altura cae dentro de una ventana fija $[H, H + \Delta H]$,
 delimitada por un discriminador inferior y uno superior, de modo que mide un
 punto de la distribución diferencial. Cada uno de estos dispositivos se
 denominaba canal, y la configuración de múltiples de ellos con ventanas
-contiguas, que mide la curva entera de una vez, se llamó \textbf{Multichannel
-\emph{Analyzer}} (MCA). Este esquema se presenta en la Fig.~\ref{f:mca-sca}.
+contiguas, que mide la curva entera de una vez, se llamó \textbf{\emph{Multichannel Analyzer}} (MCA). Este esquema se presenta en la Fig.~\ref{f:mca-sca}.
 
 \begin{figure}[H]
 \centering\includegraphics{cap1_sca_mca}
@@ -164,8 +161,7 @@ enmascarar picos pequeños. El extremo de pocos canales está acotado por la
 corrección de Sheppard~\cite{Sheppard1898}: un canal de ancho $\Delta$ suma
 $\Delta^2/12$ a la varianza del pico, y para que no la infle en más de
 $\sim$\qty{1}{\percent} hacen falta al menos 4 canales por FWHM. Se detalla en
-la Sec.~\refpend{S:implmca-fisher-bineado}{Poder resolutivo de Fisher en la
-elección del bineado}.
+la Sec.~\ref{S:implmca-fisher-bineado}.
 
 \begin{figure}[H]
 \centering\includegraphics{cap1_bines_knoll}
@@ -354,8 +350,7 @@ a la Red Pitaya~\cite{RedPitayaDocs} por su entrada analógica (IN), y todos los
 elementos posteriores tienen lugar en el dominio digital. Además, el sistema
 digital retoma parte del conformado: la cancelación polo-cero y el conformado
 trapezoidal digitales~\cite{Jordanov1994} (ver
-Sec.~\refpend{S:implmca-trapezoidal}{Implementación del MCA: recuperación por
-conformación trapezoidal}).
+Sec.~\ref{S:implmca-trapezoidal}).
 
 \begin{figure}[H]
 \centering\includegraphics{cap1_cadena_pitaya}
@@ -399,11 +394,11 @@ Familias de conformado principales empleadas antes de un MCA.
 \begin{tabular}{|l|l|}
 \hline
 \encabezado \textbf{Familia} & \textbf{$f(u)$} \\ \hline
-\codigo{cr} & $\left(1 - e^{-u/r}\right)e^{-u}$, \ $r = 0.05$ \\ \hline
+\codigo{cr} & $\left(1 - e^{-u/r}\right)e^{-u}$, \ $r = 0,05$ \\ \hline
 \codigo{cr\_rc} & $u\,e^{-u}$ \\ \hline
 \codigo{cr\_rc4} & $\dfrac{u^{n}e^{-u}}{n!}$, \ $n = 4$ \\ \hline
-\codigo{triangular} & $u$ en $[0,1]$; \ $2-u$ en $(1,2]$ \\ \hline
-\codigo{trapezoidal} & $u$ en $[0,1]$; \ $1$ en $(1,1{+}p]$; \ $2{+}p-u$ después; \ $p = 1$ \\ \hline
+\codigo{triangular} & $u$ en $[0, 1]$; \ $2-u$ en $(1, 2]$ \\ \hline
+\codigo{trapezoidal} & $u$ en $[0, 1]$; \ $1$ en $(1, 1{+}p]$; \ $2{+}p-u$ después; \ $p = 1$ \\ \hline
 \codigo{bipolar} & $\left(1-\dfrac{u}{2}\right)u\,e^{-u}$ \\ \hline
 \end{tabular}
 \end{table}
@@ -436,7 +431,7 @@ perjudicar a otra.
     y la triangular, uno de los peores.
   \item \textbf{Estimadores de carga y de forma}: el cociente entre la carga y
     la altura, que usamos como factor de forma, depende de cuánta cola tiene el
-    pulso. Con el mismo FWHM vale $\approx 1.34$ para la CR y $1.00$ para el
+    pulso. Con el mismo FWHM vale $\approx 1,34$ para la CR y $1,00$ para el
     trapecio, así que un corte por forma calibrado con una familia no sirve para
     otra.
   \item \textbf{Apilamiento y línea de base}: las colas largas (CR, CR-RC,
@@ -564,7 +559,7 @@ disparo por nivel ocurre recién cuando la señal baja de \codigo{thr\_lo}. Con 
 ventana por histéresis ambos coinciden, porque ocurren en el mismo nivel; con la
 ventana fija no, y entre ambos el sistema queda bloqueado (el intervalo rayado
 de la Fig.~\ref{f:mca-politicas-final}). En nuestra implementación ese intervalo
-se cuenta por separado (ver Sec.~\refpend{S:implmca-teselado}{Implementación del MCA: teselado del tiempo de adquisición}).
+se cuenta por separado (ver Sec.~\ref{S:implmca-teselado}).
 
 \subsection{\texorpdfstring{\emph{Pileup}}{\emph{Pileup}}}
 \label{S:mca-pileup}
@@ -611,8 +606,7 @@ técnicas:
   \item Recuperación en tiempo real: con un sistema de \textbf{seguimiento de
     línea de base}, que estima la amplitud que aportan los pulsos previos y la
     resta. Requiere una implementación en HW; en la
-    Sec.~\refpend{S:implmca-linea-base}{Implementación del MCA: recuperación de
-    línea de base} se expande sobre este tema.
+    Sec.~\ref{S:implmca-linea-base} se expande sobre este tema.
 \end{itemize}
 
 \subsection{Métodos de recuperación de pulso: seguimiento de línea de base}
@@ -625,10 +619,9 @@ Fig.~\ref{f:mca-metodos-recuperacion}:
   \item \textbf{Descartar}: considerar el evento como no válido.
   \item \textbf{Rescatar un pulso}: inferir un único pulso de la superposición
     presente.
-  \item \textbf{Rescatar N pulsos}: inferir hasta N pulsos superpuestos. En la
-    Sec.~\refpend{S:implmca-recuperacion}{Implementación del MCA: métodos de
-    recuperación del pulso} se desarrolla la complejidad de estas opciones.
+  \item \textbf{Rescatar N pulsos}: inferir hasta N pulsos superpuestos.
 \end{enumerate}
+En la Sec.~\ref{S:implmca-recuperacion} se desarrolla la complejidad de estas opciones.
 
 \begin{figure}[H]
 \centering\includegraphics{cap1_metodos_recuperacion}
@@ -663,8 +656,7 @@ que tienen un criterio de corrección:
   \item La cuarta requiere poder procesar múltiples pulsos por evento.
     \textbf{Requiere implementar una cola de procesamiento dentro del sistema};
     los detalles se encuentran en la
-    Sec.~\refpend{S:implmca-recuperacion}{Implementación del MCA: métodos de
-    recuperación del pulso}.
+    Sec.~\ref{S:implmca-recuperacion}.
 \end{itemize}
 
 \subsection{\texorpdfstring{\emph{Amplitude walk}}{\emph{Amplitude walk}}}
@@ -709,8 +701,7 @@ amplitud, y si el retardo no alcanza a cubrir el \emph{walk} de los pulsos más 
 a ellos se les pierde parte de la subida. En ambos casos es una no linealidad
 concentrada cerca del umbral, y por eso estos estadísticos se calculan sobre la
 señal con la línea de base restada (ver
-Sec.~\refpend{S:implmca-linea-base}{Implementación del MCA: recuperación de
-línea de base}).
+Sec.~\ref{S:implmca-linea-base}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Tiempo muerto y tiempo vivo}
@@ -720,7 +711,7 @@ Inicialmente definimos el tiempo muerto como \textbf{el tiempo en el cual el
 sistema no puede procesar un nuevo evento de la forma deseada}; el tiempo vivo
 es su complemento. Sus causas incluyen limitaciones en cada una de las secciones
 del sistema. Reducirlo es la razón principal de la existencia del MCA: como
-procesa cada evento en el hardware y solo transfiere el histograma, su tiempo
+procesa cada evento en el hardware y sólo transfiere el histograma, su tiempo
 muerto es un orden de magnitud menor que el de la captura de trazas con el
 módulo de osciloscopio (OSC). En la Sec.~\ref{S:intro-hw-back-pressure}
 describimos cómo \textbf{medir} y diseñar un sistema para reducir al máximo el
@@ -749,7 +740,7 @@ ambos modelos.
 \centering\includegraphics{cap1_tren_rho05}
 \caption[Un tren de arribos de Poisson visto por los dos modelos de tiempo
 muerto]{%
-Un mismo tren de arribos de Poisson con $\rho = n\tau = 0.5$ visto por los dos
+Un mismo tren de arribos de Poisson con $\rho = n\tau = 0,5$ visto por los dos
 modelos. En el no paralizable cada período muerto dura $\tau$; en el
 paralizable los arribos perdidos lo extienden.\label{f:mca-tren-rho05}}
 \end{figure}
@@ -797,7 +788,7 @@ de tiempo muerto, y es el único parámetro del que dependen las curvas. A tasas
 bajas, $n\tau \ll 1$, los dos modelos coinciden y $m \simeq n$. A medida que
 $n\tau$ se acerca a 1 se separan, y en $n\tau = 1$ ya se registra a lo sumo la
 mitad de los eventos ($m\tau = 1/2$ en el no paralizable y
-$m\tau = 1/e \approx 0.37$ en el paralizable).
+$m\tau = 1/e \approx 0,37$ en el paralizable).
 
 \begin{figure}[H]
 \centering\includegraphics{cap1_tasa_registrada}
@@ -899,9 +890,9 @@ con
 El coeficiente que pesa el error en $\tau$, $E-1$, es el que motiva esta
 sección. Vale $n\tau$ en el modelo no paralizable y $n\tau/(1-n\tau)$ en el
 paralizable: se anula a tasa baja, donde la corrección misma es chica, y crece
-con la tasa. A $n\tau = 0.5$, un error del \qty{1}{\percent} en $\tau$ se
+con la tasa. A $n\tau = 0,5$, un error del \qty{1}{\percent} en $\tau$ se
 convierte en un error de \qty{0.5}{\percent} en la tasa corregida en el modelo
-no paralizable y de \qty{1}{\percent} en el paralizable; a $n\tau = 0.9$, en
+no paralizable y de \qty{1}{\percent} en el paralizable; a $n\tau = 0,9$, en
 \qty{0.9}{\percent} y \qty{9}{\percent}, respectivamente. Además, este error es
 \textbf{sistemático}: a diferencia del de $m$, no se reduce aumentando el tiempo
 de medición. La incerteza en $\tau$ fija entonces un piso a la exactitud de la
@@ -937,7 +928,7 @@ tasas o alguna medición auxiliar, no es posible decidir cuál de las dos
 correcciones es la correcta.
 
 \begin{destacado}
-Es así que nos propusimos que nuestro sistema tenga la capacidad de
+Es así que nos propusimos que nuestro sistema tuviera la capacidad de
 \textbf{reportar la distribución del tiempo muerto} y la cantidad de
 \textbf{eventos rechazados}, de modo de medir el tiempo muerto en cada
 adquisición en lugar de suponerlo, y de poder analizar posteriormente qué tan
@@ -1049,9 +1040,8 @@ Es la capacidad de un sistema de \textbf{disparo} de distinguir dos pulsos
 superpuestos separados un tiempo $\Delta t$ variable; se la caracteriza con la
 menor separación a la que el sistema dispara dos veces. Una propiedad distinta
 es la capacidad de recuperar los estadísticos de los pulsos originales a partir
-de su superposición; para ello se refiere a la
-Sec.~\refpend{S:implmca-linea-base}{Implementación del MCA: recuperación de
-línea de base}.
+de su superposición; para ello, ver la
+Sec.~\ref{S:implmca-linea-base}.
 
 \subsection{Selección del tipo de bineado}
 \label{S:mca-bineado}

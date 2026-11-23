@@ -26,7 +26,7 @@
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Línea de tiempo de las arquitecturas de HW programable}}{39}{figure.caption.43}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Elección de plataforma de HW programable y evolución de las FPGA}}{40}{figure.caption.44}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces La placa STEMlab 125-14 y sus principales periféricos}}{41}{figure.caption.45}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Procesadores softcore y hardcore}}{44}{figure.caption.47}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Procesadores \emph {softcore} y \emph {hardcore}}}{44}{figure.caption.47}%
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Combinación de procesador y FPGA}}{45}{figure.caption.48}%
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Representación de un SoC}}{46}{figure.caption.49}%
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Bloques básicos de la FPGA}}{47}{figure.caption.51}%
@@ -35,114 +35,115 @@
 \contentsline {figure}{\numberline {3.11}{\ignorespaces Jerarquía de la memoria del APU}}{51}{figure.caption.56}%
 \contentsline {figure}{\numberline {3.12}{\ignorespaces Diagrama de bloques de la plataforma}}{54}{figure.caption.60}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Esquemas de transferencia de datos entre PL y PS}}{60}{figure.caption.67}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Comunicación inelástica y mediante \emph {pipeline} elástico}}{63}{figure.caption.69}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Anillo de eventos y cálculo de créditos}}{64}{figure.caption.70}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Fracción de eventos perdidos según el largo de cola}}{65}{figure.caption.71}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Suma de pérdidas en una red \emph {feed-forward}}}{66}{figure.caption.73}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Descartes y bloqueos de las etapas de procesamiento}}{67}{figure.caption.74}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Contrato del bus \emph {custom} de Red Pitaya}}{68}{figure.caption.75}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Camino de una transferencia por el bus \emph {custom}}}{68}{figure.caption.76}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces \emph {Waveform} simulada de una escritura por el bus \emph {custom}}}{70}{figure.caption.78}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces \emph {Waveform} simulada de una lectura por el bus \emph {custom}}}{70}{figure.caption.78}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Cuatro escalas del mapa de registros}}{71}{figure.caption.79}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Enrutamiento de una dirección según regiones de memoria}}{72}{figure.caption.80}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Plantilla del módulo de configuración}}{74}{figure.caption.81}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Esquemas de transferencia de datos entre PL y PS}}{61}{figure.caption.67}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Comunicación inelástica y mediante \emph {pipeline} elástico}}{64}{figure.caption.69}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Anillo de eventos y cálculo de créditos}}{65}{figure.caption.70}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Fracción de eventos perdidos según el largo de cola}}{66}{figure.caption.71}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Suma de pérdidas en una red \emph {feed-forward}}}{67}{figure.caption.73}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Descartes y bloqueos de las etapas de procesamiento}}{68}{figure.caption.74}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Contrato del bus \emph {custom} de Red Pitaya}}{69}{figure.caption.75}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Camino de una transferencia por el bus \emph {custom}}}{69}{figure.caption.76}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces \emph {Waveform} simulada de una escritura por el bus \emph {custom}}}{71}{figure.caption.78}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces \emph {Waveform} simulada de una lectura por el bus \emph {custom}}}{71}{figure.caption.78}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Cuatro escalas del mapa de registros}}{72}{figure.caption.79}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Enrutamiento de una dirección según regiones de memoria}}{73}{figure.caption.80}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Plantilla del módulo de configuración}}{75}{figure.caption.81}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Secuencia de escrituras del PS y respuesta del multitrigger}}{80}{figure.caption.85}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Vista general del multitrigger}}{82}{figure.caption.86}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Secuencia de escrituras del PS y respuesta del multitrigger}}{81}{figure.caption.85}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Vista general del multitrigger}}{83}{figure.caption.86}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Flujo de utilización del MCA}}{89}{figure.caption.94}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Vista general del módulo analizador multicanal}}{91}{figure.caption.95}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces \emph {Datapath} del MCA: dónde se frena y dónde se descarta}}{92}{figure.caption.96}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Forma básica del conformado trapezoidal}}{100}{figure.caption.102}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Ruido y separación mínima contra $k$}}{101}{figure.caption.103}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Trapecios de distintas formas sobre un par de pulsos superpuestos}}{102}{figure.caption.104}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Esquema de utilización del banco de trapecios}}{103}{figure.caption.105}%
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Vista general de \codigo {mca\_window}}}{108}{figure.caption.107}%
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Vista general de \codigo {mca\_slot}}}{110}{figure.caption.108}%
-\contentsline {figure}{\numberline {6.10}{\ignorespaces Un par de pulsos visto desde la ranura del primero}}{111}{figure.caption.109}%
-\contentsline {figure}{\numberline {6.11}{\ignorespaces Elección de la forma del banco}}{112}{figure.caption.110}%
-\contentsline {figure}{\numberline {6.12}{\ignorespaces Bus de \emph {features}}}{112}{figure.caption.111}%
-\contentsline {figure}{\numberline {6.13}{\ignorespaces El \emph {zoom} de un eje del histograma}}{114}{figure.caption.112}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Flujo de utilización del MCA}}{90}{figure.caption.94}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Vista general del módulo analizador multicanal}}{92}{figure.caption.95}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces \emph {Datapath} del MCA: dónde se frena y dónde se descarta}}{93}{figure.caption.96}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Forma básica del conformado trapezoidal}}{101}{figure.caption.102}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Ruido y separación mínima contra $k$}}{102}{figure.caption.103}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Trapecios de distintas formas sobre un par de pulsos superpuestos}}{103}{figure.caption.104}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Esquema de utilización del banco de trapecios}}{104}{figure.caption.105}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Vista general de \codigo {mca\_window}}}{109}{figure.caption.107}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Vista general de \codigo {mca\_slot}}}{111}{figure.caption.108}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Un par de pulsos visto desde la ranura del primero}}{112}{figure.caption.109}%
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Elección de la forma del banco}}{113}{figure.caption.110}%
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Bus de \emph {features}}}{113}{figure.caption.111}%
+\contentsline {figure}{\numberline {6.13}{\ignorespaces El \emph {zoom} de un eje del histograma}}{115}{figure.caption.112}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Esquema de verificación inicial}}{117}{figure.caption.115}%
-\contentsline {figure}{\numberline {7.2}{\ignorespaces \emph {Setup} de generación interna}}{118}{figure.caption.116}%
-\contentsline {figure}{\numberline {7.3}{\ignorespaces El canal analógico medido con la BRAM}}{118}{figure.caption.117}%
-\contentsline {figure}{\numberline {7.4}{\ignorespaces Tasa de eventos del MCA contra la cantidad de ranuras}}{119}{figure.caption.119}%
-\contentsline {figure}{\numberline {7.5}{\ignorespaces Tasa de eventos con cada fuente de disparo}}{120}{figure.caption.120}%
-\contentsline {figure}{\numberline {7.6}{\ignorespaces Error de la tasa estimada por el MCA}}{120}{figure.caption.121}%
-\contentsline {figure}{\numberline {7.7}{\ignorespaces Resolución de cada estimador contra el ruido blanco}}{121}{figure.caption.122}%
-\contentsline {figure}{\numberline {7.8}{\ignorespaces Resolución de pulsos dobles}}{122}{figure.caption.123}%
-\contentsline {figure}{\numberline {7.9}{\ignorespaces Corrimiento del centroide contra la tasa de entrada}}{122}{figure.caption.124}%
-\contentsline {figure}{\numberline {7.10}{\ignorespaces No linealidad integral del trapecio}}{123}{figure.caption.125}%
-\contentsline {figure}{\numberline {7.11}{\ignorespaces El disparo contra la amplitud de un pulso aislado}}{124}{figure.caption.126}%
-\contentsline {figure}{\numberline {7.12}{\ignorespaces Ajuste del polo-cero del trapecio en el lazo digital}}{125}{figure.caption.128}%
-\contentsline {figure}{\numberline {7.13}{\ignorespaces Deriva del canal analógico en 2 h}}{126}{figure.caption.129}%
-\contentsline {figure}{\numberline {7.14}{\ignorespaces Eventos registrados por segundo en los dos caminos de datos}}{128}{figure.caption.130}%
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Módulo OSC original de RedPitaya}}{119}{figure.caption.115}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Secuencia de una captura del OSC básico}}{120}{figure.caption.116}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Módulo del \emph {scope} utilizado en este proyecto}}{122}{figure.caption.117}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Esquema del \emph {deep memory} de RedPitaya}}{123}{figure.caption.118}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Dónde queda un evento en DDR: \emph {buffer} circular y anillo de \emph {slots}}}{124}{figure.caption.119}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Flujo de utilización del anillo de eventos}}{126}{figure.caption.120}%
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Conexión del anillo de eventos con el \emph {scope}}}{127}{figure.caption.121}%
+\contentsline {figure}{\numberline {7.8}{\ignorespaces Dónde se frena y dónde se descarta en el anillo}}{128}{figure.caption.122}%
+\contentsline {figure}{\numberline {7.9}{\ignorespaces Estructura interna de \codigo {event\_ring\_top}}}{129}{figure.caption.123}%
+\contentsline {figure}{\numberline {7.10}{\ignorespaces FSM global del anillo de eventos}}{130}{figure.caption.124}%
+\contentsline {figure}{\numberline {7.11}{\ignorespaces FSM de captura de un evento}}{132}{figure.caption.126}%
+\contentsline {figure}{\numberline {7.12}{\ignorespaces Vista general de \codigo {event\_window\_capture}}}{134}{figure.caption.127}%
+\contentsline {figure}{\numberline {7.13}{\ignorespaces Vista general de \codigo {event\_stage\_fifo}}}{135}{figure.caption.128}%
+\contentsline {figure}{\numberline {7.14}{\ignorespaces Vista general de \codigo {event\_slot\_writer}}}{137}{figure.caption.130}%
+\contentsline {figure}{\numberline {7.15}{\ignorespaces FSM del escritor de \emph {slots}}}{138}{figure.caption.131}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Módulo OSC original de Pitaya}}{132}{figure.caption.131}%
-\contentsline {figure}{\numberline {8.2}{\ignorespaces Secuencia de una captura del OSC básico}}{133}{figure.caption.132}%
-\contentsline {figure}{\numberline {8.3}{\ignorespaces Módulo del \emph {scope} utilizado en este proyecto}}{135}{figure.caption.133}%
-\contentsline {figure}{\numberline {8.4}{\ignorespaces Esquema del \emph {deep memory} de Pitaya}}{136}{figure.caption.134}%
-\contentsline {figure}{\numberline {8.5}{\ignorespaces Dónde queda un evento en DDR: \emph {buffer} circular y anillo de \emph {slots}}}{137}{figure.caption.135}%
-\contentsline {figure}{\numberline {8.6}{\ignorespaces Flujo de utilización del anillo de eventos}}{139}{figure.caption.136}%
-\contentsline {figure}{\numberline {8.7}{\ignorespaces Conexión del anillo de eventos con el \emph {scope}}}{140}{figure.caption.137}%
-\contentsline {figure}{\numberline {8.8}{\ignorespaces Dónde se frena y dónde se descarta en el anillo}}{141}{figure.caption.138}%
-\contentsline {figure}{\numberline {8.9}{\ignorespaces Estructura interna de \codigo {event\_ring\_top}}}{142}{figure.caption.139}%
-\contentsline {figure}{\numberline {8.10}{\ignorespaces FSM global del anillo de eventos}}{143}{figure.caption.140}%
-\contentsline {figure}{\numberline {8.11}{\ignorespaces FSM de captura de un evento}}{145}{figure.caption.142}%
-\contentsline {figure}{\numberline {8.12}{\ignorespaces Vista general de \codigo {event\_window\_capture}}}{147}{figure.caption.143}%
-\contentsline {figure}{\numberline {8.13}{\ignorespaces Vista general de \codigo {event\_stage\_fifo}}}{148}{figure.caption.144}%
-\contentsline {figure}{\numberline {8.14}{\ignorespaces Vista general de \codigo {event\_slot\_writer}}}{150}{figure.caption.146}%
-\contentsline {figure}{\numberline {8.15}{\ignorespaces FSM del escritor de \emph {slots}}}{151}{figure.caption.147}%
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Diagrama general del TOP del sistema}}{140}{figure.caption.134}%
+\contentsline {figure}{\numberline {8.2}{\ignorespaces \emph {Interconnect} principal del bus \emph {custom} de RedPitaya}}{141}{figure.caption.136}%
+\contentsline {figure}{\numberline {8.3}{\ignorespaces \emph {Datapath} del módulo de integración}}{144}{figure.caption.138}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces Diagrama general del TOP del sistema}}{153}{figure.caption.150}%
-\contentsline {figure}{\numberline {9.2}{\ignorespaces \emph {Interconnect} principal del bus \emph {custom} de Pitaya}}{154}{figure.caption.152}%
-\contentsline {figure}{\numberline {9.3}{\ignorespaces \emph {Datapath} del módulo de integración}}{157}{figure.caption.154}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {10.1}{\ignorespaces Procesamiento AMP y SMP}}{162}{figure.caption.160}%
-\contentsline {figure}{\numberline {10.2}{\ignorespaces Ejemplos de OS en el espectro SMP-AMP}}{162}{figure.caption.161}%
-\contentsline {figure}{\numberline {10.3}{\ignorespaces Componentes del \emph {kernel} de Linux}}{164}{figure.caption.163}%
-\contentsline {figure}{\numberline {10.4}{\ignorespaces Capas de abstracción del SW}}{167}{figure.caption.165}%
-\contentsline {figure}{\numberline {10.5}{\ignorespaces Clases base de \codigo {libmca}}}{169}{figure.caption.166}%
-\contentsline {figure}{\numberline {10.6}{\ignorespaces Clases fundamentales de \codigo {libmca}}}{170}{figure.caption.167}%
-\contentsline {figure}{\numberline {10.7}{\ignorespaces Lazos de adquisición por software}}{171}{figure.caption.169}%
-\contentsline {figure}{\numberline {10.8}{\ignorespaces Clases de sesión en Python}}{173}{figure.caption.170}%
-\contentsline {figure}{\numberline {10.9}{\ignorespaces Estructura de un \emph {batch} de eventos}}{176}{figure.caption.173}%
-\contentsline {figure}{\numberline {10.10}{\ignorespaces Guardado por \emph {chunks} \texttt {.npz} y resumen \texttt {.json}}}{177}{figure.caption.175}%
-\contentsline {figure}{\numberline {10.11}{\ignorespaces Las tres sesiones locales del programa}}{178}{figure.caption.178}%
-\contentsline {figure}{\numberline {10.12}{\ignorespaces Cola de \codigo {EventBatch}}}{179}{figure.caption.180}%
-\contentsline {figure}{\numberline {10.13}{\ignorespaces Flujo de trabajo de \codigo {AcquisitionSession}}}{181}{figure.caption.182}%
-\contentsline {figure}{\numberline {10.14}{\ignorespaces Tramas del protocolo de red}}{182}{figure.caption.183}%
-\contentsline {figure}{\numberline {10.15}{\ignorespaces Serialización de la trama en la clase \codigo {Channel}}}{182}{figure.caption.184}%
-\contentsline {figure}{\numberline {10.16}{\ignorespaces Escritura de los eventos del ring a archivos por red}}{183}{figure.caption.185}%
-\contentsline {figure}{\numberline {10.17}{\ignorespaces \emph {Benchmark} de escritura de archivos en la SD y por red}}{185}{figure.caption.188}%
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Esquema de verificación inicial}}{148}{figure.caption.143}%
+\contentsline {figure}{\numberline {9.2}{\ignorespaces \emph {Setup} de generación interna}}{149}{figure.caption.144}%
+\contentsline {figure}{\numberline {9.3}{\ignorespaces El canal analógico medido con la BRAM}}{149}{figure.caption.145}%
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Tasa de eventos del MCA contra la cantidad de ranuras}}{150}{figure.caption.147}%
+\contentsline {figure}{\numberline {9.5}{\ignorespaces Tasa de eventos con cada fuente de disparo}}{151}{figure.caption.148}%
+\contentsline {figure}{\numberline {9.6}{\ignorespaces Error de la tasa estimada por el MCA}}{151}{figure.caption.149}%
+\contentsline {figure}{\numberline {9.7}{\ignorespaces Resolución de cada estimador contra el ruido blanco}}{152}{figure.caption.150}%
+\contentsline {figure}{\numberline {9.8}{\ignorespaces Resolución de pulsos dobles}}{153}{figure.caption.151}%
+\contentsline {figure}{\numberline {9.9}{\ignorespaces Corrimiento del centroide contra la tasa de entrada}}{153}{figure.caption.152}%
+\contentsline {figure}{\numberline {9.10}{\ignorespaces No linealidad integral del trapecio}}{154}{figure.caption.153}%
+\contentsline {figure}{\numberline {9.11}{\ignorespaces El disparo contra la amplitud de un pulso aislado}}{155}{figure.caption.154}%
+\contentsline {figure}{\numberline {9.12}{\ignorespaces Ajuste del polo-cero del trapecio en el lazo digital}}{156}{figure.caption.156}%
+\contentsline {figure}{\numberline {9.13}{\ignorespaces Deriva del canal analógico en 2 h}}{157}{figure.caption.157}%
+\contentsline {figure}{\numberline {9.14}{\ignorespaces Eventos registrados por segundo en los dos caminos de datos}}{159}{figure.caption.158}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Pestaña \emph {Spectrum}}}{200}{figure.caption.199}%
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Pestaña 2D \emph {map} (PSD)}}{201}{figure.caption.200}%
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Pestaña \emph {Pulses}}}{202}{figure.caption.201}%
-\contentsline {figure}{\numberline {A.4}{\ignorespaces Pestaña MCA \emph {settings}}}{203}{figure.caption.202}%
-\contentsline {figure}{\numberline {A.5}{\ignorespaces Pestaña OSC \emph {settings}}}{204}{figure.caption.203}%
-\contentsline {figure}{\numberline {A.6}{\ignorespaces Pestaña Multitrigger}}{205}{figure.caption.204}%
-\contentsline {figure}{\numberline {A.7}{\ignorespaces Pestaña \emph {Generator}}}{206}{figure.caption.205}%
-\contentsline {figure}{\numberline {A.8}{\ignorespaces Pestaña \emph {Calibration}}}{207}{figure.caption.206}%
-\contentsline {figure}{\numberline {A.9}{\ignorespaces Pestaña \emph {Messages}}}{208}{figure.caption.207}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Pestaña \emph {Spectrum}}}{175}{figure.caption.167}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Pestaña 2D \emph {map} (PSD)}}{176}{figure.caption.168}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Pestaña \emph {Pulses}}}{177}{figure.caption.169}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Pestaña MCA \emph {settings}}}{178}{figure.caption.170}%
+\contentsline {figure}{\numberline {A.5}{\ignorespaces Pestaña OSC \emph {settings}}}{179}{figure.caption.171}%
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Pestaña Multitrigger}}{180}{figure.caption.172}%
+\contentsline {figure}{\numberline {A.7}{\ignorespaces Pestaña \emph {Generator}}}{181}{figure.caption.173}%
+\contentsline {figure}{\numberline {A.8}{\ignorespaces Pestaña \emph {Calibration}}}{182}{figure.caption.174}%
+\contentsline {figure}{\numberline {A.9}{\ignorespaces Pestaña \emph {Messages}}}{183}{figure.caption.175}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces Front-end analógico de las entradas rápidas}}{215}{figure.caption.212}%
-\contentsline {figure}{\numberline {C.2}{\ignorespaces Respuesta en frecuencia del front-end de entrada}}{216}{figure.caption.214}%
-\contentsline {figure}{\numberline {C.3}{\ignorespaces Conexión del DAC AD9767 en la STEMlab 125-14}}{217}{figure.caption.215}%
-\contentsline {figure}{\numberline {C.4}{\ignorespaces Respuesta en frecuencia de las salidas rápidas}}{220}{figure.caption.218}%
-\contentsline {figure}{\numberline {C.5}{\ignorespaces Impedancia de salida de las salidas rápidas}}{220}{figure.caption.218}%
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Front-end analógico de las entradas rápidas}}{190}{figure.caption.180}%
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Respuesta en frecuencia del \emph {front-end} de entrada}}{191}{figure.caption.182}%
+\contentsline {figure}{\numberline {C.3}{\ignorespaces Conexión del DAC AD9767 en la STEMlab 125-14}}{192}{figure.caption.183}%
+\contentsline {figure}{\numberline {C.4}{\ignorespaces Respuesta en frecuencia de las salidas rápidas}}{195}{figure.caption.186}%
+\contentsline {figure}{\numberline {C.5}{\ignorespaces Impedancia de salida de las salidas rápidas}}{195}{figure.caption.186}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {D.1}{\ignorespaces Interfaz del multitrigger}}{223}{figure.caption.221}%
-\contentsline {figure}{\numberline {D.2}{\ignorespaces Implementación del disparo por pendiente}}{224}{figure.caption.222}%
-\contentsline {figure}{\numberline {D.3}{\ignorespaces Implementación del escudo}}{225}{figure.caption.223}%
+\contentsline {figure}{\numberline {D.1}{\ignorespaces Interfaz del multitrigger}}{198}{figure.caption.189}%
+\contentsline {figure}{\numberline {D.2}{\ignorespaces Implementación del disparo por pendiente}}{199}{figure.caption.190}%
+\contentsline {figure}{\numberline {D.3}{\ignorespaces Implementación del escudo}}{200}{figure.caption.191}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {E.1}{\ignorespaces Máquina de estados implícita de \codigo {rp\_bram\_sm}}}{230}{figure.caption.228}%
+\contentsline {figure}{\numberline {E.1}{\ignorespaces Primera versión del MCA (MCA1)}}{208}{figure.caption.196}%
+\contentsline {figure}{\numberline {E.2}{\ignorespaces Recursos de memoria presentes en la plataforma}}{209}{figure.caption.197}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {F.1}{\ignorespaces Detalle de los hilos de captura}}{238}{figure.caption.230}%
-\contentsline {figure}{\numberline {F.2}{\ignorespaces Carga del \emph {bitstream}}}{239}{figure.caption.231}%
+\contentsline {figure}{\numberline {F.1}{\ignorespaces Máquina de estados implícita de \codigo {rp\_bram\_sm}}}{215}{figure.caption.202}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {G.1}{\ignorespaces Procesamiento AMP y SMP}}{222}{figure.caption.205}%
+\contentsline {figure}{\numberline {G.2}{\ignorespaces Ejemplos de SO en el espectro SMP-AMP}}{222}{figure.caption.206}%
+\contentsline {figure}{\numberline {G.3}{\ignorespaces Componentes del \emph {kernel} de Linux}}{224}{figure.caption.208}%
+\contentsline {figure}{\numberline {G.4}{\ignorespaces Capas de abstracción del SW}}{227}{figure.caption.210}%
+\contentsline {figure}{\numberline {G.5}{\ignorespaces Clases base de \codigo {libmca}}}{229}{figure.caption.211}%
+\contentsline {figure}{\numberline {G.6}{\ignorespaces Clases fundamentales de \codigo {libmca}}}{230}{figure.caption.212}%
+\contentsline {figure}{\numberline {G.7}{\ignorespaces Lazos de adquisición por software}}{231}{figure.caption.214}%
+\contentsline {figure}{\numberline {G.8}{\ignorespaces Clases de sesión en Python}}{233}{figure.caption.215}%
+\contentsline {figure}{\numberline {G.9}{\ignorespaces Estructura de un \emph {batch} de eventos}}{236}{figure.caption.218}%
+\contentsline {figure}{\numberline {G.10}{\ignorespaces Guardado por \emph {chunks} \texttt {.npz} y resumen \texttt {.json}}}{237}{figure.caption.220}%
+\contentsline {figure}{\numberline {G.11}{\ignorespaces Las tres sesiones locales del programa}}{238}{figure.caption.223}%
+\contentsline {figure}{\numberline {G.12}{\ignorespaces Cola de \codigo {EventBatch}}}{239}{figure.caption.225}%
+\contentsline {figure}{\numberline {G.13}{\ignorespaces Flujo de trabajo de \codigo {AcquisitionSession}}}{241}{figure.caption.227}%
+\contentsline {figure}{\numberline {G.14}{\ignorespaces Tramas del protocolo de red}}{242}{figure.caption.228}%
+\contentsline {figure}{\numberline {G.15}{\ignorespaces Serialización de la trama en la clase \codigo {Channel}}}{242}{figure.caption.229}%
+\contentsline {figure}{\numberline {G.16}{\ignorespaces Escritura de los eventos del \emph {ring} a archivos por red}}{243}{figure.caption.230}%
+\contentsline {figure}{\numberline {G.17}{\ignorespaces \emph {Benchmark} de escritura de archivos en la SD y por red}}{245}{figure.caption.233}%
+\contentsline {figure}{\numberline {G.18}{\ignorespaces Detalle de los hilos de captura}}{248}{figure.caption.234}%

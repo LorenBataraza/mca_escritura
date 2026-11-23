@@ -1,14 +1,14 @@
 % Origen: Secciones/PI - Implementacion OSC.md
 % El "Apéndice" de la nota va en apend6.tex (Detalles del osciloscopio).
-\chapter{Implementación del OSC}
+\chapter{Implementación -- Osciloscopio (OSC)}
 \label{C:osc}
 
 % Figuras de ESTE capítulo + las compartidas. Siempre al principio del archivo.
 \graphicspath{{figs/cap8/}{figs/comunes/}}
 
 \begin{destacado}
-En este capítulo se describe (1) las funcionalidades que provee el módulo
-osciloscopio empleado, (2) el módulo base de Pitaya, con una descripción
+En este capítulo se describen (1) las funcionalidades que provee el módulo
+osciloscopio empleado, (2) el módulo base de RedPitaya, con una descripción
 detallada del mecanismo de transferencia de datos al PS, sus limitaciones y el
 método de utilización de este módulo desde el PS, y (3) una mejora implementada
 en el mecanismo de transferencia y su método de utilización desde el PS. Las
@@ -28,7 +28,7 @@ programable, debido a que es de las mejores formas de \emph{debug} de un \emph{d
 Otros puntos importantes de funcionalidad consisten en:
 \begin{itemize}
   \item Largo de traza: en la versión base es un \emph{buffer} circular fijo de
-    $2^\text{RSZ}$ muestras por canal (16384 en el diseño original de Pitaya,
+    $2^\text{RSZ}$ muestras por canal (16384 en el diseño original de RedPitaya,
     8192 en este proyecto), del que se configura el largo \emph{post-trigger}; en la
     versión con anillo de eventos (Sec.~\ref{S:osc-anillo-eventos}) la ventana
     \codigo{pre+post} es configurable hasta 1024 muestras (con \codigo{pre}
@@ -44,7 +44,7 @@ misma.
 \subsection{Caminos de datos}
 \label{S:osc-caminos}
 
-La versión original del osciloscopio proveniente de Pitaya implementa
+La versión original del osciloscopio proveniente de RedPitaya implementa
 \textbf{dos metodologías de acceso}. Esto puede comprobarse en la
 Fig.~\ref{f:osc-panorama-pitaya}, en la que se presentan dos interfaces AXI: la
 primera interactúa con AXI\_GP0 mediante el bus interno del sistema
@@ -56,7 +56,7 @@ problema de este esquema es que no nos dice nada de la segmentación de los
 eventos ni de la consistencia en la lectura de los datos. Estos detalles se
 presentan en la Sec.~\ref{S:osc-anillo-eventos}.
 
-Mientras que el bus \emph{custom} utiliza un \emph{handshake} completo para leer/escribir
+El bus \emph{custom}, en cambio, utiliza un \emph{handshake} completo para leer/escribir
 secciones de 32 bits (ver la Sec.~\ref{S:intro-hw-bus-custom}). En la
 Sec.~\ref{S:osc-flujo-basico} presentamos los detalles de utilización de esta
 modalidad.
@@ -79,7 +79,7 @@ obtenemos:
     \item \codigo{osc\_filter}: es un ecualizador IIR que tiene como objetivo
       compensar la respuesta en frecuencia del \emph{front-end} analógico
       (coeficientes \codigo{aa/bb/kk/pp} por canal). Estos son los
-      coeficientes de calibración de Pitaya comentados en la
+      coeficientes de calibración de RedPitaya comentados en la
       Sec.~\ref{S:hw-calibracion}.
     \item \codigo{rp\_decim}: reduce la tasa de muestreo por un factor de 1 a
       65536, quedándose con una muestra de cada N o promediándolas
@@ -119,15 +119,15 @@ obtenemos:
 
 \begin{figure}[H]
 \centering\includegraphics{cap8_panorama_scope_pitaya}
-\caption[Módulo OSC original de Pitaya]{%
-Módulo OSC original de Pitaya. Contiene una cadena de preprocesamiento (azul),
+\caption[Módulo OSC original de RedPitaya]{%
+Módulo OSC original de RedPitaya. Contiene una cadena de preprocesamiento (azul),
 sección de \emph{triggering} interno (amarillo) y externo (módulo
 \codigo{rp\_ext\_trig} en gris), submódulo de configuración (en gris), lógica de
 captura de datos y manejo de transacciones por bus \emph{custom} (verde) y camino de
 datos por HP (\codigo{rp\_axi\_sm} en naranja claro).\label{f:osc-panorama-pitaya}}
 \end{figure}
 
-Mientras que si desarrollamos los \textbf{bloques compartidos} encontramos los
+Si desarrollamos los \textbf{bloques compartidos}, encontramos los
 dos siguientes:
 \begin{itemize}
   \item \codigo{rp\_ext\_trig}: es un \emph{debouncer} de longitud configurable
@@ -140,7 +140,7 @@ dos siguientes:
 \subsection{Flujo de funcionamiento básico}
 \label{S:osc-flujo-basico}
 
-El proyecto base de Pitaya ya contaba con un módulo capaz de implementar una
+El proyecto base de RedPitaya ya contaba con un módulo capaz de implementar una
 versión básica de esta funcionalidad mediante el bus \emph{custom}. En la
 Fig.~\ref{f:osc-secuencia-basica} se presentan los pasos para realizar una
 captura: primeramente tenemos que realizar todas las configuraciones
@@ -157,6 +157,7 @@ pasos:
     leer.
   \item \textbf{Lectura}: el \emph{buffer} interno se encuentra congelado; en este
     estado se realizan las transacciones de lectura necesarias para extraer
+    los valores de la traza completa almacenada en la BRAM.
 \end{enumerate}
 
 \begin{figure}[H]
@@ -227,16 +228,16 @@ El osciloscopio original de Red Pitaya cuenta con un camino de datos paralelo,
 implementado en \codigo{rp\_axi\_sm} (no confundir con la
 \codigo{rp\_bram\_sm}). En la Fig.~\ref{f:osc-deep-memory} se presenta el
 mecanismo: después de un armado, las muestras se escriben de forma continua en
-la memoria DDR del PS mediante la interfaz HP (en este camino el PL es \emph{master}),
+la memoria DDR del PS mediante la interfaz HP (en este camino la PL es \emph{master}),
 igual que en la BRAM, y tras el \emph{post-trigger} la escritura se congela y se
-actualizan los registros internos del módulo dentro del PL. Para averiguar en
+actualizan los registros internos del módulo dentro de la PL. Para averiguar en
 qué sección de los 2~MB se encuentra el pulso, se tiene que realizar una
-transacción de lectura al PL acerca de estas variables.
+transacción de lectura a la PL acerca de estas variables.
 
 \begin{figure}[H]
 \centering\includegraphics{cap8_deep_memory}
-\caption[Esquema del \emph{deep memory} de Pitaya]{%
-Esquema del \emph{deep memory} de Pitaya (\codigo{rp\_axi\_sm}) como generador,
+\caption[Esquema del \emph{deep memory} de RedPitaya]{%
+Esquema del \emph{deep memory} de RedPitaya (\codigo{rp\_axi\_sm}) como generador,
 \emph{buffer} y consumidor. Las muestras van a DDR por HP, donde entran muchas
 ventanas, pero dónde cayó el \emph{trigger} se anota en un único registro
 (\codigo{WP\_TRIG}). La entrada queda congelada hasta que el PS lo lee por el bus
@@ -303,11 +304,11 @@ continuación describimos cómo funciona la sección de control, vista desde el 
 Es una \textbf{marca de \emph{commit} al final del \emph{slot}}: si no tiene el valor
 esperado, el PS no lee el resto. Es el mecanismo habitual cuando un mensaje es
 largo o su latencia es desconocida: se escribe el cuerpo y, al final, una marca
-que confirma que todo lo anterior ya llegó. Como el PL escribe el \emph{slot} en orden
+que confirma que todo lo anterior ya llegó. Como la PL escribe el \emph{slot} en orden
 de dirección, ver el \emph{footer} con el \codigo{seq} esperado garantiza que la
 cabecera y las muestras ya están en la DDR. El PS tampoco tiene que confirmar
 cada evento: devuelve \textbf{créditos} publicando \codigo{RD\_SLOT} una vez por
-lote, y el PL escribe de forma ininterrumpida mientras le queden créditos.
+lote, y la PL escribe de forma ininterrumpida mientras le queden créditos.
 
 \subsection{Metodología de utilización del anillo}
 \label{S:osc-uso-anillo}
@@ -320,8 +321,8 @@ región de memoria; estos sólo se latchean con la adquisición parada, y
 escribirlos corriendo se ignora y levanta la \emph{flag} \codigo{err\_cfg}. Incluyen:
 \begin{enumerate}
   \item Tamaño \codigo{RING\_SZ} y posición de la región de DDR volátil (este
-    tipo de acceso a memoria debe configurarse en el OS; el anillo usa la región
-    de 32~MB en \codigo{0x0A00\_0000} que el proyecto de Pitaya reserva para el
+    tipo de acceso a memoria debe configurarse en el SO; el anillo usa la región
+    de 32~MB en \codigo{0x0A00\_0000} que el proyecto de RedPitaya reserva para el
     analizador lógico, y no la de 2~MB del \emph{deep memory}).
   \item Tamaño del \codigo{SLOT\_SHIFT}.
   \item Cantidad de \emph{slots}, que no se escribe: el módulo la deriva como
@@ -343,7 +344,7 @@ entonces activa el módulo con \codigo{CTRL.run} (ver la
 Fig.~\ref{f:osc-fsm-ring}).
 
 Por simplicidad, asociamos un único hilo de ejecución dentro del PS para este
-módulo. El código del Cap.~\ref{C:sw} realiza lo siguiente:
+módulo. El código del Apéndice~\ref{C:sw} realiza lo siguiente:
 \begin{enumerate}
   \item Lee \codigo{WR\_SLOT} por GP0 una vez por lote de eventos, para saber
     cuántos \emph{slots} hay candidatos.
@@ -358,7 +359,7 @@ módulo. El código del Cap.~\ref{C:sw} realiza lo siguiente:
     devolviendo los créditos de todos sus \emph{slots}.
 \end{enumerate}
 Con el \emph{buffer} circular el trabajo era \textbf{por evento}, y la captura queda
-congelada mientras el PS lee. Con el ring es \textbf{por lote} y la captura no
+congelada mientras el PS lee. Con el \emph{ring} es \textbf{por lote} y la captura no
 se detiene.
 
 \begin{figure}[H]
@@ -403,11 +404,11 @@ lado del \emph{scope}, con estas mismas conexiones.\label{f:osc-panorama-scope-r
 \end{figure}
 
 %==============================================================================
-\section{Funcionamiento del módulo de ring de eventos}
+\section{Funcionamiento del módulo de \emph{ring} de eventos}
 \label{S:osc-ring-funcionamiento}
 
 En la Fig.~\ref{f:osc-freno-descarte} se puede ver la cadena principal del
-\emph{datapath} del módulo de ring de eventos \codigo{event\_ring\_top}, que contiene
+\emph{datapath} del módulo de \emph{ring} de eventos \codigo{event\_ring\_top}, que contiene
 los siguientes submódulos:
 \begin{itemize}
   \item \codigo{event\_window\_capture}: es el que segmenta las muestras de la
@@ -421,9 +422,8 @@ los siguientes submódulos:
     simplificada de Instrumentation Technologies que usaba
     \codigo{rp\_axi\_sm}, para seguir el formato del sistema original.
   \item \codigo{axi\_wr\_fifo}: módulo de paquetizado del proyecto original de
-    Pitaya, requerido para pasar a la interfaz HP2, del tipo AXI-Full. A este no
-    se lo describirá porque no fue parte de este proyecto; para más información
-    se refiere a la documentación oficial de Pitaya~\cite{RedPitayaFPGA}.
+    RedPitaya, requerido para pasar a la interfaz HP2, del tipo AXI-Full. A este no
+    se lo describirá porque no fue parte de este proyecto; para más información, ver la documentación oficial de RedPitaya~\cite{RedPitayaFPGA}.
 \end{itemize}
 
 \begin{figure}[H]
@@ -460,7 +460,7 @@ propias del \emph{top}:
     configuración internos, \emph{stop} = \codigo{SLOT\_BASE + RING\_SZ $-$ 8}.
   \item \textbf{Contrapresión}: calcula una ocupación propia del
     \codigo{axi\_wr\_fifo} por el \emph{master}. Hace falta porque el FIFO del
-    proyecto de Pitaya no expone su nivel y \textbf{descarta en silencio si se
+    proyecto de RedPitaya no expone su nivel y \textbf{descarta en silencio si se
     pushea estando lleno}. Si aun así el FIFO desborda, queda un \emph{sticky}
     \codigo{err\_fifo\_ovf}.
 \end{itemize}
@@ -628,7 +628,7 @@ anillo en \codigo{RUNNING} todo flanco queda contado:
 \codigo{EV\_CNT + DROP\_BUSY + DROP\_FULL} = \emph{triggers}.\label{f:osc-fsm-window}}
 \end{figure}
 
-Mientras que en la Fig.~\ref{f:osc-panorama-window} podemos identificar:
+En la Fig.~\ref{f:osc-panorama-window} podemos identificar:
 \begin{enumerate}
   \item \textbf{Flanco y decisión} (amarillo):
   \begin{enumerate}

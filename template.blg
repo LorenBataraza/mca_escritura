@@ -1,209 +1,181 @@
 [0] Config.pm:306> INFO - This is Biber 2.18
 [0] Config.pm:309> INFO - Logfile is 'template.blg'
-[44] biber:340> INFO - === Mon Nov 23, 2026, 13:46:44
-[52] Biber.pm:418> INFO - Reading 'template.bcf'
-[95] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[95] Biber.pm:978> INFO - Found 0 citekeys in bib section 1
-[95] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[95] Biber.pm:978> INFO - Found 0 citekeys in bib section 2
-[95] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[95] Biber.pm:978> INFO - Found 0 citekeys in bib section 3
-[95] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[95] Biber.pm:978> INFO - Found 0 citekeys in bib section 4
-[95] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[95] Biber.pm:978> INFO - Found 0 citekeys in bib section 5
-[95] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[95] Biber.pm:978> INFO - Found 3 citekeys in bib section 6
-[95] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[96] Biber.pm:978> INFO - Found 13 citekeys in bib section 7
-[96] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[97] Biber.pm:978> INFO - Found 33 citekeys in bib section 8
+[44] biber:340> INFO - === Mon Nov 23, 2026, 15:34:20
+[53] Biber.pm:418> INFO - Reading 'template.bcf'
 [97] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[97] Biber.pm:978> INFO - Found 22 citekeys in bib section 9
+[97] Biber.pm:978> INFO - Found 0 citekeys in bib section 1
+[97] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[97] Biber.pm:978> INFO - Found 0 citekeys in bib section 2
+[97] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[97] Biber.pm:978> INFO - Found 0 citekeys in bib section 3
+[97] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[97] Biber.pm:978> INFO - Found 0 citekeys in bib section 4
+[97] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[98] Biber.pm:978> INFO - Found 0 citekeys in bib section 5
 [98] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[98] Biber.pm:978> INFO - Found 7 citekeys in bib section 10
+[98] Biber.pm:978> INFO - Found 3 citekeys in bib section 6
 [98] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[98] Biber.pm:978> INFO - Found 5 citekeys in bib section 11
+[98] Biber.pm:978> INFO - Found 13 citekeys in bib section 7
 [98] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[98] Biber.pm:978> INFO - Found 0 citekeys in bib section 12
-[98] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[98] Biber.pm:978> INFO - Found 5 citekeys in bib section 13
-[98] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[98] Biber.pm:978> INFO - Found 7 citekeys in bib section 14
-[98] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[98] Biber.pm:978> INFO - Found 7 citekeys in bib section 15
-[98] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[98] Biber.pm:978> INFO - Found 16 citekeys in bib section 16
-[98] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[99] Biber.pm:978> INFO - Found 0 citekeys in bib section 17
-[99] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[99] Biber.pm:978> INFO - Found 0 citekeys in bib section 18
-[99] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[99] Biber.pm:978> INFO - Found 1 citekeys in bib section 19
-[99] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[99] Biber.pm:978> INFO - Found 7 citekeys in bib section 20
-[99] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[99] Biber.pm:978> INFO - Found 7 citekeys in bib section 21
-[99] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[99] Biber.pm:978> INFO - Found 0 citekeys in bib section 22
-[99] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[99] Biber.pm:978> INFO - Found 0 citekeys in bib section 23
-[99] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[99] Biber.pm:978> INFO - Found 0 citekeys in bib section 24
-[99] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
-[173] Biber.pm:4401> INFO - Processing section 6
-[180] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 6
-[183] bibtex.pm:1713> INFO - LaTeX decoding ...
-[219] bibtex.pm:1518> INFO - Found BibTeX data source 'mibib.bib'
-[227] Biber.pm:1669> INFO - Datamodel validation starting
-[227] Biber.pm:1718> INFO - Datamodel validation complete
-[232] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[232] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[232] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
-[236] Biber.pm:4401> INFO - Processing section 7
-[236] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 7
-[275] Biber.pm:1669> INFO - Datamodel validation starting
-[276] Biber.pm:1718> INFO - Datamodel validation complete
-[283] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[283] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[283] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
-[287] Biber.pm:4401> INFO - Processing section 8
-[287] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 8
-[342] Biber.pm:1669> INFO - Datamodel validation starting
-[344] Biber.pm:1718> INFO - Datamodel validation complete
-[357] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[357] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[357] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
-[366] Biber.pm:4401> INFO - Processing section 9
-[366] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 9
-[415] Biber.pm:1669> INFO - Datamodel validation starting
-[416] Biber.pm:1718> INFO - Datamodel validation complete
-[426] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[426] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[426] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
-[432] Biber.pm:4401> INFO - Processing section 10
-[433] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 10
-[445] Biber.pm:1669> INFO - Datamodel validation starting
-[446] Biber.pm:1718> INFO - Datamodel validation complete
-[452] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[452] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[452] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
-[454] Biber.pm:4401> INFO - Processing section 11
-[454] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 11
-[464] Biber.pm:1669> INFO - Datamodel validation starting
-[464] Biber.pm:1718> INFO - Datamodel validation complete
-[469] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[469] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[469] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
-[471] Biber.pm:4401> INFO - Processing section 13
-[472] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 13
-[483] Biber.pm:1669> INFO - Datamodel validation starting
-[484] Biber.pm:1718> INFO - Datamodel validation complete
-[489] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[489] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[489] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
-[491] Biber.pm:4401> INFO - Processing section 14
-[491] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 14
-[503] Biber.pm:1669> INFO - Datamodel validation starting
-[503] Biber.pm:1718> INFO - Datamodel validation complete
-[509] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[509] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[509] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
-[512] Biber.pm:4401> INFO - Processing section 15
-[512] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 15
-[530] Biber.pm:1669> INFO - Datamodel validation starting
-[531] Biber.pm:1718> INFO - Datamodel validation complete
-[536] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[536] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[536] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
-[539] Biber.pm:4401> INFO - Processing section 16
-[539] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 16
+[99] Biber.pm:978> INFO - Found 33 citekeys in bib section 8
+[100] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[100] Biber.pm:978> INFO - Found 22 citekeys in bib section 9
+[100] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[100] Biber.pm:978> INFO - Found 7 citekeys in bib section 10
+[100] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[100] Biber.pm:978> INFO - Found 6 citekeys in bib section 11
+[100] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[100] Biber.pm:978> INFO - Found 5 citekeys in bib section 12
+[100] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[100] Biber.pm:978> INFO - Found 7 citekeys in bib section 13
+[100] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[100] Biber.pm:978> INFO - Found 0 citekeys in bib section 14
+[100] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[101] Biber.pm:978> INFO - Found 16 citekeys in bib section 15
+[101] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[101] Biber.pm:978> INFO - Found 0 citekeys in bib section 16
+[101] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[101] Biber.pm:978> INFO - Found 0 citekeys in bib section 17
+[101] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[101] Biber.pm:978> INFO - Found 1 citekeys in bib section 18
+[101] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[101] Biber.pm:978> INFO - Found 7 citekeys in bib section 19
+[101] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[101] Biber.pm:978> INFO - Found 8 citekeys in bib section 20
+[101] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[101] Biber.pm:978> INFO - Found 1 citekeys in bib section 21
+[101] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[101] Biber.pm:978> INFO - Found 0 citekeys in bib section 22
+[101] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[101] Biber.pm:978> INFO - Found 7 citekeys in bib section 23
+[101] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[101] Biber.pm:978> INFO - Found 0 citekeys in bib section 24
+[101] Biber.pm:978> INFO - Found 0 citekeys in bib section 0
+[181] Biber.pm:4401> INFO - Processing section 6
+[187] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 6
+[190] bibtex.pm:1713> INFO - LaTeX decoding ...
+[231] bibtex.pm:1518> INFO - Found BibTeX data source 'mibib.bib'
+[255] Biber.pm:1669> INFO - Datamodel validation starting
+[256] Biber.pm:1718> INFO - Datamodel validation complete
+[260] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[260] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[260] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
+[264] Biber.pm:4401> INFO - Processing section 7
+[264] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 7
+[291] Biber.pm:1669> INFO - Datamodel validation starting
+[292] Biber.pm:1718> INFO - Datamodel validation complete
+[300] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[300] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[300] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
+[304] Biber.pm:4401> INFO - Processing section 8
+[305] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 8
+[364] Biber.pm:1669> INFO - Datamodel validation starting
+[366] Biber.pm:1718> INFO - Datamodel validation complete
+[378] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[378] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[379] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
+[387] Biber.pm:4401> INFO - Processing section 9
+[387] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 9
+[434] Biber.pm:1669> INFO - Datamodel validation starting
+[436] Biber.pm:1718> INFO - Datamodel validation complete
+[446] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[446] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[446] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
+[453] Biber.pm:4401> INFO - Processing section 10
+[453] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 10
+[466] Biber.pm:1669> INFO - Datamodel validation starting
+[467] Biber.pm:1718> INFO - Datamodel validation complete
+[473] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[473] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[473] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
+[475] Biber.pm:4401> INFO - Processing section 11
+[475] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 11
+[485] Biber.pm:1669> INFO - Datamodel validation starting
+[486] Biber.pm:1718> INFO - Datamodel validation complete
+[491] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[491] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[491] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
+[494] Biber.pm:4401> INFO - Processing section 12
+[494] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 12
+[505] Biber.pm:1669> INFO - Datamodel validation starting
+[506] Biber.pm:1718> INFO - Datamodel validation complete
+[511] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[511] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[511] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
+[513] Biber.pm:4401> INFO - Processing section 13
+[513] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 13
+[527] Biber.pm:1669> INFO - Datamodel validation starting
+[527] Biber.pm:1718> INFO - Datamodel validation complete
+[534] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[534] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[534] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
+[536] Biber.pm:4401> INFO - Processing section 15
+[536] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 15
 [562] Biber.pm:1669> INFO - Datamodel validation starting
 [563] Biber.pm:1718> INFO - Datamodel validation complete
-[572] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[572] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[572] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
-[576] Biber.pm:4401> INFO - Processing section 19
-[576] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 19
-[579] Biber.pm:1669> INFO - Datamodel validation starting
+[571] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[571] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[571] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
+[576] Biber.pm:4401> INFO - Processing section 18
+[576] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 18
+[578] Biber.pm:1669> INFO - Datamodel validation starting
 [579] Biber.pm:1718> INFO - Datamodel validation complete
-[583] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
 [583] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[583] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
 [583] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
-[584] Biber.pm:4401> INFO - Processing section 20
-[584] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 20
-[597] Biber.pm:1669> INFO - Datamodel validation starting
-[598] Biber.pm:1718> INFO - Datamodel validation complete
-[604] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[604] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[604] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
-[607] Biber.pm:4401> INFO - Processing section 21
-[607] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 21
-[621] Biber.pm:1669> INFO - Datamodel validation starting
-[621] Biber.pm:1718> INFO - Datamodel validation complete
-[627] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[627] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[627] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
-[629] bbl.pm:654> INFO - Writing 'template.bbl' with encoding 'UTF-8'
-[664] bbl.pm:757> INFO - Output to template.bbl
-[664] Biber.pm:130> WARN - Datamodel: Entry 'RepoReleases' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaQuickStart' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'DeminMCPHA' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'AmptekDPPMCA' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaDocs' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'STM32F407' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'TMS320F2837xD' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaDocs' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'UG984' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'DS083' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'UG200' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'UG585' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'DS190' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'UG474' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'UG473' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'UG479' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'UG472' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'UG471' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'UG480' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'AMBAAXI' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaFPGA' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'PG059' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'DDI0388' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'DDI0406C' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'DDI0407' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'DebianArmHF' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'LinuxMMU' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[664] Biber.pm:130> WARN - Datamodel: Entry 'LTC2145' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaFastIn' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaSchematics' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaCalib' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'DS187' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'AMBAAXI' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'UG585' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaFPGA' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'DDI0406C' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaFPGA' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaFPGA' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'AMBAAXI' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaFPGA' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaDocs' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'UG585' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'AMBAAXI' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'UG472' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'LEGENDHDF5' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'ARN_AR1011' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'IAEA_SSG22' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'IEC61226' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'IEC62138' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'IEC62755' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'IEC61010-1' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'IEC61326-1' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'UG474' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaSchematics' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaDocs' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaFastIn' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaFastOut' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'CAENWP2081' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'UG474' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaFPGA' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
-[665] Biber.pm:132> INFO - WARNINGS: 60
+[584] Biber.pm:4401> INFO - Processing section 19
+[584] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 19
+[599] Biber.pm:1669> INFO - Datamodel validation starting
+[599] Biber.pm:1718> INFO - Datamodel validation complete
+[605] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[605] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[606] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
+[608] Biber.pm:4401> INFO - Processing section 20
+[609] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 20
+[624] Biber.pm:1669> INFO - Datamodel validation starting
+[625] Biber.pm:1718> INFO - Datamodel validation complete
+[631] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[631] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[631] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
+[633] Biber.pm:4401> INFO - Processing section 21
+[634] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 21
+[636] Biber.pm:1669> INFO - Datamodel validation starting
+[637] Biber.pm:1718> INFO - Datamodel validation complete
+[640] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[641] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[641] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
+[642] Biber.pm:4401> INFO - Processing section 23
+[642] Biber.pm:4592> INFO - Looking for bibtex file 'mibib.bib' for section 23
+[661] Biber.pm:1669> INFO - Datamodel validation starting
+[661] Biber.pm:1718> INFO - Datamodel validation complete
+[668] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[668] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[668] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
+[672] bbl.pm:654> INFO - Writing 'template.bbl' with encoding 'UTF-8'
+[707] bbl.pm:757> INFO - Output to template.bbl
+[707] Biber.pm:130> WARN - Datamodel: Entry 'RepoReleases' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[707] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaQuickStart' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[707] Biber.pm:130> WARN - Datamodel: Entry 'DeminMCPHA' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[707] Biber.pm:130> WARN - Datamodel: Entry 'AmptekDPPMCA' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[707] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaDocs' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[707] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaDocs' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[707] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaFPGA' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[707] Biber.pm:130> WARN - Datamodel: Entry 'DebianArmHF' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[707] Biber.pm:130> WARN - Datamodel: Entry 'LinuxMMU' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[708] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaFastIn' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[708] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaSchematics' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[708] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaCalib' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[708] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaFPGA' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[708] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaFPGA' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[708] Biber.pm:130> WARN - Datamodel: Entry 'RepoMultitrigger' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[708] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaFPGA' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[708] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaFPGA' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[708] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaDocs' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[708] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaSchematics' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[708] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaDocs' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[708] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaFastIn' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[708] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaFastOut' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[708] Biber.pm:130> WARN - Datamodel: Entry 'RepoMultitrigger' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[708] Biber.pm:130> WARN - Datamodel: Entry 'RedPitayaFPGA' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[708] Biber.pm:130> WARN - Datamodel: Entry 'LEGENDHDF5' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined
+[708] Biber.pm:132> INFO - WARNINGS: 25

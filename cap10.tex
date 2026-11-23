@@ -1,28 +1,29 @@
 % Origen: Secciones/PI - Software.md
-% Su sección "Apéndice" está en apend5.tex (Complementos del software).
+% Va como apéndice; al final incluye lo que antes era apend5.tex (Complementos del software).
 \chapter{Software}
 \label{C:sw}
+\label{C:ap-sw}
 
-% Figuras de ESTE capítulo + las compartidas. Siempre al principio del archivo.
-\graphicspath{{figs/cap10/}{figs/comunes/}}
+% Figuras de ESTE apéndice + las compartidas. Siempre al principio del archivo.
+\graphicspath{{figs/cap10/}{figs/apendices/}{figs/comunes/}}
 
 \begin{destacado}
-En este capítulo se desarrolla el software que corre en el procesador de la
+En este apéndice se desarrolla el software que corre en el procesador de la
 placa y en la PC. (1) Partimos de la diferenciación primordial entre el espacio
 del \emph{kernel} y el espacio de usuario, y de la elección del sistema operativo: como
-los requerimientos de latencia quedaron en el PL, usamos el Linux de la
+los requerimientos de latencia quedaron en la PL, usamos el Linux de la
 distribución de Red Pitaya, y todo nuestro software corre en el espacio de
 usuario, sobre \ruta{/dev/mem}, evitando los modos de falla del bus. (2)
 Presentamos la API en seis capas, desde el mapeo crudo de la memoria hasta las
 aplicaciones, y su núcleo en C, \codigo{libmca}, con un \emph{handle} por cada bloque
-del PL y un \emph{binding} a Python. (3) Describimos cómo se guardan las adquisiciones:
+de la PL y un \emph{binding} a Python. (3) Describimos cómo se guardan las adquisiciones:
 los espectros del MCA en \ruta{.csv}, N42.42 o \ruta{.npz}, y las trazas del
 osciloscopio en archivos de un \emph{batch} cada uno, que la sesión de captura escribe
 con dos hilos, un lector y un escritor, que se pasan un \emph{pool} de \emph{batches}. (4)
 Presentamos el protocolo de red entre la placa y la PC, y el modo de exportación
-del ring, en el que la placa manda los eventos por TCP y la PC arma los
+del \emph{ring}, en el que la placa manda los eventos por TCP y la PC arma los
 archivos. (5) Por último, medimos el costo de las llamadas a \codigo{libmca} y
-la escritura persistente de trazas: por red pasan entre 2.2 y 3.5 veces más
+la escritura persistente de trazas: por red pasan entre 2,2 y 3,5 veces más
 eventos que a la SD de la placa.
 \end{destacado}
 
@@ -33,10 +34,10 @@ eventos que a la SD de la placa.
 Nuestro sistema cuenta con múltiples capas de SW; mientras más capas tenemos,
 generalmente tenemos más acceso a abstracciones que vuelven el desarrollo más
 encarable. La diferencia fundamental está en subdividirlo en dos grandes
-secciones: el \textbf{espacio del \emph{kernel}} del sistema operativo (OS) y el
+secciones: el \textbf{espacio del \emph{kernel}} del sistema operativo (SO) y el
 \textbf{espacio de usuario}.
 
-La diferencia fundamental se encuentra en el \textbf{nivel de privilegio de
+Esa diferencia se encuentra en el \textbf{nivel de privilegio de
 ejecución}: dentro de ARMv7-A tenemos dos, privilegiado (PL1) y no privilegiado
 (PL0). En la Tabla~\ref{t:sw-kernel-usuario} se muestran las diferencias más
 importantes.
@@ -105,8 +106,8 @@ de sistemas operativos y su posición en el espectro.
 
 \begin{figure}[H]
 \centering\includegraphics{cap10_espectro_smp_amp}
-\caption[Ejemplos de OS en el espectro SMP-AMP]{%
-Ejemplos de OS y posición en el espectro SMP-AMP. Standalone representa el
+\caption[Ejemplos de SO en el espectro SMP-AMP]{%
+Ejemplos de SO y posición en el espectro SMP-AMP. Standalone representa el
 punto más extremo en \emph{real-time}; RTOS es un SO orientado a aplicaciones
 \emph{real-time}.\label{f:sw-espectro-smp-amp}}
 \end{figure}
@@ -114,7 +115,7 @@ punto más extremo en \emph{real-time}; RTOS es un SO orientado a aplicaciones
 \subsection{Elección del sistema operativo}
 \label{S:sw-eleccion-os}
 
-La más importante es nuestro requerimiento en tiempo de respuesta del OS, en
+La más importante es nuestro requerimiento en tiempo de respuesta del SO, en
 particular la \textbf{latencia de acceso en el peor caso}. Esto es esencial para
 aplicaciones que requieren tiempos de respuesta mínimos, como accionadores
 mecánicos. Las opciones principales de sistemas operativos se presentan en la
@@ -122,8 +123,8 @@ Tabla~\ref{t:sw-alternativas-os}.
 
 \begin{table}[H]
 \centering
-\caption[Comparación de OS posibles en latencia]{%
-Tabla comparativa de OS posibles en latencia.\label{t:sw-alternativas-os}}
+\caption[Comparación de SO posibles en latencia]{%
+Tabla comparativa de SO posibles en latencia.\label{t:sw-alternativas-os}}
 \small
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.17\textwidth}%
   |>{\raggedright\arraybackslash}p{0.15\textwidth}%
@@ -143,10 +144,10 @@ Tabla comparativa de OS posibles en latencia.\label{t:sw-alternativas-os}}
 \end{tabularx}
 \end{table}
 
-Todos los requerimientos sensibles en latencia se transfirieron al PL, así que
+Todos los requerimientos sensibles en latencia se transfirieron a la PL, así que
 la opción de \emph{high-speed performance} es más que ideal como punto de
 partida. En nuestro caso utilizamos el sistema operativo desarrollado por el
-equipo de Pitaya. Esto no es del todo un requerimiento obligatorio, pero nos
+equipo de RedPitaya. Esto no es del todo un requerimiento obligatorio, pero nos
 provee un conjunto de facilidades realmente considerables, con modificaciones al
 \emph{kernel mainline} (este es el base) y con adiciones sobre la capa de
 usuario.
@@ -171,14 +172,14 @@ y no necesariamente incluye los \emph{drivers} particulares del HW presente. Per
 compilar el sistema operativo (es un programa en C compilable como cualquier
 otro) todos estos elementos se traducen en código máquina para el \emph{host} deseado.
 
-\subsection{Funcionalidades de software presente}
+\subsection{Funcionalidades de software presentes}
 \label{S:sw-funcionalidades}
 
 En la Tabla~\ref{t:sw-facilidades} se presentan las funcionalidades presentes y
 utilizadas en este proyecto. Estas son extremadamente útiles porque ya plantean
 la base de cómo manejar el SW desde la capa de usuario, mucho más fácil para el
-desarrollo acelerado. Es más, los primeros seis meses de trabajo con este
-proyecto se estuvo trabajando con la modificación de un \emph{bootloader} para el
+desarrollo acelerado. Es más, durante los primeros seis meses de este
+proyecto se trabajó en la modificación de un \emph{bootloader} para el
 proyecto de Pavel Demin, que utiliza una distribución del tipo Alpine,
 especializada para embebidos. Todo ese esfuerzo fue infructuoso, pero nos enseñó
 lo importante que es tener estas funcionalidades elementales funcionando de
@@ -186,15 +187,15 @@ forma correcta para comenzar un desarrollo mínimo.
 
 \begin{table}[H]
 \centering
-\caption[Facilidades del SW que provee la distribución de Pitaya]{%
-Tabla de facilidades del SW que provee la distribución de Pitaya de
+\caption[Facilidades del SW que provee la distribución de RedPitaya]{%
+Tabla de facilidades del SW que provee la distribución de RedPitaya de
 antemano.\label{t:sw-facilidades}}
 \small
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.27\textwidth}%
   |>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{0.15\textwidth}|}
 \hline \encabezado \textbf{Facilidad} & \textbf{Beneficio} &
   \textbf{Quién la provee} \\ \hline
-\textbf{\ruta{/dev/mem} + \codigo{mmap}} & acceder al PL sin escribir un \emph{driver}
+\textbf{\ruta{/dev/mem} + \codigo{mmap}} & acceder a la PL sin escribir un \emph{driver}
   particular & \emph{kernel} (\emph{mainline}) \\ \hline
 Ubuntu ARM + Python 3.10 + NumPy & un entorno de trabajo completo en la placa,
   sin compilar nada & distribución \\ \hline
@@ -219,7 +220,7 @@ Las regiones de DDR ya reservadas & \codigo{buffer@1000000} (2~MB, para la
 \end{table}
 
 A continuación describimos algunos errores encontrados a nivel de HW
-(especialmente en el proyecto de Pitaya) y cómo los evitamos.
+(especialmente en el proyecto de RedPitaya) y cómo los evitamos.
 
 \subsection{Modos de fallo en el HW implementado}
 \label{S:sw-modos-fallo}
@@ -229,13 +230,13 @@ propio, sino que hacemos uso del \emph{device} \ruta{/dev/mem}, que representa l
 memoria física, dentro del espacio de direcciones del proceso.
 \begin{enumerate}
   \item \textbf{Lecturas masivas}: no se limita el tipo de operaciones que puede
-    hacer el PS sobre la región de memoria del PL; en especial, el modelo de
+    hacer el PS sobre la región de memoria de la PL; en especial, el modelo de
     memoria \emph{Device} únicamente habla del reordenamiento y de las propiedades de
     cacheo. No se impide que el compilador emita instrucciones de acceso
     múltiple (\codigo{LDM}/\codigo{STM}) o de NEON. Muchos de los \emph{drivers} de
     Linux traducen estas instrucciones en transferencias de alto \emph{throughput}, con
-    ráfagas o accesos anchos, las cuales nuestro \emph{slave} en el PL no acepta. Este
-    rechazo es un tipo de bus \emph{fault} presentado internamente con un código de
+    ráfagas o accesos anchos, las cuales nuestro \emph{slave} en la PL no acepta. Este
+    rechazo es un tipo de \emph{bus fault} presentado internamente con un código de
     \emph{external abort}, escalando hasta un error fatal que \textbf{reinicia
     el sistema}.
 \end{enumerate}
@@ -253,10 +254,10 @@ identificados.
 Esta es la librería con la que podemos acceder a diversos tipos de
 \textbf{registros, algoritmos y funcionalidades} en SW en el espacio de usuario
 (no del \emph{kernel}). Para esta utilizamos una estructura extremadamente similar a la
-que emplea el proyecto original de Pitaya. En la Fig.~\ref{f:sw-capas} se
+que emplea el proyecto original de RedPitaya. En la Fig.~\ref{f:sw-capas} se
 presentan los 6 niveles de la \textbf{jerarquía de dependencias} de este
 software, en el sentido de que las capas superiores utilizan las capas
-inferiores. La misma consta de un \emph{driver} escrito en C++ en la capa de usuario
+inferiores. La misma consta de un \emph{driver} escrito en C en la capa de usuario
 (capas 1--4, en color rojo), mientras que los bloques azules son
 \emph{bindings} a Python.
 \begin{enumerate}
@@ -267,7 +268,7 @@ inferiores. La misma consta de un \emph{driver} escrito en C++ en la capa de usu
     \item Se definen transacciones de 32 bits (el ancho de bus presente) con las
       funciones \codigo{w32} / \codigo{r32} / \codigo{\_read\_words}, en Python
       mediante la librería \codigo{ctypes}, para las regiones de memoria
-      asociadas al bus de Pitaya. Gracias a esto no tenemos el modo de falla por
+      asociadas al bus de RedPitaya. Gracias a esto no tenemos el modo de falla por
       ancho de palabras explicado en la Sec.~\ref{S:sw-modos-fallo}.
     \item Para otras direcciones se pueden implementar accesos más anchos. En
       este proyecto no se lo implementó.
@@ -275,7 +276,7 @@ inferiores. La misma consta de un \emph{driver} escrito en C++ en la capa de usu
   \item \textbf{\emph{Handlers}}: son clases \textbf{compartidas por todo el sistema},
     generalmente del tipo \emph{singleton}. Debido a que son compartidas por todo el
     sistema, generalmente se las asocia al sistema operativo (esto sería un
-    \emph{driver} en la capa de OS). Sin embargo, podemos manipularlas en el espacio de
+    \emph{driver} en la capa de SO). Sin embargo, podemos manipularlas en el espacio de
     usuario con cualquier lenguaje de programación que deseemos: podríamos hacer
     una clase en Python equivalente para manipular el \emph{handler} descrito en
     nuestra librería en C o, mejor aún, utilizar el código fuente de la
@@ -308,20 +309,19 @@ procesos que operan sobre la misma región de memoria compartida (el rango de
 direcciones de un módulo) sin un esquema de contención previamente acordado. Un
 primer acercamiento podría ser configurar que la región pueda ser mapeada una
 única vez. Esto no resulta beneficioso porque sería una denegación total a un
-proceso, de forma que resultaría en un error en tiempo de compilación, lo cual
+proceso, de forma que resultaría en un error en tiempo de ejecución, lo cual
 no es deseado. La otra es darle la capacidad de acceder a ese recurso, pero
 mediante un objeto compartido y único que se encargue de implementar la
 contención y el reparto del servicio: este patrón es el \emph{singleton}.
 
 La ventaja de dividirlo por secciones en estos seis niveles es que podemos
 realizar \emph{tests} para cada una de las capas individuales (\emph{unit testing}).
-Para el funcionamiento correcto de la API se necesita cargado el \emph{bitstream} del
+Para el funcionamiento correcto de la API se necesita tener cargado el \emph{bitstream} del
 HW correcto, el que diseñamos; esto incluye la versión de los módulos
-individuales y la del \emph{top} de integración. En la Sec.~\ref{S:ap-sw-bitstream}
-se presentan más detalles.
+individuales y la del \emph{top} de integración.
 
 %==============================================================================
-\section{\emph{Driver} en C++: \texorpdfstring{\texttt{libmca}}{libmca}}
+\section{\emph{Driver} en C: \texorpdfstring{\texttt{libmca}}{libmca}}
 \label{S:sw-libmca}
 
 Se llama \codigo{libmca}, pero cuenta con \emph{handlers} para todos los submódulos
@@ -331,7 +331,7 @@ planteamos:
 \begin{itemize}
   \item Nivel 1, el mapeo: se abre \ruta{/dev/mem} y se mapea la región física
     de un \emph{slot} con \codigo{mmap}. El único archivo que accede a los registros
-    del PL es \ruta{bus_devmem.c}, y se comprueba al compilar que no emita
+    de la PL es \ruta{bus_devmem.c}, y se comprueba al compilar que no emita
     instrucciones de acceso múltiple.
   \item Nivel 2, el acceso por palabras:
   \begin{itemize}
@@ -348,7 +348,7 @@ planteamos:
       \item Verifica la alineación y el rango de cada acceso antes de llegar al
         \emph{backend}.
     \end{itemize}
-    \item \codigo{mca\_mem}: el acceso a la región de DDR que escribe el ring.
+    \item \codigo{mca\_mem}: el acceso a la región de DDR que escribe el \emph{ring}.
       Es un tipo aparte porque no tiene la restricción del bus: se copia de a
       bloques, y por eso es rápido. Se mapea sin caché, porque los puertos HP no
       son coherentes con la caché.
@@ -422,13 +422,12 @@ Sec.~\ref{S:ap-sw-estructuras}.
 
 Tenemos un ciclo de software que \textbf{abstrae} la implementación específica
 del flujo de adquisición. En el módulo osciloscopio, por ejemplo, el flujo es el
-mismo con las dos interfaces de comunicación, la BRAM y el ring en DDR, aunque
+mismo con las dos interfaces de comunicación, la BRAM y el \emph{ring} en DDR, aunque
 cada una tiene su propio mecanismo de transferencia. La API se encarga de los
 pasos que dependen de la implementación; estos se describen en la
-Sec.~\ref{S:osc-flujo-basico} (BRAM), la Sec.~\ref{S:osc-uso-anillo} (ring) y
+Sec.~\ref{S:osc-flujo-basico} (BRAM), la Sec.~\ref{S:osc-uso-anillo} (\emph{ring}) y
 la
-Sec.~\refpend{S:implmca-flujo}{Implementación del MCA: flujo de utilización del
-módulo} para cada módulo.
+Sec.~\ref{S:implmca-flujo} para cada módulo.
 
 Hay que ver qué pasa con una traza del osciloscopio después de leerla. En la
 Fig.~\ref{f:sw-lazos}(a) y (b), C la escribe directamente en la fila siguiente
@@ -445,7 +444,7 @@ Lazos de adquisición por software. (a) El osciloscopio por la BRAM: Python llam
 a \codigo{arm()} una vez, a \codigo{read\_batch()} una vez por \emph{batch} y a
 \codigo{close()} al final. Adentro de \codigo{read\_batch}, \codigo{libmca} lee
 un evento por vuelta, en C y sin el GIL, y re-arma el osciloscopio después de
-cada uno. (b) El osciloscopio por el ring: el mismo lazo de Python; adentro, un
+cada uno. (b) El osciloscopio por el \emph{ring}: el mismo lazo de Python; adentro, un
 bloque de \emph{slots} por vuelta, y nadie re-arma desde el PS.\label{f:sw-lazos}}
 \end{figure}
 
@@ -485,7 +484,7 @@ evento} y \textbf{cómo se coordina la corrida}:
   \begin{itemize}
     \item Arma el esquema del evento a partir de la fuente y los anotadores;
     \item Reserva un \emph{pool} de lotes (\codigo{EventBatch}) según un presupuesto de
-      RAM, preasignados por el OS;
+      RAM, preasignados por el SO;
     \item Lanza dos hilos: el lector (\codigo{ReaderThread}), que llena lotes
       desde la fuente, y el escritor (\codigo{ChunkWriter}), que guarda en disco
       cada lote lleno.
@@ -537,7 +536,7 @@ A continuación describimos los \textbf{formatos de guardado} de cada módulo.
   \item Módulo \textbf{OSC}:
   \begin{itemize}
     \item Guardamos un archivo por \emph{batch}: 4096 eventos por defecto, unos
-      0.6~MB con dos canales de 32 muestras. Cada archivo se escribe con un
+      0,6~MB con dos canales de 32 muestras. Cada archivo se escribe con un
       nombre temporal y se renombra al terminar (\ruta{.tmp} +
       \codigo{os.replace}), así que todo archivo visible está completo. Al
       cerrar la corrida se escribe además un resumen,
@@ -616,7 +615,7 @@ cantidad de eventos que entran en un \emph{batch}; \codigo{n\_ch} es la cantidad
 canales que se adquieren en paralelo, y \codigo{samples}, la muestra dentro de
 la ventana. Las muestras se guardan como \codigo{int16}: son cuentas de un ADC
 de 14 bits, y en \codigo{float32} ocuparían el doble. Las columnas no son fijas:
-la fuente y cada annotator declaran las suyas, y el \emph{batch} se arma al arrancar la
+la fuente y cada \emph{annotator} declaran las suyas, y el \emph{batch} se arma al arrancar la
 corrida. Este esquema se presenta en la Fig.~\ref{f:sw-esquema-evento}. El
 \codigo{gap} es un \codigo{uint8} y satura en 255; por eso la cuenta exacta de
 descartes va en la \emph{metadata} de cada archivo. Los descartes del final de la
@@ -644,7 +643,7 @@ atómico~\cite{Kerrisk2010} porque los dos nombres están en el mismo sistema de
 archivos: otro programa ve el archivo completo o no lo ve. Por eso se puede
 copiar o analizar una corrida mientras anda, y \codigo{archivos\_de\_corrida}
 nunca devuelve un \ruta{.tmp}. Mientras tanto, \codigo{write()} vuelve cuando los
-datos están en el page \emph{cache} del \emph{kernel}, es decir en RAM; el \emph{kernel} los pasa a la
+datos están en el \emph{page cache} del \emph{kernel}, es decir en RAM; el \emph{kernel} los pasa a la
 tarjeta después. El escritor no fuerza ese paso con \codigo{fsync}. La garantía
 es entonces que ningún archivo visible está incompleto, no que sobreviva a un
 corte de luz~\cite{Pillai2014}. Cada 8 archivos, el escritor revisa el lugar
@@ -665,8 +664,8 @@ Metodología de guardado por \emph{chunks} \ruta{.npz} y resumen
 \subsubsection{Localización de guardado}
 \label{S:sw-localizacion}
 
-La microSD de la placa tiene 32~GB, pero la partición del sistema tiene 6.6~GB y
-quedan unos 1.4~GB libres. Más que el tamaño, limita la velocidad. La escritura
+La microSD de la placa tiene 32~GB, pero la partición del sistema tiene 6,6~GB y
+quedan unos 1,4~GB libres. Más que el tamaño, limita la velocidad. La escritura
 sostenida tiene un techo que no depende de la tarjeta: el controlador SD del
 Zynq trabaja en modo de 4 bits con un reloj de \qty{50}{\mega\hertz}, así que el
 bus llega a unos 25~MB/s. Lo que llega a la tarjeta en esta placa se presenta en
@@ -674,9 +673,9 @@ la Sec.~\ref{S:sw-bench-disco}. Para el MCA alcanza de sobra, porque un espectro
 de 8192 canales ocupa 32~kB. Para el osciloscopio depende de la ventana:
 \begin{itemize}
   \item \textbf{2 canales $\times$ 32 muestras} (la ventana por defecto): un
-    evento ocupa 146~B. A 50~kev/s son 7.3~MB/s, por debajo de ese techo.
+    evento ocupa 146~B. A 50~kev/s son 7,3~MB/s, por debajo de ese techo.
   \item \textbf{2 canales $\times$ 1024 muestras}: un evento ocupa 4~KiB. A
-    50~kev/s son 205~MB/s, ocho veces el techo del bus. Los 1.4~GB libres se
+    50~kev/s son 205~MB/s, ocho veces el techo del bus. Los 1,4~GB libres se
     llenarían en \qty{7}{\second}.
 \end{itemize}
 La alternativa es \textbf{escribir por la red}, en un sistema de archivos NFS
@@ -786,7 +785,7 @@ si se cayó un hilo o se llenó el disco.
 Al finalizar (\codigo{stop()}), apaga en el orden inverso, para que no quede
 ningún evento leído sin guardar:
 \begin{enumerate}
-  \item Con el ring, corta el estímulo con el hardware andando y espera, hasta
+  \item Con el \emph{ring}, corta el estímulo con el hardware andando y espera, hasta
     \qty{5}{\second}, a que el lector se lleve lo que quedó en la DDR.
   \item Para el lector. Al salir, el lector pone en \codigo{full\_q} el \emph{batch}
     que tenía a medias y después un centinela (\codigo{None}).
@@ -814,7 +813,7 @@ cada hilo se presenta en la Fig.~\ref{f:ap-sw-hilos-captura}.\label{f:sw-flujo-s
 
 En el nivel de aplicación el sistema se comunica mediante mensajes \textbf{JSON
 UTF-8 terminados en \codigo{\textbackslash n}}, seguidos opcionalmente de
-\codigo{nbytes} crudos, en la Fig.~\ref{f:sw-trama}.
+\codigo{nbytes} crudos, como se presenta en la Fig.~\ref{f:sw-trama}.
 
 \begin{figure}[H]
 \centering\includegraphics{cap10_trama}
@@ -841,7 +840,7 @@ Serialización de trama JSON mediante la clase \codigo{Channel} empleando
 \subsection{Modo de exportación de datos del ring}
 \label{S:sw-exportacion-ring}
 
-Los eventos del ring pueden llegar a un archivo por dos caminos, que se eligen
+Los eventos del \emph{ring} pueden llegar a un archivo por dos caminos, que se eligen
 con el argumento \codigo{destino} de \codigo{ring.iniciar}. El primero es el de
 la Sec.~\ref{S:sw-localizacion}: la sesión corre en la placa y escribe en una
 dirección \codigo{run\_dir}, que puede estar en la microSD o en un disco de la
@@ -857,11 +856,11 @@ nueva: en este modo la placa no corre la sesión.
 
 \begin{figure}[H]
 \centering\includegraphics{cap10_escritura_archivos_por_red}
-\caption[Escritura de los eventos del ring a archivos por red]{%
-La escritura de los eventos del ring a archivos por red. En la placa no corre la
+\caption[Escritura de los eventos del \emph{ring} a archivos por red]{%
+La escritura de los eventos del \emph{ring} a archivos por red. En la placa no corre la
 sesión: el hilo \codigo{ring-tx} llama a \codigo{osciloscope\_ring\_enviar}, que
 copia los \emph{slots} y los manda en bloques \codigo{RBLK} por un \emph{socket} de datos, y
-\codigo{RingSource} sólo configura el ring y el estímulo. En la PC,
+\codigo{RingSource} sólo configura el \emph{ring} y el estímulo. En la PC,
 \codigo{ring-rx} guarda el \emph{stream} tal cual en \ruta{ring_*.bin}, y
 \codigo{convertir()} lo pasa a los mismos \ruta{chunk_*.npz} con el \emph{pool} y el
 \codigo{ChunkWriter} de la sesión. El control va por el \emph{socket} del servidor (TCP
@@ -870,7 +869,9 @@ copia los \emph{slots} y los manda en bloques \codigo{RBLK} por un \emph{socket}
 
 Los datos y el control viajan por dos conexiones TCP distintas. El control usa
 el \emph{socket} del servidor (TCP :1001) y el protocolo JSON de la
-Sec.~\ref{S:sw-protocolo-red}. Después, la PC se conecta a ese puerto y recibe
+Sec.~\ref{S:sw-protocolo-red}. Los datos van por un segundo puerto, que la
+placa abre en uno libre al arrancar el \emph{ring} y devuelve en la respuesta de
+\codigo{ring.iniciar}; la PC se conecta a ese puerto de datos y recibe
 un \emph{stream} de bloques con un formato propio. Cada bloque tiene una cabecera de
 40~B (Tabla~\ref{t:sw-rblk}) y, detrás, \codigo{n} \emph{slots} tal como están en la
 DDR: la cabecera del \emph{slot} (32~B) y las muestras int16 de los dos canales,
@@ -926,13 +927,13 @@ Tabla comparativa de costo de llamada de operaciones.\label{t:sw-bench-libmca}}
 \begin{tabular}{|l|r|r|r|}
 \hline \encabezado \textbf{Operación} (\unit{\micro\second}) & \textbf{Python}
   & \textbf{\emph{binding}} & \textbf{C} \\ \hline
-leer un registro (\codigo{r32}) & 10.5 & 56.8 & 1.5 \\ \hline
-leer el umbral & 15.4 & 63.7 & 1.4 \\ \hline
-escribir el umbral & 27.7 & 52.1 & 1.6 \\ \hline
-identificar el bloque & 74.6 & 77.4 & 3.2 \\ \hline
-leer los contadores & 269 & 215 & 10.7 \\ \hline
-leer la configuración & 334 & 193 & 10.6 \\ \hline
-configurar & 252 & 280 & 9.4 \\ \hline
+leer un registro (\codigo{r32}) & 10,5 & 56,8 & 1,5 \\ \hline
+leer el umbral & 15,4 & 63,7 & 1,4 \\ \hline
+escribir el umbral & 27,7 & 52,1 & 1,6 \\ \hline
+identificar el bloque & 74,6 & 77,4 & 3,2 \\ \hline
+leer los contadores & 269 & 215 & 10,7 \\ \hline
+leer la configuración & 334 & 193 & 10,6 \\ \hline
+configurar & 252 & 280 & 9,4 \\ \hline
 leer el espectro (8192 canales) & 34\,264 & 1\,880 & 1\,700 \\ \hline
 \end{tabular}
 \end{table}
@@ -948,18 +949,18 @@ casi todo el resto es el tiempo del bus (\qty{0.2}{\micro\second} por palabra).
 \subsection{Guardado de archivos en disco}
 \label{S:sw-bench-disco}
 
-Medimos la escritura de archivos persistentes con el ring saturado, para trazas
+Medimos la escritura de archivos persistentes con el \emph{ring} saturado, para trazas
 de tres largos \codigo{pre+post}, por dos caminos: la sesión en la placa
 guardando en su SD, y por red, donde el servidor manda los \emph{slots} y un cliente en
 la PC arma los mismos \ruta{.npz}. En la SD, cada punto dura unos
 \qty{22}{\second} y cuenta el \codigo{sync} del final, así que mide lo que llega
-a la tarjeta y no al page \emph{cache}. Los resultados se presentan en la
+a la tarjeta y no al \emph{page cache}. Los resultados se presentan en la
 Fig.~\ref{f:sw-bench-red}: (a) en eventos por segundo y (b) en MB/s. La red pasa
-3.5, 3.3 y 2.2 veces más que la SD, en ese orden, de forma que concluimos que el
+3,5, 3,3 y 2,2 veces más que la SD, en ese orden, de forma que concluimos que el
 camino por red es significativamente más rápido, al costo de necesitar un
 cliente externo. Sin embargo, íbamos a necesitar este cliente externo
 igualmente, ya que la memoria secundaria de la placa se llenaría en cuestión de
-minutos: a 15~MB/s, los 1.4~GB libres duran un minuto y medio.
+minutos: a 15~MB/s, los 1,4~GB libres duran un minuto y medio.
 
 \begin{figure}[H]
 \centering\includegraphics{cap10_bench_sd_red}
@@ -969,7 +970,97 @@ logarítmica; la raya es el techo de TCP sólo para ese tamaño de evento. (b) E
 MB/s.\label{f:sw-bench-red}}
 \end{figure}
 
-% Bibliografía de este capítulo. Va al final del archivo, siempre.
+
+
+\section{Estructuras internas de \texorpdfstring{\texttt{libmca}}{libmca}}
+\label{S:ap-sw-estructuras}
+
+En la Tabla~\ref{t:ap-sw-estructuras} se nombran las estructuras internas de
+\codigo{libmca}.
+
+\begin{longtable}{|l|>{\raggedright\arraybackslash}p{0.39\textwidth}%
+  |>{\raggedright\arraybackslash}p{0.30\textwidth}|}
+\caption[Estructuras internas de \codigo{libmca}]{%
+Resumen breve de las estructuras internas utilizadas en este
+proyecto.\label{t:ap-sw-estructuras}} \\
+\hline \encabezado \textbf{Bloque} & \textbf{Estructura} &
+  \textbf{Funcionalidad} \\ \hline
+\endfirsthead
+\hline \encabezado \textbf{Bloque} & \textbf{Estructura} &
+  \textbf{Funcionalidad} \\ \hline
+\endhead
+común & \codigo{mca\_bloque} & base de todo \emph{handle}: el bus y el último error \\ \hline
+común & \codigo{mca\_reg\_t} & una fila del mapa de registros \\ \hline
+común & \codigo{mca\_field\_t} & una fila de la tabla de campos \\ \hline
+bus & \codigo{mca\_bus} & base de los \emph{backends} \\ \hline
+bus & \codigo{mca\_bus\_vt} & las funciones de un \emph{backend} \\ \hline
+bus & \codigo{devmem\_bus} & \emph{backend} de \codigo{/dev/mem} o de un fichero \\ \hline
+bus & \codigo{cb\_bus} & \emph{backend} por \emph{callbacks} \\ \hline
+bus & \codigo{mca\_bus\_ops} & las funciones que da quien abre por \emph{callbacks} \\ \hline
+DDR & \codigo{mca\_mem} & la región de DDR del \emph{ring} \\ \hline
+MCA & \codigo{mca\_h} & \emph{handle}; guarda la geometría leída al abrir \\ \hline
+MCA & \codigo{mca\_info\_t} & qué trae el \emph{bitstream} \\ \hline
+MCA & \codigo{mca\_config\_t} & toda la configuración \\ \hline
+MCA & \codigo{mca\_forma\_t} & una forma del banco de trapecios \\ \hline
+MCA & \codigo{mca\_counters\_t} & contadores y tiempos \\ \hline
+MCA & \codigo{mca\_last\_event\_t} & el último evento medido \\ \hline
+TOP & \codigo{integration\_h} & \emph{handle}, sin estado propio \\ \hline
+TOP & \codigo{integration\_info\_t} & versión y \emph{hash} del \emph{bitstream} \\ \hline
+TOP & \codigo{integration\_modules\_t} & qué módulos trae \\ \hline
+TOP & \codigo{integration\_slots\_t} & el \emph{slot} de cada módulo \\ \hline
+TOP & \codigo{integration\_caps\_t} & la geometría publicada \\ \hline
+TOP & \codigo{integration\_route\_t} & de dónde toma la señal un consumidor \\ \hline
+TOP & \codigo{integration\_status\_t} & el PLL y el \emph{reset} del ADC \\ \hline
+multitrigger & \codigo{multitrigger\_h} & \emph{handle}, sin estado propio \\ \hline
+multitrigger & \codigo{multitrigger\_shield\_t} & el \codigo{trigger\_shield} \\ \hline
+multitrigger & \codigo{multitrigger\_slope\_t} & el disparo por pendiente \\ \hline
+multitrigger & \codigo{multitrigger\_pz\_t} & el disparo con polo-cero \\ \hline
+multitrigger & \codigo{multitrigger\_status\_t} & el estado en vivo \\ \hline
+osciloscopio & \codigo{osciloscope\_h} & \emph{handle}; guarda la geometría \\ \hline
+osciloscopio & \codigo{osciloscope\_geometria\_t} & \codigo{RSZ}, \codigo{N\_CH}, \codigo{DW} y las aperturas \\ \hline
+osciloscopio & \codigo{osciloscope\_calib\_t} & la calibración en la PL \\ \hline
+osciloscopio & \codigo{osciloscope\_status\_t} & las FSM y los punteros \\ \hline
+osciloscopio & \codigo{osciloscope\_adc\_cal\_t} & la calibración de librp, de la EEPROM \\ \hline
+osciloscopio & \codigo{osc\_cal\_t} & esa calibración, lista para aplicar \\ \hline
+lazo de la BRAM & \codigo{osciloscope\_lote\_cfg\_t} & la configuración de la corrida \\ \hline
+lazo de la BRAM & \codigo{osciloscope\_lote\_estado\_t} & lo que sigue entre llamadas \\ \hline
+lazo de la BRAM & \codigo{osciloscope\_lote\_t} & las columnas del lote donde escribe C \\ \hline
+lazo de la BRAM & \codigo{osciloscope\_lote\_resultado\_t} & guardados y descartados; también la usa el \emph{ring} \\ \hline
+event\_ring & \codigo{osciloscope\_ring\_h} & \emph{handle}; guarda la DDR y un \emph{slot} \\ \hline
+event\_ring & \codigo{osciloscope\_ring\_cfg\_t} & la configuración de la corrida \\ \hline
+event\_ring & \codigo{osciloscope\_ring\_geometria\_t} & el \emph{slot} y el anillo, sin tocar el hardware \\ \hline
+event\_ring & \codigo{osciloscope\_ring\_estado\_t} & lo que sigue entre llamadas \\ \hline
+event\_ring & \codigo{osciloscope\_ring\_lote\_t} & las columnas del lote, más \codigo{ts\_hw} y \codigo{seq} \\ \hline
+event\_ring & \codigo{osciloscope\_ring\_contadores\_t} & los contadores del hardware \\ \hline
+event\_ring & \codigo{osciloscope\_ring\_medida\_t} & lo que acumula \codigo{medir} \\ \hline
+generadores & \codigo{gen\_disparos\_cfg\_t} & los registros del motor de disparos \\ \hline
+generadores & \codigo{gen\_estado\_t} & la cuenta y el estado de un generador \\ \hline
+generadores & \codigo{gen\_pulsos\_h} & \emph{handle}; guarda el bus de HK \\ \hline
+generadores & \codigo{gen\_pulsos\_cfg\_t} & toda la configuración de pulsos \\ \hline
+\end{longtable}
+
+\section{Detalle de los hilos de captura}
+\label{S:ap-sw-hilos}
+
+La Fig.~\ref{f:ap-sw-hilos-captura} es la Fig.~\ref{f:sw-flujo-sesion} con lo
+que pasa adentro de cada hilo: las llamadas a C, quién tiene el GIL en cada
+tramo, los mensajes a la PL por evento y el \ruta{.tmp} + \codigo{os.replace}
+de cada archivo.
+
+\begin{figure}[H]
+\centering\includegraphics{apE_hilos_captura}
+\caption[Detalle de los hilos de captura]{%
+Una corrida con \codigo{BramSource}, de \codigo{start()} a \codigo{stop()}, sin
+escala. El color sobre cada hilo dice qué corre y si tiene el GIL. El lector
+pasa casi todo el tiempo en C (rojo, sin el GIL) y vuelve a Python (azul) una
+vez por lote; el escritor pasa su tramo largo en el \codigo{write()} (gris,
+también sin el GIL). Por eso no se frenan: el escritor guarda $B_k$ mientras el
+lector ya llena $B_{k+1}$. Con \codigo{RingSource} el tramo de C es
+\codigo{osciloscope\_ring\_\allowbreak leer\_lote} y los mensajes a la PL son los del \emph{ring};
+el resto no cambia.\label{f:ap-sw-hilos-captura}}
+\end{figure}
+
+% Bibliografía de este apéndice. Va al final del archivo, siempre.
 \bibliografiacapitulo
 
 %%% Local Variables:

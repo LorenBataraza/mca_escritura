@@ -6,7 +6,7 @@
 \graphicspath{{figs/cap2/}{figs/comunes/}}
 
 \begin{destacado}
-En este capítulo se describe (1) por qué necesitamos un módulo de aceleración de
+En este capítulo se describen (1) por qué necesitamos un módulo de aceleración de
 hardware en vez de un microcontrolador, (2) qué plataformas de hardware
 programable existen, (3) la plataforma empleada, la Red Pitaya STEMlab 125-14, y
 la arquitectura de su SoC Zynq-7000, y (4) los periféricos de la placa.
@@ -197,9 +197,11 @@ Sus usos son diversos, pero generalmente ocupan los siguientes nichos:
   \end{itemize}
   \item Interfaz \textbf{directa con el mundo físico} (I/O):
   \begin{itemize}
-    \item Necesitamos requisitos de \emph{timing} mucho más ajustados que los que puede
+    \item Requiere un \emph{timing} mucho más ajustado que el que puede
       cumplir una CPU. Incluye:
-    \item Interfaz eléctrica del ADC.
+    \begin{itemize}
+      \item La interfaz eléctrica del ADC.
+    \end{itemize}
   \end{itemize}
   \item \textbf{Descarga de la CPU} (\emph{offload}): la CPU queda libre para
     configurar el hardware, leer los resultados, guardarlos y presentarlos.
@@ -216,20 +218,19 @@ Sus usos son diversos, pero generalmente ocupan los siguientes nichos:
 Las FPGA nacieron en la década de los 80~\cite{Trimberger2015} como herramientas
 que permiten la aceleración de hardware personalizada y a costo fijo bajo (entre
 los cientos y miles de USD), mientras que los ASIC (\emph{Application Specific
-Integrated Circuit}) cuestan entre 3-5 ordenes de magnitud más en su diseño y
+Integrated Circuit}) cuestan entre 3 y 5 órdenes de magnitud más en su diseño y
 producción.
 
 \begin{figure}[H]
 \centering\includegraphics{cap2_historia_plataformas}
 \caption[Línea de tiempo de las arquitecturas de HW programable]{%
-Linea de tiempo con las principales arquitecturas HW programable.
+Línea de tiempo con las principales arquitecturas de HW programable.
 \label{f:hw-historia}}
 \end{figure}
 
 En la Sec.~\ref{S:ap-hw-criterios} se encuentra una tabla exhaustiva de los
 criterios de elección de la plataforma de HW~\cite{Crockett2014}; las categorías
-principales son recursos computacionales, factores comerciales, facilidad diseño
-y desarrollo, características físicas del dispositivo, flexibilidad. En la
+principales son recursos computacionales, factores comerciales, facilidad de diseño y desarrollo, características físicas del dispositivo y flexibilidad. En la
 Fig.~\ref{f:hw-familias-fpgas}(a) se muestran algunas familias de plataformas y
 su aplicabilidad en los ejes capacidad del dispositivo (eje x) vs.\ la dificultad
 en el diseño y desarrollo (eje y). En la Fig.~\ref{f:hw-familias-fpgas}(b) se
@@ -261,7 +262,7 @@ presenta una breve descripción de la placa. El chip cuadrado del centro, debajo
 del disipador, es el SoC Zynq-7000: constituye el elemento central de
 procesamiento de la plataforma, y a su alrededor están el resto de los
 periféricos. Todos los modelos de Red Pitaya usan la misma familia de SoC,
-Zynq-7000, pero no los mismos conversores ni el mismo front-end analógico
+Zynq-7000, pero no los mismos conversores ni el mismo \emph{front-end} analógico
 (Tabla~\ref{t:hw-modelos-pitaya}).
 
 \begin{figure}[H]
@@ -295,22 +296,22 @@ SoC & Zynq 7010 & \textbf{Zynq 7010} & Zynq 7020 & Zynq 7020 & Zynq 7020
 RAM DDR3 & 256~MB & \textbf{512~MB} & 512~MB & 512~MB & 512~MB & 1~GB \\ \hline
 ADC & 2~$\times$ 10 bit & \textbf{2~$\times$ 14 bit} & 2~$\times$ 14 bit
   & \textbf{4~$\times$ 14 bit} & 2~$\times$ 16 bit & 2~$\times$ 12 bit \\ \hline
-Tasa ADC & 125~MS/s & \textbf{125~MS/s} & 125~MS/s & 125~MS/s & 122.88~MS/s
+Tasa ADC & 125~MS/s & \textbf{125~MS/s} & 125~MS/s & 125~MS/s & 122,88~MS/s
   & 250~MS/s \\ \hline
 Ancho de banda & DC--50~MHz & \textbf{DC--60~MHz} & DC--60~MHz & DC--60~MHz
   & 300~kHz--550~MHz (AC) & DC--60~MHz \\ \hline
 Rango de entrada & ±1~V / ±20~V & \textbf{±1~V / ±20~V} & ±1~V / ±20~V
-  & ±1~V / ±20~V & 0.5~Vpp (50~$\Omega$) & ±1~V / ±20~V \\ \hline
+  & ±1~V / ±20~V & 0,5~Vpp (50~$\Omega$) & ±1~V / ±20~V \\ \hline
 DAC & 2~$\times$ 10 bit & \textbf{2~$\times$ 14 bit} & 2~$\times$ 14 bit & ---
   & 2~$\times$ 14 bit & 2~$\times$ 14 bit \\ \hline
-Tasa DAC & 125~MS/s & \textbf{125~MS/s} & 125~MS/s & --- & 122.88~MS/s
+Tasa DAC & 125~MS/s & \textbf{125~MS/s} & 125~MS/s & --- & 122,88~MS/s
   & 250~MS/s \\ \hline
 GPIO (E1) & 16 & \textbf{16} & 22 & 22 & 22 & 19 \\ \hline
 Ethernet & 1~Gbit & \textbf{1~Gbit} & 1~Gbit & 1~Gbit & 1~Gbit & 1~Gbit \\ \hline
 USB & USB-A 2.0 & \textbf{USB-A 2.0} & USB-A 2.0 & USB-A 2.0 & USB-A 2.0
   & 2~$\times$ USB-A 2.0 \\ \hline
-Alimentación & 5~V, 1.5~A & \textbf{5~V, 2~A} & 5~V, 2~A & 5~V, 2~A & 5~V, 2~A
-  & 24~V, 0.5~A \\ \hline
+Alimentación & 5~V, 1,5~A & \textbf{5~V, 2~A} & 5~V, 2~A & 5~V, 2~A & 5~V, 2~A
+  & 24~V, 0,5~A \\ \hline
 Temperatura & 0--55~°C & \textbf{0--55~°C} & 0--55~°C & 0--55~°C & 0--55~°C
   & 0--55~°C \\ \hline
 \end{tabularx}
@@ -329,59 +330,59 @@ sintetizaba un procesador sobre su \emph{fabric}. Estos procesadores se denomina
 contrapunto son los \emph{hardcore}, implementados como ASIC, con una
 funcionalidad completamente fijada por el fabricante.
 
-Antes de que el procesador viniera integrado en el mismo chip, los softcores
+Antes de que el procesador viniera integrado en el mismo chip, los \emph{softcores}
 eran la forma habitual de agregarle uno a una FPGA, y se siguen usando
 (MicroBlaze~\cite{UG984}, Nios, núcleos RISC-V) para las siguientes actividades:
 \begin{itemize}
   \item Lógica lenta pero de muchos pasos y ramificaciones.
 
-    El ejemplo típico es cuando tenemos una tarea que requiere un algoritmo
-    recursivo, es común resolver esto mediante la creación de un \emph{stack} dedicado
-    por módulo, esto tiene la contra de que tenemos una región de memoria de uso
-    extremadamente bajo y probablemente reducida para el trabajo de la tarea. Un
-    CPU podría hacer uso de una memoria compartida, como es una RAM de forma de
-    no tener estas limitaciones.
+    El ejemplo típico es una tarea que requiere un algoritmo recursivo. Es
+    común resolverla con un \emph{stack} dedicado por módulo, que tiene la
+    contra de ser una región de memoria de uso extremadamente bajo y
+    probablemente reducida para el trabajo de la tarea. Un CPU, en cambio,
+    puede usar una memoria compartida, como una RAM, y no tiene estas
+    limitaciones.
   \item Iterar sin re-sintetizar.
   \item Configurabilidad e instrucciones \emph{custom}.
   \item Múltiples \emph{cores} dedicados.
 \end{itemize}
 
-Esto nos dice algo muy importante de la estructura del HW, siempre que queremos
-un elemento de control lo podemos sintetizar de manera independiente. Y esto
-ocurre muy a menudo, por ejemplo cuando necesitamos mover datos en grandes
-cantidades paquetes y de manera no continua se define un subsistema de memoria
+Esto nos dice algo muy importante de la estructura del HW: siempre que queremos
+un elemento de control, lo podemos sintetizar de manera independiente. Y esto
+ocurre muy a menudo; por ejemplo, cuando necesitamos mover grandes cantidades de
+datos en paquetes y de manera no continua, se define un subsistema de memoria
 llamado DMA, \emph{Direct Memory Access}, el cual toma el rol del CPU pero para
 transferencias de datos. Este sería un acelerador pero de transferencia de
 datos.
 
-El problema principal de los softcores es el rendimiento. En la
+El problema principal de los \emph{softcores} es el rendimiento. En la
 Fig.~\ref{f:hw-softcore}(b) se compara el rendimiento del \textbf{mejor caso} de
 tres familias de procesadores: en rosa el ARM Cortex-A9, el presente en este
 trabajo; en gris el PowerPC de la Virtex-5, un procesador duro embebido en el
-\emph{fabric}; y en azul oscuro tres softcores. Entre 2002 y 2010 hubo varias FPGA con
+\emph{fabric}; y en azul oscuro tres \emph{softcores}. Entre 2002 y 2010 hubo varias FPGA con
 procesadores duros de este tipo (PowerPC 405 y 440 en las Virtex-II
 Pro~\cite{DS083}, Virtex-4 FX y Virtex-5 FXT~\cite{UG200}); el Zynq-7000 (2011)
 fue un paso más, con un sistema de procesamiento completo en el mismo chip.
 
 \begin{figure}[H]
 \centering\includegraphics{cap2_softcore_hardcore}
-\caption[Procesadores softcore y hardcore]{%
-Comparación de procesadores softcore y hardcore. (a)~Comparación dentro de un
-SoC: el procesador hardcore tiene su propia región del chip, dedicada e
-inmodificable, y el procesador softcore ocupa lugar de la \emph{fabric} al lado de
+\caption[Procesadores \emph{softcore} y \emph{hardcore}]{%
+Comparación de procesadores \emph{softcore} y \emph{hardcore}. (a)~Comparación dentro de un
+SoC: el procesador \emph{hardcore} tiene su propia región del chip, dedicada e
+inmodificable, y el procesador \emph{softcore} ocupa lugar de la \emph{fabric} al lado de
 otros módulos de HW, F2 y F3. (b)~Rendimiento máximo, en DMIPS
 (\emph{Dhrystone millions of instructions per second}, un \emph{test} estandarizado de
-\emph{performance}~\cite{Weicker1984}), de procesadores hardcore ---el Cortex-A9 del PS
+\emph{performance}~\cite{Weicker1984}), de procesadores \emph{hardcore} ---el Cortex-A9 del PS
 del Zynq-7000, en rosa, y el PowerPC embebido en el \emph{fabric} de la Virtex-5, en
-gris--- contra procesadores softcore instanciados en la PL, en azul oscuro.
+gris--- contra procesadores \emph{softcore} instanciados en la PL, en azul oscuro.
 Valores indicativos, del mejor caso. Extraída del
 ZynqBook~\citefig{Crockett2014}{4.3}.\label{f:hw-softcore}}
 \end{figure}
 
 El punto a notar es que el Cortex-A9 doble rinde, en el mejor caso, entre 16 y
-24 veces lo que un softcore; los dos núcleos de la placa, a 667~MHz, rinden unas
-12 veces lo que un MicroBlaze. Un softcore con MMU, como el MicroBlaze, también
-puede correr Linux~\cite{UG984}: lo que cambia con el hardcore es el
+24 veces lo que un \emph{softcore}; los dos núcleos de la placa, a 667~MHz, rinden unas
+12 veces lo que un MicroBlaze. Un \emph{softcore} con MMU, como el MicroBlaze, también
+puede correr Linux~\cite{UG984}: lo que cambia con el \emph{hardcore} es el
 rendimiento, que alcanza para que nuestro sistema deje de trabajar como un
 embebido y comience a funcionar como una computadora dedicada, con un sistema
 operativo completo.
@@ -426,7 +427,7 @@ Representación de un SoC. Extraído del ZynqBook~\cite{Crockett2014}.
 \label{f:hw-interconexiones-soc}}
 \end{figure}
 
-El procesador principal en este proyecto es la PL así que vamos a comenzar
+El procesador principal en este proyecto es la PL, así que vamos a comenzar
 describiendo sus características, recursos e interfaces externas.
 
 \subsection{Arquitectura de la lógica programable (PL)}
@@ -447,13 +448,13 @@ Pitaya~\cite{DS190}.\label{t:hw-recursos-pl}}
 \hline
 \encabezado \textbf{Recurso de la PL} & \textbf{XC7Z010} & \textbf{XC7Z020}
   & \textbf{$\times$} \\ \hline
-Celdas lógicas (unidad comercial, $\approx$ 1,6 LUT6) & 28\,k & 85\,k & 3.0 \\ \hline
-CLB & 2\,200 & 6\,650 & 3.0 \\ \hline
-\emph{Slices} (2 por CLB) & 4\,400 & 13\,300 & 3.0 \\ \hline
-LUT6 & 17\,600 & 53\,200 & 3.0 \\ \hline
-Flip-flops & 35\,200 & 106\,400 & 3.0 \\ \hline
-Block RAM (RAMB36) & 60 (2.1~Mb) & 140 (4.9~Mb) & 2.3 \\ \hline
-DSP48E1 & 80 & 220 & 2.75 \\ \hline
+Celdas lógicas (unidad comercial, $\approx$ 1,6 LUT6) & 28\,k & 85\,k & 3,0 \\ \hline
+CLB & 2\,200 & 6\,650 & 3,0 \\ \hline
+\emph{Slices} (2 por CLB) & 4\,400 & 13\,300 & 3,0 \\ \hline
+LUT6 & 17\,600 & 53\,200 & 3,0 \\ \hline
+Flip-flops & 35\,200 & 106\,400 & 3,0 \\ \hline
+Block RAM (RAMB36) & 60 (2,1~Mb) & 140 (4,9~Mb) & 2,3 \\ \hline
+DSP48E1 & 80 & 220 & 2,75 \\ \hline
 PLL / MMCM & 2 / 2 & 4 / 4 & 2 \\ \hline
 \end{tabular}
 \end{table}
@@ -482,13 +483,13 @@ interconexiones programables.\label{f:hw-bloques-fpga}}
 
 Además del \emph{fabric} genérico, la arquitectura incorpora bloques duros
 (\emph{hard macros}), optimizados para funciones que serían caras de construir
-con LUT, en la Tabla~\ref{t:hw-hardmacros} se presentan las que se utilizaron
+con LUT. En la Tabla~\ref{t:hw-hardmacros} se presentan los que se utilizaron
 para este proyecto.
 
 \begin{table}[H]
 \centering
-\caption[Hardmacros especializadas dentro de la PL del Zynq]{%
-Hardmacros especializadas dentro de la PL del
+\caption[\emph{Hard macros} especializadas dentro de la PL del Zynq]{%
+\emph{Hard macros} especializadas dentro de la PL del
 Zynq~\cite{UG473,UG479,UG472,UG471,UG480}.\label{t:hw-hardmacros}}
 \small
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.17\textwidth}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{0.2\textwidth}|}
@@ -496,7 +497,7 @@ Zynq~\cite{UG473,UG479,UG472,UG471,UG480}.\label{t:hw-hardmacros}}
 \encabezado \textbf{Recurso} & \textbf{Qué es} & \textbf{Presentes en XC7Z010} \\ \hline
 \textbf{Block RAM} & Memorias de 36~Kb, divisibles en dos de 18~Kb, de
   \textbf{doble puerto verdadero}, con ancho de palabra configurable y modo FIFO
-  integrado & 60 bloques (2.1~Mb) \\ \hline
+  integrado & 60 bloques (2,1~Mb) \\ \hline
 \textbf{DSP48E1} & Pre-sumador + multiplicador con signo de \textbf{25~$\times$
   18 bits} + acumulador de 48 bits, encadenables entre sí sin pasar por el
   tejido & 80 \\ \hline
@@ -633,7 +634,7 @@ Niveles de memoria del PS del Zynq-7010 en la STEMlab
 \textbf{OCM} & 256~KB & SRAM en el die, sin caché
   & los dos núcleos \textbf{y la PL} \\ \hline
 \textbf{DDR3 externa} & 512~MB en esta placa & 16 bits a 533~MHz
-  & $\sim$2.1~GB/s de pico teórico \\ \hline
+  & $\sim$2,1~GB/s de pico teórico \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -651,7 +652,7 @@ software a las direcciones \textbf{físicas} que salen al bus. Sus tareas son:
     entere.
   \item \textbf{Manejo de atributos por página}: cada página cuenta con banderas
     que determinan permisos (acceso: lectura/escritura/ejecución, y modo:
-    usuario/privilegiado) y el \textbf{tipo de memoria}, esta categoría se
+    usuario/privilegiado) y el \textbf{tipo de memoria}; esta categoría se
     explica en la Sec.~\ref{S:hw-modelo-memoria}.
 \end{enumerate}
 
@@ -660,15 +661,15 @@ abrir \ruta{/dev/mem} y hacer \codigo{mmap} de \codigo{0x4000\_0000} le pide a
 la MMU una entrada de tabla que apunte a los registros de la PL, marcada como no
 cacheable.
 
-Mientras que la \emph{Snoop Control Unit} (SCU)~\cite{DDI0407}
+La \emph{Snoop Control Unit} (SCU)~\cite{DDI0407}, en cambio,
 \textbf{mantiene coherentes} las cachés L1 de datos de los dos núcleos, es
 decir, garantiza que cada dirección de memoria tenga un único valor vigente.
-Para lograrlo guarda una copia duplicada de los \emph{tags} de las dos L1: de forma que
+Para lograrlo guarda una copia duplicada de los \emph{tags} de las dos L1, de forma que
 sabe en todo momento qué líneas tiene cada núcleo, y así puede husmear
 (\emph{snooping}) \textbf{sólo al que corresponde} en cada acceso conflictivo.
 Qué accesos identifica el sistema como conflictivos depende del esquema de
-coherencia por línea de caché, el más conocido es \textbf{MESI}
-(\emph{Modified / Exclusive / Shared / Invalid}), para más info se refiere al
+coherencia por línea de caché; el más conocido es \textbf{MESI}
+(\emph{Modified / Exclusive / Shared / Invalid}). Para más detalles, ver el
 libro de Nagarajan et al.~\cite{Nagarajan2020}.
 
 Su arquitectura de conjunto de instrucciones (ISA) es la combinación de
@@ -701,7 +702,7 @@ empleados y la utilización de los mismos en el proyecto actual.
   no en float64, su tipo por defecto, porque NEON de ARMv7 no tiene doble
   precisión \\ \hline
 \textbf{TrustZone} & extensiones de seguridad, mundo seguro/no seguro & --- \\ \hline
-\textbf{Jazelle / ThumbEE} & ejecución de bytecode, heredados y obsoletos
+\textbf{Jazelle / ThumbEE} & ejecución de \emph{bytecode}, heredados y obsoletos
   & --- \\ \hline
 \end{tabularx}
 \end{table}
@@ -742,7 +743,7 @@ presentados en la Sec.~\ref{S:intro-hw-modos-falla}, que llegan hasta un reinici
 del sistema.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Periféricos externos a la Pitaya}
+\section{Periféricos externos a la RedPitaya}
 \label{S:hw-perifericos}
 
 Para describirlos nos referimos al diagrama en bloques de la placa, presentado
@@ -766,15 +767,15 @@ características principales se presentan en la Tabla~\ref{t:hw-ltc2145}.
 
 \begin{table}[H]
 \centering
-\caption[Características del ADC LTC2145-14 y del front-end de entrada]{%
-Características principales del ADC LTC2145-14 y del front-end de entrada de la
+\caption[Características del ADC LTC2145-14 y del \emph{front-end} de entrada]{%
+Características principales del ADC LTC2145-14 y del \emph{front-end} de entrada de la
 STEMlab 125-14~\cite{LTC2145,RedPitayaDocs}.\label{t:hw-ltc2145}}
 \small
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.25\textwidth}|>{\raggedright\arraybackslash}X|}
 \hline
 \encabezado & \textbf{Valor} \\ \hline
 ADC & Analog Devices (ex-Linear) \textbf{LTC2145-14}: dual, 14 bit, 125~MS/s,
-  salida paralela CMOS 1.8~V \\ \hline
+  salida paralela CMOS 1,8~V \\ \hline
 Rango a fondo de escala & \textbf{±1~V} (\emph{jumper} LV) o \textbf{±20~V} (\emph{jumper}
   HV), por canal, DC \\ \hline
 Máximo absoluto & ±6~V (LV) / ±30~V (HV) \\ \hline
@@ -784,22 +785,22 @@ Ancho de banda & DC--50~MHz a $-3$~dB según la medición de Red
   de la placa declara DC--60~MHz \\ \hline
 Resolución & 2~V / 16384 = \textbf{122~µV por código en LV} $\Rightarrow$
   $\approx$ 8192 códigos por volt \\ \hline
-SNR / \emph{jitter} de apertura & \textbf{73.1~dBFS} · \textbf{0.08~ps rms}
-  ($\Rightarrow$ 1.28 cuentas rms de ruido propio) \\ \hline
+SNR / \emph{jitter} de apertura & \textbf{73,1~dBFS} · \textbf{0,08~ps rms}
+  ($\Rightarrow$ 1,28 cuentas rms de ruido propio) \\ \hline
 Codificación & \emph{offset binary} de \textbf{pendiente negativa}: el \emph{top} la
   convierte a complemento a 2 \\ \hline
 \end{tabularx}
 \end{table}
 
 Es \textbf{dual}, de muestreo simultáneo de los dos canales, con salida paralela
-CMOS de 1.8~V y alimentación única de 1.8~V. Cada canal llega a la PL por 16
+CMOS de 1,8~V y alimentación única de 1,8~V. Cada canal llega a la PL por 16
 líneas \codigo{LVCMOS18}: las 14 de datos, $D1[13:0]$ y $D2[13:0]$, y dos que
 salen de pines DNC (\emph{do not connect}) del ADC y no llevan dato en esta
 versión de la placa~\cite{RedPitayaSchematics}; el \emph{top} toma los 14 bits altos.
 Se puede observar en el lado este del bloque U2 de la
 Fig.~\ref{f:ap-hw-frontend}, en el apéndice.
 
-\subsection{Calibración recomendada por Pitaya}
+\subsection{Calibración recomendada por RedPitaya}
 \label{S:hw-calibracion}
 
 La placa sale calibrada de fábrica, y los valores se guardan en una memoria
@@ -821,13 +822,13 @@ Tipos de calibración de fábrica de Red Pitaya.\label{t:hw-calibracion}}
   le pide. \\ \hline
 \textbf{Calibración en frecuencia} (filtro de ecualización) & Desajuste de los
   componentes del divisor RC de entrada (resistencias/condensadores del
-  front-end), por separado para LV (1:1) y HV (1:20). Corrige la respuesta
+  \emph{front-end}), por separado para LV (1:1) y HV (1:20). Corrige la respuesta
   plana en amplitud, típicamente visible como sobre/subimpulso en un escalón.
   \\ \hline
 \end{tabularx}
 \end{table}
 
-La documentación de Pitaya recomienda recalibrar: tras el primer montaje, una
+La documentación de RedPitaya recomienda recalibrar: tras el primer montaje, una
 vez al año (\emph{drift}), tras cambios ambientales grandes, o si las medidas dejan de
 ser consistentes. Siempre \textbf{a la temperatura normal de operación} de la
 placa.
@@ -836,7 +837,7 @@ placa.
 \label{S:hw-conectores}
 
 Tenemos dos conectores de expansión. El primero, E1, tiene 16 líneas digitales
-de 3.3~V (8 pares, DIO0 a DIO7) que la PL puede usar como entradas o como
+de 3,3~V (8 pares, DIO0 a DIO7) que la PL puede usar como entradas o como
 salidas; sus señales se presentan en la Tabla~\ref{t:hw-e1}. Para nosotros son
 la vía de las señales digitales externas. \codigo{DIO0\_P} es la entrada de
 \emph{trigger} externo (\codigo{trig\_ext}): con ella podemos usar la salida de otro
@@ -850,9 +851,9 @@ de cada línea la fija un registro del módulo de \emph{housekeeping}
 En las restricciones del diseño (XDC), cada pin de E1 lleva tres propiedades de
 su \emph{buffer} de entrada/salida~\cite{UG471}:
 \begin{itemize}
-  \item \codigo{IOSTANDARD LVCMOS33}: niveles CMOS de 3.3~V; una entrada lee
-    \codigo{0} por debajo de $\sim$0.8~V y \codigo{1} por encima de
-    $\sim$2.0~V~\cite{DS187}. Una señal de 5~V daña el pin, así que un \emph{trigger}
+  \item \codigo{IOSTANDARD LVCMOS33}: niveles CMOS de 3,3~V; una entrada lee
+    \codigo{0} por debajo de $\sim$0,8~V y \codigo{1} por encima de
+    $\sim$2,0~V~\cite{DS187}. Una señal de 5~V daña el pin, así que un \emph{trigger}
     TTL de 5~V necesita un adaptador de nivel, y uno NIM, un conversor NIM-TTL.
   \item \codigo{DRIVE 8}: la corriente nominal del \emph{driver} de salida, 8~mA por
     pin, manteniendo los niveles lógicos. Es un valor intermedio entre los que
@@ -885,7 +886,7 @@ DIO0\_P \ldots{} DIO7\_P & \codigo{exp\_p\_io[7:0]}
   & G17, H16, J18, K17, L14, L16, K16, M14 \\ \hline
 DIO0\_N \ldots{} DIO7\_N & \codigo{exp\_n\_io[7:0]}
   & G18, H17, H18, K18, L15, L17, J16, M15 \\ \hline
-+3.3~V~$\times$ 2 & --- & --- \\ \hline
++3,3~V~$\times$ 2 & --- & --- \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -906,20 +907,20 @@ Señales del conector E2 en la STEMlab 125-14~\cite{RedPitayaDocs}.
 Entradas analógicas lentas & AI0--AI3 & \textbf{XADC} del Zynq, pares
   \codigo{VAUX0/1/8/9} $\rightarrow$ \codigo{vinp\_i[3:0]}/\codigo{vinn\_i[3:0]}
   (pines B19/A20, C20/B20, E17/D18, E18/E19), vía divisores resistivos
-  & 0--7~V (la doc vieja decía 0--3.5~V), 12 bit, $\sim$100~kS/s por canal
+  & 0--7~V (la doc vieja decía 0--3,5~V), 12 bit, $\sim$100~kS/s por canal
   \\ \hline
 Salidas analógicas lentas & AO0--AO3 & \textbf{PL}: \codigo{dac\_pwm\_o[3:0]}
   (\codigo{red\_pitaya\_pdm} $\leftarrow$ \codigo{red\_pitaya\_ams}, \emph{slot} 4) +
-  filtro RC en la placa & 0--1.8~V, LVCMOS18, \codigo{DRIVE 12}, $\sim$3.2~MS/s
+  filtro RC en la placa & 0--1,8~V, LVCMOS18, \codigo{DRIVE 12}, $\sim$3,2~MS/s
   de actualización \\ \hline
 SPI & MOSI, MISO, SCK, CS & \textbf{SPI0 del PS por EMIO}: atraviesa la PL
-  (aparece en el block \emph{design}) & 3.3~V \\ \hline
+  (aparece en el \emph{block design}) & 3,3~V \\ \hline
 UART & TX, RX & \textbf{UART1 del PS por MIO 8--9}: no pasa por la PL
-  & 3.3~V \\ \hline
+  & 3,3~V \\ \hline
 I2C & SDA, SCL & \textbf{I2C0 del PS por MIO 50--51}: no pasa por la PL, y es
-  el mismo bus de la EEPROM de calibración & 3.3~V \\ \hline
-Alimentación & +5~V, +3.3~V, $-3.4$~V & rieles de la placa
-  & según la doc oficial: 500~mA en +5~V y +3.3~V, 50~mA en $-3.4$~V \\ \hline
+  el mismo bus de la EEPROM de calibración & 3,3~V \\ \hline
+Alimentación & +5~V, +3,3~V, $-3,4$~V & rieles de la placa
+  & según la doc oficial: 500~mA en +5~V y +3,3~V, 50~mA en $-3,4$~V \\ \hline
 \end{tabularx}
 \end{table}
 
