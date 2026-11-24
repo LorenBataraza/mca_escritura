@@ -47,13 +47,6 @@ re-arranque, y una toma más vieja que eso lee 0. Así $s$ es exactamente el
 filtro aplicado a una señal sin historia previa, y mientras la ventana de
 $2L + G$ muestras no se llena no sale ningún pulso.
 
-\begin{figure}[H]
-\centering\includegraphics{apC_panorama_mt_slope_trig}
-\caption[Implementación del disparo por pendiente]{%
-Implementación de \codigo{mt\_slope\_trig}: las tres líneas de retardo, el
-cálculo recursivo de $s$ y el comparador con histéresis.\label{f:ap-mt-slope}}
-\end{figure}
-
 \subsection{Disparo por polo-cero \texorpdfstring{\texttt{mt\_pz\_trig}}{mt\_pz\_trig}}
 \label{S:ap-mt-pz}
 
@@ -71,7 +64,7 @@ que la pendiente, sólo para pulsos positivos.
 \label{S:ap-mt-shield}
 
 Cuando dispara una fuente habilitada en \codigo{SHIELD\_SRC}, deja inhabilitados
-a los destinos de \codigo{SHIELD\_DST} durante un \emph{holdoff} programable, y al
+a los destinos de \codigo{SHIELD\_DST} durante un tiempo denominado de \emph{holdoff} programable, y al
 expirar los vuelve a armar. Usa un solo contador para todos los destinos, que se
 recarga con cada disparo de una fuente. Fuentes y destinos son vectores
 independientes: las fuentes son los disparos de los canales y la entrada
@@ -89,9 +82,6 @@ re-armado hacia los canales y el veto al MCA.\label{f:ap-mt-shield}}
 
 \subsection[Selección de fuentes \texttt{mt\_trig\_src} y lógica de eventos \texttt{mt\_event\_logic}]{Selección de fuentes \texorpdfstring{\texttt{mt\_trig\_src}}{mt\_trig\_src}\texorpdfstring{\\}{} y lógica de eventos \texorpdfstring{\texttt{mt\_event\_logic}}{mt\_event\_logic}}
 \label{S:ap-mt-src-logica}
-
-\codigo{mt\_trig\_src} y \codigo{mt\_event\_logic} no tienen figura propia: su
-estructura se ve en la Fig.~\ref{f:mt-panorama}.
 
 \codigo{mt\_trig\_src} es el selector de un canal. Reemplaza al
 \codigo{rp\_trig\_src} original~\cite{RedPitayaFPGA} con dos diferencias: la

@@ -182,32 +182,6 @@
       \field{pages}{24\bibrangedash 26}
       \range{pages}{3}
     \endentry
-    \entry{Wolff1982}{article}{}
-      \name{author}{1}{}{%
-        {{hash=c5096c47a7ea16581766c6468f49b59a}{%
-           family={Wolff},
-           familyi={W\bibinitperiod},
-           given={R.\bibnamedelimi W.},
-           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
-      }
-      \strng{namehash}{c5096c47a7ea16581766c6468f49b59a}
-      \strng{fullhash}{c5096c47a7ea16581766c6468f49b59a}
-      \strng{bibnamehash}{c5096c47a7ea16581766c6468f49b59a}
-      \strng{authorbibnamehash}{c5096c47a7ea16581766c6468f49b59a}
-      \strng{authornamehash}{c5096c47a7ea16581766c6468f49b59a}
-      \strng{authorfullhash}{c5096c47a7ea16581766c6468f49b59a}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Operations Research}
-      \field{number}{2}
-      \field{title}{Poisson Arrivals See Time Averages}
-      \field{volume}{30}
-      \field{year}{1982}
-      \field{pages}{223\bibrangedash 231}
-      \range{pages}{9}
-    \endentry
   \enddatalist
 \endrefsection
 
@@ -722,7 +696,776 @@
   \enddatalist
 \endrefsection
 
-\refsection{15}
+\refsection{17}
+  \datalist[entry]{none/global//global/global}
+    \entry{Knoll2010}{book}{}
+      \name{author}{1}{}{%
+        {{hash=b3b1b42c7c2fbd3232b45837ae3874e0}{%
+           family={Knoll},
+           familyi={K\bibinitperiod},
+           given={G.\bibnamedelimi F.},
+           giveni={G\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Hoboken, NJ}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{b3b1b42c7c2fbd3232b45837ae3874e0}
+      \strng{fullhash}{b3b1b42c7c2fbd3232b45837ae3874e0}
+      \strng{bibnamehash}{b3b1b42c7c2fbd3232b45837ae3874e0}
+      \strng{authorbibnamehash}{b3b1b42c7c2fbd3232b45837ae3874e0}
+      \strng{authornamehash}{b3b1b42c7c2fbd3232b45837ae3874e0}
+      \strng{authorfullhash}{b3b1b42c7c2fbd3232b45837ae3874e0}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{4}
+      \field{title}{Radiation Detection and Measurement}
+      \field{year}{2010}
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{18}
+  \datalist[entry]{none/global//global/global}
+    \entry{Crockett2014}{book}{}
+      \name{author}{4}{}{%
+        {{hash=9d8ee52a687cfffb2170360a7927c405}{%
+           family={Crockett},
+           familyi={C\bibinitperiod},
+           given={L.\bibnamedelimi H.},
+           giveni={L\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=fa403a1f34074844e1dc6e1cc585051b}{%
+           family={Elliot},
+           familyi={E\bibinitperiod},
+           given={R.\bibnamedelimi A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=1effb4f951495ec44b80034a570e287d}{%
+           family={Enderwitz},
+           familyi={E\bibinitperiod},
+           given={M.\bibnamedelimi A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=304a2381d981e719ee206d294bed221b}{%
+           family={Stewart},
+           familyi={S\bibinitperiod},
+           given={R.\bibnamedelimi W.},
+           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Glasgow}%
+      }
+      \list{publisher}{1}{%
+        {Strathclyde Academic Media}%
+      }
+      \strng{namehash}{a71a5f451ec9abf0253415b905dd010d}
+      \strng{fullhash}{692ac5d782497c61c9d22b8927eacd51}
+      \strng{bibnamehash}{692ac5d782497c61c9d22b8927eacd51}
+      \strng{authorbibnamehash}{692ac5d782497c61c9d22b8927eacd51}
+      \strng{authornamehash}{a71a5f451ec9abf0253415b905dd010d}
+      \strng{authorfullhash}{692ac5d782497c61c9d22b8927eacd51}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1}
+      \field{title}{The Zynq Book: Embedded Processing with the ARM Cortex-A9 on the Xilinx Zynq-7000 All Programmable SoC}
+      \field{year}{2014}
+    \endentry
+    \entry{UG474}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=f872201c6db9bf2620dc262ba42d2271}{%
+           family={{Xilinx}},
+           familyi={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{f872201c6db9bf2620dc262ba42d2271}
+      \strng{fullhash}{f872201c6db9bf2620dc262ba42d2271}
+      \strng{bibnamehash}{f872201c6db9bf2620dc262ba42d2271}
+      \strng{authorbibnamehash}{f872201c6db9bf2620dc262ba42d2271}
+      \strng{authornamehash}{f872201c6db9bf2620dc262ba42d2271}
+      \strng{authorfullhash}{f872201c6db9bf2620dc262ba42d2271}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{27}
+      \field{month}{9}
+      \field{number}{UG474}
+      \field{title}{7 Series FPGAs Configurable Logic Block User Guide}
+      \field{version}{v1.8}
+      \field{year}{2016}
+      \field{dateera}{ce}
+    \endentry
+    \entry{RedPitayaSchematics}{online}{}
+      \name{author}{1}{}{%
+        {{hash=5933a557af910702489aacfcca3f3ee2}{%
+           family={{Red Pitaya}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{fullhash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{bibnamehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{authorbibnamehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{authornamehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{authorfullhash}{5933a557af910702489aacfcca3f3ee2}
+      \field{extraname}{1}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Schematics STEMlab 125-14 v1.1}
+      \field{urlday}{23}
+      \field{urlmonth}{11}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://downloads.redpitaya.com/doc/Schematics/Schematics_STEM_125-14_v1.1.pdf
+      \endverb
+      \verb{url}
+      \verb https://downloads.redpitaya.com/doc/Schematics/Schematics_STEM_125-14_v1.1.pdf
+      \endverb
+      \warn{\item Datamodel: Entry 'RedPitayaSchematics' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined}
+    \endentry
+    \entry{RedPitayaDocs}{online}{}
+      \name{author}{1}{}{%
+        {{hash=5933a557af910702489aacfcca3f3ee2}{%
+           family={{Red Pitaya}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{fullhash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{bibnamehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{authorbibnamehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{authornamehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{authorfullhash}{5933a557af910702489aacfcca3f3ee2}
+      \field{extraname}{2}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Developer Guide, Hardware, STEMlab 125-14 (Original Gen)}
+      \field{title}{Red Pitaya Documentation}
+      \field{urlday}{23}
+      \field{urlmonth}{11}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://redpitaya.readthedocs.io/en/latest/developerGuide/hardware/ORIG_GEN/125-14/top.html
+      \endverb
+      \verb{url}
+      \verb https://redpitaya.readthedocs.io/en/latest/developerGuide/hardware/ORIG_GEN/125-14/top.html
+      \endverb
+      \warn{\item Datamodel: Entry 'RedPitayaDocs' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined}
+    \endentry
+    \entry{RedPitayaFastIn}{online}{}
+      \name{author}{1}{}{%
+        {{hash=5933a557af910702489aacfcca3f3ee2}{%
+           family={{Red Pitaya}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{fullhash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{bibnamehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{authorbibnamehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{authornamehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{authorfullhash}{5933a557af910702489aacfcca3f3ee2}
+      \field{extraname}{3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Mediciones de la STEMlab 125-14 (Original Gen)}
+      \field{title}{Fast Analog Inputs}
+      \field{urlday}{23}
+      \field{urlmonth}{11}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://redpitaya.readthedocs.io/en/latest/developerGuide/hardware/ORIG_GEN/measurements/STEMlab-125-14/fast_analog_inputs.html
+      \endverb
+      \verb{url}
+      \verb https://redpitaya.readthedocs.io/en/latest/developerGuide/hardware/ORIG_GEN/measurements/STEMlab-125-14/fast_analog_inputs.html
+      \endverb
+      \warn{\item Datamodel: Entry 'RedPitayaFastIn' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined}
+    \endentry
+    \entry{AD9767}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=a12ff886a2379a9ee6efaa9acfb54df4}{%
+           family={{Analog Devices}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{fullhash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{bibnamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authorbibnamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authornamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authorfullhash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{Rev. C}
+      \field{title}{AD9763/AD9765/AD9767: 10-/12-/14-Bit, 125 MSPS Dual TxDAC+ Digital-to-Analog Converters}
+      \field{type}{Hoja de datos}
+      \field{year}{2006}
+    \endentry
+    \entry{RedPitayaFastOut}{online}{}
+      \name{author}{1}{}{%
+        {{hash=5933a557af910702489aacfcca3f3ee2}{%
+           family={{Red Pitaya}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{fullhash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{bibnamehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{authorbibnamehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{authornamehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{authorfullhash}{5933a557af910702489aacfcca3f3ee2}
+      \field{extraname}{4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Mediciones de la STEMlab 125-14 (Original Gen)}
+      \field{title}{Fast Analog Outputs}
+      \field{urlday}{23}
+      \field{urlmonth}{11}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://redpitaya.readthedocs.io/en/latest/developerGuide/hardware/ORIG_GEN/measurements/STEMlab-125-14/fast_analog_outputs.html
+      \endverb
+      \verb{url}
+      \verb https://redpitaya.readthedocs.io/en/latest/developerGuide/hardware/ORIG_GEN/measurements/STEMlab-125-14/fast_analog_outputs.html
+      \endverb
+      \warn{\item Datamodel: Entry 'RedPitayaFastOut' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined}
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{19}
+  \datalist[entry]{none/global//global/global}
+    \entry{RepoMultitrigger}{online}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{note}{Repositorio de este trabajo, rama \texttt{multitrigger}}
+      \field{title}{RedPitaya-FPGA}
+      \field{urlday}{23}
+      \field{urlmonth}{11}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/LorenBataraza/RedPitaya-FPGA/tree/multitrigger
+      \endverb
+      \verb{url}
+      \verb https://github.com/LorenBataraza/RedPitaya-FPGA/tree/multitrigger
+      \endverb
+      \warn{\item Datamodel: Entry 'RepoMultitrigger' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined}
+    \endentry
+    \entry{Jordanov1994}{article}{}
+      \name{author}{2}{}{%
+        {{hash=d2c26602711c2192322ea2dfbe14e5c5}{%
+           family={Jordanov},
+           familyi={J\bibinitperiod},
+           given={V.\bibnamedelimi T.},
+           giveni={V\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=b3b1b42c7c2fbd3232b45837ae3874e0}{%
+           family={Knoll},
+           familyi={K\bibinitperiod},
+           given={G.\bibnamedelimi F.},
+           giveni={G\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{fd576ec21d120cf6c192ae6ebe7bc681}
+      \strng{fullhash}{fd576ec21d120cf6c192ae6ebe7bc681}
+      \strng{bibnamehash}{fd576ec21d120cf6c192ae6ebe7bc681}
+      \strng{authorbibnamehash}{fd576ec21d120cf6c192ae6ebe7bc681}
+      \strng{authornamehash}{fd576ec21d120cf6c192ae6ebe7bc681}
+      \strng{authorfullhash}{fd576ec21d120cf6c192ae6ebe7bc681}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nuclear Instruments and Methods in Physics Research A}
+      \field{title}{Digital synthesis of pulse shapes in real time for high resolution radiation spectroscopy}
+      \field{volume}{345}
+      \field{year}{1994}
+      \field{pages}{337\bibrangedash 345}
+      \range{pages}{9}
+    \endentry
+    \entry{CAENWP2081}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=e88aed6103975a8e1b5fbd655fcbc412}{%
+           family={{CAEN}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{e88aed6103975a8e1b5fbd655fcbc412}
+      \strng{fullhash}{e88aed6103975a8e1b5fbd655fcbc412}
+      \strng{bibnamehash}{e88aed6103975a8e1b5fbd655fcbc412}
+      \strng{authorbibnamehash}{e88aed6103975a8e1b5fbd655fcbc412}
+      \strng{authornamehash}{e88aed6103975a8e1b5fbd655fcbc412}
+      \strng{authorfullhash}{e88aed6103975a8e1b5fbd655fcbc412}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{WP2081}
+      \field{title}{Digital Pulse Processing in Nuclear Physics}
+      \field{type}{White paper}
+      \field{year}{2011}
+      \field{dateera}{ce}
+    \endentry
+    \entry{Jordanov1994b}{article}{}
+      \name{author}{4}{}{%
+        {{hash=d2c26602711c2192322ea2dfbe14e5c5}{%
+           family={Jordanov},
+           familyi={J\bibinitperiod},
+           given={V.\bibnamedelimi T.},
+           giveni={V\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=b3b1b42c7c2fbd3232b45837ae3874e0}{%
+           family={Knoll},
+           familyi={K\bibinitperiod},
+           given={G.\bibnamedelimi F.},
+           giveni={G\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=ea5b1cfe7888d109e2d2185d3caf139f}{%
+           family={Huber},
+           familyi={H\bibinitperiod},
+           given={A.\bibnamedelimi C.},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=a6e0975906f8453d2b50ffd7c3994e2a}{%
+           family={Pantazis},
+           familyi={P\bibinitperiod},
+           given={J.\bibnamedelimi A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{071f47a8548f8bd82de9ba6697059574}
+      \strng{fullhash}{5eb0e5bbf8e37abb9f15affdbe7eb836}
+      \strng{bibnamehash}{5eb0e5bbf8e37abb9f15affdbe7eb836}
+      \strng{authorbibnamehash}{5eb0e5bbf8e37abb9f15affdbe7eb836}
+      \strng{authornamehash}{071f47a8548f8bd82de9ba6697059574}
+      \strng{authorfullhash}{5eb0e5bbf8e37abb9f15affdbe7eb836}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nuclear Instruments and Methods in Physics Research A}
+      \field{title}{Digital techniques for real-time pulse shaping in radiation measurements}
+      \field{volume}{353}
+      \field{year}{1994}
+      \field{pages}{261\bibrangedash 264}
+      \range{pages}{4}
+    \endentry
+    \entry{UG474}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=f872201c6db9bf2620dc262ba42d2271}{%
+           family={{Xilinx}},
+           familyi={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{f872201c6db9bf2620dc262ba42d2271}
+      \strng{fullhash}{f872201c6db9bf2620dc262ba42d2271}
+      \strng{bibnamehash}{f872201c6db9bf2620dc262ba42d2271}
+      \strng{authorbibnamehash}{f872201c6db9bf2620dc262ba42d2271}
+      \strng{authornamehash}{f872201c6db9bf2620dc262ba42d2271}
+      \strng{authorfullhash}{f872201c6db9bf2620dc262ba42d2271}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{27}
+      \field{month}{9}
+      \field{number}{UG474}
+      \field{title}{7 Series FPGAs Configurable Logic Block User Guide}
+      \field{version}{v1.8}
+      \field{year}{2016}
+      \field{dateera}{ce}
+    \endentry
+    \entry{Nakhostin2017}{book}{}
+      \name{author}{1}{}{%
+        {{hash=2eb4ba27f2592b760c26c925e3a15855}{%
+           family={Nakhostin},
+           familyi={N\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Hoboken, NJ}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{2eb4ba27f2592b760c26c925e3a15855}
+      \strng{fullhash}{2eb4ba27f2592b760c26c925e3a15855}
+      \strng{bibnamehash}{2eb4ba27f2592b760c26c925e3a15855}
+      \strng{authorbibnamehash}{2eb4ba27f2592b760c26c925e3a15855}
+      \strng{authornamehash}{2eb4ba27f2592b760c26c925e3a15855}
+      \strng{authorfullhash}{2eb4ba27f2592b760c26c925e3a15855}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Signal Processing for Radiation Detectors}
+      \field{year}{2017}
+    \endentry
+    \entry{RedPitayaFPGA}{online}{}
+      \name{author}{1}{}{%
+        {{hash=5933a557af910702489aacfcca3f3ee2}{%
+           family={{Red Pitaya}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{fullhash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{bibnamehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{authorbibnamehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{authornamehash}{5933a557af910702489aacfcca3f3ee2}
+      \strng{authorfullhash}{5933a557af910702489aacfcca3f3ee2}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Repositorio del diseño de la FPGA}
+      \field{title}{RedPitaya-FPGA}
+      \field{urlday}{23}
+      \field{urlmonth}{11}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/RedPitaya/RedPitaya-FPGA
+      \endverb
+      \verb{url}
+      \verb https://github.com/RedPitaya/RedPitaya-FPGA
+      \endverb
+      \warn{\item Datamodel: Entry 'RedPitayaFPGA' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined}
+    \endentry
+    \entry{Bergeron2003}{book}{}
+      \name{author}{1}{}{%
+        {{hash=1bbc9000df25c33f3f04bbe330e6de0a}{%
+           family={Bergeron},
+           familyi={B\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boston}%
+      }
+      \list{publisher}{1}{%
+        {Kluwer Academic}%
+      }
+      \strng{namehash}{1bbc9000df25c33f3f04bbe330e6de0a}
+      \strng{fullhash}{1bbc9000df25c33f3f04bbe330e6de0a}
+      \strng{bibnamehash}{1bbc9000df25c33f3f04bbe330e6de0a}
+      \strng{authorbibnamehash}{1bbc9000df25c33f3f04bbe330e6de0a}
+      \strng{authornamehash}{1bbc9000df25c33f3f04bbe330e6de0a}
+      \strng{authorfullhash}{1bbc9000df25c33f3f04bbe330e6de0a}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Writing Testbenches: Functional Verification of {HDL} Models}
+      \field{year}{2003}
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{20}
+  \datalist[entry]{none/global//global/global}
+    \entry{Kleinrock1975}{book}{}
+      \name{author}{1}{}{%
+        {{hash=d4047ad8d18bffeb8d4dd1346407b0a5}{%
+           family={Kleinrock},
+           familyi={K\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Nueva York}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{d4047ad8d18bffeb8d4dd1346407b0a5}
+      \strng{fullhash}{d4047ad8d18bffeb8d4dd1346407b0a5}
+      \strng{bibnamehash}{d4047ad8d18bffeb8d4dd1346407b0a5}
+      \strng{authorbibnamehash}{d4047ad8d18bffeb8d4dd1346407b0a5}
+      \strng{authornamehash}{d4047ad8d18bffeb8d4dd1346407b0a5}
+      \strng{authorfullhash}{d4047ad8d18bffeb8d4dd1346407b0a5}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Queueing Systems, Volume 1: Theory}
+      \field{year}{1975}
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{22}
+  \datalist[entry]{none/global//global/global}
+    \entry{Crockett2014}{book}{}
+      \name{author}{4}{}{%
+        {{hash=9d8ee52a687cfffb2170360a7927c405}{%
+           family={Crockett},
+           familyi={C\bibinitperiod},
+           given={L.\bibnamedelimi H.},
+           giveni={L\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=fa403a1f34074844e1dc6e1cc585051b}{%
+           family={Elliot},
+           familyi={E\bibinitperiod},
+           given={R.\bibnamedelimi A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=1effb4f951495ec44b80034a570e287d}{%
+           family={Enderwitz},
+           familyi={E\bibinitperiod},
+           given={M.\bibnamedelimi A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=304a2381d981e719ee206d294bed221b}{%
+           family={Stewart},
+           familyi={S\bibinitperiod},
+           given={R.\bibnamedelimi W.},
+           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Glasgow}%
+      }
+      \list{publisher}{1}{%
+        {Strathclyde Academic Media}%
+      }
+      \strng{namehash}{a71a5f451ec9abf0253415b905dd010d}
+      \strng{fullhash}{692ac5d782497c61c9d22b8927eacd51}
+      \strng{bibnamehash}{692ac5d782497c61c9d22b8927eacd51}
+      \strng{authorbibnamehash}{692ac5d782497c61c9d22b8927eacd51}
+      \strng{authornamehash}{a71a5f451ec9abf0253415b905dd010d}
+      \strng{authorfullhash}{692ac5d782497c61c9d22b8927eacd51}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1}
+      \field{title}{The Zynq Book: Embedded Processing with the ARM Cortex-A9 on the Xilinx Zynq-7000 All Programmable SoC}
+      \field{year}{2014}
+    \endentry
+    \entry{LEGENDHDF5}{online}{}
+      \name{author}{1}{}{%
+        {{hash=24be34c0487e6af437c6d5a1dab6d462}{%
+           family={{LEGEND Collaboration}},
+           familyi={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{24be34c0487e6af437c6d5a1dab6d462}
+      \strng{fullhash}{24be34c0487e6af437c6d5a1dab6d462}
+      \strng{bibnamehash}{24be34c0487e6af437c6d5a1dab6d462}
+      \strng{authorbibnamehash}{24be34c0487e6af437c6d5a1dab6d462}
+      \strng{authornamehash}{24be34c0487e6af437c6d5a1dab6d462}
+      \strng{authorfullhash}{24be34c0487e6af437c6d5a1dab6d462}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{LEGEND} Data Format Specifications: {HDF5} File Format}
+      \field{urlday}{17}
+      \field{urlmonth}{11}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://legend-exp.github.io/legend-data-format-specs/dev/hdf5
+      \endverb
+      \verb{url}
+      \verb https://legend-exp.github.io/legend-data-format-specs/dev/hdf5
+      \endverb
+      \warn{\item Datamodel: Entry 'LEGENDHDF5' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined}
+    \endentry
+    \entry{NumpyNEP1}{online}{}
+      \name{author}{1}{}{%
+        {{hash=9ad1d38817acd2f00cb7f324ec7d37ea}{%
+           family={Kern},
+           familyi={K\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {NumPy Enhancement Proposals}%
+      }
+      \strng{namehash}{9ad1d38817acd2f00cb7f324ec7d37ea}
+      \strng{fullhash}{9ad1d38817acd2f00cb7f324ec7d37ea}
+      \strng{bibnamehash}{9ad1d38817acd2f00cb7f324ec7d37ea}
+      \strng{authorbibnamehash}{9ad1d38817acd2f00cb7f324ec7d37ea}
+      \strng{authornamehash}{9ad1d38817acd2f00cb7f324ec7d37ea}
+      \strng{authorfullhash}{9ad1d38817acd2f00cb7f324ec7d37ea}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{NEP} 1 --- A simple file format for {NumPy} arrays}
+      \field{year}{2007}
+      \verb{urlraw}
+      \verb https://numpy.org/neps/nep-0001-npy-format.html
+      \endverb
+      \verb{url}
+      \verb https://numpy.org/neps/nep-0001-npy-format.html
+      \endverb
+    \endentry
+    \entry{Kerrisk2010}{book}{}
+      \name{author}{1}{}{%
+        {{hash=7f32f61adec784489cc0fa2cefa610a3}{%
+           family={Kerrisk},
+           familyi={K\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {San Francisco}%
+      }
+      \list{publisher}{1}{%
+        {No Starch Press}%
+      }
+      \strng{namehash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{fullhash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{bibnamehash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{authorbibnamehash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{authornamehash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{authorfullhash}{7f32f61adec784489cc0fa2cefa610a3}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The {Linux} Programming Interface}
+      \field{year}{2010}
+    \endentry
+    \entry{Pillai2014}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=2f95b48f49e1c9df6179a525a5c498a3}{%
+           family={Pillai},
+           familyi={P\bibinitperiod},
+           given={Thanumalayan\bibnamedelima Sankaranarayana},
+           giveni={T\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=33a514a6470c53b3e3d3c4b1b6ce9279}{%
+           family={Chidambaram},
+           familyi={C\bibinitperiod},
+           given={Vijay},
+           giveni={V\bibinitperiod}}}%
+        {{hash=7b64c2b6cefd40cfbf663d54561153a9}{%
+           family={Alagappan},
+           familyi={A\bibinitperiod},
+           given={Ramnatthan},
+           giveni={R\bibinitperiod}}}%
+        {{hash=daf40dff88aacb5e59a536066db274a6}{%
+           family={Al-Kiswany},
+           familyi={A\bibinithyphendelim K\bibinitperiod},
+           given={Samer},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ea802818c117b71ae0db8779a9e2388d}{%
+           family={Arpaci-Dusseau},
+           familyi={A\bibinithyphendelim D\bibinitperiod},
+           given={Andrea\bibnamedelima C.},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=7f251519283e9082fa2ceea65b5bf557}{%
+           family={Arpaci-Dusseau},
+           familyi={A\bibinithyphendelim D\bibinitperiod},
+           given={Remzi\bibnamedelima H.},
+           giveni={R\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Broomfield, CO}%
+      }
+      \strng{namehash}{b56b3c7a961c5fcdf46d52427f6117d2}
+      \strng{fullhash}{8aefceb47f54987287980c565f49742d}
+      \strng{bibnamehash}{8aefceb47f54987287980c565f49742d}
+      \strng{authorbibnamehash}{8aefceb47f54987287980c565f49742d}
+      \strng{authornamehash}{b56b3c7a961c5fcdf46d52427f6117d2}
+      \strng{authorfullhash}{8aefceb47f54987287980c565f49742d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{11th {USENIX} Symposium on Operating Systems Design and Implementation ({OSDI} '14)}
+      \field{title}{All File Systems Are Not Created Equal: On the Complexity of Crafting Crash-Consistent Applications}
+      \field{year}{2014}
+      \field{pages}{433\bibrangedash 448}
+      \range{pages}{16}
+      \verb{urlraw}
+      \verb https://www.usenix.org/conference/osdi14/technical-sessions/presentation/pillai
+      \endverb
+      \verb{url}
+      \verb https://www.usenix.org/conference/osdi14/technical-sessions/presentation/pillai
+      \endverb
+    \endentry
+    \entry{Dijkstra1965}{incollection}{}
+      \name{author}{1}{}{%
+        {{hash=2066778d476d4368455cb8e3ba6d03b4}{%
+           family={Dijkstra},
+           familyi={D\bibinitperiod},
+           given={Edsger\bibnamedelima W.},
+           giveni={E\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=c7a604c50a599e81dc44dee8e758f5f8}{%
+           family={Genuys},
+           familyi={G\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Academic Press}%
+      }
+      \strng{namehash}{2066778d476d4368455cb8e3ba6d03b4}
+      \strng{fullhash}{2066778d476d4368455cb8e3ba6d03b4}
+      \strng{bibnamehash}{2066778d476d4368455cb8e3ba6d03b4}
+      \strng{authorbibnamehash}{2066778d476d4368455cb8e3ba6d03b4}
+      \strng{authornamehash}{2066778d476d4368455cb8e3ba6d03b4}
+      \strng{authorfullhash}{2066778d476d4368455cb8e3ba6d03b4}
+      \strng{editorbibnamehash}{c7a604c50a599e81dc44dee8e758f5f8}
+      \strng{editornamehash}{c7a604c50a599e81dc44dee8e758f5f8}
+      \strng{editorfullhash}{c7a604c50a599e81dc44dee8e758f5f8}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Programming Languages}
+      \field{note}{Publicado originalmente como EWD123, 1965}
+      \field{title}{Cooperating Sequential Processes}
+      \field{year}{1968}
+      \verb{urlraw}
+      \verb https://www.cs.utexas.edu/~EWD/transcriptions/EWD01xx/EWD123.html
+      \endverb
+      \verb{url}
+      \verb https://www.cs.utexas.edu/~EWD/transcriptions/EWD01xx/EWD123.html
+      \endverb
+    \endentry
+    \entry{Beazley2010}{online}{}
+      \name{author}{1}{}{%
+        {{hash=04013ba015b0de0c763dcd3e5407d50c}{%
+           family={Beazley},
+           familyi={B\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {PyCon 2010, Atlanta, GA}%
+      }
+      \strng{namehash}{04013ba015b0de0c763dcd3e5407d50c}
+      \strng{fullhash}{04013ba015b0de0c763dcd3e5407d50c}
+      \strng{bibnamehash}{04013ba015b0de0c763dcd3e5407d50c}
+      \strng{authorbibnamehash}{04013ba015b0de0c763dcd3e5407d50c}
+      \strng{authornamehash}{04013ba015b0de0c763dcd3e5407d50c}
+      \strng{authorfullhash}{04013ba015b0de0c763dcd3e5407d50c}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Understanding the {Python} {GIL}}
+      \field{year}{2010}
+      \verb{urlraw}
+      \verb https://dabeaz.com/GIL
+      \endverb
+      \verb{url}
+      \verb https://dabeaz.com/GIL
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{23}
   \datalist[entry]{none/global//global/global}
     \entry{Ley24804}{misc}{}
       \name{author}{1}{}{%
@@ -1111,775 +1854,6 @@
       \field{version}{Ed. 3.0}
       \field{year}{2020}
       \field{dateera}{ce}
-    \endentry
-  \enddatalist
-\endrefsection
-
-\refsection{18}
-  \datalist[entry]{none/global//global/global}
-    \entry{Knoll2010}{book}{}
-      \name{author}{1}{}{%
-        {{hash=b3b1b42c7c2fbd3232b45837ae3874e0}{%
-           family={Knoll},
-           familyi={K\bibinitperiod},
-           given={G.\bibnamedelimi F.},
-           giveni={G\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Hoboken, NJ}%
-      }
-      \list{publisher}{1}{%
-        {Wiley}%
-      }
-      \strng{namehash}{b3b1b42c7c2fbd3232b45837ae3874e0}
-      \strng{fullhash}{b3b1b42c7c2fbd3232b45837ae3874e0}
-      \strng{bibnamehash}{b3b1b42c7c2fbd3232b45837ae3874e0}
-      \strng{authorbibnamehash}{b3b1b42c7c2fbd3232b45837ae3874e0}
-      \strng{authornamehash}{b3b1b42c7c2fbd3232b45837ae3874e0}
-      \strng{authorfullhash}{b3b1b42c7c2fbd3232b45837ae3874e0}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{4}
-      \field{title}{Radiation Detection and Measurement}
-      \field{year}{2010}
-    \endentry
-  \enddatalist
-\endrefsection
-
-\refsection{19}
-  \datalist[entry]{none/global//global/global}
-    \entry{Crockett2014}{book}{}
-      \name{author}{4}{}{%
-        {{hash=9d8ee52a687cfffb2170360a7927c405}{%
-           family={Crockett},
-           familyi={C\bibinitperiod},
-           given={L.\bibnamedelimi H.},
-           giveni={L\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
-        {{hash=fa403a1f34074844e1dc6e1cc585051b}{%
-           family={Elliot},
-           familyi={E\bibinitperiod},
-           given={R.\bibnamedelimi A.},
-           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=1effb4f951495ec44b80034a570e287d}{%
-           family={Enderwitz},
-           familyi={E\bibinitperiod},
-           given={M.\bibnamedelimi A.},
-           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=304a2381d981e719ee206d294bed221b}{%
-           family={Stewart},
-           familyi={S\bibinitperiod},
-           given={R.\bibnamedelimi W.},
-           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Glasgow}%
-      }
-      \list{publisher}{1}{%
-        {Strathclyde Academic Media}%
-      }
-      \strng{namehash}{a71a5f451ec9abf0253415b905dd010d}
-      \strng{fullhash}{692ac5d782497c61c9d22b8927eacd51}
-      \strng{bibnamehash}{692ac5d782497c61c9d22b8927eacd51}
-      \strng{authorbibnamehash}{692ac5d782497c61c9d22b8927eacd51}
-      \strng{authornamehash}{a71a5f451ec9abf0253415b905dd010d}
-      \strng{authorfullhash}{692ac5d782497c61c9d22b8927eacd51}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{1}
-      \field{title}{The Zynq Book: Embedded Processing with the ARM Cortex-A9 on the Xilinx Zynq-7000 All Programmable SoC}
-      \field{year}{2014}
-    \endentry
-    \entry{UG474}{manual}{}
-      \name{author}{1}{}{%
-        {{hash=f872201c6db9bf2620dc262ba42d2271}{%
-           family={{Xilinx}},
-           familyi={X\bibinitperiod}}}%
-      }
-      \strng{namehash}{f872201c6db9bf2620dc262ba42d2271}
-      \strng{fullhash}{f872201c6db9bf2620dc262ba42d2271}
-      \strng{bibnamehash}{f872201c6db9bf2620dc262ba42d2271}
-      \strng{authorbibnamehash}{f872201c6db9bf2620dc262ba42d2271}
-      \strng{authornamehash}{f872201c6db9bf2620dc262ba42d2271}
-      \strng{authorfullhash}{f872201c6db9bf2620dc262ba42d2271}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{day}{27}
-      \field{month}{9}
-      \field{number}{UG474}
-      \field{title}{7 Series FPGAs Configurable Logic Block User Guide}
-      \field{version}{v1.8}
-      \field{year}{2016}
-      \field{dateera}{ce}
-    \endentry
-    \entry{RedPitayaSchematics}{online}{}
-      \name{author}{1}{}{%
-        {{hash=5933a557af910702489aacfcca3f3ee2}{%
-           family={{Red Pitaya}},
-           familyi={R\bibinitperiod}}}%
-      }
-      \strng{namehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{fullhash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{bibnamehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{authorbibnamehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{authornamehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{authorfullhash}{5933a557af910702489aacfcca3f3ee2}
-      \field{extraname}{1}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Schematics STEMlab 125-14 v1.1}
-      \field{urlday}{23}
-      \field{urlmonth}{11}
-      \field{urlyear}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://downloads.redpitaya.com/doc/Schematics/Schematics_STEM_125-14_v1.1.pdf
-      \endverb
-      \verb{url}
-      \verb https://downloads.redpitaya.com/doc/Schematics/Schematics_STEM_125-14_v1.1.pdf
-      \endverb
-      \warn{\item Datamodel: Entry 'RedPitayaSchematics' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined}
-    \endentry
-    \entry{RedPitayaDocs}{online}{}
-      \name{author}{1}{}{%
-        {{hash=5933a557af910702489aacfcca3f3ee2}{%
-           family={{Red Pitaya}},
-           familyi={R\bibinitperiod}}}%
-      }
-      \strng{namehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{fullhash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{bibnamehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{authorbibnamehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{authornamehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{authorfullhash}{5933a557af910702489aacfcca3f3ee2}
-      \field{extraname}{2}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Developer Guide, Hardware, STEMlab 125-14 (Original Gen)}
-      \field{title}{Red Pitaya Documentation}
-      \field{urlday}{23}
-      \field{urlmonth}{11}
-      \field{urlyear}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://redpitaya.readthedocs.io/en/latest/developerGuide/hardware/ORIG_GEN/125-14/top.html
-      \endverb
-      \verb{url}
-      \verb https://redpitaya.readthedocs.io/en/latest/developerGuide/hardware/ORIG_GEN/125-14/top.html
-      \endverb
-      \warn{\item Datamodel: Entry 'RedPitayaDocs' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined}
-    \endentry
-    \entry{RedPitayaFastIn}{online}{}
-      \name{author}{1}{}{%
-        {{hash=5933a557af910702489aacfcca3f3ee2}{%
-           family={{Red Pitaya}},
-           familyi={R\bibinitperiod}}}%
-      }
-      \strng{namehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{fullhash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{bibnamehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{authorbibnamehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{authornamehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{authorfullhash}{5933a557af910702489aacfcca3f3ee2}
-      \field{extraname}{3}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Mediciones de la STEMlab 125-14 (Original Gen)}
-      \field{title}{Fast Analog Inputs}
-      \field{urlday}{23}
-      \field{urlmonth}{11}
-      \field{urlyear}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://redpitaya.readthedocs.io/en/latest/developerGuide/hardware/ORIG_GEN/measurements/STEMlab-125-14/fast_analog_inputs.html
-      \endverb
-      \verb{url}
-      \verb https://redpitaya.readthedocs.io/en/latest/developerGuide/hardware/ORIG_GEN/measurements/STEMlab-125-14/fast_analog_inputs.html
-      \endverb
-      \warn{\item Datamodel: Entry 'RedPitayaFastIn' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined}
-    \endentry
-    \entry{AD9767}{manual}{}
-      \name{author}{1}{}{%
-        {{hash=a12ff886a2379a9ee6efaa9acfb54df4}{%
-           family={{Analog Devices}},
-           familyi={A\bibinitperiod}}}%
-      }
-      \strng{namehash}{a12ff886a2379a9ee6efaa9acfb54df4}
-      \strng{fullhash}{a12ff886a2379a9ee6efaa9acfb54df4}
-      \strng{bibnamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
-      \strng{authorbibnamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
-      \strng{authornamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
-      \strng{authorfullhash}{a12ff886a2379a9ee6efaa9acfb54df4}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{number}{Rev. C}
-      \field{title}{AD9763/AD9765/AD9767: 10-/12-/14-Bit, 125 MSPS Dual TxDAC+ Digital-to-Analog Converters}
-      \field{type}{Hoja de datos}
-      \field{year}{2006}
-    \endentry
-    \entry{RedPitayaFastOut}{online}{}
-      \name{author}{1}{}{%
-        {{hash=5933a557af910702489aacfcca3f3ee2}{%
-           family={{Red Pitaya}},
-           familyi={R\bibinitperiod}}}%
-      }
-      \strng{namehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{fullhash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{bibnamehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{authorbibnamehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{authornamehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{authorfullhash}{5933a557af910702489aacfcca3f3ee2}
-      \field{extraname}{4}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Mediciones de la STEMlab 125-14 (Original Gen)}
-      \field{title}{Fast Analog Outputs}
-      \field{urlday}{23}
-      \field{urlmonth}{11}
-      \field{urlyear}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://redpitaya.readthedocs.io/en/latest/developerGuide/hardware/ORIG_GEN/measurements/STEMlab-125-14/fast_analog_outputs.html
-      \endverb
-      \verb{url}
-      \verb https://redpitaya.readthedocs.io/en/latest/developerGuide/hardware/ORIG_GEN/measurements/STEMlab-125-14/fast_analog_outputs.html
-      \endverb
-      \warn{\item Datamodel: Entry 'RedPitayaFastOut' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined}
-    \endentry
-  \enddatalist
-\endrefsection
-
-\refsection{20}
-  \datalist[entry]{none/global//global/global}
-    \entry{RepoMultitrigger}{online}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labeltitlesource}{title}
-      \field{note}{Repositorio de este trabajo, rama \texttt{multitrigger}}
-      \field{title}{RedPitaya-FPGA}
-      \field{urlday}{23}
-      \field{urlmonth}{11}
-      \field{urlyear}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://github.com/LorenBataraza/RedPitaya-FPGA/tree/multitrigger
-      \endverb
-      \verb{url}
-      \verb https://github.com/LorenBataraza/RedPitaya-FPGA/tree/multitrigger
-      \endverb
-      \warn{\item Datamodel: Entry 'RepoMultitrigger' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined}
-    \endentry
-    \entry{Jordanov1994}{article}{}
-      \name{author}{2}{}{%
-        {{hash=d2c26602711c2192322ea2dfbe14e5c5}{%
-           family={Jordanov},
-           familyi={J\bibinitperiod},
-           given={V.\bibnamedelimi T.},
-           giveni={V\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
-        {{hash=b3b1b42c7c2fbd3232b45837ae3874e0}{%
-           family={Knoll},
-           familyi={K\bibinitperiod},
-           given={G.\bibnamedelimi F.},
-           giveni={G\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
-      }
-      \strng{namehash}{fd576ec21d120cf6c192ae6ebe7bc681}
-      \strng{fullhash}{fd576ec21d120cf6c192ae6ebe7bc681}
-      \strng{bibnamehash}{fd576ec21d120cf6c192ae6ebe7bc681}
-      \strng{authorbibnamehash}{fd576ec21d120cf6c192ae6ebe7bc681}
-      \strng{authornamehash}{fd576ec21d120cf6c192ae6ebe7bc681}
-      \strng{authorfullhash}{fd576ec21d120cf6c192ae6ebe7bc681}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Nuclear Instruments and Methods in Physics Research A}
-      \field{title}{Digital synthesis of pulse shapes in real time for high resolution radiation spectroscopy}
-      \field{volume}{345}
-      \field{year}{1994}
-      \field{pages}{337\bibrangedash 345}
-      \range{pages}{9}
-    \endentry
-    \entry{CAENWP2081}{manual}{}
-      \name{author}{1}{}{%
-        {{hash=e88aed6103975a8e1b5fbd655fcbc412}{%
-           family={{CAEN}},
-           familyi={C\bibinitperiod}}}%
-      }
-      \strng{namehash}{e88aed6103975a8e1b5fbd655fcbc412}
-      \strng{fullhash}{e88aed6103975a8e1b5fbd655fcbc412}
-      \strng{bibnamehash}{e88aed6103975a8e1b5fbd655fcbc412}
-      \strng{authorbibnamehash}{e88aed6103975a8e1b5fbd655fcbc412}
-      \strng{authornamehash}{e88aed6103975a8e1b5fbd655fcbc412}
-      \strng{authorfullhash}{e88aed6103975a8e1b5fbd655fcbc412}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{number}{WP2081}
-      \field{title}{Digital Pulse Processing in Nuclear Physics}
-      \field{type}{White paper}
-      \field{year}{2011}
-      \field{dateera}{ce}
-    \endentry
-    \entry{Jordanov1994b}{article}{}
-      \name{author}{4}{}{%
-        {{hash=d2c26602711c2192322ea2dfbe14e5c5}{%
-           family={Jordanov},
-           familyi={J\bibinitperiod},
-           given={V.\bibnamedelimi T.},
-           giveni={V\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
-        {{hash=b3b1b42c7c2fbd3232b45837ae3874e0}{%
-           family={Knoll},
-           familyi={K\bibinitperiod},
-           given={G.\bibnamedelimi F.},
-           giveni={G\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
-        {{hash=ea5b1cfe7888d109e2d2185d3caf139f}{%
-           family={Huber},
-           familyi={H\bibinitperiod},
-           given={A.\bibnamedelimi C.},
-           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-        {{hash=a6e0975906f8453d2b50ffd7c3994e2a}{%
-           family={Pantazis},
-           familyi={P\bibinitperiod},
-           given={J.\bibnamedelimi A.},
-           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-      }
-      \strng{namehash}{071f47a8548f8bd82de9ba6697059574}
-      \strng{fullhash}{5eb0e5bbf8e37abb9f15affdbe7eb836}
-      \strng{bibnamehash}{5eb0e5bbf8e37abb9f15affdbe7eb836}
-      \strng{authorbibnamehash}{5eb0e5bbf8e37abb9f15affdbe7eb836}
-      \strng{authornamehash}{071f47a8548f8bd82de9ba6697059574}
-      \strng{authorfullhash}{5eb0e5bbf8e37abb9f15affdbe7eb836}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Nuclear Instruments and Methods in Physics Research A}
-      \field{title}{Digital techniques for real-time pulse shaping in radiation measurements}
-      \field{volume}{353}
-      \field{year}{1994}
-      \field{pages}{261\bibrangedash 264}
-      \range{pages}{4}
-    \endentry
-    \entry{UG474}{manual}{}
-      \name{author}{1}{}{%
-        {{hash=f872201c6db9bf2620dc262ba42d2271}{%
-           family={{Xilinx}},
-           familyi={X\bibinitperiod}}}%
-      }
-      \strng{namehash}{f872201c6db9bf2620dc262ba42d2271}
-      \strng{fullhash}{f872201c6db9bf2620dc262ba42d2271}
-      \strng{bibnamehash}{f872201c6db9bf2620dc262ba42d2271}
-      \strng{authorbibnamehash}{f872201c6db9bf2620dc262ba42d2271}
-      \strng{authornamehash}{f872201c6db9bf2620dc262ba42d2271}
-      \strng{authorfullhash}{f872201c6db9bf2620dc262ba42d2271}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{day}{27}
-      \field{month}{9}
-      \field{number}{UG474}
-      \field{title}{7 Series FPGAs Configurable Logic Block User Guide}
-      \field{version}{v1.8}
-      \field{year}{2016}
-      \field{dateera}{ce}
-    \endentry
-    \entry{Nakhostin2017}{book}{}
-      \name{author}{1}{}{%
-        {{hash=2eb4ba27f2592b760c26c925e3a15855}{%
-           family={Nakhostin},
-           familyi={N\bibinitperiod},
-           given={M.},
-           giveni={M\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Hoboken, NJ}%
-      }
-      \list{publisher}{1}{%
-        {Wiley}%
-      }
-      \strng{namehash}{2eb4ba27f2592b760c26c925e3a15855}
-      \strng{fullhash}{2eb4ba27f2592b760c26c925e3a15855}
-      \strng{bibnamehash}{2eb4ba27f2592b760c26c925e3a15855}
-      \strng{authorbibnamehash}{2eb4ba27f2592b760c26c925e3a15855}
-      \strng{authornamehash}{2eb4ba27f2592b760c26c925e3a15855}
-      \strng{authorfullhash}{2eb4ba27f2592b760c26c925e3a15855}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Signal Processing for Radiation Detectors}
-      \field{year}{2017}
-    \endentry
-    \entry{RedPitayaFPGA}{online}{}
-      \name{author}{1}{}{%
-        {{hash=5933a557af910702489aacfcca3f3ee2}{%
-           family={{Red Pitaya}},
-           familyi={R\bibinitperiod}}}%
-      }
-      \strng{namehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{fullhash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{bibnamehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{authorbibnamehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{authornamehash}{5933a557af910702489aacfcca3f3ee2}
-      \strng{authorfullhash}{5933a557af910702489aacfcca3f3ee2}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Repositorio del diseño de la FPGA}
-      \field{title}{RedPitaya-FPGA}
-      \field{urlday}{23}
-      \field{urlmonth}{11}
-      \field{urlyear}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://github.com/RedPitaya/RedPitaya-FPGA
-      \endverb
-      \verb{url}
-      \verb https://github.com/RedPitaya/RedPitaya-FPGA
-      \endverb
-      \warn{\item Datamodel: Entry 'RedPitayaFPGA' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined}
-    \endentry
-    \entry{Bergeron2003}{book}{}
-      \name{author}{1}{}{%
-        {{hash=1bbc9000df25c33f3f04bbe330e6de0a}{%
-           family={Bergeron},
-           familyi={B\bibinitperiod},
-           given={J.},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Boston}%
-      }
-      \list{publisher}{1}{%
-        {Kluwer Academic}%
-      }
-      \strng{namehash}{1bbc9000df25c33f3f04bbe330e6de0a}
-      \strng{fullhash}{1bbc9000df25c33f3f04bbe330e6de0a}
-      \strng{bibnamehash}{1bbc9000df25c33f3f04bbe330e6de0a}
-      \strng{authorbibnamehash}{1bbc9000df25c33f3f04bbe330e6de0a}
-      \strng{authornamehash}{1bbc9000df25c33f3f04bbe330e6de0a}
-      \strng{authorfullhash}{1bbc9000df25c33f3f04bbe330e6de0a}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{2}
-      \field{title}{Writing Testbenches: Functional Verification of {HDL} Models}
-      \field{year}{2003}
-    \endentry
-  \enddatalist
-\endrefsection
-
-\refsection{21}
-  \datalist[entry]{none/global//global/global}
-    \entry{Kleinrock1975}{book}{}
-      \name{author}{1}{}{%
-        {{hash=d4047ad8d18bffeb8d4dd1346407b0a5}{%
-           family={Kleinrock},
-           familyi={K\bibinitperiod},
-           given={L.},
-           giveni={L\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Nueva York}%
-      }
-      \list{publisher}{1}{%
-        {Wiley}%
-      }
-      \strng{namehash}{d4047ad8d18bffeb8d4dd1346407b0a5}
-      \strng{fullhash}{d4047ad8d18bffeb8d4dd1346407b0a5}
-      \strng{bibnamehash}{d4047ad8d18bffeb8d4dd1346407b0a5}
-      \strng{authorbibnamehash}{d4047ad8d18bffeb8d4dd1346407b0a5}
-      \strng{authornamehash}{d4047ad8d18bffeb8d4dd1346407b0a5}
-      \strng{authorfullhash}{d4047ad8d18bffeb8d4dd1346407b0a5}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Queueing Systems, Volume 1: Theory}
-      \field{year}{1975}
-    \endentry
-  \enddatalist
-\endrefsection
-
-\refsection{23}
-  \datalist[entry]{none/global//global/global}
-    \entry{Crockett2014}{book}{}
-      \name{author}{4}{}{%
-        {{hash=9d8ee52a687cfffb2170360a7927c405}{%
-           family={Crockett},
-           familyi={C\bibinitperiod},
-           given={L.\bibnamedelimi H.},
-           giveni={L\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
-        {{hash=fa403a1f34074844e1dc6e1cc585051b}{%
-           family={Elliot},
-           familyi={E\bibinitperiod},
-           given={R.\bibnamedelimi A.},
-           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=1effb4f951495ec44b80034a570e287d}{%
-           family={Enderwitz},
-           familyi={E\bibinitperiod},
-           given={M.\bibnamedelimi A.},
-           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=304a2381d981e719ee206d294bed221b}{%
-           family={Stewart},
-           familyi={S\bibinitperiod},
-           given={R.\bibnamedelimi W.},
-           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Glasgow}%
-      }
-      \list{publisher}{1}{%
-        {Strathclyde Academic Media}%
-      }
-      \strng{namehash}{a71a5f451ec9abf0253415b905dd010d}
-      \strng{fullhash}{692ac5d782497c61c9d22b8927eacd51}
-      \strng{bibnamehash}{692ac5d782497c61c9d22b8927eacd51}
-      \strng{authorbibnamehash}{692ac5d782497c61c9d22b8927eacd51}
-      \strng{authornamehash}{a71a5f451ec9abf0253415b905dd010d}
-      \strng{authorfullhash}{692ac5d782497c61c9d22b8927eacd51}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{1}
-      \field{title}{The Zynq Book: Embedded Processing with the ARM Cortex-A9 on the Xilinx Zynq-7000 All Programmable SoC}
-      \field{year}{2014}
-    \endentry
-    \entry{LEGENDHDF5}{online}{}
-      \name{author}{1}{}{%
-        {{hash=24be34c0487e6af437c6d5a1dab6d462}{%
-           family={{LEGEND Collaboration}},
-           familyi={L\bibinitperiod}}}%
-      }
-      \strng{namehash}{24be34c0487e6af437c6d5a1dab6d462}
-      \strng{fullhash}{24be34c0487e6af437c6d5a1dab6d462}
-      \strng{bibnamehash}{24be34c0487e6af437c6d5a1dab6d462}
-      \strng{authorbibnamehash}{24be34c0487e6af437c6d5a1dab6d462}
-      \strng{authornamehash}{24be34c0487e6af437c6d5a1dab6d462}
-      \strng{authorfullhash}{24be34c0487e6af437c6d5a1dab6d462}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{{LEGEND} Data Format Specifications: {HDF5} File Format}
-      \field{urlday}{17}
-      \field{urlmonth}{11}
-      \field{urlyear}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://legend-exp.github.io/legend-data-format-specs/dev/hdf5
-      \endverb
-      \verb{url}
-      \verb https://legend-exp.github.io/legend-data-format-specs/dev/hdf5
-      \endverb
-      \warn{\item Datamodel: Entry 'LEGENDHDF5' (mibib.bib): Missing mandatory field - one of 'date, year' must be defined}
-    \endentry
-    \entry{NumpyNEP1}{online}{}
-      \name{author}{1}{}{%
-        {{hash=9ad1d38817acd2f00cb7f324ec7d37ea}{%
-           family={Kern},
-           familyi={K\bibinitperiod},
-           given={Robert},
-           giveni={R\bibinitperiod}}}%
-      }
-      \list{organization}{1}{%
-        {NumPy Enhancement Proposals}%
-      }
-      \strng{namehash}{9ad1d38817acd2f00cb7f324ec7d37ea}
-      \strng{fullhash}{9ad1d38817acd2f00cb7f324ec7d37ea}
-      \strng{bibnamehash}{9ad1d38817acd2f00cb7f324ec7d37ea}
-      \strng{authorbibnamehash}{9ad1d38817acd2f00cb7f324ec7d37ea}
-      \strng{authornamehash}{9ad1d38817acd2f00cb7f324ec7d37ea}
-      \strng{authorfullhash}{9ad1d38817acd2f00cb7f324ec7d37ea}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{{NEP} 1 --- A simple file format for {NumPy} arrays}
-      \field{year}{2007}
-      \verb{urlraw}
-      \verb https://numpy.org/neps/nep-0001-npy-format.html
-      \endverb
-      \verb{url}
-      \verb https://numpy.org/neps/nep-0001-npy-format.html
-      \endverb
-    \endentry
-    \entry{Kerrisk2010}{book}{}
-      \name{author}{1}{}{%
-        {{hash=7f32f61adec784489cc0fa2cefa610a3}{%
-           family={Kerrisk},
-           familyi={K\bibinitperiod},
-           given={Michael},
-           giveni={M\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {San Francisco}%
-      }
-      \list{publisher}{1}{%
-        {No Starch Press}%
-      }
-      \strng{namehash}{7f32f61adec784489cc0fa2cefa610a3}
-      \strng{fullhash}{7f32f61adec784489cc0fa2cefa610a3}
-      \strng{bibnamehash}{7f32f61adec784489cc0fa2cefa610a3}
-      \strng{authorbibnamehash}{7f32f61adec784489cc0fa2cefa610a3}
-      \strng{authornamehash}{7f32f61adec784489cc0fa2cefa610a3}
-      \strng{authorfullhash}{7f32f61adec784489cc0fa2cefa610a3}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{The {Linux} Programming Interface}
-      \field{year}{2010}
-    \endentry
-    \entry{Pillai2014}{inproceedings}{}
-      \name{author}{6}{}{%
-        {{hash=2f95b48f49e1c9df6179a525a5c498a3}{%
-           family={Pillai},
-           familyi={P\bibinitperiod},
-           given={Thanumalayan\bibnamedelima Sankaranarayana},
-           giveni={T\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
-        {{hash=33a514a6470c53b3e3d3c4b1b6ce9279}{%
-           family={Chidambaram},
-           familyi={C\bibinitperiod},
-           given={Vijay},
-           giveni={V\bibinitperiod}}}%
-        {{hash=7b64c2b6cefd40cfbf663d54561153a9}{%
-           family={Alagappan},
-           familyi={A\bibinitperiod},
-           given={Ramnatthan},
-           giveni={R\bibinitperiod}}}%
-        {{hash=daf40dff88aacb5e59a536066db274a6}{%
-           family={Al-Kiswany},
-           familyi={A\bibinithyphendelim K\bibinitperiod},
-           given={Samer},
-           giveni={S\bibinitperiod}}}%
-        {{hash=ea802818c117b71ae0db8779a9e2388d}{%
-           family={Arpaci-Dusseau},
-           familyi={A\bibinithyphendelim D\bibinitperiod},
-           given={Andrea\bibnamedelima C.},
-           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-        {{hash=7f251519283e9082fa2ceea65b5bf557}{%
-           family={Arpaci-Dusseau},
-           familyi={A\bibinithyphendelim D\bibinitperiod},
-           given={Remzi\bibnamedelima H.},
-           giveni={R\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Broomfield, CO}%
-      }
-      \strng{namehash}{b56b3c7a961c5fcdf46d52427f6117d2}
-      \strng{fullhash}{8aefceb47f54987287980c565f49742d}
-      \strng{bibnamehash}{8aefceb47f54987287980c565f49742d}
-      \strng{authorbibnamehash}{8aefceb47f54987287980c565f49742d}
-      \strng{authornamehash}{b56b3c7a961c5fcdf46d52427f6117d2}
-      \strng{authorfullhash}{8aefceb47f54987287980c565f49742d}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{11th {USENIX} Symposium on Operating Systems Design and Implementation ({OSDI} '14)}
-      \field{title}{All File Systems Are Not Created Equal: On the Complexity of Crafting Crash-Consistent Applications}
-      \field{year}{2014}
-      \field{pages}{433\bibrangedash 448}
-      \range{pages}{16}
-      \verb{urlraw}
-      \verb https://www.usenix.org/conference/osdi14/technical-sessions/presentation/pillai
-      \endverb
-      \verb{url}
-      \verb https://www.usenix.org/conference/osdi14/technical-sessions/presentation/pillai
-      \endverb
-    \endentry
-    \entry{Dijkstra1965}{incollection}{}
-      \name{author}{1}{}{%
-        {{hash=2066778d476d4368455cb8e3ba6d03b4}{%
-           family={Dijkstra},
-           familyi={D\bibinitperiod},
-           given={Edsger\bibnamedelima W.},
-           giveni={E\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
-      }
-      \name{editor}{1}{}{%
-        {{hash=c7a604c50a599e81dc44dee8e758f5f8}{%
-           family={Genuys},
-           familyi={G\bibinitperiod},
-           given={F.},
-           giveni={F\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Academic Press}%
-      }
-      \strng{namehash}{2066778d476d4368455cb8e3ba6d03b4}
-      \strng{fullhash}{2066778d476d4368455cb8e3ba6d03b4}
-      \strng{bibnamehash}{2066778d476d4368455cb8e3ba6d03b4}
-      \strng{authorbibnamehash}{2066778d476d4368455cb8e3ba6d03b4}
-      \strng{authornamehash}{2066778d476d4368455cb8e3ba6d03b4}
-      \strng{authorfullhash}{2066778d476d4368455cb8e3ba6d03b4}
-      \strng{editorbibnamehash}{c7a604c50a599e81dc44dee8e758f5f8}
-      \strng{editornamehash}{c7a604c50a599e81dc44dee8e758f5f8}
-      \strng{editorfullhash}{c7a604c50a599e81dc44dee8e758f5f8}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Programming Languages}
-      \field{note}{Publicado originalmente como EWD123, 1965}
-      \field{title}{Cooperating Sequential Processes}
-      \field{year}{1968}
-      \verb{urlraw}
-      \verb https://www.cs.utexas.edu/~EWD/transcriptions/EWD01xx/EWD123.html
-      \endverb
-      \verb{url}
-      \verb https://www.cs.utexas.edu/~EWD/transcriptions/EWD01xx/EWD123.html
-      \endverb
-    \endentry
-    \entry{Beazley2010}{online}{}
-      \name{author}{1}{}{%
-        {{hash=04013ba015b0de0c763dcd3e5407d50c}{%
-           family={Beazley},
-           familyi={B\bibinitperiod},
-           given={David},
-           giveni={D\bibinitperiod}}}%
-      }
-      \list{organization}{1}{%
-        {PyCon 2010, Atlanta, GA}%
-      }
-      \strng{namehash}{04013ba015b0de0c763dcd3e5407d50c}
-      \strng{fullhash}{04013ba015b0de0c763dcd3e5407d50c}
-      \strng{bibnamehash}{04013ba015b0de0c763dcd3e5407d50c}
-      \strng{authorbibnamehash}{04013ba015b0de0c763dcd3e5407d50c}
-      \strng{authornamehash}{04013ba015b0de0c763dcd3e5407d50c}
-      \strng{authorfullhash}{04013ba015b0de0c763dcd3e5407d50c}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Understanding the {Python} {GIL}}
-      \field{year}{2010}
-      \verb{urlraw}
-      \verb https://dabeaz.com/GIL
-      \endverb
-      \verb{url}
-      \verb https://dabeaz.com/GIL
-      \endverb
     \endentry
   \enddatalist
 \endrefsection

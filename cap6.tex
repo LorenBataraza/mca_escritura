@@ -1,4 +1,4 @@
-% Origen: Secciones/PI - Tipos de Usuario y APP.md
+% Origen: Secciones/PI - Intro a MCA y Tipos de Usuario.md
 % El archivo se llama cap6 por orden de creación, pero en template.tex va como
 % primer capítulo.
 \chapter{Tipos de usuario y aplicación}
@@ -8,34 +8,58 @@
 \graphicspath{{figs/cap6/}{figs/comunes/}}
 
 \begin{destacado}
-En este capítulo se describe qué parte de la tesis le sirve a cada tipo de
-usuario, los pasos para poner el sistema en marcha y la aplicación cliente que
-lo controla.
+En este capítulo se describe (1) la motivación de la utilización de un MCA, (2)
+los pasos para poner el sistema en marcha y (3) los diferentes usos que se le
+pueden dar a la aplicación desarrollada. Si contás con conocimientos previos de
+espectroscopía nuclear, se recomienda ir directamente a la
+Sec.~\ref{S:usr-guia}.
 \end{destacado}
 
 %==============================================================================
-\section{Analizador multicanal}
+\section{Introducción al analizador multicanal}
 \label{S:usr-mca}
 
-Un analizador multicanal (MCA) es un instrumento con el que podemos obtener un
-histograma de alguna característica, generalmente la altura máxima, de los
-pulsos de voltaje en su entrada. Es utilizado para protección radiológica,
-monitoreo ambiental, espectroscopía y análisis de materiales, entre otras
-aplicaciones. Sin embargo, su ámbito central es la espectroscopía nuclear, en
-particular la espectroscopía gamma, y se emplea también en espectroscopía alfa,
-de rayos X, en mediciones de neutrones y de otro tipo de partículas.
+Estamos constantemente expuestos a radiación, ondas electromagnéticas o
+partículas subatómicas, de diversas fuentes. Las mismas pueden ser fuentes
+externas a la Tierra, como los rayos cósmicos, o pueden ser internas al planeta,
+por ejemplo los decaimientos de minerales en la corteza terrestre. Nuestros
+sentidos no la pueden detectar de forma directa pero estas partículas tienen
+interacciones físicas conocidas y medibles por dispositivos sensibles a las
+mismas, estos se llaman sensores (o detectores) y nos ayudan a responder algunas
+preguntas fundamentales como: \textbf{de dónde proviene la radiación y cómo está
+compuesta}. La ciencia encargada de responder estas preguntas se conoce como
+\textbf{espectroscopía nuclear} y resulta indispensable en campos tan diversos
+como la protección radiológica de la población, la medicina nuclear, el
+monitoreo ambiental, el análisis no destructivo de materiales en la industria y
+la investigación científica fundamental.
 
-Sus aplicaciones son variadas debido a que su función es extremadamente general
-y flexible, ya que permite: (1) procesar pulsos rápidos (hasta del orden de los
-ns), (2) agrupar la información y eliminarle el ruido y (3) compararla con
-espectros previamente conocidos.
+En particular esta ciencia se especializa sobre los \textbf{isótopos
+radiactivos} como fuentes de radiación, cada uno de estos tiene características
+bien específicas, de forma que si las medimos podemos utilizarlas como
+``huella'' y saber si está presente. Es en este trabajo que proponemos un
+sistema electrónico capaz de medir esta ``huella'' con la mayor precisión
+posible debido a que necesitamos:
+\begin{enumerate}
+  \item Procesar pulsos ultrarrápidos y superpuestos: podemos tener cientos de
+    miles o millones de detecciones por segundo superpuestas en tiempo.
+  \item Agrupar mediciones: no basta con medir un único pulso de forma aislada,
+    es necesario clasificar estadísticamente miles o millones de eventos para
+    obtener esta ``huella''.
+  \item Determinación precisa del tiempo de medición: mientras el instrumento
+    procesa un evento, queda temporalmente ``ciego'' para medir nuevos
+    impulsos, tenemos que corregir este tiempo para no dar un resultado
+    erróneo.
+\end{enumerate}
+En este paso es donde aparece el \textbf{analizador multicanal (MCA, por sus
+siglas en inglés, \emph{Multichannel Analyzer})} como herramienta que realiza
+estas tres tareas.
 
 %==============================================================================
 \section{Guía de usuario}
 \label{S:usr-guia}
 
-Uno de los objetivos de este trabajo fue que el sistema pudiera ser aprovechado por personas con \textbf{diferentes niveles de experticia
-técnica}. En particular,
+El objetivo de este trabajo fue que el sistema pudiera ser aprovechado por
+usuarios con \textbf{diferentes niveles de experticia técnica}. En particular,
 distinguimos tres tipos de usuarios:
 \begin{enumerate}
   \item \textbf{Técnico}:
@@ -77,25 +101,32 @@ descarga, con qué herramienta trabaja y qué conocimientos le hacen falta.
 \begin{table}[H]
 \centering
 \caption[Guía de utilización según el tipo de usuario]{%
-Guía de utilización según el tipo de usuario.\label{t:usr-guia}}
-\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.19\textwidth}%
+Guía de utilización según el tipo de usuario. La \emph{Release} contiene los
+archivos para programar el HW (\emph{bitstreams}) y el SW desarrollado en este
+proyecto.\label{t:usr-guia}}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.17\textwidth}%
   |>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X%
-  |>{\raggedright\arraybackslash}X|}
-\hline \encabezado & \textbf{Técnico} & \textbf{Calibrador} &
-  \textbf{Desarrollador} \\ \hline
-Quiere & Un espectro de su detector & Poner a punto el \emph{setup} y caracterizar el
-  MCA & Cambiar el RTL y/o la API \\ \hline
-Descarga & \textbf{\emph{Release}} (1,3~MB) & \textbf{\emph{Release}} (1,3~MB) &
-  \textbf{Repositorio completo} (303~MB) \\ \hline
-Herramienta principal & APP (sin la pestaña \emph{Calibration}) & APP con
-  \emph{Calibration} + \emph{scripts} de campaña & Todo: RTL, Vivado, API y \emph{tests} \\ \hline
-Conocimiento C/Python & No es necesario & Mínimo & Sí, avanzado \\ \hline
-Conocimiento de Git & No es necesario & No es necesario & Sí \\ \hline
+  |>{\raggedright\arraybackslash}p{0.2\textwidth}|}
+\hline \encabezado \textbf{Tipo de usuario} & \textbf{Objetivo principal} &
+  \textbf{Herramienta y enfoque recomendado} & \textbf{Requiere} \\ \hline
+\textbf{Técnico} & Realizar mediciones de espectrometría estándar con el
+  sistema ya calibrado. & Uso directo de la aplicación gráfica cliente
+  (\codigo{mcamon}) en modo operacional, sin requerir conocimientos de
+  programación. & \textbf{\emph{Release}} (5,0~MB) \\ \hline
+\textbf{Calibrador} & Poner a punto un \emph{setup} experimental, caracterizar
+  el canal analógico y ajustar parámetros de adquisición. & Uso de la interfaz
+  completa con la pestaña de \emph{Calibration} y ejecución de \emph{scripts} de
+  automatización en Python. & \textbf{\emph{Release}} (5,0~MB) \\ \hline
+\textbf{Desarrollador} & Modificar o extender la lógica del hardware
+  reconfigurable (RTL) o la API del sistema. & Acceso al repositorio completo,
+  entorno de síntesis en Vivado y desarrollo de software embebido en C/Python.
+  & \textbf{Repositorio completo} (537~MB) y \textbf{Vivado 2020.1} (25~GB)
+  \\ \hline
 \end{tabularx}
 \end{table}
 
 El Calibrador que quiera actualizar el software en la placa con \cmd|git pull|
-puede bajar, en lugar de la \emph{Release}, un clon parcial del repositorio (7,5~MB) con
+puede bajar, en lugar de la \emph{Release}, un clon parcial del repositorio (31~MB) con
 sólo el software, la documentación y los \emph{bitstreams}; en ese caso necesita un
 conocimiento básico de Git.
 
@@ -106,17 +137,13 @@ El Técnico y el Calibrador trabajan con la \emph{Release} del
 repositorio~\cite{RepoReleases}, un paquete con los \emph{bitstreams} y el software que
 salieron del mismo \emph{commit}. Que viajen juntos importa: un \emph{bitstream} viejo ignora
 en silencio las escrituras a los registros que no conoce, así que un software
-nuevo contra él no falla, sino que mide y entrega números plausibles y
-equivocados.
+nuevo puede no fallar y medir números plausibles y equivocados.
 
 En la placa:
 \begin{enumerate}
   \item Conectar la placa de desarrollo a la red y la señal del detector a la
-    entrada IN1.
-  \begin{enumerate}
-    \item Ir a la guía de inicio de Red Pitaya~\cite{RedPitayaQuickStart} si se
-      encuentra algún problema.
-  \end{enumerate}
+    entrada IN1. Ir a la guía de inicio de Red
+    Pitaya~\cite{RedPitayaQuickStart} si se encuentra algún problema.
   \item Acceder a la placa mediante un cliente SSH.
   \item Descargar la \emph{Release} dentro de la placa, descomprimirla e instalarla con
     el comando de abajo, que además programa la PL y verifica que los
@@ -172,7 +199,7 @@ captura. La misma cuenta con:
 \begin{itemize}
   \item Un servidor programado en C, que:
   \begin{itemize}
-    \item Corre en el PS de la RedPitaya y lee de la PL los histogramas de su MCA.
+    \item Corre en el PS de la Red Pitaya y lee de la PL los histogramas de su MCA.
     \item Implementa un protocolo de comunicación propio.
   \end{itemize}
   \item Un cliente programado en Python, que:
@@ -200,13 +227,12 @@ versión del MCA~\cite{DeminMCPHA}.\label{f:usr-mcpha}}
 La aplicación realizada en este trabajo, \codigo{mcamon} (por \emph{MCA
 monitor}), es una adaptación de esta GUI al HW y SW de este proyecto. Se controla
 desde un cliente externo conectado por red, escrito con PyQt5 y matplotlib, que
-le pide todo a \codigo{mca\_server.py}. A diferencia de mcpha, el servidor está
-escrito en Python: corre en la placa, llama a la API de adquisición ---que debajo
-usa libmca, en C--- y responde con el protocolo de la
-Sec.~\ref{S:sw-protocolo-red}.
+se conecta con el servidor \codigo{mca\_server.py}. A diferencia de mcpha, el
+servidor está escrito en Python: corre en la placa, llama a la API de
+adquisición y responde con el protocolo de la Sec.~\ref{S:sw-protocolo-red}.
 
-Casi todas las diferencias con mcpha las impone el hardware, que no es el mismo;
-se presentan en la Tabla~\ref{t:usr-diferencias-mcpha}.
+Casi todas las diferencias con mcpha las imponen los módulos del hardware, que
+no es el mismo; se presentan en la Tabla~\ref{t:usr-diferencias-mcpha}.
 
 % [H]: es lo último del capítulo; como float quedaba solo detrás de las referencias.
 \begin{table}[H]
@@ -225,9 +251,10 @@ Temporizador de exposición en hardware & Lo implementa un hilo del servidor,
   contra el tiempo vivo \\ \hline
 Negador por canal & No hay negador; en su lugar se elige si la amplitud es el
   pico o la integral de carga \\ \hline
---- & Contadores propios: rechazados por amplitud y por forma, apilados y
-  disparos perdidos; tiempos real, vivo y muerto, con el muerto desglosado por
-  etapa \\ \hline
+--- & Contadores propios:\newline
+  \textbullet~Rechazados por amplitud y por forma.\newline
+  \textbullet~Apilados y disparos perdidos.\newline
+  \textbullet~Tiempos real, vivo y muerto. \\ \hline
 --- & Mapa 2D de forma de pulso y su figura de mérito \\ \hline
 \end{tabularx}
 \end{table}
@@ -243,7 +270,7 @@ módulo correspondiente.
 Pestañas de la aplicación y su contenido.\label{t:usr-pestanas}}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.2\textwidth}%
   |>{\raggedright\arraybackslash}X|}
-\hline \encabezado \textbf{Pestaña} & \textbf{Qué trae} \\ \hline
+\hline \encabezado \textbf{Pestaña} & \textbf{Qué contiene} \\ \hline
 \textbf{\emph{Messages}} & cada operación y cada error, con su hora \\ \hline
 \textbf{\emph{Spectrum}} & el histograma 1D; la tasa de entrada instantánea y media;
   los contadores (aceptados, rechazados, apilados, perdidos); el tiempo real,

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.3.15)  23 NOV 2026 15:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.3.15)  24 NOV 2026 11:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -918,11 +918,11 @@ Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 Package: newunicodechar 2018/04/08 v1.2 Defining Unicode characters
 )
 
-Package newunicodechar Warning: Redefining Unicode character on input line 205.
+Package newunicodechar Warning: Redefining Unicode character on input line 211.
 
 
 
-Package newunicodechar Warning: Redefining Unicode character on input line 208.
+Package newunicodechar Warning: Redefining Unicode character on input line 214.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty
@@ -1193,8 +1193,8 @@ LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
  (./resumen.aux) (./cap6.aux) (./cap1.aux) (./cap2.aux)
 (./cap5.aux) (./cap3.aux) (./cap7.aux) (./cap8.aux) (./cap12.aux) (./cap9.aux)
-(./cap4.aux) (./cap11.aux) (./apend4.aux) (./apend1.aux) (./apend2.aux)
-(./apend3.aux) (./apend7.aux) (./apend6.aux) (./cap10.aux))
+(./cap11.aux) (./apend4.aux) (./apend1.aux) (./apend2.aux) (./apend3.aux)
+(./apend7.aux) (./apend6.aux) (./cap10.aux) (./cap4.aux))
 \openout1 = `template.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
@@ -1569,9 +1569,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.13803pt}.
 
 [6]
-LaTeX Info: Redefining \sptext on input line 110.
-LaTeX Info: Redefining \. on input line 110.
-LaTeX Info: Redefining \% on input line 110.
+LaTeX Info: Redefining \sptext on input line 109.
+LaTeX Info: Redefining \. on input line 109.
+LaTeX Info: Redefining \% on input line 109.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1582,9 +1582,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.68202pt}.
 
 [7]
-LaTeX Info: Redefining \sptext on input line 147.
-LaTeX Info: Redefining \. on input line 147.
-LaTeX Info: Redefining \% on input line 147.
+LaTeX Info: Redefining \sptext on input line 146.
+LaTeX Info: Redefining \. on input line 146.
+LaTeX Info: Redefining \% on input line 146.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1649,9 +1649,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.13803pt}.
 
 [12]
-LaTeX Info: Redefining \sptext on input line 120.
-LaTeX Info: Redefining \. on input line 120.
-LaTeX Info: Redefining \% on input line 120.
+LaTeX Info: Redefining \sptext on input line 119.
+LaTeX Info: Redefining \. on input line 119.
+LaTeX Info: Redefining \% on input line 119.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1806,8 +1806,8 @@ Package biblatex Info: Setting label 'refsection:6' on input line 4.
 
 
 ]
-LaTeX Info: Redefining \. on input line 111.
-LaTeX Info: Redefining \% on input line 111.
+LaTeX Info: Redefining \. on input line 127.
+LaTeX Info: Redefining \% on input line 127.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1818,13 +1818,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [2]
-Underfull \hbox (badness 1616) in paragraph at lines 157--162
-[]\T1/lmr/m/n/12 Antes de te-ner la pla-ca, la APP pue-de pro-bar-se con-tra un
- MCA si-mu-la-do con
- []
+LaTeX Info: Redefining \. on input line 154.
+LaTeX Info: Redefining \% on input line 154.
 
-LaTeX Info: Redefining \. on input line 185.
-LaTeX Info: Redefining \% on input line 185.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1834,14 +1830,30 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [3]
-<figs/cap6//cap6_mcpha_client.png, id=1587, 602.25pt x 361.35pt>
+Underfull \hbox (badness 1616) in paragraph at lines 184--189
+[]\T1/lmr/m/n/12 Antes de te-ner la pla-ca, la APP pue-de pro-bar-se con-tra un
+ MCA si-mu-la-do con
+ []
+
+<figs/cap6//cap6_mcpha_client.png, id=1582, 602.25pt x 361.35pt>
 File: figs/cap6//cap6_mcpha_client.png Graphic file (type png)
 <use figs/cap6//cap6_mcpha_client.png>
-Package pdftex.def Info: figs/cap6//cap6_mcpha_client.png  used on input line 1
-94.
+Package pdftex.def Info: figs/cap6//cap6_mcpha_client.png  used on input line 2
+21.
 (pdftex.def)             Requested size: 483.71208pt x 290.22725pt.
-LaTeX Info: Redefining \. on input line 234.
-LaTeX Info: Redefining \% on input line 234.
+LaTeX Info: Redefining \. on input line 226.
+LaTeX Info: Redefining \% on input line 226.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[4]
+LaTeX Info: Redefining \. on input line 261.
+LaTeX Info: Redefining \% on input line 261.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1851,9 +1863,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[4 <./figs/cap6//cap6_mcpha_client.png>]
-LaTeX Info: Redefining \. on input line 274.
-LaTeX Info: Redefining \% on input line 274.
+[5 <./figs/cap6//cap6_mcpha_client.png>]
+LaTeX Info: Redefining \. on input line 301.
+LaTeX Info: Redefining \% on input line 301.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1863,11 +1875,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[5]
+[6]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 279.
-LaTeX Info: Redefining \. on input line 279.
-LaTeX Info: Redefining \% on input line 279.
+(Font)              <10.95> on input line 306.
+LaTeX Info: Redefining \. on input line 306.
+LaTeX Info: Redefining \% on input line 306.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1877,7 +1889,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[6])
+[7])
 LaTeX Info: Redefining \. on input line 90.
 LaTeX Info: Redefining \% on input line 90.
 
@@ -1889,7 +1901,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[7]
+[8]
 \openout2 = `cap1.aux'.
 
  (./cap1.tex
@@ -1899,20 +1911,20 @@ Package biblatex Info: Reference section=0 on input line 2.
 \blx@sectionciteorder@7=\count511
 Package biblatex Info: Reference section=7 on input line 2.
 Package biblatex Info: Setting label 'refsection:7' on input line 2.
-<figs/cap1//cap1_senal.pdf, id=1627, 549.08635pt x 214.40903pt>
+<figs/cap1//cap1_senal.pdf, id=1632, 549.08635pt x 214.40903pt>
 File: figs/cap1//cap1_senal.pdf Graphic file (type pdf)
 <use figs/cap1//cap1_senal.pdf>
 Package pdftex.def Info: figs/cap1//cap1_senal.pdf  used on input line 45.
 (pdftex.def)             Requested size: 483.70854pt x 188.88008pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 51.
-[8
+[9
 
 
 
 
 ]
-<figs/cap1//cap1_camino_datos.pdf, id=1637, 523.54097pt x 138.21336pt>
+<figs/cap1//cap1_camino_datos.pdf, id=1642, 523.54097pt x 138.21336pt>
 File: figs/cap1//cap1_camino_datos.pdf Graphic file (type pdf)
 <use figs/cap1//cap1_camino_datos.pdf>
 Package pdftex.def Info: figs/cap1//cap1_camino_datos.pdf  used on input line 7
@@ -1929,8 +1941,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[9 <./figs/cap1//cap1_senal.pdf> <./figs/cap1//cap1_camino_datos.pdf>]
-<figs/cap1//cap1_histograma.pdf, id=1712, 436.84506pt x 199.66595pt>
+[10 <./figs/cap1//cap1_senal.pdf> <./figs/cap1//cap1_camino_datos.pdf>]
+<figs/cap1//cap1_histograma.pdf, id=1717, 436.84506pt x 199.66595pt>
 File: figs/cap1//cap1_histograma.pdf Graphic file (type pdf)
 <use figs/cap1//cap1_histograma.pdf>
 Package pdftex.def Info: figs/cap1//cap1_histograma.pdf  used on input line 94.
@@ -1947,13 +1959,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[10 <./figs/cap1//cap1_histograma.pdf>]
-<figs/cap1//cap1_sca_mca.pdf, id=1735, 1120.185pt x 302.0886pt>
+[11 <./figs/cap1//cap1_histograma.pdf>]
+<figs/cap1//cap1_sca_mca.pdf, id=1740, 1120.185pt x 302.0886pt>
 File: figs/cap1//cap1_sca_mca.pdf Graphic file (type pdf)
 <use figs/cap1//cap1_sca_mca.pdf>
 Package pdftex.def Info: figs/cap1//cap1_sca_mca.pdf  used on input line 144.
 (pdftex.def)             Requested size: 483.70418pt x 130.44408pt.
-<figs/cap1//cap1_bines_knoll.png, id=1739, 809.0225pt x 613.29124pt>
+<figs/cap1//cap1_bines_knoll.png, id=1744, 809.0225pt x 613.29124pt>
 File: figs/cap1//cap1_bines_knoll.png Graphic file (type png)
 <use figs/cap1//cap1_bines_knoll.png>
 Package pdftex.def Info: figs/cap1//cap1_bines_knoll.png  used on input line 16
@@ -1970,7 +1982,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[11 <./figs/cap1//cap1_sca_mca.pdf>]
+[12 <./figs/cap1//cap1_sca_mca.pdf>]
 LaTeX Info: Redefining \. on input line 197.
 LaTeX Info: Redefining \% on input line 197.
 
@@ -1982,8 +1994,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[12 <./figs/cap1//cap1_bines_knoll.png>]
-<figs/cap1//cap1_amptek_dppmca.png, id=1766, 922.44624pt x 752.8125pt>
+[13 <./figs/cap1//cap1_bines_knoll.png>]
+<figs/cap1//cap1_amptek_dppmca.png, id=1772, 922.44624pt x 752.8125pt>
 File: figs/cap1//cap1_amptek_dppmca.png Graphic file (type png)
 <use figs/cap1//cap1_amptek_dppmca.png>
 Package pdftex.def Info: figs/cap1//cap1_amptek_dppmca.png  used on input line 
@@ -2000,8 +2012,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[13 <./figs/cap1//cap1_amptek_dppmca.png (PNG copy)>]
-<figs/cap1//cap1_cadena_medicion.png, id=1783, 992.70876pt x 322.20375pt>
+[14 <./figs/cap1//cap1_amptek_dppmca.png (PNG copy)>]
+<figs/cap1//cap1_cadena_medicion.png, id=1788, 992.70876pt x 322.20375pt>
 File: figs/cap1//cap1_cadena_medicion.png Graphic file (type png)
 <use figs/cap1//cap1_cadena_medicion.png>
 Package pdftex.def Info: figs/cap1//cap1_cadena_medicion.png  used on input lin
@@ -2018,8 +2030,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[14]
-<figs/cap1//cap1_cadena_analogica_mca.pdf, id=1808, 662.475pt x 235.8411pt>
+[15]
+<figs/cap1//cap1_cadena_analogica_mca.pdf, id=1814, 662.475pt x 235.8411pt>
 File: figs/cap1//cap1_cadena_analogica_mca.pdf Graphic file (type pdf)
 <use figs/cap1//cap1_cadena_analogica_mca.pdf>
 Package pdftex.def Info: figs/cap1//cap1_cadena_analogica_mca.pdf  used on inpu
@@ -2036,9 +2048,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[15 <./figs/cap1//cap1_cadena_medicion.png (PNG copy)> <./figs/cap1//cap1_caden
+[16 <./figs/cap1//cap1_cadena_medicion.png (PNG copy)> <./figs/cap1//cap1_caden
 a_analogica_mca.pdf>]
-<figs/cap1//cap1_cadena_pitaya.pdf, id=1837, 685.60138pt x 234.8775pt>
+<figs/cap1//cap1_cadena_pitaya.pdf, id=1842, 685.60138pt x 234.8775pt>
 File: figs/cap1//cap1_cadena_pitaya.pdf Graphic file (type pdf)
 <use figs/cap1//cap1_cadena_pitaya.pdf>
 Package pdftex.def Info: figs/cap1//cap1_cadena_pitaya.pdf  used on input line 
@@ -2055,8 +2067,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[16 <./figs/cap1//cap1_cadena_pitaya.pdf>]
-<figs/cap1//cap1_familias_conformado.png, id=1874, 967.2135pt x 467.94826pt>
+[17 <./figs/cap1//cap1_cadena_pitaya.pdf>]
+<figs/cap1//cap1_familias_conformado.png, id=1879, 967.2135pt x 467.94826pt>
 File: figs/cap1//cap1_familias_conformado.png Graphic file (type png)
 <use figs/cap1//cap1_familias_conformado.png>
 Package pdftex.def Info: figs/cap1//cap1_familias_conformado.png  used on input
@@ -2073,7 +2085,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[17 <./figs/cap1//cap1_familias_conformado.png>]
+[18 <./figs/cap1//cap1_familias_conformado.png>]
 LaTeX Info: Redefining \. on input line 460.
 LaTeX Info: Redefining \% on input line 460.
 
@@ -2085,7 +2097,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[18]
+[19]
 LaTeX Info: Redefining \. on input line 516.
 LaTeX Info: Redefining \% on input line 516.
 
@@ -2097,8 +2109,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[19]
-<figs/cap1//cap1_politicas_final.png, id=1909, 650.43pt x 332.442pt>
+[20]
+<figs/cap1//cap1_politicas_final.png, id=1914, 650.43pt x 332.442pt>
 File: figs/cap1//cap1_politicas_final.png Graphic file (type png)
 <use figs/cap1//cap1_politicas_final.png>
 Package pdftex.def Info: figs/cap1//cap1_politicas_final.png  used on input lin
@@ -2115,8 +2127,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[20 <./figs/cap1//cap1_politicas_final.png>]
-<figs/cap1//cap1_pileup.png, id=1922, 1180.41pt x 758.835pt>
+[21 <./figs/cap1//cap1_politicas_final.png>]
+<figs/cap1//cap1_pileup.png, id=1927, 1180.41pt x 758.835pt>
 File: figs/cap1//cap1_pileup.png Graphic file (type png)
 <use figs/cap1//cap1_pileup.png>
 Package pdftex.def Info: figs/cap1//cap1_pileup.png  used on input line 592.
@@ -2132,8 +2144,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[21]
-<figs/cap1//cap1_metodos_recuperacion.pdf, id=1934, 974.68138pt x 655.48888pt>
+[22]
+<figs/cap1//cap1_metodos_recuperacion.pdf, id=1939, 974.68138pt x 655.48888pt>
 File: figs/cap1//cap1_metodos_recuperacion.pdf Graphic file (type pdf)
 <use figs/cap1//cap1_metodos_recuperacion.pdf>
 Package pdftex.def Info: figs/cap1//cap1_metodos_recuperacion.pdf  used on inpu
@@ -2150,7 +2162,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[22 <./figs/cap1//cap1_pileup.png (PNG copy)>]
+[23 <./figs/cap1//cap1_pileup.png (PNG copy)>]
 LaTeX Info: Redefining \. on input line 660.
 LaTeX Info: Redefining \% on input line 660.
 
@@ -2162,8 +2174,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[23 <./figs/cap1//cap1_metodos_recuperacion.pdf>]
-<figs/cap1//cap1_amplitude_walk.png, id=1970, 563.706pt x 505.89pt>
+[24 <./figs/cap1//cap1_metodos_recuperacion.pdf>]
+<figs/cap1//cap1_amplitude_walk.png, id=1975, 563.706pt x 505.89pt>
 File: figs/cap1//cap1_amplitude_walk.png Graphic file (type png)
 <use figs/cap1//cap1_amplitude_walk.png>
 Package pdftex.def Info: figs/cap1//cap1_amplitude_walk.png  used on input line
@@ -2180,7 +2192,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[24 <./figs/cap1//cap1_amplitude_walk.png>]
+[25 <./figs/cap1//cap1_amplitude_walk.png>]
 LaTeX Info: Redefining \. on input line 738.
 LaTeX Info: Redefining \% on input line 738.
 
@@ -2192,8 +2204,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[25]
-<figs/cap1//cap1_tren_rho05.png, id=1986, 621.522pt x 252.945pt>
+[26]
+<figs/cap1//cap1_tren_rho05.png, id=1991, 621.522pt x 252.945pt>
 File: figs/cap1//cap1_tren_rho05.png Graphic file (type png)
 <use figs/cap1//cap1_tren_rho05.png>
 Package pdftex.def Info: figs/cap1//cap1_tren_rho05.png  used on input line 740
@@ -2210,8 +2222,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[26 <./figs/cap1//cap1_tren_rho05.png>]
-<figs/cap1//cap1_tasa_registrada.png, id=2000, 607.068pt x 260.172pt>
+[27 <./figs/cap1//cap1_tren_rho05.png>]
+<figs/cap1//cap1_tasa_registrada.png, id=2005, 607.068pt x 260.172pt>
 File: figs/cap1//cap1_tasa_registrada.png Graphic file (type png)
 <use figs/cap1//cap1_tasa_registrada.png>
 Package pdftex.def Info: figs/cap1//cap1_tasa_registrada.png  used on input lin
@@ -2228,7 +2240,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[27]
+[28]
 LaTeX Info: Redefining \. on input line 841.
 LaTeX Info: Redefining \% on input line 841.
 
@@ -2240,7 +2252,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[28 <./figs/cap1//cap1_tasa_registrada.png>]
+[29 <./figs/cap1//cap1_tasa_registrada.png>]
 LaTeX Info: Redefining \. on input line 904.
 LaTeX Info: Redefining \% on input line 904.
 
@@ -2252,8 +2264,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[29]
-<figs/cap1//cap1_amplificacion_correccion.png, id=2027, 549.252pt x 274.626pt>
+[30]
+<figs/cap1//cap1_amplificacion_correccion.png, id=2032, 549.252pt x 274.626pt>
 File: figs/cap1//cap1_amplificacion_correccion.png Graphic file (type png)
 <use figs/cap1//cap1_amplificacion_correccion.png>
 Package pdftex.def Info: figs/cap1//cap1_amplificacion_correccion.png  used on 
@@ -2270,8 +2282,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[30 <./figs/cap1//cap1_amplificacion_correccion.png>]
-<figs/cap1//cap1_tres_metricas.png, id=2036, 693.792pt x 245.718pt>
+[31 <./figs/cap1//cap1_amplificacion_correccion.png>]
+<figs/cap1//cap1_tres_metricas.png, id=2042, 693.792pt x 245.718pt>
 File: figs/cap1//cap1_tres_metricas.png Graphic file (type png)
 <use figs/cap1//cap1_tres_metricas.png>
 Package pdftex.def Info: figs/cap1//cap1_tres_metricas.png  used on input line 
@@ -2288,7 +2300,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[31 <./figs/cap1//cap1_tres_metricas.png>]
+[32 <./figs/cap1//cap1_tres_metricas.png>]
 Underfull \hbox (badness 1112) in paragraph at lines 999--1004
 \T1/lmr/m/n/12 La INL mi-de cuán-to se apar-ta la re-la-ción real en-tre am-pli
 -tud y ca-nal de la \T1/lmr/bx/n/12 rec-ta
@@ -2304,8 +2316,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[32]
-<figs/cap1//cap1_mca2d_knoll.png, id=2057, 421.575pt x 310.15875pt>
+[33]
+<figs/cap1//cap1_mca2d_knoll.png, id=2062, 421.575pt x 310.15875pt>
 File: figs/cap1//cap1_mca2d_knoll.png Graphic file (type png)
 <use figs/cap1//cap1_mca2d_knoll.png>
 Package pdftex.def Info: figs/cap1//cap1_mca2d_knoll.png  used on input line 10
@@ -2322,7 +2334,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[33 <./figs/cap1//cap1_mca2d_knoll.png>])
+[34 <./figs/cap1//cap1_mca2d_knoll.png>])
 LaTeX Info: Redefining \. on input line 91.
 LaTeX Info: Redefining \% on input line 91.
 
@@ -2334,7 +2346,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[34]
+[35]
 \openout2 = `cap2.aux'.
 
  (./cap2.tex
@@ -2344,7 +2356,7 @@ Package biblatex Info: Reference section=0 on input line 2.
 \blx@sectionciteorder@8=\count513
 Package biblatex Info: Reference section=8 on input line 2.
 Package biblatex Info: Setting label 'refsection:8' on input line 2.
-[35
+[36
 
 
 
@@ -2361,9 +2373,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[36]
-LaTeX Info: Redefining \. on input line 146.
-LaTeX Info: Redefining \% on input line 146.
+[37]
+LaTeX Info: Redefining \. on input line 155.
+LaTeX Info: Redefining \% on input line 155.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2373,8 +2385,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[37]
-<figs/cap2//cap2_offload_uc.pdf, id=2137, 1278.69713pt x 500.83109pt>
+[38]
+<figs/cap2//cap2_offload_uc.pdf, id=2142, 1278.69713pt x 500.83109pt>
 File: figs/cap2//cap2_offload_uc.pdf Graphic file (type pdf)
 <use figs/cap2//cap2_offload_uc.pdf>
 Package pdftex.def Info: figs/cap2//cap2_offload_uc.pdf  used on input line 167
@@ -2391,14 +2403,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[38 <./figs/cap2//cap2_offload_uc.pdf>]
-<figs/cap2//cap2_historia_plataformas.pdf, id=2177, 800.02888pt x 197.7789pt>
+[39 <./figs/cap2//cap2_offload_uc.pdf>]
+<figs/cap2//cap2_historia_plataformas.pdf, id=2182, 800.02888pt x 197.7789pt>
 File: figs/cap2//cap2_historia_plataformas.pdf Graphic file (type pdf)
 <use figs/cap2//cap2_historia_plataformas.pdf>
 Package pdftex.def Info: figs/cap2//cap2_historia_plataformas.pdf  used on inpu
 t line 225.
 (pdftex.def)             Requested size: 483.70769pt x 119.57964pt.
-<figs/cap2//cap2_familias_fpgas.pdf, id=2182, 920.47888pt x 424.4658pt>
+<figs/cap2//cap2_familias_fpgas.pdf, id=2187, 920.47888pt x 424.4658pt>
 File: figs/cap2//cap2_familias_fpgas.pdf Graphic file (type pdf)
 <use figs/cap2//cap2_familias_fpgas.pdf>
 Package pdftex.def Info: figs/cap2//cap2_familias_fpgas.pdf  used on input line
@@ -2415,13 +2427,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[39 <./figs/cap2//cap2_historia_plataformas.pdf>]
-<figs/cap2//cap2_overview_pitaya.pdf, id=2206, 1427.3325pt x 794.00638pt>
+[40 <./figs/cap2//cap2_historia_plataformas.pdf>]
+<figs/cap2//cap2_overview_pitaya.pdf, id=2211, 1427.3325pt x 794.00638pt>
 File: figs/cap2//cap2_overview_pitaya.pdf Graphic file (type pdf)
 <use figs/cap2//cap2_overview_pitaya.pdf>
 Package pdftex.def Info: figs/cap2//cap2_overview_pitaya.pdf  used on input lin
 e 269.
-(pdftex.def)             Requested size: 483.69675pt x 269.07416pt.
+(pdftex.def)             Requested size: 411.14986pt x 228.71727pt.
 LaTeX Info: Redefining \. on input line 274.
 LaTeX Info: Redefining \% on input line 274.
 
@@ -2433,9 +2445,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[40 <./figs/cap2//cap2_familias_fpgas.pdf>]
-LaTeX Info: Redefining \. on input line 319.
-LaTeX Info: Redefining \% on input line 319.
+[41 <./figs/cap2//cap2_familias_fpgas.pdf>]
+LaTeX Info: Redefining \. on input line 318.
+LaTeX Info: Redefining \% on input line 318.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2445,30 +2457,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[41 <./figs/cap2//cap2_overview_pitaya.pdf>]
-LaTeX Info: Redefining \. on input line 345.
-LaTeX Info: Redefining \% on input line 345.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[42]
-<figs/cap2//cap2_softcore_hardcore.pdf, id=2248, 1078.0275pt x 605.3817pt>
+[42 <./figs/cap2//cap2_overview_pitaya.pdf>]
+<figs/cap2//cap2_softcore_hardcore.pdf, id=2247, 1078.0275pt x 605.3817pt>
 File: figs/cap2//cap2_softcore_hardcore.pdf Graphic file (type pdf)
 <use figs/cap2//cap2_softcore_hardcore.pdf>
 Package pdftex.def Info: figs/cap2//cap2_softcore_hardcore.pdf  used on input l
-ine 368.
-(pdftex.def)             Requested size: 483.69325pt x 271.62483pt.
-LaTeX Info: Redefining \. on input line 381.
-LaTeX Info: Redefining \% on input line 381.
+ine 364.
+(pdftex.def)             Requested size: 411.1516pt x 230.88803pt.
+LaTeX Info: Redefining \. on input line 377.
+LaTeX Info: Redefining \% on input line 377.
 LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 
-381.
- (/usr/share/texmf/tex/latex/lm/ts1lmss.fd
+377.
+
+(/usr/share/texmf/tex/latex/lm/ts1lmss.fd
 File: ts1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
@@ -2480,14 +2481,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [43]
-<figs/cap2//cap2_arquitectura_zynq.pdf, id=2263, 814.96468pt x 211.7511pt>
+<figs/cap2//cap2_arquitectura_zynq.pdf, id=2264, 814.96468pt x 211.7511pt>
 File: figs/cap2//cap2_arquitectura_zynq.pdf Graphic file (type pdf)
 <use figs/cap2//cap2_arquitectura_zynq.pdf>
 Package pdftex.def Info: figs/cap2//cap2_arquitectura_zynq.pdf  used on input l
-ine 401.
+ine 397.
 (pdftex.def)             Requested size: 483.70999pt x 125.68166pt.
-LaTeX Info: Redefining \. on input line 406.
-LaTeX Info: Redefining \% on input line 406.
+LaTeX Info: Redefining \. on input line 402.
+LaTeX Info: Redefining \% on input line 402.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2498,12 +2499,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [44 <./figs/cap2//cap2_softcore_hardcore.pdf>]
-<figs/cap2//cap2_interconexiones_soc.png, id=2303, 618.31pt x 420.57124pt>
+<figs/cap2//cap2_interconexiones_soc.png, id=2304, 618.31pt x 420.57124pt>
 File: figs/cap2//cap2_interconexiones_soc.png Graphic file (type png)
 <use figs/cap2//cap2_interconexiones_soc.png>
 Package pdftex.def Info: figs/cap2//cap2_interconexiones_soc.png  used on input
- line 424.
-(pdftex.def)             Requested size: 483.71393pt x 329.0197pt.
+ line 420.
+(pdftex.def)             Requested size: 411.16154pt x 279.66995pt.
 LaTeX Info: Redefining \. on input line 429.
 LaTeX Info: Redefining \% on input line 429.
 
@@ -2515,9 +2516,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[45 <./figs/cap2//cap2_arquitectura_zynq.pdf>]
-LaTeX Info: Redefining \. on input line 461.
-LaTeX Info: Redefining \% on input line 461.
+[45 <./figs/cap2//cap2_arquitectura_zynq.pdf> <./figs/cap2//cap2_interconexione
+s_soc.png>]
+<figs/cap2//cap2_bloques_basicos_fpga.pdf, id=2347, 607.30888pt x 275.10779pt>
+File: figs/cap2//cap2_bloques_basicos_fpga.pdf Graphic file (type pdf)
+<use figs/cap2//cap2_bloques_basicos_fpga.pdf>
+Package pdftex.def Info: figs/cap2//cap2_bloques_basicos_fpga.pdf  used on inpu
+t line 473.
+(pdftex.def)             Requested size: 483.71642pt x 219.12102pt.
+LaTeX Info: Redefining \. on input line 479.
+LaTeX Info: Redefining \% on input line 479.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2527,15 +2535,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[46 <./figs/cap2//cap2_interconexiones_soc.png>]
-<figs/cap2//cap2_bloques_basicos_fpga.pdf, id=2350, 607.30888pt x 275.10779pt>
-File: figs/cap2//cap2_bloques_basicos_fpga.pdf Graphic file (type pdf)
-<use figs/cap2//cap2_bloques_basicos_fpga.pdf>
-Package pdftex.def Info: figs/cap2//cap2_bloques_basicos_fpga.pdf  used on inpu
-t line 477.
-(pdftex.def)             Requested size: 483.71642pt x 219.12102pt.
-LaTeX Info: Redefining \. on input line 488.
-LaTeX Info: Redefining \% on input line 488.
+[46]
+LaTeX Info: Redefining \. on input line 512.
+LaTeX Info: Redefining \% on input line 512.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2546,20 +2548,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [47 <./figs/cap2//cap2_bloques_basicos_fpga.pdf>]
-<figs/cap2//cap2_interfaces_zynq.png, id=2384, 902.37125pt x 708.6475pt>
+<figs/cap2//cap2_interfaces_zynq.png, id=2385, 902.37125pt x 708.6475pt>
 File: figs/cap2//cap2_interfaces_zynq.png Graphic file (type png)
 <use figs/cap2//cap2_interfaces_zynq.png>
 Package pdftex.def Info: figs/cap2//cap2_interfaces_zynq.png  used on input lin
-e 537.
+e 533.
 (pdftex.def)             Requested size: 270.86491pt x 212.71483pt.
-<figs/cap2//cap2_interfaces_axi.png, id=2385, 829.0975pt x 793.96625pt>
+<figs/cap2//cap2_interfaces_axi.png, id=2386, 829.0975pt x 793.96625pt>
 File: figs/cap2//cap2_interfaces_axi.png Graphic file (type png)
 <use figs/cap2//cap2_interfaces_axi.png>
 Package pdftex.def Info: figs/cap2//cap2_interfaces_axi.png  used on input line
- 540.
+ 536.
 (pdftex.def)             Requested size: 203.14964pt x 194.5416pt.
-LaTeX Info: Redefining \. on input line 547.
-LaTeX Info: Redefining \% on input line 547.
+LaTeX Info: Redefining \. on input line 543.
+LaTeX Info: Redefining \% on input line 543.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2570,8 +2572,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [48]
-LaTeX Info: Redefining \. on input line 591.
-LaTeX Info: Redefining \% on input line 591.
+LaTeX Info: Redefining \. on input line 587.
+LaTeX Info: Redefining \% on input line 587.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2583,21 +2585,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [49 <./figs/cap2//cap2_interfaces_zynq.png (PNG copy)> <./figs/cap2//cap2_inter
 faces_axi.png>]
-<figs/cap2//cap2_topologia_interconnect.pdf, id=2413, 512.8761pt x 203.80139pt>
+<figs/cap2//cap2_topologia_interconnect.pdf, id=2414, 512.8761pt x 203.80139pt>
 
 File: figs/cap2//cap2_topologia_interconnect.pdf Graphic file (type pdf)
 <use figs/cap2//cap2_topologia_interconnect.pdf>
 Package pdftex.def Info: figs/cap2//cap2_topologia_interconnect.pdf  used on in
-put line 593.
+put line 589.
 (pdftex.def)             Requested size: 483.72356pt x 192.21703pt.
-<figs/cap2//cap2_jerarquia_memoria_a9.png, id=2417, 834.11626pt x 573.14125pt>
+<figs/cap2//cap2_jerarquia_memoria_a9.png, id=2418, 834.11626pt x 573.14125pt>
 File: figs/cap2//cap2_jerarquia_memoria_a9.png Graphic file (type png)
 <use figs/cap2//cap2_jerarquia_memoria_a9.png>
 Package pdftex.def Info: figs/cap2//cap2_jerarquia_memoria_a9.png  used on inpu
-t line 610.
+t line 606.
 (pdftex.def)             Requested size: 483.69868pt x 332.36093pt.
-LaTeX Info: Redefining \. on input line 614.
-LaTeX Info: Redefining \% on input line 614.
+LaTeX Info: Redefining \. on input line 610.
+LaTeX Info: Redefining \% on input line 610.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2620,8 +2622,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [51 <./figs/cap2//cap2_jerarquia_memoria_a9.png>]
-LaTeX Info: Redefining \. on input line 709.
-LaTeX Info: Redefining \% on input line 709.
+LaTeX Info: Redefining \. on input line 705.
+LaTeX Info: Redefining \% on input line 705.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2632,8 +2634,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [52]
-LaTeX Info: Redefining \. on input line 744.
-LaTeX Info: Redefining \% on input line 744.
+LaTeX Info: Redefining \. on input line 742.
+LaTeX Info: Redefining \% on input line 742.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2644,15 +2646,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [53]
-<figs/cap2//cap2_diagrama_bloques_pitaya.pdf, id=2484, 884.34387pt x 477.70468p
+<figs/cap2//cap2_diagrama_bloques_pitaya.pdf, id=2485, 884.34387pt x 477.70468p
 t>
 File: figs/cap2//cap2_diagrama_bloques_pitaya.pdf Graphic file (type pdf)
 <use figs/cap2//cap2_diagrama_bloques_pitaya.pdf>
 Package pdftex.def Info: figs/cap2//cap2_diagrama_bloques_pitaya.pdf  used on i
-nput line 754.
+nput line 750.
 (pdftex.def)             Requested size: 483.70532pt x 261.28783pt.
-LaTeX Info: Redefining \. on input line 794.
-LaTeX Info: Redefining \% on input line 794.
+LaTeX Info: Redefining \. on input line 790.
+LaTeX Info: Redefining \% on input line 790.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2663,8 +2665,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [54 <./figs/cap2//cap2_diagrama_bloques_pitaya.pdf>]
-LaTeX Info: Redefining \. on input line 835.
-LaTeX Info: Redefining \% on input line 835.
+LaTeX Info: Redefining \. on input line 831.
+LaTeX Info: Redefining \% on input line 831.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2675,8 +2677,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [55]
-LaTeX Info: Redefining \. on input line 895.
-LaTeX Info: Redefining \% on input line 895.
+LaTeX Info: Redefining \. on input line 891.
+LaTeX Info: Redefining \% on input line 891.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2687,13 +2689,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [56]
-Underfull \hbox (badness 6268) in paragraph at lines 929--929
+Underfull \hbox (badness 6268) in paragraph at lines 925--925
 []\T1/lmr/m/n/10.95 STMicroelectronics. \T1/lmr/m/it/10.95 STM32F405xx/STM32F40
 7xx: Arm Cortex-M4 32-bit MCU+FPU\T1/lmr/m/n/10.95 .
  []
 
-LaTeX Info: Redefining \. on input line 929.
-LaTeX Info: Redefining \% on input line 929.
+LaTeX Info: Redefining \. on input line 925.
+LaTeX Info: Redefining \% on input line 925.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2703,8 +2705,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [57]
-LaTeX Info: Redefining \. on input line 929.
-LaTeX Info: Redefining \% on input line 929.
+LaTeX Info: Redefining \. on input line 925.
+LaTeX Info: Redefining \% on input line 925.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2742,7 +2744,7 @@ Package biblatex Info: Setting label 'refsection:9' on input line 4.
 
 
 ]
-<figs/cap5//cap5_tipos_control_flujo.pdf, id=2629, 774.97525pt x 398.4486pt>
+<figs/cap5//cap5_tipos_control_flujo.pdf, id=2630, 774.97525pt x 398.4486pt>
 File: figs/cap5//cap5_tipos_control_flujo.pdf Graphic file (type pdf)
 <use figs/cap5//cap5_tipos_control_flujo.pdf>
 Package pdftex.def Info: figs/cap5//cap5_tipos_control_flujo.pdf  used on input
@@ -2772,7 +2774,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [62]
-<figs/cap5//cap5_productor_consumidor.pdf, id=2669, 496.44572pt x 332.35971pt>
+<figs/cap5//cap5_productor_consumidor.pdf, id=2670, 496.44572pt x 332.35971pt>
 File: figs/cap5//cap5_productor_consumidor.pdf Graphic file (type pdf)
 <use figs/cap5//cap5_productor_consumidor.pdf>
 Package pdftex.def Info: figs/cap5//cap5_productor_consumidor.pdf  used on inpu
@@ -2802,7 +2804,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [64 <./figs/cap5//cap5_productor_consumidor.pdf>]
-<figs/cap5//cap5_ring_creditos.pdf, id=2732, 575.96681pt x 211.47707pt>
+<figs/cap5//cap5_ring_creditos.pdf, id=2733, 575.96681pt x 211.47707pt>
 File: figs/cap5//cap5_ring_creditos.pdf Graphic file (type pdf)
 <use figs/cap5//cap5_ring_creditos.pdf>
 Package pdftex.def Info: figs/cap5//cap5_ring_creditos.pdf  used on input line 
@@ -2820,12 +2822,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [65 <./figs/cap5//cap5_ring_creditos.pdf>]
-<figs/cap5//cap5_cola_K.png, id=2786, 607.068pt x 260.172pt>
+<figs/cap5//cap5_cola_K.png, id=2787, 607.068pt x 260.172pt>
 File: figs/cap5//cap5_cola_K.png Graphic file (type png)
 <use figs/cap5//cap5_cola_K.png>
 Package pdftex.def Info: figs/cap5//cap5_cola_K.png  used on input line 294.
 (pdftex.def)             Requested size: 483.69128pt x 207.29623pt.
-<figs/cap5//cap5_perdida_back_pressure.pdf, id=2788, 360.9475pt x 300.66125pt>
+<figs/cap5//cap5_perdida_back_pressure.pdf, id=2789, 360.9475pt x 300.66125pt>
 File: figs/cap5//cap5_perdida_back_pressure.pdf Graphic file (type pdf)
 <use figs/cap5//cap5_perdida_back_pressure.pdf>
 Package pdftex.def Info: figs/cap5//cap5_perdida_back_pressure.pdf  used on inp
@@ -2855,13 +2857,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [67 <./figs/cap5//cap5_perdida_back_pressure.pdf>]
-<figs/cap5//cap5_etapas_vs_descartes.pdf, id=2839, 408.66878pt x 72.5661pt>
+<figs/cap5//cap5_etapas_vs_descartes.pdf, id=2840, 408.66878pt x 72.5661pt>
 File: figs/cap5//cap5_etapas_vs_descartes.pdf Graphic file (type pdf)
 <use figs/cap5//cap5_etapas_vs_descartes.pdf>
 Package pdftex.def Info: figs/cap5//cap5_etapas_vs_descartes.pdf  used on input
  line 355.
 (pdftex.def)             Requested size: 483.70908pt x 85.89078pt.
-<figs/cap5//cap5_contrato_sys_bus.pdf, id=2845, 505.07396pt x 196.15182pt>
+<figs/cap5//cap5_contrato_sys_bus.pdf, id=2846, 505.07396pt x 196.15182pt>
 File: figs/cap5//cap5_contrato_sys_bus.pdf Graphic file (type pdf)
 <use figs/cap5//cap5_contrato_sys_bus.pdf>
 Package pdftex.def Info: figs/cap5//cap5_contrato_sys_bus.pdf  used on input li
@@ -2879,7 +2881,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [68 <./figs/cap5//cap5_etapas_vs_descartes.pdf>]
-<figs/cap5//cap5_latencia_sys_bus.pdf, id=2880, 541.81119pt x 173.57446pt>
+<figs/cap5//cap5_latencia_sys_bus.pdf, id=2881, 541.81119pt x 173.57446pt>
 File: figs/cap5//cap5_latencia_sys_bus.pdf Graphic file (type pdf)
 <use figs/cap5//cap5_latencia_sys_bus.pdf>
 Package pdftex.def Info: figs/cap5//cap5_latencia_sys_bus.pdf  used on input li
@@ -2902,13 +2904,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 s.pdf>]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 465.
-<figs/cap5//cap5_bus_escritura.pdf, id=2951, 1475.5125pt x 321.11969pt>
+<figs/cap5//cap5_bus_escritura.pdf, id=2952, 1475.5125pt x 321.11969pt>
 File: figs/cap5//cap5_bus_escritura.pdf Graphic file (type pdf)
 <use figs/cap5//cap5_bus_escritura.pdf>
 Package pdftex.def Info: figs/cap5//cap5_bus_escritura.pdf  used on input line 
 497.
 (pdftex.def)             Requested size: 701.23596pt x 152.61183pt.
-<figs/cap5//cap5_bus_lectura.pdf, id=2952, 1475.5125pt x 299.19778pt>
+<figs/cap5//cap5_bus_lectura.pdf, id=2953, 1475.5125pt x 299.19778pt>
 File: figs/cap5//cap5_bus_lectura.pdf Graphic file (type pdf)
 <use figs/cap5//cap5_bus_lectura.pdf>
 Package pdftex.def Info: figs/cap5//cap5_bus_lectura.pdf  used on input line 50
@@ -2939,13 +2941,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 PAGINA-SOLO-FLOATS: pag. 71 (fisica 95) apaisada, esperado
 [71 <./figs/cap5//cap5_bus_escritura.pdf> <./figs/cap5//cap5_bus_lectura.pdf>]
-<figs/cap5//cap5_mapa_registros_osc.pdf, id=2991, 560.94768pt x 255.10005pt>
+<figs/cap5//cap5_mapa_registros_osc.pdf, id=2992, 560.94768pt x 255.10005pt>
 File: figs/cap5//cap5_mapa_registros_osc.pdf Graphic file (type pdf)
 <use figs/cap5//cap5_mapa_registros_osc.pdf>
 Package pdftex.def Info: figs/cap5//cap5_mapa_registros_osc.pdf  used on input 
 line 534.
 (pdftex.def)             Requested size: 483.69806pt x 219.96953pt.
-<figs/cap5//cap5_calculo_direccion_osc.pdf, id=2994, 564.30421pt x 137.97949pt>
+<figs/cap5//cap5_calculo_direccion_osc.pdf, id=2995, 564.30421pt x 137.97949pt>
 
 File: figs/cap5//cap5_calculo_direccion_osc.pdf Graphic file (type pdf)
 <use figs/cap5//cap5_calculo_direccion_osc.pdf>
@@ -2978,7 +2980,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [73 <./figs/cap5//cap5_calculo_direccion_osc.pdf>]
-<figs/cap5//cap5_panorama_modulo_cfg.pdf, id=3095, 612.417pt x 357.73148pt>
+<figs/cap5//cap5_panorama_modulo_cfg.pdf, id=3096, 612.417pt x 357.73148pt>
 File: figs/cap5//cap5_panorama_modulo_cfg.pdf Graphic file (type pdf)
 <use figs/cap5//cap5_panorama_modulo_cfg.pdf>
 Package pdftex.def Info: figs/cap5//cap5_panorama_modulo_cfg.pdf  used on input
@@ -3056,113 +3058,24 @@ Package biblatex Info: Reference section=0 on input line 2.
 \blx@sectionciteorder@10=\count517
 Package biblatex Info: Reference section=10 on input line 2.
 Package biblatex Info: Setting label 'refsection:10' on input line 2.
+
+Underfull \hbox (badness 1783) in paragraph at lines 29--31
+[]\T1/lmr/m/n/12 El es-cu-da-do tie-ne fuen-tes, fi-ja-das por []\T1/lmtt/m/n/1
+2 SHIELD_SRC[]\T1/lmr/m/n/12 , y des-ti-nos, fi-ja-dos por
+ []
+
 [79
 
 
 
 
 ]
-<figs/cap3//cap3_mt_secuencia.pdf, id=3217, 577.68826pt x 357.75558pt>
+<figs/cap3//cap3_mt_secuencia.pdf, id=3218, 577.68826pt x 357.75558pt>
 File: figs/cap3//cap3_mt_secuencia.pdf Graphic file (type pdf)
 <use figs/cap3//cap3_mt_secuencia.pdf>
 Package pdftex.def Info: figs/cap3//cap3_mt_secuencia.pdf  used on input line 8
-6.
+9.
 (pdftex.def)             Requested size: 483.72105pt x 299.56277pt.
-LaTeX Info: Redefining \. on input line 91.
-LaTeX Info: Redefining \% on input line 91.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[80]
-LaTeX Info: Redefining \. on input line 130.
-LaTeX Info: Redefining \% on input line 130.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[81 <./figs/cap3//cap3_mt_secuencia.pdf>]
-LaTeX Info: Redefining \. on input line 183.
-LaTeX Info: Redefining \% on input line 183.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[82]
-<figs/cap3//cap3_panorama_mt.pdf, id=3262, 500.52896pt x 463.22362pt>
-File: figs/cap3//cap3_panorama_mt.pdf Graphic file (type pdf)
-<use figs/cap3//cap3_panorama_mt.pdf>
-Package pdftex.def Info: figs/cap3//cap3_panorama_mt.pdf  used on input line 19
-6.
-(pdftex.def)             Requested size: 469.77937pt x 434.76585pt.
-LaTeX Info: Redefining \. on input line 241.
-LaTeX Info: Redefining \% on input line 241.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[83 <./figs/cap3//cap3_panorama_mt.pdf>]
-LaTeX Info: Redefining \. on input line 271.
-LaTeX Info: Redefining \% on input line 271.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[84]
-LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
-319.
- (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
-File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Info: Redefining \. on input line 321.
-LaTeX Info: Redefining \% on input line 321.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[85]
-LaTeX Info: Redefining \. on input line 359.
-LaTeX Info: Redefining \% on input line 359.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[86])
 LaTeX Info: Redefining \. on input line 94.
 LaTeX Info: Redefining \% on input line 94.
 
@@ -3174,7 +3087,90 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[87]
+[80]
+LaTeX Info: Redefining \. on input line 125.
+LaTeX Info: Redefining \% on input line 125.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[81 <./figs/cap3//cap3_mt_secuencia.pdf>]
+LaTeX Info: Redefining \. on input line 190.
+LaTeX Info: Redefining \% on input line 190.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[82]
+<figs/cap3//cap3_panorama_mt.pdf, id=3263, 500.52896pt x 463.22362pt>
+File: figs/cap3//cap3_panorama_mt.pdf Graphic file (type pdf)
+<use figs/cap3//cap3_panorama_mt.pdf>
+Package pdftex.def Info: figs/cap3//cap3_panorama_mt.pdf  used on input line 19
+2.
+(pdftex.def)             Requested size: 469.77937pt x 434.76585pt.
+LaTeX Info: Redefining \. on input line 237.
+LaTeX Info: Redefining \% on input line 237.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[83 <./figs/cap3//cap3_panorama_mt.pdf>]
+LaTeX Info: Redefining \. on input line 267.
+LaTeX Info: Redefining \% on input line 267.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[84]
+LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
+294.
+ (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
+File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Info: Redefining \. on input line 299.
+LaTeX Info: Redefining \% on input line 299.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[85])
+LaTeX Info: Redefining \. on input line 94.
+LaTeX Info: Redefining \% on input line 94.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[86]
 \openout2 = `cap7.aux'.
 
  (./cap7.tex
@@ -3184,13 +3180,13 @@ Package biblatex Info: Reference section=0 on input line 5.
 \blx@sectionciteorder@11=\count519
 Package biblatex Info: Reference section=11 on input line 5.
 Package biblatex Info: Setting label 'refsection:11' on input line 5.
-[88
+[87
 
 
 
 
 ]
-<figs/cap7//cap7_secuencia_mca.pdf, id=3352, 601.08568pt x 457.3406pt>
+<figs/cap7//cap7_secuencia_mca.pdf, id=3342, 601.08568pt x 457.3406pt>
 File: figs/cap7//cap7_secuencia_mca.pdf Graphic file (type pdf)
 <use figs/cap7//cap7_secuencia_mca.pdf>
 Package pdftex.def Info: figs/cap7//cap7_secuencia_mca.pdf  used on input line 
@@ -3207,7 +3203,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[89]
+[88]
 LaTeX Info: Redefining \. on input line 106.
 LaTeX Info: Redefining \% on input line 106.
 
@@ -3219,8 +3215,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[90 <./figs/cap7//cap7_secuencia_mca.pdf>]
-<figs/cap7//cap7_panorama_mca.pdf, id=3379, 447.61227pt x 597.28645pt>
+[89 <./figs/cap7//cap7_secuencia_mca.pdf>]
+<figs/cap7//cap7_panorama_mca.pdf, id=3369, 447.61227pt x 597.28645pt>
 File: figs/cap7//cap7_panorama_mca.pdf Graphic file (type pdf)
 <use figs/cap7//cap7_panorama_mca.pdf>
 Package pdftex.def Info: figs/cap7//cap7_panorama_mca.pdf  used on input line 1
@@ -3237,7 +3233,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[91]
+[90]
 LaTeX Info: Redefining \. on input line 178.
 LaTeX Info: Redefining \% on input line 178.
 
@@ -3249,8 +3245,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[92 <./figs/cap7//cap7_panorama_mca.pdf>]
-<figs/cap7//cap7_freno_descarte.pdf, id=3462, 624.74303pt x 119.87987pt>
+[91 <./figs/cap7//cap7_panorama_mca.pdf>]
+<figs/cap7//cap7_freno_descarte.pdf, id=3452, 624.74303pt x 119.87987pt>
 File: figs/cap7//cap7_freno_descarte.pdf Graphic file (type pdf)
 <use figs/cap7//cap7_freno_descarte.pdf>
 Package pdftex.def Info: figs/cap7//cap7_freno_descarte.pdf  used on input line
@@ -3267,7 +3263,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[93 <./figs/cap7//cap7_freno_descarte.pdf>]
+[92 <./figs/cap7//cap7_freno_descarte.pdf>]
 LaTeX Info: Redefining \. on input line 295.
 LaTeX Info: Redefining \% on input line 295.
 
@@ -3279,7 +3275,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[94]
+[93]
 LaTeX Info: Redefining \. on input line 358.
 LaTeX Info: Redefining \% on input line 358.
 
@@ -3291,7 +3287,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[95]
+[94]
 LaTeX Info: Redefining \. on input line 406.
 LaTeX Info: Redefining \% on input line 406.
 
@@ -3303,7 +3299,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[96]
+[95]
 LaTeX Info: Redefining \. on input line 474.
 LaTeX Info: Redefining \% on input line 474.
 
@@ -3315,7 +3311,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[97]
+[96]
 LaTeX Info: Redefining \. on input line 508.
 LaTeX Info: Redefining \% on input line 508.
 
@@ -3327,7 +3323,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[98]
+[97]
 LaTeX Info: Redefining \. on input line 573.
 LaTeX Info: Redefining \% on input line 573.
 
@@ -3339,7 +3335,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[99]
+[98]
 LaTeX Info: Redefining \. on input line 622.
 LaTeX Info: Redefining \% on input line 622.
 
@@ -3351,14 +3347,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[100]
-<figs/cap7//cap7_trapecio_anatomia.pdf, id=3568, 269.24289pt x 157.10896pt>
+[99]
+<figs/cap7//cap7_trapecio_anatomia.pdf, id=3558, 269.24289pt x 157.10896pt>
 File: figs/cap7//cap7_trapecio_anatomia.pdf Graphic file (type pdf)
 <use figs/cap7//cap7_trapecio_anatomia.pdf>
 Package pdftex.def Info: figs/cap7//cap7_trapecio_anatomia.pdf  used on input l
 ine 644.
 (pdftex.def)             Requested size: 290.2439pt x 169.36348pt.
-<figs/cap7//cap7_trap_deconvolucion.pdf, id=3570, 454.34143pt x 162.55028pt>
+<figs/cap7//cap7_trap_deconvolucion.pdf, id=3560, 454.34143pt x 162.55028pt>
 File: figs/cap7//cap7_trap_deconvolucion.pdf Graphic file (type pdf)
 <use figs/cap7//cap7_trap_deconvolucion.pdf>
 Package pdftex.def Info: figs/cap7//cap7_trap_deconvolucion.pdf  used on input 
@@ -3375,7 +3371,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[101 <./figs/cap7//cap7_trapecio_anatomia.pdf>]
+[100 <./figs/cap7//cap7_trapecio_anatomia.pdf>]
 LaTeX Info: Redefining \. on input line 707.
 LaTeX Info: Redefining \% on input line 707.
 
@@ -3387,14 +3383,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[102 <./figs/cap7//cap7_trap_deconvolucion.pdf>]
-<figs/cap7//cap7_banco_formas_par.pdf, id=3635, 475.75642pt x 177.79625pt>
+[101 <./figs/cap7//cap7_trap_deconvolucion.pdf>]
+<figs/cap7//cap7_banco_formas_par.pdf, id=3625, 475.75642pt x 177.79625pt>
 File: figs/cap7//cap7_banco_formas_par.pdf Graphic file (type pdf)
 <use figs/cap7//cap7_banco_formas_par.pdf>
 Package pdftex.def Info: figs/cap7//cap7_banco_formas_par.pdf  used on input li
 ne 721.
 (pdftex.def)             Requested size: 483.69708pt x 180.76375pt.
-<figs/cap7//cap7_banco_uso.pdf, id=3637, 432.0702pt x 232.83186pt>
+<figs/cap7//cap7_banco_uso.pdf, id=3627, 432.0702pt x 232.83186pt>
 File: figs/cap7//cap7_banco_uso.pdf Graphic file (type pdf)
 <use figs/cap7//cap7_banco_uso.pdf>
 Package pdftex.def Info: figs/cap7//cap7_banco_uso.pdf  used on input line 745.
@@ -3411,7 +3407,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[103 <./figs/cap7//cap7_banco_formas_par.pdf>]
+[102 <./figs/cap7//cap7_banco_formas_par.pdf>]
 LaTeX Info: Redefining \. on input line 795.
 LaTeX Info: Redefining \% on input line 795.
 
@@ -3423,7 +3419,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[104 <./figs/cap7//cap7_banco_uso.pdf>]
+[103 <./figs/cap7//cap7_banco_uso.pdf>]
 LaTeX Info: Redefining \. on input line 843.
 LaTeX Info: Redefining \% on input line 843.
 
@@ -3435,7 +3431,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[105]
+[104]
 LaTeX Info: Redefining \. on input line 857.
 LaTeX Info: Redefining \% on input line 857.
 
@@ -3447,7 +3443,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[106]
+[105]
 LaTeX Info: Redefining \. on input line 905.
 LaTeX Info: Redefining \% on input line 905.
 
@@ -3459,8 +3455,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[107]
-<figs/cap7//cap7_panorama_window.pdf, id=3746, 727.8653pt x 550.31697pt>
+[106]
+<figs/cap7//cap7_panorama_window.pdf, id=3736, 727.8653pt x 550.31697pt>
 File: figs/cap7//cap7_panorama_window.pdf Graphic file (type pdf)
 <use figs/cap7//cap7_panorama_window.pdf>
 Package pdftex.def Info: figs/cap7//cap7_panorama_window.pdf  used on input lin
@@ -3477,7 +3473,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[108]
+[107]
 LaTeX Info: Redefining \. on input line 971.
 LaTeX Info: Redefining \% on input line 971.
 
@@ -3489,8 +3485,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[109 <./figs/cap7//cap7_panorama_window.pdf>]
-<figs/cap7//cap7_panorama_slot.pdf, id=3816, 448.44136pt x 508.95445pt>
+[108 <./figs/cap7//cap7_panorama_window.pdf>]
+<figs/cap7//cap7_panorama_slot.pdf, id=3805, 448.44136pt x 508.95445pt>
 File: figs/cap7//cap7_panorama_slot.pdf Graphic file (type pdf)
 <use figs/cap7//cap7_panorama_slot.pdf>
 Package pdftex.def Info: figs/cap7//cap7_panorama_slot.pdf  used on input line 
@@ -3507,8 +3503,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[110]
-<figs/cap7//cap7_meseta_ranura.pdf, id=3829, 464.70314pt x 203.04457pt>
+[109]
+<figs/cap7//cap7_meseta_ranura.pdf, id=3819, 464.70314pt x 203.04457pt>
 File: figs/cap7//cap7_meseta_ranura.pdf Graphic file (type pdf)
 <use figs/cap7//cap7_meseta_ranura.pdf>
 Package pdftex.def Info: figs/cap7//cap7_meseta_ranura.pdf  used on input line 
@@ -3525,7 +3521,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[111 <./figs/cap7//cap7_panorama_slot.pdf>]
+[110 <./figs/cap7//cap7_panorama_slot.pdf>]
 LaTeX Info: Redefining \. on input line 1066.
 LaTeX Info: Redefining \% on input line 1066.
 
@@ -3537,14 +3533,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[112 <./figs/cap7//cap7_meseta_ranura.pdf>]
-<figs/cap7//cap7_eleccion_forma.pdf, id=3927, 471.77052pt x 266.29587pt>
+[111 <./figs/cap7//cap7_meseta_ranura.pdf>]
+<figs/cap7//cap7_eleccion_forma.pdf, id=3917, 471.77052pt x 266.29587pt>
 File: figs/cap7//cap7_eleccion_forma.pdf Graphic file (type pdf)
 <use figs/cap7//cap7_eleccion_forma.pdf>
 Package pdftex.def Info: figs/cap7//cap7_eleccion_forma.pdf  used on input line
  1068.
 (pdftex.def)             Requested size: 362.7821pt x 204.7762pt.
-<figs/cap7//cap7_bus_features.pdf, id=3929, 611.34pt x 264.07257pt>
+<figs/cap7//cap7_bus_features.pdf, id=3919, 611.34pt x 264.07257pt>
 File: figs/cap7//cap7_bus_features.pdf Graphic file (type pdf)
 <use figs/cap7//cap7_bus_features.pdf>
 Package pdftex.def Info: figs/cap7//cap7_bus_features.pdf  used on input line 1
@@ -3561,7 +3557,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[113 <./figs/cap7//cap7_eleccion_forma.pdf> <./figs/cap7//cap7_bus_features.pdf
+[112 <./figs/cap7//cap7_eleccion_forma.pdf> <./figs/cap7//cap7_bus_features.pdf
 >]
 LaTeX Info: Redefining \. on input line 1154.
 LaTeX Info: Redefining \% on input line 1154.
@@ -3574,8 +3570,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[114]
-<figs/cap7//cap7_zoom_ventanas.pdf, id=4039, 494.60884pt x 289.37009pt>
+[113]
+<figs/cap7//cap7_zoom_ventanas.pdf, id=4029, 494.60884pt x 289.37009pt>
 File: figs/cap7//cap7_zoom_ventanas.pdf Graphic file (type pdf)
 <use figs/cap7//cap7_zoom_ventanas.pdf>
 Package pdftex.def Info: figs/cap7//cap7_zoom_ventanas.pdf  used on input line 
@@ -3592,7 +3588,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[115 <./figs/cap7//cap7_zoom_ventanas.pdf>])
+[114 <./figs/cap7//cap7_zoom_ventanas.pdf>])
 LaTeX Info: Redefining \. on input line 95.
 LaTeX Info: Redefining \% on input line 95.
 
@@ -3604,7 +3600,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[116]
+[115]
 \openout2 = `cap8.aux'.
 
  (./cap8.tex
@@ -3614,7 +3610,7 @@ Package biblatex Info: Reference section=0 on input line 3.
 \blx@sectionciteorder@12=\count521
 Package biblatex Info: Reference section=12 on input line 3.
 Package biblatex Info: Setting label 'refsection:12' on input line 3.
-[117
+[116
 
 
 
@@ -3631,8 +3627,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[118]
-<figs/cap8//cap8_panorama_scope_pitaya.pdf, id=4117, 710.57872pt x 456.30273pt>
+[117]
+<figs/cap8//cap8_panorama_scope_pitaya.pdf, id=4107, 710.57872pt x 456.30273pt>
 
 File: figs/cap8//cap8_panorama_scope_pitaya.pdf Graphic file (type pdf)
 <use figs/cap8//cap8_panorama_scope_pitaya.pdf>
@@ -3650,8 +3646,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[119 <./figs/cap8//cap8_panorama_scope_pitaya.pdf>]
-<figs/cap8//cap8_secuencia_osc.pdf, id=4160, 575.32843pt x 340.6838pt>
+[118 <./figs/cap8//cap8_panorama_scope_pitaya.pdf>]
+<figs/cap8//cap8_secuencia_osc.pdf, id=4150, 575.32843pt x 340.6838pt>
 File: figs/cap8//cap8_secuencia_osc.pdf Graphic file (type pdf)
 <use figs/cap8//cap8_secuencia_osc.pdf>
 Package pdftex.def Info: figs/cap8//cap8_secuencia_osc.pdf  used on input line 
@@ -3668,8 +3664,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[120 <./figs/cap8//cap8_secuencia_osc.pdf>]
-<figs/cap8//cap8_panorama_scope_mt.pdf, id=4188, 504.07823pt x 517.8798pt>
+[119 <./figs/cap8//cap8_secuencia_osc.pdf>]
+<figs/cap8//cap8_panorama_scope_mt.pdf, id=4178, 504.07823pt x 517.8798pt>
 File: figs/cap8//cap8_panorama_scope_mt.pdf Graphic file (type pdf)
 <use figs/cap8//cap8_panorama_scope_mt.pdf>
 Package pdftex.def Info: figs/cap8//cap8_panorama_scope_mt.pdf  used on input l
@@ -3686,8 +3682,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[121]
-<figs/cap8//cap8_deep_memory.pdf, id=4195, 471.84181pt x 258.79085pt>
+[120]
+<figs/cap8//cap8_deep_memory.pdf, id=4184, 471.84181pt x 258.79085pt>
 File: figs/cap8//cap8_deep_memory.pdf Graphic file (type pdf)
 <use figs/cap8//cap8_deep_memory.pdf>
 Package pdftex.def Info: figs/cap8//cap8_deep_memory.pdf  used on input line 23
@@ -3704,7 +3700,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[122 <./figs/cap8//cap8_panorama_scope_mt.pdf>]
+[121 <./figs/cap8//cap8_panorama_scope_mt.pdf>]
 LaTeX Info: Redefining \. on input line 277.
 LaTeX Info: Redefining \% on input line 277.
 
@@ -3716,8 +3712,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[123 <./figs/cap8//cap8_deep_memory.pdf>]
-<figs/cap8//cap8_ring_vs_buffer.pdf, id=4283, 589.87277pt x 168.58583pt>
+[122 <./figs/cap8//cap8_deep_memory.pdf>]
+<figs/cap8//cap8_ring_vs_buffer.pdf, id=4273, 589.87277pt x 168.58583pt>
 File: figs/cap8//cap8_ring_vs_buffer.pdf Graphic file (type pdf)
 <use figs/cap8//cap8_ring_vs_buffer.pdf>
 Package pdftex.def Info: figs/cap8//cap8_ring_vs_buffer.pdf  used on input line
@@ -3734,8 +3730,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[124 <./figs/cap8//cap8_ring_vs_buffer.pdf>]
-<figs/cap8//cap8_secuencia_ring.pdf, id=4330, 551.76138pt x 373.40504pt>
+[123 <./figs/cap8//cap8_ring_vs_buffer.pdf>]
+<figs/cap8//cap8_secuencia_ring.pdf, id=4320, 551.76138pt x 373.40504pt>
 File: figs/cap8//cap8_secuencia_ring.pdf Graphic file (type pdf)
 <use figs/cap8//cap8_secuencia_ring.pdf>
 Package pdftex.def Info: figs/cap8//cap8_secuencia_ring.pdf  used on input line
@@ -3752,8 +3748,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[125]
-<figs/cap8//cap8_panorama_scope_ring.pdf, id=4345, 774.3239pt x 464.43011pt>
+[124]
+<figs/cap8//cap8_panorama_scope_ring.pdf, id=4335, 774.3239pt x 464.43011pt>
 File: figs/cap8//cap8_panorama_scope_ring.pdf Graphic file (type pdf)
 <use figs/cap8//cap8_panorama_scope_ring.pdf>
 Package pdftex.def Info: figs/cap8//cap8_panorama_scope_ring.pdf  used on input
@@ -3770,8 +3766,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[126 <./figs/cap8//cap8_secuencia_ring.pdf>]
-<figs/cap8//cap8_ring_freno_descarte.pdf, id=4378, 593.53844pt x 156.49667pt>
+[125 <./figs/cap8//cap8_secuencia_ring.pdf>]
+<figs/cap8//cap8_ring_freno_descarte.pdf, id=4368, 593.53844pt x 156.49667pt>
 File: figs/cap8//cap8_ring_freno_descarte.pdf Graphic file (type pdf)
 <use figs/cap8//cap8_ring_freno_descarte.pdf>
 Package pdftex.def Info: figs/cap8//cap8_ring_freno_descarte.pdf  used on input
@@ -3788,8 +3784,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[127 <./figs/cap8//cap8_panorama_scope_ring.pdf>]
-<figs/cap8//cap8_panorama_event_ring_top.pdf, id=4432, 770.50659pt x 430.0868pt
+[126 <./figs/cap8//cap8_panorama_scope_ring.pdf>]
+<figs/cap8//cap8_panorama_event_ring_top.pdf, id=4420, 770.50659pt x 430.0868pt
 >
 File: figs/cap8//cap8_panorama_event_ring_top.pdf Graphic file (type pdf)
 <use figs/cap8//cap8_panorama_event_ring_top.pdf>
@@ -3807,8 +3803,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[128 <./figs/cap8//cap8_ring_freno_descarte.pdf>]
-<figs/cap8//cap8_fsm_event_ring_top.pdf, id=4469, 536.39998pt x 204.36351pt>
+[127 <./figs/cap8//cap8_ring_freno_descarte.pdf>]
+<figs/cap8//cap8_fsm_event_ring_top.pdf, id=4459, 536.39998pt x 204.36351pt>
 File: figs/cap8//cap8_fsm_event_ring_top.pdf Graphic file (type pdf)
 <use figs/cap8//cap8_fsm_event_ring_top.pdf>
 Package pdftex.def Info: figs/cap8//cap8_fsm_event_ring_top.pdf  used on input 
@@ -3825,7 +3821,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[129 <./figs/cap8//cap8_panorama_event_ring_top.pdf>]
+[128 <./figs/cap8//cap8_panorama_event_ring_top.pdf>]
 LaTeX Info: Redefining \. on input line 558.
 LaTeX Info: Redefining \% on input line 558.
 
@@ -3837,7 +3833,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[130 <./figs/cap8//cap8_fsm_event_ring_top.pdf>]
+[129 <./figs/cap8//cap8_fsm_event_ring_top.pdf>]
 Underfull \hbox (badness 5302) in paragraph at lines 598--604
 []\T1/lmr/bx/n/12 Serializar\T1/lmr/m/n/12 : con pa-la-bra car-ga-da sa-ca un c
 a-nal por ci-clo ([]\T1/lmtt/m/n/12 m_dat_o[] $\OMS/lmsy/m/n/12  $
@@ -3853,8 +3849,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[131]
-<figs/cap8//cap8_fsm_window_capture.pdf, id=4576, 701.50784pt x 210.8949pt>
+[130]
+<figs/cap8//cap8_fsm_window_capture.pdf, id=4566, 701.50784pt x 210.8949pt>
 File: figs/cap8//cap8_fsm_window_capture.pdf Graphic file (type pdf)
 <use figs/cap8//cap8_fsm_window_capture.pdf>
 Package pdftex.def Info: figs/cap8//cap8_fsm_window_capture.pdf  used on input 
@@ -3871,8 +3867,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[132 <./figs/cap8//cap8_fsm_window_capture.pdf>]
-<figs/cap8//cap8_panorama_window_capture.pdf, id=4639, 592.90105pt x 555.11388p
+[131 <./figs/cap8//cap8_fsm_window_capture.pdf>]
+<figs/cap8//cap8_panorama_window_capture.pdf, id=4629, 592.90105pt x 555.11388p
 t>
 File: figs/cap8//cap8_panorama_window_capture.pdf Graphic file (type pdf)
 <use figs/cap8//cap8_panorama_window_capture.pdf>
@@ -3890,7 +3886,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[133]
+[132]
 LaTeX Info: Redefining \. on input line 743.
 LaTeX Info: Redefining \% on input line 743.
 
@@ -3902,8 +3898,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[134 <./figs/cap8//cap8_panorama_window_capture.pdf>]
-<figs/cap8//cap8_panorama_stage_fifo.pdf, id=4714, 612.3427pt x 380.68321pt>
+[133 <./figs/cap8//cap8_panorama_window_capture.pdf>]
+<figs/cap8//cap8_panorama_stage_fifo.pdf, id=4704, 612.3427pt x 380.68321pt>
 File: figs/cap8//cap8_panorama_stage_fifo.pdf Graphic file (type pdf)
 <use figs/cap8//cap8_panorama_stage_fifo.pdf>
 Package pdftex.def Info: figs/cap8//cap8_panorama_stage_fifo.pdf  used on input
@@ -3920,7 +3916,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[135 <./figs/cap8//cap8_panorama_stage_fifo.pdf>]
+[134 <./figs/cap8//cap8_panorama_stage_fifo.pdf>]
 LaTeX Info: Redefining \. on input line 838.
 LaTeX Info: Redefining \% on input line 838.
 
@@ -3932,8 +3928,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[136]
-<figs/cap8//cap8_panorama_slot_writer.pdf, id=4776, 585.66301pt x 439.89847pt>
+[135]
+<figs/cap8//cap8_panorama_slot_writer.pdf, id=4766, 585.66301pt x 439.89847pt>
 File: figs/cap8//cap8_panorama_slot_writer.pdf Graphic file (type pdf)
 <use figs/cap8//cap8_panorama_slot_writer.pdf>
 Package pdftex.def Info: figs/cap8//cap8_panorama_slot_writer.pdf  used on inpu
@@ -3950,8 +3946,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[137 <./figs/cap8//cap8_panorama_slot_writer.pdf>]
-<figs/cap8//cap8_fsm_slot_writer.pdf, id=4829, 732.54678pt x 268.54025pt>
+[136 <./figs/cap8//cap8_panorama_slot_writer.pdf>]
+<figs/cap8//cap8_fsm_slot_writer.pdf, id=4819, 732.54678pt x 268.54025pt>
 File: figs/cap8//cap8_fsm_slot_writer.pdf Graphic file (type pdf)
 <use figs/cap8//cap8_fsm_slot_writer.pdf>
 Package pdftex.def Info: figs/cap8//cap8_fsm_slot_writer.pdf  used on input lin
@@ -3969,7 +3965,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[138 <./figs/cap8//cap8_fsm_slot_writer.pdf>]
+[137 <./figs/cap8//cap8_fsm_slot_writer.pdf>]
 \openout2 = `cap12.aux'.
 
  (./cap12.tex
@@ -3979,13 +3975,13 @@ Package biblatex Info: Reference section=0 on input line 2.
 \blx@sectionciteorder@13=\count523
 Package biblatex Info: Reference section=13 on input line 2.
 Package biblatex Info: Setting label 'refsection:13' on input line 2.
-[139
+[138
 
 
 
 
 ]
-<figs/cap12//cap12_panorama_top.pdf, id=4929, 749.60551pt x 485.76982pt>
+<figs/cap12//cap12_panorama_top.pdf, id=4918, 749.60551pt x 485.76982pt>
 File: figs/cap12//cap12_panorama_top.pdf Graphic file (type pdf)
 <use figs/cap12//cap12_panorama_top.pdf>
 Package pdftex.def Info: figs/cap12//cap12_panorama_top.pdf  used on input line
@@ -4002,8 +3998,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[140 <./figs/cap12//cap12_panorama_top.pdf>]
-<figs/cap12//cap12_estructura_sys_bus.pdf, id=4969, 667.07115pt x 206.7725pt>
+[139 <./figs/cap12//cap12_panorama_top.pdf>]
+<figs/cap12//cap12_estructura_sys_bus.pdf, id=4959, 667.07115pt x 206.7725pt>
 File: figs/cap12//cap12_estructura_sys_bus.pdf Graphic file (type pdf)
 <use figs/cap12//cap12_estructura_sys_bus.pdf>
 Package pdftex.def Info: figs/cap12//cap12_estructura_sys_bus.pdf  used on inpu
@@ -4025,7 +4021,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[141 <./figs/cap12//cap12_estructura_sys_bus.pdf>]
+[140 <./figs/cap12//cap12_estructura_sys_bus.pdf>]
 LaTeX Info: Redefining \. on input line 217.
 LaTeX Info: Redefining \% on input line 217.
 
@@ -4037,7 +4033,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[142]
+[141]
 LaTeX Info: Redefining \. on input line 250.
 LaTeX Info: Redefining \% on input line 250.
 
@@ -4049,8 +4045,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[143]
-<figs/cap12//cap12_datapath_top.pdf, id=5028, 494.84372pt x 294.98607pt>
+[142]
+<figs/cap12//cap12_datapath_top.pdf, id=5018, 494.84372pt x 294.98607pt>
 File: figs/cap12//cap12_datapath_top.pdf Graphic file (type pdf)
 <use figs/cap12//cap12_datapath_top.pdf>
 Package pdftex.def Info: figs/cap12//cap12_datapath_top.pdf  used on input line
@@ -4067,7 +4063,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[144 <./figs/cap12//cap12_datapath_top.pdf>]
+[143 <./figs/cap12//cap12_datapath_top.pdf>]
 LaTeX Info: Redefining \. on input line 364.
 LaTeX Info: Redefining \% on input line 364.
 
@@ -4079,7 +4075,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[145])
+[144])
 LaTeX Info: Redefining \. on input line 97.
 LaTeX Info: Redefining \% on input line 97.
 
@@ -4091,7 +4087,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[146]
+[145]
 \openout2 = `cap9.aux'.
 
  (./cap9.tex
@@ -4101,19 +4097,19 @@ Package biblatex Info: Reference section=0 on input line 5.
 \blx@sectionciteorder@14=\count525
 Package biblatex Info: Reference section=14 on input line 5.
 Package biblatex Info: Setting label 'refsection:14' on input line 5.
-[147
+[146
 
 
 
 
 ]
-<figs/cap9//cap9_setup_externo.pdf, id=5097, 628.26718pt x 258.0039pt>
+<figs/cap9//cap9_setup_externo.pdf, id=5087, 628.26718pt x 258.0039pt>
 File: figs/cap9//cap9_setup_externo.pdf Graphic file (type pdf)
 <use figs/cap9//cap9_setup_externo.pdf>
 Package pdftex.def Info: figs/cap9//cap9_setup_externo.pdf  used on input line 
 71.
 (pdftex.def)             Requested size: 483.70012pt x 198.63605pt.
-<figs/cap9//cap9_conexion_in_out.pdf, id=5099, 499.02234pt x 202.04283pt>
+<figs/cap9//cap9_conexion_in_out.pdf, id=5089, 499.02234pt x 202.04283pt>
 File: figs/cap9//cap9_conexion_in_out.pdf Graphic file (type pdf)
 <use figs/cap9//cap9_conexion_in_out.pdf>
 Package pdftex.def Info: figs/cap9//cap9_conexion_in_out.pdf  used on input lin
@@ -4130,8 +4126,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[148 <./figs/cap9//cap9_setup_externo.pdf>]
-<figs/cap9//cap9_canal_analogico.pdf, id=5134, 487.75725pt x 202.6501pt>
+[147 <./figs/cap9//cap9_setup_externo.pdf>]
+<figs/cap9//cap9_canal_analogico.pdf, id=5124, 487.75725pt x 202.6501pt>
 File: figs/cap9//cap9_canal_analogico.pdf Graphic file (type pdf)
 <use figs/cap9//cap9_canal_analogico.pdf>
 Package pdftex.def Info: figs/cap9//cap9_canal_analogico.pdf  used on input lin
@@ -4148,15 +4144,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[149 <./figs/cap9//cap9_conexion_in_out.pdf> <./figs/cap9//cap9_canal_analogico
+[148 <./figs/cap9//cap9_conexion_in_out.pdf> <./figs/cap9//cap9_canal_analogico
 .pdf>]
-<figs/cap9//cap9_meritos_tasa.pdf, id=5204, 487.75725pt x 193.1496pt>
+<figs/cap9//cap9_meritos_tasa.pdf, id=5194, 487.75725pt x 193.1496pt>
 File: figs/cap9//cap9_meritos_tasa.pdf Graphic file (type pdf)
 <use figs/cap9//cap9_meritos_tasa.pdf>
 Package pdftex.def Info: figs/cap9//cap9_meritos_tasa.pdf  used on input line 1
 67.
 (pdftex.def)             Requested size: 483.69984pt x 191.54286pt.
-<figs/cap9//cap9_meritos_tasa_fuentes.pdf, id=5206, 513.86278pt x 202.6501pt>
+<figs/cap9//cap9_meritos_tasa_fuentes.pdf, id=5196, 513.86278pt x 202.6501pt>
 File: figs/cap9//cap9_meritos_tasa_fuentes.pdf Graphic file (type pdf)
 <use figs/cap9//cap9_meritos_tasa_fuentes.pdf>
 Package pdftex.def Info: figs/cap9//cap9_meritos_tasa_fuentes.pdf  used on inpu
@@ -4173,8 +4169,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[150 <./figs/cap9//cap9_meritos_tasa.pdf>]
-<figs/cap9//cap9_meritos_lambda.pdf, id=5227, 506.7462pt x 196.53123pt>
+[149 <./figs/cap9//cap9_meritos_tasa.pdf>]
+<figs/cap9//cap9_meritos_lambda.pdf, id=5217, 506.7462pt x 196.53123pt>
 File: figs/cap9//cap9_meritos_lambda.pdf Graphic file (type pdf)
 <use figs/cap9//cap9_meritos_lambda.pdf>
 Package pdftex.def Info: figs/cap9//cap9_meritos_lambda.pdf  used on input line
@@ -4191,15 +4187,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[151 <./figs/cap9//cap9_meritos_tasa_fuentes.pdf> <./figs/cap9//cap9_meritos_la
+[150 <./figs/cap9//cap9_meritos_tasa_fuentes.pdf> <./figs/cap9//cap9_meritos_la
 mbda.pdf>]
-<figs/cap9//cap9_meritos_ruido.pdf, id=5268, 492.60838pt x 208.20084pt>
+<figs/cap9//cap9_meritos_ruido.pdf, id=5257, 492.60838pt x 208.20084pt>
 File: figs/cap9//cap9_meritos_ruido.pdf Graphic file (type pdf)
 <use figs/cap9//cap9_meritos_ruido.pdf>
 Package pdftex.def Info: figs/cap9//cap9_meritos_ruido.pdf  used on input line 
 230.
 (pdftex.def)             Requested size: 483.70752pt x 204.43887pt.
-<figs/cap9//cap9_meritos_par.pdf, id=5270, 501.33296pt x 175.26077pt>
+<figs/cap9//cap9_meritos_par.pdf, id=5259, 501.33296pt x 175.26077pt>
 File: figs/cap9//cap9_meritos_par.pdf Graphic file (type pdf)
 <use figs/cap9//cap9_meritos_par.pdf>
 Package pdftex.def Info: figs/cap9//cap9_meritos_par.pdf  used on input line 25
@@ -4216,8 +4212,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[152 <./figs/cap9//cap9_meritos_ruido.pdf>]
-<figs/cap9//cap9_meritos_corrimiento.pdf, id=5299, 333.80106pt x 191.85779pt>
+[151 <./figs/cap9//cap9_meritos_ruido.pdf>]
+<figs/cap9//cap9_meritos_corrimiento.pdf, id=5288, 333.80106pt x 191.85779pt>
 File: figs/cap9//cap9_meritos_corrimiento.pdf Graphic file (type pdf)
 <use figs/cap9//cap9_meritos_corrimiento.pdf>
 Package pdftex.def Info: figs/cap9//cap9_meritos_corrimiento.pdf  used on input
@@ -4234,9 +4230,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[153 <./figs/cap9//cap9_meritos_par.pdf> <./figs/cap9//cap9_meritos_corrimiento
+[152 <./figs/cap9//cap9_meritos_par.pdf> <./figs/cap9//cap9_meritos_corrimiento
 .pdf>]
-<figs/cap9//cap9_meritos_inl.pdf, id=5332, 494.87083pt x 190.84099pt>
+<figs/cap9//cap9_meritos_inl.pdf, id=5322, 494.87083pt x 190.84099pt>
 File: figs/cap9//cap9_meritos_inl.pdf Graphic file (type pdf)
 <use figs/cap9//cap9_meritos_inl.pdf>
 Package pdftex.def Info: figs/cap9//cap9_meritos_inl.pdf  used on input line 31
@@ -4253,8 +4249,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[154 <./figs/cap9//cap9_meritos_inl.pdf>]
-<figs/cap9//cap9_meritos_walk.pdf, id=5360, 459.30495pt x 311.22876pt>
+[153 <./figs/cap9//cap9_meritos_inl.pdf>]
+<figs/cap9//cap9_meritos_walk.pdf, id=5350, 459.30495pt x 311.22876pt>
 File: figs/cap9//cap9_meritos_walk.pdf Graphic file (type pdf)
 <use figs/cap9//cap9_meritos_walk.pdf>
 Package pdftex.def Info: figs/cap9//cap9_meritos_walk.pdf  used on input line 3
@@ -4271,8 +4267,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[155 <./figs/cap9//cap9_meritos_walk.pdf>]
-<figs/cap9//cap9_meritos_polo_cero.pdf, id=5376, 487.75725pt x 196.31142pt>
+[154 <./figs/cap9//cap9_meritos_walk.pdf>]
+<figs/cap9//cap9_meritos_polo_cero.pdf, id=5366, 487.75725pt x 196.31142pt>
 File: figs/cap9//cap9_meritos_polo_cero.pdf Graphic file (type pdf)
 <use figs/cap9//cap9_meritos_polo_cero.pdf>
 Package pdftex.def Info: figs/cap9//cap9_meritos_polo_cero.pdf  used on input l
@@ -4289,8 +4285,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[156 <./figs/cap9//cap9_meritos_polo_cero.pdf>]
-<figs/cap9//cap9_meritos_deriva.pdf, id=5416, 487.75725pt x 262.85905pt>
+[155 <./figs/cap9//cap9_meritos_polo_cero.pdf>]
+<figs/cap9//cap9_meritos_deriva.pdf, id=5405, 487.75725pt x 262.85905pt>
 File: figs/cap9//cap9_meritos_deriva.pdf Graphic file (type pdf)
 <use figs/cap9//cap9_meritos_deriva.pdf>
 Package pdftex.def Info: figs/cap9//cap9_meritos_deriva.pdf  used on input line
@@ -4307,8 +4303,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[157 <./figs/cap9//cap9_meritos_deriva.pdf>]
-<figs/cap9//cap9_throughput_caminos.pdf, id=5440, 487.75725pt x 221.65009pt>
+[156 <./figs/cap9//cap9_meritos_deriva.pdf>]
+<figs/cap9//cap9_throughput_caminos.pdf, id=5429, 487.75725pt x 221.65009pt>
 File: figs/cap9//cap9_throughput_caminos.pdf Graphic file (type pdf)
 <use figs/cap9//cap9_throughput_caminos.pdf>
 Package pdftex.def Info: figs/cap9//cap9_throughput_caminos.pdf  used on input 
@@ -4325,7 +4321,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[158]
+[157]
 LaTeX Info: Redefining \. on input line 534.
 LaTeX Info: Redefining \% on input line 534.
 
@@ -4337,7 +4333,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[159 <./figs/cap9//cap9_throughput_caminos.pdf>])
+[158 <./figs/cap9//cap9_throughput_caminos.pdf>])
 LaTeX Info: Redefining \. on input line 98.
 LaTeX Info: Redefining \% on input line 98.
 
@@ -4349,80 +4345,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[160]
-\openout2 = `cap4.aux'.
+[159]
+\openout2 = `cap11.aux'.
 
- (./cap4.tex
+ (./cap11.tex
 Cap\'{\i }tulo 10.
 Package biblatex Info: Reference section=0 on input line 2.
 \blx@maxsegment@15=\count526
 \blx@sectionciteorder@15=\count527
 Package biblatex Info: Reference section=15 on input line 2.
 Package biblatex Info: Setting label 'refsection:15' on input line 2.
-[161
-
-
-
-
-]
-LaTeX Info: Redefining \. on input line 99.
-LaTeX Info: Redefining \% on input line 99.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[162]
-LaTeX Info: Redefining \. on input line 174.
-LaTeX Info: Redefining \% on input line 174.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[163]
-LaTeX Info: Redefining \. on input line 181.
-LaTeX Info: Redefining \% on input line 181.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[164])
-LaTeX Info: Redefining \. on input line 99.
-LaTeX Info: Redefining \% on input line 99.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[165]
-\openout2 = `cap11.aux'.
-
- (./cap11.tex
-Cap\'{\i }tulo 11.
-Package biblatex Info: Reference section=0 on input line 2.
-\blx@maxsegment@16=\count528
-\blx@sectionciteorder@16=\count529
-Package biblatex Info: Reference section=16 on input line 2.
-Package biblatex Info: Setting label 'refsection:16' on input line 2.
-[166
+[160
 
 
 
@@ -4439,7 +4372,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[167]
+[161]
 LaTeX Info: Redefining \. on input line 141.
 LaTeX Info: Redefining \% on input line 141.
 
@@ -4451,7 +4384,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[168]
+[162]
 LaTeX Info: Redefining \. on input line 144.
 LaTeX Info: Redefining \% on input line 144.
 
@@ -4463,7 +4396,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[169]
+[163]
 LaTeX Info: Redefining \. on input line 228.
 LaTeX Info: Redefining \% on input line 228.
 
@@ -4475,7 +4408,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[170]
+[164]
 LaTeX Info: Redefining \. on input line 259.
 LaTeX Info: Redefining \% on input line 259.
 
@@ -4487,7 +4420,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[171]
+[165]
 LaTeX Info: Redefining \. on input line 309.
 LaTeX Info: Redefining \% on input line 309.
 
@@ -4499,9 +4432,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[172])
-LaTeX Info: Redefining \. on input line 100.
-LaTeX Info: Redefining \% on input line 100.
+[166])
+LaTeX Info: Redefining \. on input line 99.
+LaTeX Info: Redefining \% on input line 99.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4511,29 +4444,29 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[173]
+[167]
 \openout2 = `apend4.aux'.
 
  (./apend4.tex
 Ap\'{e}ndice A.
 Package biblatex Info: Reference section=0 on input line 5.
-\blx@maxsegment@17=\count530
-\blx@sectionciteorder@17=\count531
-Package biblatex Info: Reference section=17 on input line 5.
-Package biblatex Info: Setting label 'refsection:17' on input line 5.
-<figs/apendices//apD_mcamon_spectrum.png, id=5649, 1084.05pt x 686.565pt>
+\blx@maxsegment@16=\count528
+\blx@sectionciteorder@16=\count529
+Package biblatex Info: Reference section=16 on input line 5.
+Package biblatex Info: Setting label 'refsection:16' on input line 5.
+<figs/apendices//apD_mcamon_spectrum.png, id=5505, 1084.05pt x 686.565pt>
 File: figs/apendices//apD_mcamon_spectrum.png Graphic file (type png)
 <use figs/apendices//apD_mcamon_spectrum.png>
 Package pdftex.def Info: figs/apendices//apD_mcamon_spectrum.png  used on input
  line 36.
 (pdftex.def)             Requested size: 483.69922pt x 306.34283pt.
-[174
+[168
 
 
 
 
 ]
-<figs/apendices//apD_mcamon_2d_map_psd.png, id=5655, 1084.05pt x 686.565pt>
+<figs/apendices//apD_mcamon_2d_map_psd.png, id=5511, 1084.05pt x 686.565pt>
 File: figs/apendices//apD_mcamon_2d_map_psd.png Graphic file (type png)
 <use figs/apendices//apD_mcamon_2d_map_psd.png>
 Package pdftex.def Info: figs/apendices//apD_mcamon_2d_map_psd.png  used on inp
@@ -4548,8 +4481,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[175 <./figs/apendices//apD_mcamon_spectrum.png (PNG copy)>]
-<figs/apendices//apD_mcamon_pulses.png, id=5663, 1084.05pt x 686.565pt>
+[169 <./figs/apendices//apD_mcamon_spectrum.png (PNG copy)>]
+<figs/apendices//apD_mcamon_pulses.png, id=5518, 1084.05pt x 686.565pt>
 File: figs/apendices//apD_mcamon_pulses.png Graphic file (type png)
 <use figs/apendices//apD_mcamon_pulses.png>
 Package pdftex.def Info: figs/apendices//apD_mcamon_pulses.png  used on input l
@@ -4566,12 +4499,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[176 <./figs/apendices//apD_mcamon_2d_map_psd.png (PNG copy)>]
+[170 <./figs/apendices//apD_mcamon_2d_map_psd.png (PNG copy)>]
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree1 on i
 nput line 95.
 
 (/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/ufontawesomefree1.fd)
-<figs/apendices//apD_mcamon_mca_settings.png, id=5669, 1084.05pt x 686.565pt>
+<figs/apendices//apD_mcamon_mca_settings.png, id=5524, 1084.05pt x 686.565pt>
 File: figs/apendices//apD_mcamon_mca_settings.png Graphic file (type png)
 <use figs/apendices//apD_mcamon_mca_settings.png>
 Package pdftex.def Info: figs/apendices//apD_mcamon_mca_settings.png  used on i
@@ -4586,8 +4519,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[177 <./figs/apendices//apD_mcamon_pulses.png (PNG copy)>]
-<figs/apendices//apD_mcamon_osc_settings.png, id=5677, 1084.05pt x 686.565pt>
+[171 <./figs/apendices//apD_mcamon_pulses.png (PNG copy)>]
+<figs/apendices//apD_mcamon_osc_settings.png, id=5533, 1084.05pt x 686.565pt>
 File: figs/apendices//apD_mcamon_osc_settings.png Graphic file (type png)
 <use figs/apendices//apD_mcamon_osc_settings.png>
 Package pdftex.def Info: figs/apendices//apD_mcamon_osc_settings.png  used on i
@@ -4604,8 +4537,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[178 <./figs/apendices//apD_mcamon_mca_settings.png (PNG copy)>]
-<figs/apendices//apD_mcamon_multitrigger.png, id=5683, 1084.05pt x 686.565pt>
+[172 <./figs/apendices//apD_mcamon_mca_settings.png (PNG copy)>]
+<figs/apendices//apD_mcamon_multitrigger.png, id=5539, 1084.05pt x 686.565pt>
 File: figs/apendices//apD_mcamon_multitrigger.png Graphic file (type png)
 <use figs/apendices//apD_mcamon_multitrigger.png>
 Package pdftex.def Info: figs/apendices//apD_mcamon_multitrigger.png  used on i
@@ -4620,8 +4553,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[179 <./figs/apendices//apD_mcamon_osc_settings.png (PNG copy)>]
-<figs/apendices//apD_mcamon_generator.png, id=5689, 1084.05pt x 686.565pt>
+[173 <./figs/apendices//apD_mcamon_osc_settings.png (PNG copy)>]
+<figs/apendices//apD_mcamon_generator.png, id=5545, 1084.05pt x 686.565pt>
 File: figs/apendices//apD_mcamon_generator.png Graphic file (type png)
 <use figs/apendices//apD_mcamon_generator.png>
 Package pdftex.def Info: figs/apendices//apD_mcamon_generator.png  used on inpu
@@ -4638,8 +4571,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[180 <./figs/apendices//apD_mcamon_multitrigger.png (PNG copy)>]
-<figs/apendices//apD_mcamon_calibration.png, id=5696, 1084.05pt x 686.565pt>
+[174 <./figs/apendices//apD_mcamon_multitrigger.png (PNG copy)>]
+<figs/apendices//apD_mcamon_calibration.png, id=5552, 1084.05pt x 686.565pt>
 File: figs/apendices//apD_mcamon_calibration.png Graphic file (type png)
 <use figs/apendices//apD_mcamon_calibration.png>
 Package pdftex.def Info: figs/apendices//apD_mcamon_calibration.png  used on in
@@ -4654,8 +4587,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[181 <./figs/apendices//apD_mcamon_generator.png (PNG copy)>]
-<figs/apendices//apD_mcamon_messages.png, id=5703, 1084.05pt x 686.565pt>
+[175 <./figs/apendices//apD_mcamon_generator.png (PNG copy)>]
+<figs/apendices//apD_mcamon_messages.png, id=5559, 1084.05pt x 686.565pt>
 File: figs/apendices//apD_mcamon_messages.png Graphic file (type png)
 <use figs/apendices//apD_mcamon_messages.png>
 Package pdftex.def Info: figs/apendices//apD_mcamon_messages.png  used on input
@@ -4672,7 +4605,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[182 <./figs/apendices//apD_mcamon_calibration.png (PNG copy)>])
+[176 <./figs/apendices//apD_mcamon_calibration.png (PNG copy)>])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -4681,17 +4614,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[183 <./figs/apendices//apD_mcamon_messages.png (PNG copy)>]
+[177 <./figs/apendices//apD_mcamon_messages.png (PNG copy)>]
 \openout2 = `apend1.aux'.
 
  (./apend1.tex
 Ap\'{e}ndice B.
 Package biblatex Info: Reference section=0 on input line 2.
-\blx@maxsegment@18=\count532
-\blx@sectionciteorder@18=\count533
-Package biblatex Info: Reference section=18 on input line 2.
-Package biblatex Info: Setting label 'refsection:18' on input line 2.
-[184
+\blx@maxsegment@17=\count530
+\blx@sectionciteorder@17=\count531
+Package biblatex Info: Reference section=17 on input line 2.
+Package biblatex Info: Setting label 'refsection:17' on input line 2.
+[178
 
 
 
@@ -4708,7 +4641,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[185]
+[179]
 LaTeX Info: Redefining \. on input line 133.
 LaTeX Info: Redefining \% on input line 133.
 
@@ -4720,9 +4653,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[186])
-LaTeX Info: Redefining \. on input line 105.
-LaTeX Info: Redefining \% on input line 105.
+[180])
+LaTeX Info: Redefining \. on input line 104.
+LaTeX Info: Redefining \% on input line 104.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4732,7 +4665,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[187
+[181
 
 ]
 \openout2 = `apend2.aux'.
@@ -4740,11 +4673,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
  (./apend2.tex
 Ap\'{e}ndice C.
 Package biblatex Info: Reference section=0 on input line 2.
-\blx@maxsegment@19=\count534
-\blx@sectionciteorder@19=\count535
-Package biblatex Info: Reference section=19 on input line 2.
-Package biblatex Info: Setting label 'refsection:19' on input line 2.
-[188
+\blx@maxsegment@18=\count532
+\blx@sectionciteorder@18=\count533
+Package biblatex Info: Reference section=18 on input line 2.
+Package biblatex Info: Setting label 'refsection:18' on input line 2.
+[182
 
 
 
@@ -4761,8 +4694,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[189]
-<figs/apendices//apB_frontend_pitaya.png, id=5752, 1763.58875pt x 1398.22375pt>
+[183]
+<figs/apendices//apB_frontend_pitaya.png, id=5608, 1763.58875pt x 1398.22375pt>
 
 File: figs/apendices//apB_frontend_pitaya.png Graphic file (type png)
 <use figs/apendices//apB_frontend_pitaya.png>
@@ -4780,15 +4713,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[190 <./figs/apendices//apB_frontend_pitaya.png>]
-<figs/apendices//apB_respuesta_frontend_in.png, id=5765, 908.39375pt x 572.1375
+[184 <./figs/apendices//apB_frontend_pitaya.png>]
+<figs/apendices//apB_respuesta_frontend_in.png, id=5621, 908.39375pt x 572.1375
 pt>
 File: figs/apendices//apB_respuesta_frontend_in.png Graphic file (type png)
 <use figs/apendices//apB_respuesta_frontend_in.png>
 Package pdftex.def Info: figs/apendices//apB_respuesta_frontend_in.png  used on
  input line 131.
 (pdftex.def)             Requested size: 483.69188pt x 304.6457pt.
-<figs/apendices//apB_dac_etapa_salida.png, id=5771, 841.1425pt x 707.64375pt>
+<figs/apendices//apB_dac_etapa_salida.png, id=5627, 841.1425pt x 707.64375pt>
 File: figs/apendices//apB_dac_etapa_salida.png Graphic file (type png)
 <use figs/apendices//apB_dac_etapa_salida.png>
 Package pdftex.def Info: figs/apendices//apB_dac_etapa_salida.png  used on inpu
@@ -4805,7 +4738,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[191 <./figs/apendices//apB_respuesta_frontend_in.png (PNG copy)>]
+[185 <./figs/apendices//apB_respuesta_frontend_in.png (PNG copy)>]
 LaTeX Info: Redefining \. on input line 193.
 LaTeX Info: Redefining \% on input line 193.
 
@@ -4817,7 +4750,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[192 <./figs/apendices//apB_dac_etapa_salida.png (PNG copy)>]
+[186 <./figs/apendices//apB_dac_etapa_salida.png (PNG copy)>]
 LaTeX Info: Redefining \. on input line 220.
 LaTeX Info: Redefining \% on input line 220.
 
@@ -4829,15 +4762,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[193]
-<figs/apendices//apB_dac_respuesta_frecuencia.png, id=5803, 929.4725pt x 660.46
+[187]
+<figs/apendices//apB_dac_respuesta_frecuencia.png, id=5659, 929.4725pt x 660.46
 75pt>
 File: figs/apendices//apB_dac_respuesta_frecuencia.png Graphic file (type png)
 <use figs/apendices//apB_dac_respuesta_frecuencia.png>
 Package pdftex.def Info: figs/apendices//apB_dac_respuesta_frecuencia.png  used
  on input line 260.
 (pdftex.def)             Requested size: 237.00526pt x 168.41194pt.
-<figs/apendices//apB_dac_impedancia.png, id=5806, 789.95125pt x 579.16376pt>
+<figs/apendices//apB_dac_impedancia.png, id=5662, 789.95125pt x 579.16376pt>
 File: figs/apendices//apB_dac_impedancia.png Graphic file (type png)
 <use figs/apendices//apB_dac_impedancia.png>
 Package pdftex.def Info: figs/apendices//apB_dac_impedancia.png  used on input 
@@ -4854,7 +4787,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[194]
+[188]
 LaTeX Info: Redefining \. on input line 292.
 LaTeX Info: Redefining \% on input line 292.
 
@@ -4866,10 +4799,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[195 <./figs/apendices//apB_dac_respuesta_frecuencia.png> <./figs/apendices//ap
+[189 <./figs/apendices//apB_dac_respuesta_frecuencia.png> <./figs/apendices//ap
 B_dac_impedancia.png>])
-LaTeX Info: Redefining \. on input line 106.
-LaTeX Info: Redefining \% on input line 106.
+LaTeX Info: Redefining \. on input line 105.
+LaTeX Info: Redefining \% on input line 105.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4879,7 +4812,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[196
+[190
 
 ]
 \openout2 = `apend3.aux'.
@@ -4887,17 +4820,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
  (./apend3.tex
 Ap\'{e}ndice D.
 Package biblatex Info: Reference section=0 on input line 3.
-\blx@maxsegment@20=\count536
-\blx@sectionciteorder@20=\count537
-Package biblatex Info: Reference section=20 on input line 3.
-Package biblatex Info: Setting label 'refsection:20' on input line 3.
-<figs/apendices//apC_mt_top_interfaz.pdf, id=5849, 637.42137pt x 731.8542pt>
+\blx@maxsegment@19=\count534
+\blx@sectionciteorder@19=\count535
+Package biblatex Info: Reference section=19 on input line 3.
+Package biblatex Info: Setting label 'refsection:19' on input line 3.
+<figs/apendices//apC_mt_top_interfaz.pdf, id=5705, 637.42137pt x 731.8542pt>
 File: figs/apendices//apC_mt_top_interfaz.pdf Graphic file (type pdf)
 <use figs/apendices//apC_mt_top_interfaz.pdf>
 Package pdftex.def Info: figs/apendices//apC_mt_top_interfaz.pdf  used on input
  line 19.
 (pdftex.def)             Requested size: 378.66254pt x 434.76071pt.
-[197
+[191
 
 
 
@@ -4914,35 +4847,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[198 <./figs/apendices//apC_mt_top_interfaz.pdf>]
-<figs/apendices//apC_panorama_mt_slope_trig.pdf, id=5999, 502.6268pt x 569.4976
-3pt>
-File: figs/apendices//apC_panorama_mt_slope_trig.pdf Graphic file (type pdf)
-<use figs/apendices//apC_panorama_mt_slope_trig.pdf>
-Package pdftex.def Info: figs/apendices//apC_panorama_mt_slope_trig.pdf  used o
-n input line 51.
-(pdftex.def)             Requested size: 383.72595pt x 434.77791pt.
-LaTeX Info: Redefining \. on input line 69.
-LaTeX Info: Redefining \% on input line 69.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[199 <./figs/apendices//apC_panorama_mt_slope_trig.pdf>]
-<figs/apendices//apC_panorama_trigger_shield.pdf, id=6073, 452.48347pt x 350.41
+[192 <./figs/apendices//apC_mt_top_interfaz.pdf>]
+<figs/apendices//apC_panorama_trigger_shield.pdf, id=5859, 452.48347pt x 350.41
 112pt>
 File: figs/apendices//apC_panorama_trigger_shield.pdf Graphic file (type pdf)
 <use figs/apendices//apC_panorama_trigger_shield.pdf>
 Package pdftex.def Info: figs/apendices//apC_panorama_trigger_shield.pdf  used 
-on input line 84.
+on input line 77.
 (pdftex.def)             Requested size: 483.71065pt x 374.594pt.
-LaTeX Info: Redefining \. on input line 93.
-LaTeX Info: Redefining \% on input line 93.
+LaTeX Info: Redefining \. on input line 82.
+LaTeX Info: Redefining \% on input line 82.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4952,9 +4866,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[200 <./figs/apendices//apC_panorama_trigger_shield.pdf>]
-LaTeX Info: Redefining \. on input line 179.
-LaTeX Info: Redefining \% on input line 179.
+[193]
+LaTeX Info: Redefining \. on input line 110.
+LaTeX Info: Redefining \% on input line 110.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4964,9 +4878,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[201]
-LaTeX Info: Redefining \. on input line 188.
-LaTeX Info: Redefining \% on input line 188.
+[194 <./figs/apendices//apC_panorama_trigger_shield.pdf>]
+LaTeX Info: Redefining \. on input line 169.
+LaTeX Info: Redefining \% on input line 169.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4976,9 +4890,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[202]
-LaTeX Info: Redefining \. on input line 226.
-LaTeX Info: Redefining \% on input line 226.
+[195]
+LaTeX Info: Redefining \. on input line 178.
+LaTeX Info: Redefining \% on input line 178.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4988,9 +4902,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[203])
-LaTeX Info: Redefining \. on input line 107.
-LaTeX Info: Redefining \% on input line 107.
+[196]
+LaTeX Info: Redefining \. on input line 216.
+LaTeX Info: Redefining \% on input line 216.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -5000,7 +4914,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[204
+[197])
+LaTeX Info: Redefining \. on input line 106.
+LaTeX Info: Redefining \% on input line 106.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[198
 
 ]
 \openout2 = `apend7.aux'.
@@ -5008,11 +4934,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
  (./apend7.tex
 Ap\'{e}ndice E.
 Package biblatex Info: Reference section=0 on input line 6.
-\blx@maxsegment@21=\count538
-\blx@sectionciteorder@21=\count539
-Package biblatex Info: Reference section=21 on input line 6.
-Package biblatex Info: Setting label 'refsection:21' on input line 6.
-[205
+\blx@maxsegment@20=\count536
+\blx@sectionciteorder@20=\count537
+Package biblatex Info: Reference section=20 on input line 6.
+Package biblatex Info: Setting label 'refsection:20' on input line 6.
+[199
 
 
 
@@ -5029,8 +4955,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[206]
-<figs/apendices//apMCA_panorama_mca1.pdf, id=6166, 471.79663pt x 383.95143pt>
+[200]
+<figs/apendices//apMCA_panorama_mca1.pdf, id=5958, 471.79663pt x 383.95143pt>
 File: figs/apendices//apMCA_panorama_mca1.pdf Graphic file (type pdf)
 <use figs/apendices//apMCA_panorama_mca1.pdf>
 Package pdftex.def Info: figs/apendices//apMCA_panorama_mca1.pdf  used on input
@@ -5047,7 +4973,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[207]
+[201]
 LaTeX Info: Redefining \. on input line 186.
 LaTeX Info: Redefining \% on input line 186.
 
@@ -5059,8 +4985,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[208 <./figs/apendices//apMCA_panorama_mca1.pdf>]
-<figs/apendices//apMCA_memoria_pl.pdf, id=6231, 579.12357pt x 365.44528pt>
+[202 <./figs/apendices//apMCA_panorama_mca1.pdf>]
+<figs/apendices//apMCA_memoria_pl.pdf, id=6024, 579.12357pt x 365.44528pt>
 File: figs/apendices//apMCA_memoria_pl.pdf Graphic file (type pdf)
 <use figs/apendices//apMCA_memoria_pl.pdf>
 Package pdftex.def Info: figs/apendices//apMCA_memoria_pl.pdf  used on input li
@@ -5077,7 +5003,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[209 <./figs/apendices//apMCA_memoria_pl.pdf>]
+[203 <./figs/apendices//apMCA_memoria_pl.pdf>]
 LaTeX Info: Redefining \. on input line 289.
 LaTeX Info: Redefining \% on input line 289.
 
@@ -5089,7 +5015,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[210]
+[204]
 LaTeX Info: Redefining \. on input line 451.
 LaTeX Info: Redefining \% on input line 451.
 
@@ -5101,7 +5027,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[211]
+[205]
 LaTeX Info: Redefining \. on input line 451.
 LaTeX Info: Redefining \% on input line 451.
 
@@ -5113,7 +5039,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[212]
+[206]
 LaTeX Info: Redefining \. on input line 451.
 LaTeX Info: Redefining \% on input line 451.
 
@@ -5125,9 +5051,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[213])
-LaTeX Info: Redefining \. on input line 108.
-LaTeX Info: Redefining \% on input line 108.
+[207])
+LaTeX Info: Redefining \. on input line 107.
+LaTeX Info: Redefining \% on input line 107.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -5137,23 +5063,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[214]
+[208]
 \openout2 = `apend6.aux'.
 
  (./apend6.tex
 Ap\'{e}ndice F.
 Package biblatex Info: Reference section=0 on input line 5.
-\blx@maxsegment@22=\count540
-\blx@sectionciteorder@22=\count541
-Package biblatex Info: Reference section=22 on input line 5.
-Package biblatex Info: Setting label 'refsection:22' on input line 5.
-<figs/apendices//apOSC_fsm_rp_bram_sm.pdf, id=6298, 566.1321pt x 248.21634pt>
+\blx@maxsegment@21=\count538
+\blx@sectionciteorder@21=\count539
+Package biblatex Info: Reference section=21 on input line 5.
+Package biblatex Info: Setting label 'refsection:21' on input line 5.
+<figs/apendices//apOSC_fsm_rp_bram_sm.pdf, id=6090, 566.1321pt x 248.21634pt>
 File: figs/apendices//apOSC_fsm_rp_bram_sm.pdf Graphic file (type pdf)
 <use figs/apendices//apOSC_fsm_rp_bram_sm.pdf>
 Package pdftex.def Info: figs/apendices//apOSC_fsm_rp_bram_sm.pdf  used on inpu
 t line 28.
 (pdftex.def)             Requested size: 483.69379pt x 212.07187pt.
-[215
+[209
 
 
 
@@ -5170,7 +5096,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[216]
+[210]
 LaTeX Info: Redefining \. on input line 211.
 LaTeX Info: Redefining \% on input line 211.
 
@@ -5182,7 +5108,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[217]
+[211]
 LaTeX Info: Redefining \. on input line 211.
 LaTeX Info: Redefining \% on input line 211.
 
@@ -5194,13 +5120,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[218]
+[212]
 
 LaTeX Warning: Empty bibliography on input line 215.
 
 )
-LaTeX Info: Redefining \. on input line 109.
-LaTeX Info: Redefining \% on input line 109.
+LaTeX Info: Redefining \. on input line 108.
+LaTeX Info: Redefining \% on input line 108.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -5210,23 +5136,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[219]
+[213]
 \openout2 = `cap10.aux'.
 
  (./cap10.tex
 Ap\'{e}ndice G.
 Package biblatex Info: Reference section=0 on input line 3.
-\blx@maxsegment@23=\count542
-\blx@sectionciteorder@23=\count543
-Package biblatex Info: Reference section=23 on input line 3.
-Package biblatex Info: Setting label 'refsection:23' on input line 3.
-[220
+\blx@maxsegment@22=\count540
+\blx@sectionciteorder@22=\count541
+Package biblatex Info: Reference section=22 on input line 3.
+Package biblatex Info: Setting label 'refsection:22' on input line 3.
+[214
 
 
 
 
 ]
-<figs/cap10//cap10_amp_smp.pdf, id=6364, 613.33138pt x 387.36719pt>
+<figs/cap10//cap10_amp_smp.pdf, id=6157, 613.33138pt x 387.36719pt>
 File: figs/cap10//cap10_amp_smp.pdf Graphic file (type pdf)
 <use figs/cap10//cap10_amp_smp.pdf>
 Package pdftex.def Info: figs/cap10//cap10_amp_smp.pdf  used on input line 97.
@@ -5242,8 +5168,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[221]
-<figs/cap10//cap10_espectro_smp_amp.pdf, id=6373, 641.5167pt x 239.93639pt>
+[215]
+<figs/cap10//cap10_espectro_smp_amp.pdf, id=6165, 641.5167pt x 239.93639pt>
 File: figs/cap10//cap10_espectro_smp_amp.pdf Graphic file (type pdf)
 <use figs/cap10//cap10_espectro_smp_amp.pdf>
 Package pdftex.def Info: figs/cap10//cap10_espectro_smp_amp.pdf  used on input 
@@ -5260,9 +5186,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[222 <./figs/cap10//cap10_amp_smp.pdf> <./figs/cap10//cap10_espectro_smp_amp.pd
+[216 <./figs/cap10//cap10_amp_smp.pdf> <./figs/cap10//cap10_espectro_smp_amp.pd
 f>]
-<figs/cap10//cap10_kernel_linux.pdf, id=6389, 557.20169pt x 607.30888pt>
+<figs/cap10//cap10_kernel_linux.pdf, id=6181, 557.20169pt x 607.30888pt>
 File: figs/cap10//cap10_kernel_linux.pdf Graphic file (type pdf)
 <use figs/cap10//cap10_kernel_linux.pdf>
 Package pdftex.def Info: figs/cap10//cap10_kernel_linux.pdf  used on input line
@@ -5279,7 +5205,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[223]
+[217]
 LaTeX Info: Redefining \. on input line 187.
 LaTeX Info: Redefining \% on input line 187.
 
@@ -5291,7 +5217,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[224 <./figs/cap10//cap10_kernel_linux.pdf>]
+[218 <./figs/cap10//cap10_kernel_linux.pdf>]
 LaTeX Info: Redefining \. on input line 242.
 LaTeX Info: Redefining \% on input line 242.
 
@@ -5303,7 +5229,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[225]
+[219]
 LaTeX Info: Redefining \. on input line 288.
 LaTeX Info: Redefining \% on input line 288.
 
@@ -5315,8 +5241,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[226]
-<figs/cap10//cap10_niveles.pdf, id=6421, 685.56627pt x 329.19989pt>
+[220]
+<figs/cap10//cap10_niveles.pdf, id=6213, 685.56627pt x 329.19989pt>
 File: figs/cap10//cap10_niveles.pdf Graphic file (type pdf)
 <use figs/cap10//cap10_niveles.pdf>
 Package pdftex.def Info: figs/cap10//cap10_niveles.pdf  used on input line 302.
@@ -5335,8 +5261,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[227 <./figs/cap10//cap10_niveles.pdf>]
-<figs/cap10//cap10_clases_bloque.pdf, id=6484, 563.26837pt x 510.83046pt>
+[221 <./figs/cap10//cap10_niveles.pdf>]
+<figs/cap10//cap10_clases_bloque.pdf, id=6277, 563.26837pt x 510.83046pt>
 File: figs/cap10//cap10_clases_bloque.pdf Graphic file (type pdf)
 <use figs/cap10//cap10_clases_bloque.pdf>
 Package pdftex.def Info: figs/cap10//cap10_clases_bloque.pdf  used on input lin
@@ -5353,8 +5279,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[228]
-<figs/cap10//cap10_clases_libmca.pdf, id=6491, 625.79898pt x 492.33638pt>
+[222]
+<figs/cap10//cap10_clases_libmca.pdf, id=6284, 625.79898pt x 492.33638pt>
 File: figs/cap10//cap10_clases_libmca.pdf Graphic file (type pdf)
 <use figs/cap10//cap10_clases_libmca.pdf>
 Package pdftex.def Info: figs/cap10//cap10_clases_libmca.pdf  used on input lin
@@ -5371,7 +5297,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[229 <./figs/cap10//cap10_clases_bloque.pdf>]
+[223 <./figs/cap10//cap10_clases_bloque.pdf>]
 LaTeX Info: Redefining \. on input line 431.
 LaTeX Info: Redefining \% on input line 431.
 
@@ -5383,8 +5309,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[230 <./figs/cap10//cap10_clases_libmca.pdf>]
-<figs/cap10//cap10_maquinas_estados.pdf, id=6554, 583.34741pt x 293.79764pt>
+[224 <./figs/cap10//cap10_clases_libmca.pdf>]
+<figs/cap10//cap10_maquinas_estados.pdf, id=6346, 583.34741pt x 293.79764pt>
 File: figs/cap10//cap10_maquinas_estados.pdf Graphic file (type pdf)
 <use figs/cap10//cap10_maquinas_estados.pdf>
 Package pdftex.def Info: figs/cap10//cap10_maquinas_estados.pdf  used on input 
@@ -5401,8 +5327,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[231 <./figs/cap10//cap10_maquinas_estados.pdf>]
-<figs/cap10//cap10_clases_sesion.pdf, id=6594, 555.38693pt x 478.11021pt>
+[225 <./figs/cap10//cap10_maquinas_estados.pdf>]
+<figs/cap10//cap10_clases_sesion.pdf, id=6387, 555.38693pt x 478.11021pt>
 File: figs/cap10//cap10_clases_sesion.pdf Graphic file (type pdf)
 <use figs/cap10//cap10_clases_sesion.pdf>
 Package pdftex.def Info: figs/cap10//cap10_clases_sesion.pdf  used on input lin
@@ -5419,7 +5345,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[232]
+[226]
 LaTeX Info: Redefining \. on input line 525.
 LaTeX Info: Redefining \% on input line 525.
 
@@ -5431,7 +5357,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[233 <./figs/cap10//cap10_clases_sesion.pdf>]
+[227 <./figs/cap10//cap10_clases_sesion.pdf>]
 LaTeX Info: Redefining \. on input line 582.
 LaTeX Info: Redefining \% on input line 582.
 
@@ -5443,7 +5369,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[234]
+[228]
 LaTeX Info: Redefining \. on input line 624.
 LaTeX Info: Redefining \% on input line 624.
 
@@ -5455,14 +5381,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[235]
-<figs/cap10//cap10_esquema_evento.pdf, id=6645, 492.53812pt x 215.72295pt>
+[229]
+<figs/cap10//cap10_esquema_evento.pdf, id=6437, 492.53812pt x 215.72295pt>
 File: figs/cap10//cap10_esquema_evento.pdf Graphic file (type pdf)
 <use figs/cap10//cap10_esquema_evento.pdf>
 Package pdftex.def Info: figs/cap10//cap10_esquema_evento.pdf  used on input li
 ne 626.
 (pdftex.def)             Requested size: 483.69865pt x 211.8514pt.
-<figs/cap10//cap10_escritura_corrida.pdf, id=6650, 477.26707pt x 205.76373pt>
+<figs/cap10//cap10_escritura_corrida.pdf, id=6442, 477.26707pt x 205.76373pt>
 File: figs/cap10//cap10_escritura_corrida.pdf Graphic file (type pdf)
 <use figs/cap10//cap10_escritura_corrida.pdf>
 Package pdftex.def Info: figs/cap10//cap10_escritura_corrida.pdf  used on input
@@ -5479,7 +5405,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[236 <./figs/cap10//cap10_esquema_evento.pdf>]
+[230 <./figs/cap10//cap10_esquema_evento.pdf>]
 LaTeX Info: Redefining \. on input line 698.
 LaTeX Info: Redefining \% on input line 698.
 
@@ -5491,8 +5417,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[237 <./figs/cap10//cap10_escritura_corrida.pdf>]
-<figs/cap10//cap10_hilos.pdf, id=6697, 488.31534pt x 379.50682pt>
+[231 <./figs/cap10//cap10_escritura_corrida.pdf>]
+<figs/cap10//cap10_hilos.pdf, id=6490, 488.31534pt x 379.50682pt>
 File: figs/cap10//cap10_hilos.pdf Graphic file (type pdf)
 <use figs/cap10//cap10_hilos.pdf>
 Package pdftex.def Info: figs/cap10//cap10_hilos.pdf  used on input line 700.
@@ -5508,8 +5434,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[238 <./figs/cap10//cap10_hilos.pdf>]
-<figs/cap10//cap10_pool_batches.pdf, id=6741, 648.72766pt x 198.20549pt>
+[232 <./figs/cap10//cap10_hilos.pdf>]
+<figs/cap10//cap10_pool_batches.pdf, id=6534, 648.72766pt x 198.20549pt>
 File: figs/cap10//cap10_pool_batches.pdf Graphic file (type pdf)
 <use figs/cap10//cap10_pool_batches.pdf>
 Package pdftex.def Info: figs/cap10//cap10_pool_batches.pdf  used on input line
@@ -5526,8 +5452,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[239 <./figs/cap10//cap10_pool_batches.pdf>]
-<figs/cap10//cap10_flujo_sesion.pdf, id=6776, 597.76326pt x 485.79291pt>
+[233 <./figs/cap10//cap10_pool_batches.pdf>]
+<figs/cap10//cap10_flujo_sesion.pdf, id=6568, 597.76326pt x 485.79291pt>
 File: figs/cap10//cap10_flujo_sesion.pdf Graphic file (type pdf)
 <use figs/cap10//cap10_flujo_sesion.pdf>
 Package pdftex.def Info: figs/cap10//cap10_flujo_sesion.pdf  used on input line
@@ -5544,8 +5470,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[240]
-<figs/cap10//cap10_trama.pdf, id=6796, 544.13689pt x 219.41272pt>
+[234]
+<figs/cap10//cap10_trama.pdf, id=6588, 544.13689pt x 219.41272pt>
 File: figs/cap10//cap10_trama.pdf Graphic file (type pdf)
 <use figs/cap10//cap10_trama.pdf>
 Package pdftex.def Info: figs/cap10//cap10_trama.pdf  used on input line 819.
@@ -5561,14 +5487,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[241 <./figs/cap10//cap10_flujo_sesion.pdf>]
-<figs/cap10//cap10_trama_flujo.pdf, id=6832, 626.30287pt x 113.71985pt>
+[235 <./figs/cap10//cap10_flujo_sesion.pdf>]
+<figs/cap10//cap10_trama_flujo.pdf, id=6625, 626.30287pt x 113.71985pt>
 File: figs/cap10//cap10_trama_flujo.pdf Graphic file (type pdf)
 <use figs/cap10//cap10_trama_flujo.pdf>
 Package pdftex.def Info: figs/cap10//cap10_trama_flujo.pdf  used on input line 
 834.
 (pdftex.def)             Requested size: 483.70729pt x 87.8283pt.
-<figs/cap10//cap10_escritura_archivos_por_red.pdf, id=6836, 567.56041pt x 215.5
+<figs/cap10//cap10_escritura_archivos_por_red.pdf, id=6629, 567.56041pt x 215.5
 8241pt>
 File: figs/cap10//cap10_escritura_archivos_por_red.pdf Graphic file (type pdf)
 <use figs/cap10//cap10_escritura_archivos_por_red.pdf>
@@ -5586,7 +5512,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[242 <./figs/cap10//cap10_trama.pdf> <./figs/cap10//cap10_trama_flujo.pdf>]
+[236 <./figs/cap10//cap10_trama.pdf> <./figs/cap10//cap10_trama_flujo.pdf>]
 LaTeX Info: Redefining \. on input line 909.
 LaTeX Info: Redefining \% on input line 909.
 
@@ -5598,7 +5524,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[243 <./figs/cap10//cap10_escritura_archivos_por_red.pdf>]
+[237 <./figs/cap10//cap10_escritura_archivos_por_red.pdf>]
 LaTeX Info: Redefining \. on input line 964.
 LaTeX Info: Redefining \% on input line 964.
 
@@ -5610,8 +5536,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[244]
-<figs/cap10//cap10_bench_sd_red.pdf, id=6930, 510.712pt x 199.90384pt>
+[238]
+<figs/cap10//cap10_bench_sd_red.pdf, id=6722, 510.712pt x 199.90384pt>
 File: figs/cap10//cap10_bench_sd_red.pdf Graphic file (type pdf)
 <use figs/cap10//cap10_bench_sd_red.pdf>
 Package pdftex.def Info: figs/cap10//cap10_bench_sd_red.pdf  used on input line
@@ -5628,7 +5554,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[245 <./figs/cap10//cap10_bench_sd_red.pdf>]
+[239 <./figs/cap10//cap10_bench_sd_red.pdf>]
 LaTeX Info: Redefining \. on input line 1040.
 LaTeX Info: Redefining \% on input line 1040.
 
@@ -5640,7 +5566,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[246]
+[240]
 LaTeX Info: Redefining \. on input line 1049.
 LaTeX Info: Redefining \% on input line 1049.
 
@@ -5652,8 +5578,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[247]
-<figs/apendices//apE_hilos_captura.pdf, id=6964, 648.40045pt x 589.25749pt>
+[241]
+<figs/apendices//apE_hilos_captura.pdf, id=6757, 648.40045pt x 589.25749pt>
 File: figs/apendices//apE_hilos_captura.pdf Graphic file (type pdf)
 <use figs/apendices//apE_hilos_captura.pdf>
 Package pdftex.def Info: figs/apendices//apE_hilos_captura.pdf  used on input l
@@ -5670,7 +5596,70 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[248 <./figs/apendices//apE_hilos_captura.pdf>])
+[242 <./figs/apendices//apE_hilos_captura.pdf>])
+LaTeX Info: Redefining \. on input line 109.
+LaTeX Info: Redefining \% on input line 109.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[243]
+\openout2 = `cap4.aux'.
+
+ (./cap4.tex
+Ap\'{e}ndice H.
+Package biblatex Info: Reference section=0 on input line 3.
+\blx@maxsegment@23=\count542
+\blx@sectionciteorder@23=\count543
+Package biblatex Info: Reference section=23 on input line 3.
+Package biblatex Info: Setting label 'refsection:23' on input line 3.
+[244
+
+
+
+
+]
+LaTeX Info: Redefining \. on input line 100.
+LaTeX Info: Redefining \% on input line 100.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[245]
+LaTeX Info: Redefining \. on input line 175.
+LaTeX Info: Redefining \% on input line 175.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[246]
+LaTeX Info: Redefining \. on input line 182.
+LaTeX Info: Redefining \% on input line 182.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[247])
 LaTeX Info: Redefining \. on input line 110.
 LaTeX Info: Redefining \% on input line 110.
 
@@ -5682,46 +5671,44 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[249] [250
-
-
-
-]
+[248]
 Package biblatex Info: Reference section=0 on input line 132.
 \blx@maxsegment@24=\count544
 \blx@sectionciteorder@24=\count545
 Package biblatex Info: Reference section=24 on input line 132.
 Package biblatex Info: Setting label 'refsection:24' on input line 132.
- [251
+ [249
 
 
-] [252
+
+
+
+] [250
 
 ] (./template.aux
 LaTeX Info: Redefining \sptext on input line 23.
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
- (./resumen.aux) (./cap6.aux)
-(./cap1.aux) (./cap2.aux) (./cap5.aux) (./cap3.aux) (./cap7.aux) (./cap8.aux)
-(./cap12.aux) (./cap9.aux) (./cap4.aux) (./cap11.aux) (./apend4.aux)
-(./apend1.aux) (./apend2.aux) (./apend3.aux) (./apend7.aux) (./apend6.aux)
-(./cap10.aux))
+ (./resumen.aux) (./cap6.aux) (./cap1.aux)
+(./cap2.aux) (./cap5.aux) (./cap3.aux) (./cap7.aux) (./cap8.aux) (./cap12.aux)
+(./cap9.aux) (./cap11.aux) (./apend4.aux) (./apend1.aux) (./apend2.aux)
+(./apend3.aux) (./apend7.aux) (./apend6.aux) (./cap10.aux) (./cap4.aux))
 Package rerunfilecheck Info: File `template.out' has not changed.
-(rerunfilecheck)             Checksum: D6ED3DDF290BEA46DCE29C0405F1CA64;44823.
+(rerunfilecheck)             Checksum: 432091EE2C98E4A8C2D0A4A64B239E18;44981.
 Package logreq Info: Writing requests to 'template.run.xml'.
 \openout1 = `template.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 44558 strings out of 476091
- 933703 string characters out of 5794081
+ 44546 strings out of 476091
+ 933248 string characters out of 5794081
  1959330 words of memory out of 5000000
- 63071 multiletter control sequences out of 15000+600000
+ 63064 multiletter control sequences out of 15000+600000
  663692 words of font info for 145 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,17n,94p,1133b,2866s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free1.enc}{/us
-r/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texlive/texmf-dist
+/fonts/enc/dvips/fontawesome5/fa5free1.enc}{/usr/share/texmf/fonts/enc/dvips/lm
 /lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf
 /fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.
 enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc
@@ -5749,19 +5736,19 @@ hare/texmf/fonts/type1/public/lm/lmri7.pfb></usr/share/texmf/fonts/type1/public
 mf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lms
 sbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso12.pfb></usr/share/texmf
 /fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy5
-.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/
-type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></u
-sr/share/texmf/fonts/type1/public/lm/lmsy9.pfb></usr/share/texmf/fonts/type1/pu
-blic/lm/lmtcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/s
-hare/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/publi
-c/lm/lmtt12.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt8.pfb></usr/share/t
-exmf/fonts/type1/public/lm/lmtt9.pfb></usr/share/texmf/fonts/type1/public/lm/lm
-tti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
-am7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on template.pdf (276 pages, 8481912 bytes).
+.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/
+type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy9.pfb></u
+sr/share/texmf/fonts/type1/public/lm/lmtcsc10.pfb></usr/share/texmf/fonts/type1
+/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/
+share/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/share/texmf/fonts/type1/publ
+ic/lm/lmtt8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt9.pfb></usr/share/t
+exmf/fonts/type1/public/lm/lmtti10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/urw/zapfding/uzdr.pfb>
+Output written on template.pdf (274 pages, 8443060 bytes).
 PDF statistics:
- 7444 PDF objects out of 8907 (max. 8388607)
- 5912 compressed objects within 60 object streams
- 1086 named destinations out of 1200 (max. 500000)
- 2316 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 7366 PDF objects out of 7423 (max. 8388607)
+ 5853 compressed objects within 59 object streams
+ 1081 named destinations out of 1200 (max. 500000)
+ 2311 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -7,13 +7,13 @@
 
 \begin{destacado}
 Este capítulo habla de (1) qué es y qué incluye un módulo de integración, (2) el
-módulo base original de RedPitaya, versión 0.94, en el que nos basamos, y los
+módulo base original de Red Pitaya, versión 0.94, en el que nos basamos, y los
 cambios aplicados, (3) los posibles caminos que puede tener el \emph{datapath} y (4)
 los registros de configuración del mismo~\cite{RedPitayaFPGA}.
 \end{destacado}
 
 %==============================================================================
-\section{Sistema base de RedPitaya: módulo de integración}
+\section{Sistema base de Red Pitaya: módulo de integración}
 \label{S:top-sistema-base}
 
 Este es el archivo cabecera (TOP) del diseño, y es el responsable de:
@@ -37,7 +37,7 @@ TOP, mientras que el nuestro, \codigo{event\_ring\_red\_pitaya\_top}, se present
 Fig.~\ref{f:top-panorama} y está constituido por los siguientes subsistemas:
 \begin{itemize}
   \item \textbf{Módulo del PS}: \codigo{red\_pitaya\_ps}, que pertenecía al
-    sistema original de RedPitaya.
+    sistema original de Red Pitaya.
   \begin{itemize}
     \item Toma las señales físicas del módulo e instancia estructuras que las
       representan.
@@ -130,8 +130,8 @@ la vuelta hay simplemente un MUX cuyo selector es el mismo
 
 \begin{figure}[H]
 \centering\includegraphics{cap12_estructura_sys_bus}
-\caption[\emph{Interconnect} principal del bus \emph{custom} de RedPitaya]{%
-Esquema del \emph{interconnect} principal del bus \emph{custom} de RedPitaya: una topología en
+\caption[\emph{Interconnect} principal del bus \emph{custom} de Red Pitaya]{%
+Esquema del \emph{interconnect} principal del bus \emph{custom} de Red Pitaya: una topología en
 estrella en la que \codigo{axi4\_slave} es el único maestro y los ocho \emph{slots} son
 los esclavos.\label{f:top-interconnect}}
 \end{figure}

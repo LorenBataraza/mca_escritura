@@ -147,7 +147,7 @@ Tabla comparativa de SO posibles en latencia.\label{t:sw-alternativas-os}}
 Todos los requerimientos sensibles en latencia se transfirieron a la PL, así que
 la opción de \emph{high-speed performance} es más que ideal como punto de
 partida. En nuestro caso utilizamos el sistema operativo desarrollado por el
-equipo de RedPitaya. Esto no es del todo un requerimiento obligatorio, pero nos
+equipo de Red Pitaya. Esto no es del todo un requerimiento obligatorio, pero nos
 provee un conjunto de facilidades realmente considerables, con modificaciones al
 \emph{kernel mainline} (este es el base) y con adiciones sobre la capa de
 usuario.
@@ -187,8 +187,8 @@ forma correcta para comenzar un desarrollo mínimo.
 
 \begin{table}[H]
 \centering
-\caption[Facilidades del SW que provee la distribución de RedPitaya]{%
-Tabla de facilidades del SW que provee la distribución de RedPitaya de
+\caption[Facilidades del SW que provee la distribución de Red Pitaya]{%
+Tabla de facilidades del SW que provee la distribución de Red Pitaya de
 antemano.\label{t:sw-facilidades}}
 \small
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.27\textwidth}%
@@ -220,7 +220,7 @@ Las regiones de DDR ya reservadas & \codigo{buffer@1000000} (2~MB, para la
 \end{table}
 
 A continuación describimos algunos errores encontrados a nivel de HW
-(especialmente en el proyecto de RedPitaya) y cómo los evitamos.
+(especialmente en el proyecto de Red Pitaya) y cómo los evitamos.
 
 \subsection{Modos de fallo en el HW implementado}
 \label{S:sw-modos-fallo}
@@ -254,7 +254,7 @@ identificados.
 Esta es la librería con la que podemos acceder a diversos tipos de
 \textbf{registros, algoritmos y funcionalidades} en SW en el espacio de usuario
 (no del \emph{kernel}). Para esta utilizamos una estructura extremadamente similar a la
-que emplea el proyecto original de RedPitaya. En la Fig.~\ref{f:sw-capas} se
+que emplea el proyecto original de Red Pitaya. En la Fig.~\ref{f:sw-capas} se
 presentan los 6 niveles de la \textbf{jerarquía de dependencias} de este
 software, en el sentido de que las capas superiores utilizan las capas
 inferiores. La misma consta de un \emph{driver} escrito en C en la capa de usuario
@@ -268,7 +268,7 @@ inferiores. La misma consta de un \emph{driver} escrito en C en la capa de usuar
     \item Se definen transacciones de 32 bits (el ancho de bus presente) con las
       funciones \codigo{w32} / \codigo{r32} / \codigo{\_read\_words}, en Python
       mediante la librería \codigo{ctypes}, para las regiones de memoria
-      asociadas al bus de RedPitaya. Gracias a esto no tenemos el modo de falla por
+      asociadas al bus de Red Pitaya. Gracias a esto no tenemos el modo de falla por
       ancho de palabras explicado en la Sec.~\ref{S:sw-modos-fallo}.
     \item Para otras direcciones se pueden implementar accesos más anchos. En
       este proyecto no se lo implementó.

@@ -60,7 +60,7 @@ cruce de bajada es el de la señal sumada y cerraría todas juntas.
 
 En la Fig.~\ref{f:implmca-secuencia} se presenta el flujo de utilización.
 Empieza con una \textbf{fase de configuración}, con \codigo{run = 0}, que se
-realiza mediante el bus \emph{custom} de RedPitaya. A continuación se usan los comandos de
+realiza mediante el bus \emph{custom} de Red Pitaya. A continuación se usan los comandos de
 control de la adquisición; en la figura se presenta la secuencia limpieza,
 arranque, parada y lectura. Después de la limpieza (\codigo{CTRL.clear})
 esperamos \codigo{clear\_busy = 0}, que indica que terminó el barrido de borrado
@@ -217,11 +217,11 @@ sin tiempo muerto, porque el histograma no frena a nadie y la entrada sigue
 abierta. Durante el re-armado del disparo pasa lo contrario: el pulso no genera
 flanco, así que no hay descarte que contar y sólo se mide el tiempo. Los
 descartes se miden con los contadores que se presentan a continuación, y el
-tiempo muerto, con el teselado de la Sec.~\ref{S:implmca-teselado}.
+tiempo muerto, con la partición de la Sec.~\ref{S:implmca-particion}.
 
 En la Tabla~\ref{t:implmca-contadores} se presentan los contadores del módulo
-que no son casilleros del teselado, y lo que representa cada uno. Son de cuatro
-tipos: el \textbf{reloj} del barrido de borrado, que queda fuera del teselado;
+que no son casilleros de la partición, y lo que representa cada uno. Son de cuatro
+tipos: el \textbf{reloj} del barrido de borrado, que queda fuera de la partición;
 los de \textbf{períodos}, que resumen los tramos sin ranura libre; los de
 \textbf{arribos}, que cuentan disparos, y los de \textbf{incrementos}, que
 cuentan eventos que no llegaron al histograma.
@@ -230,7 +230,7 @@ cuentan eventos que no llegaron al histograma.
 \centering
 \caption[Contadores del tiempo muerto y de los eventos perdidos]{%
 Contadores del tiempo muerto y de los eventos perdidos, además de los casilleros
-del teselado (Tabla~\ref{t:implmca-teselado}) y de la ocupación de las ranuras
+de la partición (Tabla~\ref{t:implmca-particion}) y de la ocupación de las ranuras
 (Sec.~\ref{S:ap-mca-ocupacion}). \codigo{t\_clear} y \codigo{max\_dead\_len}
 cuentan ciclos de \codigo{adc\_clk}; los demás, eventos. \codigo{cnt\_lost\_busy}
 y los \codigo{dropped} de los dos histogramas se leen sumados en un solo
@@ -277,8 +277,8 @@ entre una y otra, así que se comprueban con la adquisición parada.
 \begin{itemize}
   \item \textbf{Arribos.} Cada disparo con \codigo{run} suma a
     \codigo{cnt\_cross} y a exactamente uno de los contadores de pérdida o a
-    \codigo{cnt\_open}, con la misma prioridad que el teselado
-    (Sec.~\ref{S:implmca-teselado}): primero el veto y después la causa del
+    \codigo{cnt\_open}, con la misma prioridad que la partición
+    (Sec.~\ref{S:implmca-particion}): primero el veto y después la causa del
     bloqueo.
     \begin{equation}
       \mathtt{cnt\_cross} = \mathtt{cnt\_open} + \mathtt{cnt\_lost\_veto} +
@@ -295,8 +295,8 @@ entre una y otra, así que se comprueban con la adquisición parada.
 \end{itemize}
 
 %==============================================================================
-\section{Teselado del tiempo de adquisición}
-\label{S:implmca-teselado}
+\section{Partición del tiempo de adquisición}
+\label{S:implmca-particion}
 
 El tiempo muerto es el tiempo en que el sistema no puede procesar un evento
 nuevo, y el tiempo vivo es su complemento (Sec.~\ref{S:mca-tiempo-muerto}). En
@@ -319,27 +319,27 @@ sumaría en los dos: la suma de los tiempos muertos superaría a
 $T_{real} - T_{live}$, y no habría forma de repartir la pérdida entre los
 bloques.
 
-Por eso el tiempo de adquisición se \textbf{tesela}: se parte en casilleros que
+Por eso el tiempo de adquisición se \textbf{particiona}: se divide en casilleros que
 no se superponen y que entre todos lo cubren, y cada ciclo con \codigo{run} suma
 en exactamente uno. Cada casillero es un reloj de 64 bits, y cuando en un ciclo
 se cumplen varias condiciones decide una prioridad fija, la del orden de la
-Tabla~\ref{t:implmca-teselado}. Así ningún ciclo se cuenta dos veces ni queda
+Tabla~\ref{t:implmca-particion}. Así ningún ciclo se cuenta dos veces ni queda
 sin contar, el tiempo vivo y el muerto son complementarios por construcción, y
 su suma es el tiempo real:
 \begin{equation}
   T_{real} = T_{veto} + \underbrace{\mathtt{t\_win} +
   \mathtt{t\_div}}_{\text{muerto del MCA}} +
   \underbrace{\mathtt{t\_rearm}}_{\text{muerto del disparo}} + T_{live}
-  \label{e:implmca-teselado}
+  \label{e:implmca-particion}
 \end{equation}
 
 \begin{table}[H]
 \centering
-\caption[Casilleros del teselado del tiempo de adquisición]{%
-Casilleros del teselado, en orden de prioridad: cada ciclo con \codigo{run}
+\caption[Casilleros de la partición del tiempo de adquisición]{%
+Casilleros de la partición, en orden de prioridad: cada ciclo con \codigo{run}
 suma en el primero cuya condición se cumple. Cuentan ciclos de
 \codigo{adc\_clk}; \codigo{realtime}, $T_{real}$, cuenta todos los ciclos con
-\codigo{run} y es su suma.\label{t:implmca-teselado}}
+\codigo{run} y es su suma.\label{t:implmca-particion}}
 \small
 \begin{tabularx}{\textwidth}{|l|>{\raggedright\arraybackslash}X|l|}
 \hline \encabezado \textbf{Casillero} & \textbf{Suma cuando} &
@@ -404,7 +404,7 @@ $\mathtt{t\_rearm}$. Sus fracciones se toman sobre el tiempo no vetado,
 $T_{real} - T_{veto}$, y con ellas se calculan la tasa de disparos y la fracción
 perdida que se presentan al final de esta sección.
 
-Fuera del teselado queda \codigo{t\_clear}, que cuenta los ciclos del barrido de
+Fuera de la partición queda \codigo{t\_clear}, que cuenta los ciclos del barrido de
 borrado. Durante el barrido las ranuras siguen midiendo, y lo que se pierde son
 incrementos al histograma, que van a \codigo{dropped}: son descartes, y no
 tiempo muerto.
@@ -417,7 +417,7 @@ tiempo muerto.
       \label{e:implmca-lambda}
     \end{equation}
     Esta estimación supone que el disparo está armado mientras el MCA no tiene
-    ranura libre. Por la prioridad del teselado, \codigo{t\_rearm} sólo cuenta
+    ranura libre. Por la prioridad de la partición, \codigo{t\_rearm} sólo cuenta
     con alguna ranura libre: el re-armado que queda detrás de las ranuras
     ocupadas no se descuenta, y si en ese lapso se pierden pulsos,
     $\hat\lambda$ los subestima.
@@ -940,9 +940,9 @@ libre cuando el publicador la suelta. A la derecha, la contabilidad.
 \codigo{mca\_pulse\_feature}.\label{f:implmca-window}}
 \end{figure}
 
-La contabilidad implementa el \textbf{teselado} de la
-Sec.~\ref{S:implmca-teselado}: cada ciclo con \codigo{run} suma en exactamente
-un casillero de la Tabla~\ref{t:implmca-teselado}, con la prioridad veto
+La contabilidad implementa la \textbf{partición} de la
+Sec.~\ref{S:implmca-particion}: cada ciclo con \codigo{run} suma en exactamente
+un casillero de la Tabla~\ref{t:implmca-particion}, con la prioridad veto
 $>$ \codigo{t\_win} $>$ \codigo{t\_div} $>$ \codigo{t\_rearm} $>$
 \codigo{livetime}. Son dos pasos en serie: \codigo{mca\_window} calcula, a
 partir del estado de las ranuras, si el módulo puede abrir y, si no puede, por

@@ -2598,7 +2598,6 @@
     <bcf:citekey order="6" intorder="1">Knoll2010</bcf:citekey>
     <bcf:citekey order="6" intorder="2">Muller1973</bcf:citekey>
     <bcf:citekey order="7" intorder="1">Schmitt1938</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">Wolff1982</bcf:citekey>
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
@@ -2665,25 +2664,6 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="15">
-    <bcf:citekey order="1" intorder="1">Ley24804</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">ARN_AR422</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">ARN_AR1061</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">ARN_AR422</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">ARN_AR422</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">ARN_AR1061</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">ARN_AR1011</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">IAEA_SSG37</bcf:citekey>
-    <bcf:citekey order="9" intorder="1">IAEA_SSR3</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">IAEA_SSG22</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">IEC61226</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">IEC62566-2</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">IEC62138</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">IEC61452</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">IEEEN4214</bcf:citekey>
-    <bcf:citekey order="28" intorder="1">IEC62755</bcf:citekey>
-    <bcf:citekey order="29" intorder="1">GUM2008</bcf:citekey>
-    <bcf:citekey order="30" intorder="1">IEC61010-1</bcf:citekey>
-    <bcf:citekey order="31" intorder="1">IEC61326-1</bcf:citekey>
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
@@ -2702,6 +2682,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="17">
+    <bcf:citekey order="1" intorder="1">Knoll2010</bcf:citekey>
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
@@ -2711,16 +2692,6 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="18">
-    <bcf:citekey order="1" intorder="1">Knoll2010</bcf:citekey>
-  </bcf:section>
-  <!-- SECTION 0 (cont.) -->
-  <bcf:section number="0">
-  </bcf:section>
-  <!-- SECTION 19 -->
-  <bcf:bibdata section="19">
-    <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
-  </bcf:bibdata>
-  <bcf:section number="19">
     <bcf:citekey order="1" intorder="1">Crockett2014</bcf:citekey>
     <bcf:citekey order="2" intorder="1">Crockett2014</bcf:citekey>
     <bcf:citekey order="3" intorder="1">UG474</bcf:citekey>
@@ -2746,11 +2717,11 @@
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
   </bcf:section>
-  <!-- SECTION 20 -->
-  <bcf:bibdata section="20">
+  <!-- SECTION 19 -->
+  <bcf:bibdata section="19">
     <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
   </bcf:bibdata>
-  <bcf:section number="20">
+  <bcf:section number="19">
     <bcf:citekey order="1" intorder="1">RepoMultitrigger</bcf:citekey>
     <bcf:citekey order="2" intorder="1">Jordanov1994</bcf:citekey>
     <bcf:citekey order="2" intorder="2">CAENWP2081</bcf:citekey>
@@ -2764,12 +2735,21 @@
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
   </bcf:section>
+  <!-- SECTION 20 -->
+  <bcf:bibdata section="20">
+    <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
+  </bcf:bibdata>
+  <bcf:section number="20">
+    <bcf:citekey order="1" intorder="1">Kleinrock1975</bcf:citekey>
+  </bcf:section>
+  <!-- SECTION 0 (cont.) -->
+  <bcf:section number="0">
+  </bcf:section>
   <!-- SECTION 21 -->
   <bcf:bibdata section="21">
     <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="21">
-    <bcf:citekey order="1" intorder="1">Kleinrock1975</bcf:citekey>
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
@@ -2779,15 +2759,6 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="22">
-  </bcf:section>
-  <!-- SECTION 0 (cont.) -->
-  <bcf:section number="0">
-  </bcf:section>
-  <!-- SECTION 23 -->
-  <bcf:bibdata section="23">
-    <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
-  </bcf:bibdata>
-  <bcf:section number="23">
     <bcf:citekey order="1" intorder="1">Crockett2014</bcf:citekey>
     <bcf:citekey order="2" intorder="1">Crockett2014</bcf:citekey>
     <bcf:citekey order="3" intorder="1">LEGENDHDF5</bcf:citekey>
@@ -2797,6 +2768,34 @@
     <bcf:citekey order="7" intorder="1">Pillai2014</bcf:citekey>
     <bcf:citekey order="8" intorder="1">Dijkstra1965</bcf:citekey>
     <bcf:citekey order="9" intorder="1">Beazley2010</bcf:citekey>
+  </bcf:section>
+  <!-- SECTION 0 (cont.) -->
+  <bcf:section number="0">
+  </bcf:section>
+  <!-- SECTION 23 -->
+  <bcf:bibdata section="23">
+    <bcf:datasource type="file" datatype="bibtex" glob="false">mibib.bib</bcf:datasource>
+  </bcf:bibdata>
+  <bcf:section number="23">
+    <bcf:citekey order="1" intorder="1">Ley24804</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">ARN_AR422</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">ARN_AR1061</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">ARN_AR422</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">ARN_AR422</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">ARN_AR1061</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">ARN_AR1011</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">IAEA_SSG37</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">IAEA_SSR3</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">IAEA_SSG22</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">IEC61226</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">IEC62566-2</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">IEC62138</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">IEC61452</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">IEEEN4214</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">IEC62755</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">GUM2008</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">IEC61010-1</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">IEC61326-1</bcf:citekey>
   </bcf:section>
   <!-- SECTION 0 (cont.) -->
   <bcf:section number="0">
@@ -2892,7 +2891,7 @@
                 uniquenametemplatename="global"
                 labelalphanametemplatename="global">
   </bcf:datalist>
-  <bcf:datalist section="15"
+  <bcf:datalist section="17"
                 name="none/global//global/global"
                 type="entry"
                 sortingtemplatename="none"

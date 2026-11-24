@@ -8,7 +8,7 @@
 
 \begin{destacado}
 En este capítulo se describen (1) las funcionalidades que provee el módulo
-osciloscopio empleado, (2) el módulo base de RedPitaya, con una descripción
+osciloscopio empleado, (2) el módulo base de Red Pitaya, con una descripción
 detallada del mecanismo de transferencia de datos al PS, sus limitaciones y el
 método de utilización de este módulo desde el PS, y (3) una mejora implementada
 en el mecanismo de transferencia y su método de utilización desde el PS. Las
@@ -28,7 +28,7 @@ programable, debido a que es de las mejores formas de \emph{debug} de un \emph{d
 Otros puntos importantes de funcionalidad consisten en:
 \begin{itemize}
   \item Largo de traza: en la versión base es un \emph{buffer} circular fijo de
-    $2^\text{RSZ}$ muestras por canal (16384 en el diseño original de RedPitaya,
+    $2^\text{RSZ}$ muestras por canal (16384 en el diseño original de Red Pitaya,
     8192 en este proyecto), del que se configura el largo \emph{post-trigger}; en la
     versión con anillo de eventos (Sec.~\ref{S:osc-anillo-eventos}) la ventana
     \codigo{pre+post} es configurable hasta 1024 muestras (con \codigo{pre}
@@ -44,7 +44,7 @@ misma.
 \subsection{Caminos de datos}
 \label{S:osc-caminos}
 
-La versión original del osciloscopio proveniente de RedPitaya implementa
+La versión original del osciloscopio proveniente de Red Pitaya implementa
 \textbf{dos metodologías de acceso}. Esto puede comprobarse en la
 Fig.~\ref{f:osc-panorama-pitaya}, en la que se presentan dos interfaces AXI: la
 primera interactúa con AXI\_GP0 mediante el bus interno del sistema
@@ -79,7 +79,7 @@ obtenemos:
     \item \codigo{osc\_filter}: es un ecualizador IIR que tiene como objetivo
       compensar la respuesta en frecuencia del \emph{front-end} analógico
       (coeficientes \codigo{aa/bb/kk/pp} por canal). Estos son los
-      coeficientes de calibración de RedPitaya comentados en la
+      coeficientes de calibración de Red Pitaya comentados en la
       Sec.~\ref{S:hw-calibracion}.
     \item \codigo{rp\_decim}: reduce la tasa de muestreo por un factor de 1 a
       65536, quedándose con una muestra de cada N o promediándolas
@@ -119,8 +119,8 @@ obtenemos:
 
 \begin{figure}[H]
 \centering\includegraphics{cap8_panorama_scope_pitaya}
-\caption[Módulo OSC original de RedPitaya]{%
-Módulo OSC original de RedPitaya. Contiene una cadena de preprocesamiento (azul),
+\caption[Módulo OSC original de Red Pitaya]{%
+Módulo OSC original de Red Pitaya. Contiene una cadena de preprocesamiento (azul),
 sección de \emph{triggering} interno (amarillo) y externo (módulo
 \codigo{rp\_ext\_trig} en gris), submódulo de configuración (en gris), lógica de
 captura de datos y manejo de transacciones por bus \emph{custom} (verde) y camino de
@@ -140,7 +140,7 @@ dos siguientes:
 \subsection{Flujo de funcionamiento básico}
 \label{S:osc-flujo-basico}
 
-El proyecto base de RedPitaya ya contaba con un módulo capaz de implementar una
+El proyecto base de Red Pitaya ya contaba con un módulo capaz de implementar una
 versión básica de esta funcionalidad mediante el bus \emph{custom}. En la
 Fig.~\ref{f:osc-secuencia-basica} se presentan los pasos para realizar una
 captura: primeramente tenemos que realizar todas las configuraciones
@@ -236,8 +236,8 @@ transacción de lectura a la PL acerca de estas variables.
 
 \begin{figure}[H]
 \centering\includegraphics{cap8_deep_memory}
-\caption[Esquema del \emph{deep memory} de RedPitaya]{%
-Esquema del \emph{deep memory} de RedPitaya (\codigo{rp\_axi\_sm}) como generador,
+\caption[Esquema del \emph{deep memory} de Red Pitaya]{%
+Esquema del \emph{deep memory} de Red Pitaya (\codigo{rp\_axi\_sm}) como generador,
 \emph{buffer} y consumidor. Las muestras van a DDR por HP, donde entran muchas
 ventanas, pero dónde cayó el \emph{trigger} se anota en un único registro
 (\codigo{WP\_TRIG}). La entrada queda congelada hasta que el PS lo lee por el bus
@@ -322,7 +322,7 @@ escribirlos corriendo se ignora y levanta la \emph{flag} \codigo{err\_cfg}. Incl
 \begin{enumerate}
   \item Tamaño \codigo{RING\_SZ} y posición de la región de DDR volátil (este
     tipo de acceso a memoria debe configurarse en el SO; el anillo usa la región
-    de 32~MB en \codigo{0x0A00\_0000} que el proyecto de RedPitaya reserva para el
+    de 32~MB en \codigo{0x0A00\_0000} que el proyecto de Red Pitaya reserva para el
     analizador lógico, y no la de 2~MB del \emph{deep memory}).
   \item Tamaño del \codigo{SLOT\_SHIFT}.
   \item Cantidad de \emph{slots}, que no se escribe: el módulo la deriva como
@@ -422,8 +422,8 @@ los siguientes submódulos:
     simplificada de Instrumentation Technologies que usaba
     \codigo{rp\_axi\_sm}, para seguir el formato del sistema original.
   \item \codigo{axi\_wr\_fifo}: módulo de paquetizado del proyecto original de
-    RedPitaya, requerido para pasar a la interfaz HP2, del tipo AXI-Full. A este no
-    se lo describirá porque no fue parte de este proyecto; para más información, ver la documentación oficial de RedPitaya~\cite{RedPitayaFPGA}.
+    Red Pitaya, requerido para pasar a la interfaz HP2, del tipo AXI-Full. A este no
+    se lo describirá porque no fue parte de este proyecto; para más información, ver la documentación oficial de Red Pitaya~\cite{RedPitayaFPGA}.
 \end{itemize}
 
 \begin{figure}[H]
@@ -460,7 +460,7 @@ propias del \emph{top}:
     configuración internos, \emph{stop} = \codigo{SLOT\_BASE + RING\_SZ $-$ 8}.
   \item \textbf{Contrapresión}: calcula una ocupación propia del
     \codigo{axi\_wr\_fifo} por el \emph{master}. Hace falta porque el FIFO del
-    proyecto de RedPitaya no expone su nivel y \textbf{descarta en silencio si se
+    proyecto de Red Pitaya no expone su nivel y \textbf{descarta en silencio si se
     pushea estando lleno}. Si aun así el FIFO desborda, queda un \emph{sticky}
     \codigo{err\_fifo\_ovf}.
 \end{itemize}

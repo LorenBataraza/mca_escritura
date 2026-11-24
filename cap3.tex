@@ -11,12 +11,12 @@ desde el PS, (2) las fuentes de disparo y por qué se combinan con una OR, (3)
 las vulnerabilidades de ese mecanismo y cómo se resuelven, y (4) una vista
 general del módulo, con el \emph{timestamping} y el tiempo de relanzamiento. Los
 detalles de los submódulos, el mapa de registros y la verificación se presentan
-en el Apéndice~\ref{C:ap-mt}.
+en el apéndice, desde la Sec.~\ref{S:ap-mt-submodulos}.
 \end{destacado}
 
-Es un módulo secuencial clásico que toma las $N$ \textbf{fuentes de entrada}
-existentes en el diseño y entrega como salida principal los \emph{triggers} de
-inicio de evento de cada uno de los $N_s$ \emph{streams} de datos. En la
+Es un módulo secuencial clásico que toma las $N$ \textbf{fuentes de entrada} y
+entrega como salida principal los \emph{triggers} de inicio de evento de cada
+uno de los $N_s$ \emph{streams} de datos (canales del ADC). En la
 Fig.~\ref{f:ap-mt-interfaz} se presentan sus interfaces. Tiene la capacidad
 de:
 \begin{itemize}
@@ -26,27 +26,30 @@ de:
   \item \textbf{Enmascarar eventos}, acción que llamamos escudar
     (\emph{shielding}), con los siguientes parámetros:
   \begin{itemize}
-    \item El escudado tiene fuentes y destinos.
+    \item El escudado tiene fuentes, fijadas por \codigo{SHIELD\_SRC}, y
+      destinos, fijados por \codigo{SHIELD\_DST}.
     \item Las fuentes de origen (src) de escudado bloquean el disparo de las
       fuentes que reciben el escudo.
     \item La duración es un valor fijo, configurable por registros.
   \end{itemize}
   \item Reportar la última fuente vista mediante un registro interno.
-  \item \textbf{Puntos importantes}:
-  \begin{itemize}
-    \item La condición de funcionamiento estándar es que las \textbf{fuentes
-      sean un pulso}, es decir, que duren un ciclo de reloj. \textbf{El disparo
-      se considera por nivel alto de la señal de evento}: si una fuente se
-      mantuviera alta durante varios ciclos, estaría relanzando la adquisición
-      de forma ininterrumpida.
-    \item El tiempo de \textbf{relanzamiento del \emph{trigger}}: muchas
-      implementaciones de \emph{triggers} no pueden redisparar por una cantidad N de
-      ciclos posteriores a un evento. El ejemplo más sencillo es el flanco
-      positivo por nivel, en el cual tenemos que partir de la región inferior
-      dado un nivel fijo y pasar a una región superior sobre este nivel fijo, de
-      forma que no podemos tener dos pulsos seguidos ya que estaríamos partiendo
-      de la región superior en el segundo ciclo. Estos valores se exponen mediante registros internos.
-  \end{itemize}
+\end{itemize}
+
+Otros detalles importantes de implementación a tener en cuenta:
+\begin{itemize}
+  \item La condición de funcionamiento estándar es que las \textbf{fuentes
+    sean un pulso}, es decir, que duren un ciclo de reloj. \textbf{El disparo
+    se considera por nivel alto de la señal de evento}: si una fuente se
+    mantuviera alta durante varios ciclos, estaría relanzando la adquisición
+    de forma ininterrumpida.
+  \item El tiempo de \textbf{relanzamiento del \emph{trigger}}: muchas
+    implementaciones de \emph{triggers} no pueden redisparar por una cantidad N de
+    ciclos posteriores a un evento. El ejemplo más sencillo es el flanco
+    positivo por nivel, en el cual tenemos que partir de la región inferior
+    dado un nivel fijo y pasar a una región superior sobre este nivel fijo, de
+    forma que no podemos tener dos pulsos seguidos ya que estaríamos partiendo
+    de la región superior en el segundo ciclo. Estos valores se exponen mediante registros internos.
+
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -95,24 +98,16 @@ multitrigger.\label{f:mt-secuencia}}
 
 La cantidad de \emph{triggers} disponibles en el módulo es parametrizable. El
 diseño original contaba con $N_t=16$; como queríamos agregar fuentes con nuevos
-tipos de eventos (por ejemplo, por pendiente de la señal), decidimos doblar la
+tipos de eventos (nuestra primera idea fue agregar \emph{triggers} por pendiente), decidimos doblar la
 cantidad a $N_t=32$. Podríamos tomar un número mayor, pero por un lado no lo
 vimos necesario, porque no creemos que haga falta usar simultáneamente tantas
 fuentes independientes, y por otro lado aumentar la cantidad requiere más
-recursos y complica el \textbf{\emph{timing}}: esto quiere decir que podemos hacer
-cadenas lógicas generalmente no más largas que 6 operaciones lógicas
-concatenadas. Visto esto identificamos:
-\begin{itemize}
-  \item Máscara AND con \codigo{OR\_MASK}: 1.
-  \item Máscara AND con \codigo{SHIELD\_DST}: 1.
-  \item OR dentro del mismo vector: depende de la cantidad de fuentes, sigue un
-    $\log(N_t)$.
-\end{itemize}
+recursos y complejiza el \textbf{\emph{timing}}.
 
 Los \emph{triggers} presentes en el diseño original consistían en los siguientes:
 \begin{itemize}
   \item \textbf{ADC por nivel}: podemos decidir los que queramos, en un primer
-    momento ponemos 4 dependiendo del modelo RedPitaya (n/p).
+    momento ponemos 4 dependiendo del modelo Red Pitaya (n/p).
   \item \textbf{ASG}: \emph{trigger} de la generación de señales interna (n/p).
   \item \textbf{\emph{External}}: \emph{triggers} externos (n/p).
   \item \textbf{Manual}: un \emph{trigger} manual.
@@ -124,7 +119,7 @@ Los \emph{triggers} presentes en el diseño original consistían en los siguient
 
 Cada \emph{stream} de captura $i \in \{1,\ldots,N_\text{CH}\}$ decide el inicio de un
 evento a partir de las mismas $N$ fuentes de disparo. Se instancia un
-\codigo{mt\_trig\_src} por \emph{stream}, y cada uno combina las fuentes en una única
+\codigo{mt\_trig\_src} por \emph{stream} de datos, y cada uno combina las fuentes en una única
 señal de disparo. La pregunta de diseño es qué función de disparo
 $f(\text{trig}_1,\ldots,\text{trig}_N)$ implementar.
 
@@ -161,7 +156,8 @@ La implementación combinacional tiene dos detalles:
 
 De las tres funciones vistas, la OR es la única que asegura la adquisición
 independientemente del alineamiento de las fuentes en la entrada; esto quiere
-decir que \textbf{no perdemos información}, como mucho disparamos datos de más.
+decir que \textbf{al menos tenemos un \emph{trigger} por pulso} y como mucho
+disparamos datos de más.
 Para la AND y la XOR eso exige que los disparos coincidan exactamente, lo que en
 la práctica no ocurre, y podemos obtener este análisis en un futuro mediante la
 adquisición total y el procesamiento \emph{offline}.
@@ -277,27 +273,6 @@ fuente habilitada puede disparar}, es decir, cuando todas están desarmadas. La
 señal \codigo{trig\_arm} vale 1 fuera de ese estado. El criterio sólo usa las
 señales de re-armado: quien lo consume no necesita saber qué disparo se utiliza.
 
-Además de las señales de re-armado, el criterio incluye:
-\begin{itemize}
-  \item \textbf{El enganche.} Después de cada disparo, el canal queda enganchado
-    (\codigo{adc\_trg\_dis}) hasta el \emph{clear} y no puede disparar. Con el auto
-    re-armado del \codigo{trigger\_shield} y \codigo{dur = 0} dura un ciclo; con
-    \codigo{dur = D}, $D + 1$ ciclos. El \emph{holdoff} sobre el propio canal cuenta
-    como relanzamiento. El escudo hacia el MCA, en cambio, es un veto y va a su
-    propio casillero.
-  \item \textbf{La máscara vacía}, que da 0. En \emph{single-shot} la máscara se borra
-    después del disparo, así que el sistema queda en relanzamiento hasta que el
-    PS vuelva a armarlo.
-  \item \textbf{Un ciclo de adelanto.} \codigo{trig\_arm} va registrado y lo
-    baja el mismo flanco que genera el pulso, así que baja un ciclo antes de que
-    el disparo llegue al MCA. Es un ciclo por evento sobre un re-armado de
-    decenas, por eso no se compensa.
-\end{itemize}
-
-\codigo{trig\_arm} se lee en el bit 18 de \codigo{SHIELD\_STAT}
-(\codigo{0x014}) y sale del módulo como nivel (\codigo{trig\_arm\_o}) hacia el
-MCA.
-
 \subsubsection{Cuándo mide los pulsos perdidos}
 
 El tiempo de relanzamiento se mide para estimar cuántos pulsos se pierden. Ese
@@ -318,41 +293,6 @@ fuentes sobre la misma señal y umbrales distintos: con la de umbral bajo
 desarmada, un pulso que no alcanza el umbral alto se pierde. En esos casos
 $\mathtt{t\_rearm}$ es una cota inferior. También lo es con las fuentes que no
 exponen su estado (nivel, externa), que cuentan como siempre armadas.
-
-\subsubsection{Conteo en el MCA}
-
-En el uso habitual del MCA se habilita una sola fuente, la del canal que se mide
-(polo-cero o pendiente), y la condición se cumple sola: \codigo{trig\_arm} es la
-señal de re-armado de esa fuente, salvo el enganche.
-
-El MT no cuenta. El contador está en el MCA, \codigo{t\_rearm} (64 bits,
-\codigo{0x0D8}/\codigo{0x0DC}), y forma parte del \textbf{teselado} del tiempo
-de adquisición: un conjunto de contadores, que llamamos casilleros, en el que
-cada ciclo de reloj con \codigo{run} suma en exactamente uno. Como los
-casilleros no se superponen y entre todos cubren todo el tiempo, ningún ciclo se
-cuenta dos veces ni queda sin contar, y su suma es el tiempo real. Cuando en un
-mismo ciclo se cumplen varias condiciones, decide una prioridad fija, veto $>$
-$\mathtt{t\_win}$ $>$ $\mathtt{t\_div}$ $>$ $\mathtt{t\_rearm}$ $>$ \emph{livetime}, de
-modo que
-\begin{equation}
-  T_\text{real} = T_\text{veto} + \mathtt{t\_win} + \mathtt{t\_div}
-                + \mathtt{t\_rearm} + T_\text{live}
-  \label{e:mt-teselado}
-\end{equation}
-El resto de los casilleros se presenta en la
-Sec.~\ref{S:implmca-teselado}.
-
-El relanzamiento va después del tiempo muerto del MCA porque, sin ranura libre,
-el pulso se pierde igual, esté o no armado el disparo, y contar ese ciclo dos
-veces sobreestimaría la pérdida. $\mathtt{t\_rearm}$ es entonces el tiempo
-muerto que \textbf{agrega} el disparo cuando el MCA podía abrir, y \emph{livetime}
-queda como lo que un pulso ve de verdad: alguna ranura libre y el disparo
-armado. Con arribos Poisson~\cite{Wolff1982} y la condición cumplida, la
-fracción de pulsos perdida por el relanzamiento es
-\begin{equation}
-  P_\text{rearm} = \frac{\mathtt{t\_rearm}}{T_\text{real} - T_\text{veto}}
-  \label{e:mt-p-rearm}
-\end{equation}
 
 % Bibliografía de este capítulo. Va al final del archivo, siempre.
 \bibliografiacapitulo

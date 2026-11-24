@@ -91,6 +91,12 @@
 \renewcommand{\bottomfraction}{0.6}
 \renewcommand{\textfraction}{0.1}
 \renewcommand{\floatpagefraction}{0.99999}
+% Espacio debajo de las tablas [H] (el usuario lo pidi\'{o} m\'{a}s chico, 2026-11-24):
+% float.sty deja \intextsep arriba y abajo; para las tablas, abajo va \sepdebajotabla.
+\newcommand{\sepdebajotabla}{4pt plus 2pt}
+\newcommand{\@ibsepdebajo}{\intextsep}
+\patchcmd{\float@endH}{\box\@currbox\vskip\intextsep}{\box\@currbox\vskip\@ibsepdebajo}{}{\PackageWarningNoLine{ibextra}{No pude parchear \string\float@endH}}
+\AtBeginEnvironment{table}{\def\@ibsepdebajo{\sepdebajotabla}}
 \setcounter{topnumber}{2}
 \setcounter{bottomnumber}{1}
 \setcounter{totalnumber}{3}

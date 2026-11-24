@@ -20,7 +20,7 @@ $b$ & Línea de base que se resta a cada muestra. & Sec.~\ref{S:implmca-lb-basic
 $D$, $R$ & Factor de diezmado. & Sec.~\ref{S:top-datapath} \\ \hline
 $dN/dH$ & Distribución diferencial de alturas (DDA), salida del MCA. & Sec.~\ref{S:mca-dda} \\ \hline
 $E$ & Término de amplificación de error de la corrección por tiempo muerto. & Sec.~\ref{S:mca-modelos-tiempo-muerto} \\ \hline
-$f_{clk}$ & Frecuencia del reloj del sistema. & Sec.~\ref{S:implmca-teselado} \\ \hline
+$f_{clk}$ & Frecuencia del reloj del sistema. & Sec.~\ref{S:implmca-particion} \\ \hline
 $f_s$ & Frecuencia de muestreo. & Sec.~\ref{S:mca-cadena-medicion} \\ \hline
 $G$ & Separación entre las dos sumas del disparo por pendiente, en muestras. & Sec.~\ref{S:ap-mt-slope} \\ \hline
 $G_s$ & Compuerta corta (\codigo{gate\_short}), en muestras. & Sec.~\ref{S:implmca-estimadores} \\ \hline
@@ -41,9 +41,9 @@ $Q_{tot}$, $Q_{cola}$ & Carga total del pulso y carga de su cola. & Sec.~\ref{S:
 RSZ & Logaritmo en base 2 del largo del \emph{buffer} del osciloscopio. & Sec.~\ref{S:osc-funcion} \\ \hline
 $s$ & Salida del filtro del disparo por pendiente. & Sec.~\ref{S:ap-mt-slope} \\ \hline
 spp & Muestras en el flanco del pulso (\emph{samples per pulse}). & Sec.~\ref{S:hw-por-que-acelerador} \\ \hline
-$T_{live}$ & Tiempo vivo de la adquisición. & Sec.~\ref{S:implmca-teselado} \\ \hline
-$T_{real}$ & Tiempo real (de reloj) de la adquisición. & Sec.~\ref{S:implmca-teselado} \\ \hline
-$T_{veto}$ & Tiempo con el veto activo, excluido de la medición. & Sec.~\ref{S:implmca-teselado} \\ \hline
+$T_{live}$ & Tiempo vivo de la adquisición. & Sec.~\ref{S:implmca-particion} \\ \hline
+$T_{real}$ & Tiempo real (de reloj) de la adquisición. & Sec.~\ref{S:implmca-particion} \\ \hline
+$T_{veto}$ & Tiempo con el veto activo, excluido de la medición. & Sec.~\ref{S:implmca-particion} \\ \hline
 $t_c$ & Largo de la subida de un pulso real. & Sec.~\ref{S:implmca-trapezoidal} \\ \hline
 $u$ & Tiempo normalizado por la constante de tiempo del conformador. & Sec.~\ref{S:mca-tipos-conformado} \\ \hline
 $V_{LLD}$ & Umbral inferior del discriminador (\emph{lower level discriminator}). & Sec.~\ref{S:mca-cadena-medicion} \\ \hline
@@ -56,7 +56,7 @@ $\Delta$ & Ancho de un canal del histograma (ancho de cuantización). & Sec.~\re
 $\Delta t$ & Separación entre los dos pulsos de un par. & Sec.~\ref{S:res-par} \\ \hline
 $\Delta T$ & Separación entre eventos sucesivos. & Sec.~\ref{S:mca-modelos-tiempo-muerto} \\ \hline
 $\varepsilon$ & Error en la estimación de la línea de base. & Sec.~\ref{S:implmca-trapezoidal} \\ \hline
-$\hat\lambda$ & Estimador de la tasa real de eventos. & Sec.~\ref{S:implmca-teselado} \\ \hline
+$\hat\lambda$ & Estimador de la tasa real de eventos. & Sec.~\ref{S:implmca-particion} \\ \hline
 $\rho$ & Carga ofrecida, $\rho = n\tau$. & Sec.~\ref{S:mca-modelos-tiempo-muerto} \\ \hline
 $\sigma$ & Desvío estándar del ruido por muestra; ancho de un pico. & Sec.~\ref{S:implmca-trapezoidal} \\ \hline
 $\sigma_0$ & Ruido de fondo que no depende del estimador. & Sec.~\ref{S:res-ruido} \\ \hline

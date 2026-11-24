@@ -266,7 +266,7 @@ Zynq-7000, pero no los mismos conversores ni el mismo \emph{front-end} analógic
 (Tabla~\ref{t:hw-modelos-pitaya}).
 
 \begin{figure}[H]
-\centering\includegraphics{cap2_overview_pitaya}
+\centering\includegraphics[width=0.85\linewidth]{cap2_overview_pitaya}
 \caption[La placa STEMlab 125-14 y sus principales periféricos]{%
 Foto de la placa de desarrollo STEMlab 125-14 y sus principales periféricos.
 \label{f:hw-overview-pitaya}}
@@ -310,10 +310,6 @@ GPIO (E1) & 16 & \textbf{16} & 22 & 22 & 22 & 19 \\ \hline
 Ethernet & 1~Gbit & \textbf{1~Gbit} & 1~Gbit & 1~Gbit & 1~Gbit & 1~Gbit \\ \hline
 USB & USB-A 2.0 & \textbf{USB-A 2.0} & USB-A 2.0 & USB-A 2.0 & USB-A 2.0
   & 2~$\times$ USB-A 2.0 \\ \hline
-Alimentación & 5~V, 1,5~A & \textbf{5~V, 2~A} & 5~V, 2~A & 5~V, 2~A & 5~V, 2~A
-  & 24~V, 0,5~A \\ \hline
-Temperatura & 0--55~°C & \textbf{0--55~°C} & 0--55~°C & 0--55~°C & 0--55~°C
-  & 0--55~°C \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -365,7 +361,7 @@ Pro~\cite{DS083}, Virtex-4 FX y Virtex-5 FXT~\cite{UG200}); el Zynq-7000 (2011)
 fue un paso más, con un sistema de procesamiento completo en el mismo chip.
 
 \begin{figure}[H]
-\centering\includegraphics{cap2_softcore_hardcore}
+\centering\includegraphics[width=0.85\linewidth]{cap2_softcore_hardcore}
 \caption[Procesadores \emph{softcore} y \emph{hardcore}]{%
 Comparación de procesadores \emph{softcore} y \emph{hardcore}. (a)~Comparación dentro de un
 SoC: el procesador \emph{hardcore} tiene su propia región del chip, dedicada e
@@ -421,7 +417,7 @@ Fig.~\ref{f:hw-interconexiones-soc} se presentan distintos tipos de periféricos
 procesadores y memorias que comparten el mismo tipo de \emph{interconnect}.
 
 \begin{figure}[H]
-\centering\includegraphics{cap2_interconexiones_soc}
+\centering\includegraphics[width=0.85\linewidth]{cap2_interconexiones_soc}
 \caption[Representación de un SoC]{%
 Representación de un SoC. Extraído del ZynqBook~\cite{Crockett2014}.
 \label{f:hw-interconexiones-soc}}
@@ -743,7 +739,7 @@ presentados en la Sec.~\ref{S:intro-hw-modos-falla}, que llegan hasta un reinici
 del sistema.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Periféricos externos a la RedPitaya}
+\section{Periféricos externos a la Red Pitaya}
 \label{S:hw-perifericos}
 
 Para describirlos nos referimos al diagrama en bloques de la placa, presentado
@@ -800,7 +796,7 @@ versión de la placa~\cite{RedPitayaSchematics}; el \emph{top} toma los 14 bits 
 Se puede observar en el lado este del bloque U2 de la
 Fig.~\ref{f:ap-hw-frontend}, en el apéndice.
 
-\subsection{Calibración recomendada por RedPitaya}
+\subsection{Calibración recomendada por Red Pitaya}
 \label{S:hw-calibracion}
 
 La placa sale calibrada de fábrica, y los valores se guardan en una memoria
@@ -828,7 +824,7 @@ Tipos de calibración de fábrica de Red Pitaya.\label{t:hw-calibracion}}
 \end{tabularx}
 \end{table}
 
-La documentación de RedPitaya recomienda recalibrar: tras el primer montaje, una
+La documentación de Red Pitaya recomienda recalibrar: tras el primer montaje, una
 vez al año (\emph{drift}), tras cambios ambientales grandes, o si las medidas dejan de
 ser consistentes. Siempre \textbf{a la temperatura normal de operación} de la
 placa.

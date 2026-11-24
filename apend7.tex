@@ -59,7 +59,7 @@ $\text{después}_f$ del banco no pueden superar a \codigo{gate\_long}, y el bit
 \label{S:ap-mca-modelos}
 
 Los modelos de tiempo muerto (Sec.~\ref{S:mca-modelos-tiempo-muerto}) son una
-predicción del tiempo muerto real, que es el que mide el teselado: a partir de
+predicción del tiempo muerto real, que es el que mide la partición: a partir de
 la tasa de disparos y del largo de la ventana dicen cuánto tiempo muerto
 esperar. Sirven para dimensionar el módulo, por ejemplo cuántas ranuras hacen
 falta para una tasa dada, y para contrastar la medición: si el tiempo muerto
@@ -104,12 +104,12 @@ presenta en la Sec.~\ref{S:mt-relanzamiento}.
 \section{Contadores de ocupación de las ranuras}
 \label{S:ap-mca-ocupacion}
 
-Además de los casilleros del teselado, el módulo cuenta la ocupación de las
-ranuras con dos relojes más, que no forman parte del teselado:
+Además de los casilleros de la partición, el módulo cuenta la ocupación de las
+ranuras con dos relojes más, que no forman parte de la partición:
 \begin{itemize}
   \item \codigo{t\_ocup[j]} cuenta los ciclos con exactamente $j$ ranuras
-    ocupadas, fuera del veto. Es un segundo teselado, del tiempo no vetado según
-    la ocupación, $\sum_j \mathtt{t\_ocup}[j] = T_{real} - T_{veto}$, y es el que
+    ocupadas, fuera del veto. Es una segunda partición, del tiempo no vetado según
+    la ocupación, $\sum_j \mathtt{t\_ocup}[j] = T_{real} - T_{veto}$, y es la que
     mide la distribución de Erlang del modelo de $N$ ranuras
     (Sec.~\ref{S:ap-mca-modelos}). Con las $N$ ranuras habilitadas ocupadas no
     hay ninguna libre, así que $\mathtt{t\_ocup}[N] = \mathtt{t\_win} +

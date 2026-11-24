@@ -60,9 +60,9 @@ Las etapas buscan aislar las dependencias en la cadena de adquisición; en parti
 Este fue el primer sistema de medición real que implementamos. Conectamos las
 dos entradas analógicas de alta velocidad a los dos canales de salida del
 generador de ondas Rigol DG-4162. Ambas conexiones utilizaban un coaxial
-KingSignal RG-58 con conectores macho SMA en las terminales de la RedPitaya y
+KingSignal RG-58 con conectores macho SMA en las terminales de la Red Pitaya y
 conector BNC en la terminal del Rigol. El Rigol se controló por su puerto
-trasero del tipo USB-Host, manejado por la RedPitaya; la comunicación se realizó
+trasero del tipo USB-Host, manejado por la Red Pitaya; la comunicación se realizó
 mediante el protocolo especializado Rigol USB TMC \emph{Driver}. En la
 Fig.~\ref{f:res-setup-externo} se presenta de forma esquemática el \emph{setup};
 mediante \codigo{ssh} teníamos control de los \emph{scripts} de testeo.
@@ -90,7 +90,7 @@ La versión más simple de realizarla es mediante el lazo interno a la PL:
 ponemos en la entrada de nuestros medidores la salida de un módulo que genera
 estímulos controlados (\codigo{gen\_pulsos}), y a esto lo llamamos \textbf{lazo
 digital}. El \textbf{lazo analógico}, en cambio, canaliza la salida del ASG al
-OUT1 de la RedPitaya, que se conecta a IN1. En este caso testearíamos el sistema
+OUT1 de la Red Pitaya, que se conecta a IN1. En este caso testearíamos el sistema
 anterior más los efectos producidos por los \emph{front-end} analógicos, el ADC, el
 DAC, las terminaciones SMA y el cable coaxial. Este \emph{setup} se puede observar en
 la Fig.~\ref{f:res-conexion-in-out}.
